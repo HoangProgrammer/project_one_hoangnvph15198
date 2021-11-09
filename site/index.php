@@ -13,8 +13,7 @@ if(isset($_GET['action'])){
 
     switch ($action){
     case "blog":
-     echo   $link;
-         
+           
         require_once "blog.php";
         
         break;
