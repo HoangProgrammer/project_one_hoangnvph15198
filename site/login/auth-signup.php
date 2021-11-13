@@ -18,7 +18,7 @@
     <meta name="author" content="CodedThemes"/>
 
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <!-- fontawesome icon -->
     <link rel="stylesheet" href="./assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <button class="btn btn-primary shadow-2 mb-4">Sign up</button>
-                    <p class="mb-0 text-muted">Allready have an account? <a href="auth-signin.html"> Log in</a></p>
+                    <p class="mb-0 text-muted">Allready have an account? <a href="login.html"> Log in</a></p>
                 </div>
             </div>
         </div>
