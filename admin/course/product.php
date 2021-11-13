@@ -1,27 +1,27 @@
 <?php
 // $db = data();
-if (isset($_GET['page'])) {
-  $page = $_GET['page'];
-} else {
-  $page = 1;
-}
-$number = 10;
-$preRows = ($page - 1) * $number;
-//4-1= 3*10=30
+// if (isset($_GET['page'])) {
+//   $page = $_GET['page'];
+// } else {
+//   $page = 1;
+// }
+// $number = 10;
+// $preRows = ($page - 1) * $number;
+// //4-1= 3*10=30
 
-$sql =$db->prepare( "SELECT * FROM products  where 1 order by product_id desc  limit $preRows,$number");
-$sql->execute();
-$select = $sql->fetchAll();
+// $sql =$db->prepare( "SELECT * FROM products  where 1 order by product_id desc  limit $preRows,$number");
+// $sql->execute();
+// $select = $sql->fetchAll();
 
-// var_dump( $select);die();
-$query = "SELECT * FROM products ";
-$stmt = $db->prepare($query);
-$stmt->execute();
-$total_page = $stmt->rowCount();
+// // var_dump( $select);die();
+// $query = "SELECT * FROM products ";
+// $stmt = $db->prepare($query);
+// $stmt->execute();
+// $total_page = $stmt->rowCount();
 
-$total_row = ceil($total_page / $number);
+// $total_row = ceil($total_page / $number);
 
-
+// var_dump(  $caurse);
 ?>
 
 
@@ -73,31 +73,30 @@ $total_row = ceil($total_page / $number);
       <thead>
         <tr>
           <th style="color:blue" class="text-center">lựa chọn</th>
-          <th style="color:blue" class="text-center">tên SP</th>
-          <th style="color:blue" class="text-center">ảnh SP</th>
-          <th style="color:blue" class="text-center">giá SP</th>
+          <th style="color:blue" class="text-center">tên khóa học</th>
+          <th style="color:blue" class="text-center">hình ảnh</th>
+          <th style="color:blue" class="text-center">giá khóa học</th>
           <th style="color:blue" class="text-center">Thông Tin</th>
           <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add">Thêm</a> </th>
         </tr>
       </thead>
       <tbody>
 
-        <?php
 
-        foreach ($select as $val) {   ?>
-
+     
+<?php foreach ($course as $val) { extract($val) ?>
           <tr class="text-center">
-         <th> <input type="checkbox" name="chose_deletes[]" value="<?= $val['product_id'] ?>" class="select_chose"></th> 
-            <th name='ten'><?= $val['product_name'] ?></th>
-            <th><img name="anh" width="200px" src="../img/<?= $val['product_image'] ?>"> </th>
-            <th name='dv'><?= number_format($val['gia'], 0, ".", ".") ?> đ</th>
-            <th name='dv'><?= $val['product_info'] ?></th>
-            <!-- <th name='dv'><?= $val['name_category'] ?></th>
-            <th name='dv'><?= $val['name_nation'] ?></th> -->
-            <th><a class='btn btn-warning' href="index.php?action=update_pr&id= <?= $val['product_id'] ?> ">sửa</a> </th>
-            <th><a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_pr_one&id=<?= $val['product_id'] ?>">xóa</a></th>
+         <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
+            <th name='ten'><?= $NameCaurse ?></th>
+            <th><img name="anh" width="200px" src="../img/"> </th>
+            <th name='dv'><?=$price?></th>
+            <th name='dv'><?=$description?></th>
+            
+         
+            <th><a class='btn btn-warning' href="index.php?action=update_pr&id=<?=$id_caurse ?> ">sửa</a> </th>
+            <th><a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_pr_one&id=<?=$id_caurse ?>">xóa</a></th>
           </tr>
-        <?php } ?>
+   <?php } ?>
         
       </tbody>
 
@@ -122,7 +121,7 @@ $total_row = ceil($total_page / $number);
 
 
     <!-- pagination -->
-    <nav aria-label="Page navigation example">
+    <!-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <?php if ($page == 1) {
         } else { ?>
@@ -164,7 +163,7 @@ $total_row = ceil($total_page / $number);
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
-        <?php  } ?>
+        <?php  } ?> -->
 
       </ul>
     </nav>

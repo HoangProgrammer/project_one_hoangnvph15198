@@ -29,7 +29,7 @@ function get_all($sql){
 
 $stmt->execute();
 $rows=array();
-while($row=$stmt->fetchAll(\PDO::FETCH_ASSOC)){
+while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
     $rows[]=$row;
 }
 return $rows;

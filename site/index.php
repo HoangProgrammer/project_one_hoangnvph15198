@@ -1,21 +1,32 @@
 <?php
 
-require_once "./models/pdo.php";
-require_once "./dao/khach_hang/khach_hang.php";
-require_once "./layout/layout_1/header.php";
-
-
+$menu=Get_menu();
 if(isset($_GET['action'])){
     $action = $_GET['action'];
-
-   echo $link= basename($_SERVER['PHP_SELF'])=="index.php?action=$action" ;
-
-
     switch ($action){
-    case "blog":
-           
-        require_once "blog.php";
-        
+        case "learn":    
+            require("./layout/layout2/header.php") ;
+            break;
+            default:
+            require("./layout/layout_1/header.php") ;
+            break;
+    }
+
+}else{
+
+    require("./layout/layout_1/header.php") ;
+}
+
+
+// require("./layout/layout_1/header.php") ;
+if(isset($_GET['action'])){
+    $action = $_GET['action'];
+    switch ($action){
+    case "blog":      
+        require_once "blog.php";      
+        break;
+    case "learn":               
+        require_once "hoc/learn.php";      
         break;
     default:
     require_once "home.php";
@@ -26,8 +37,9 @@ if(isset($_GET['action'])){
     require_once "home.php";
 }
 
+require("./layout/layout_1/footer.php");
 
-
-
-require_once "./layout/layout_1/footer.php";
 ?>
+
+
+

@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <title>học tiếng anh online </title>
  
@@ -27,8 +26,6 @@
     
 </head>
 
-
-
 <body cz-shortcut-listen="true">
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
@@ -43,36 +40,37 @@
             </div>
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);"><div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
                 <ul class="nav pcoded-inner-navbar">
-           
-
-
-  <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
-                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Học</span></a>
-                    </li>  
-
-                    <li data-username="Maps Google" class="nav-item  ">
-                    <a href="blog.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">diễn đàn</span></a>
-                </li>
- 
-                    <li data-username="Maps Google" class="nav-item  "><a href="RaTing" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">đánh giá</span></a></li>
- 
-
-               
-
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">cộng đồng</span></a>
-                    </li>
                     
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">bài 1</span></a>
+                    </li>      
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                                        <a href="">bài tập</a>   </li>   
+                      
                     
-                    <!-- <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                            <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
-                        </ul>
-                    </li> -->
-                  </ul>
-            </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.5); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 683.2px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">bài 1</span></a>
+                    </li>      
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                                        <a href="">bài tập</a>   </li>   
+                      
+                    
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">bài 1</span></a>
+                    </li>      
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                                        <a href="">bài tập</a>   </li>   
+                      
+                    
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">bài 1</span></a>
+                    </li>      
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item  ">
+                                        <a href="">bài tập</a>   </li>   
+                      
+                </ul>
+            </div>
+            <div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.5); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 683.2px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
         </div>
     </nav>
 

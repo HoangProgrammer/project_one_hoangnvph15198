@@ -91,7 +91,7 @@ if (isset($success)) { ?>
     $(".logo span").css('visibility', 'visible');
     $(".logo span").css('margin-left', '-10px');
     $(".icon-a").css('visibility', 'hidden');
-    $(".icon-a").css('height', '25px');
+    $(".icon-a").css('height', '40px');
     $(".icons").css('visibility', 'visible');
     $(".icons").css('margin-left', '-8px');
     $(".menu1").css('display', 'block');
@@ -99,8 +99,8 @@ if (isset($success)) { ?>
   });
 
   $(".menu1").click(function() {
-    $("#mySidenav").css('width', '300px');
-    $("#main").css('margin-left', '300px');
+    $("#mySidenav").css('width', '250px');
+    $("#main").css('margin-left', '250px');
     $(".logo").css('visibility', 'visible');
     $(".logo").css('display', 'block');
     $(".icon-a").css('visibility', 'visible');
