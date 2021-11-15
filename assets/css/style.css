@@ -1516,10 +1516,10 @@ p.text-muted {
           align-items: center;
 }
 .b-brand .b-bg {
-  background: linear-gradient(-135deg, #ffffff 0%, #ffffff 100%);
+  /* background: linear-gradient(-135deg, #ffffff 0%, #ffffff 100%); */
   border-radius: 10px;
-  width: 112px;
-  height: 47px;
+  width: 50px;
+  height: 50px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -2065,7 +2065,7 @@ p.text-muted {
   transition: all 0.3s ease-in-out;
   -webkit-box-shadow: 1px 0 20px 0 #3f4d67;
   box-shadow: 1px 0 20px 0 #3f4d67;
-  width: 219px;
+  width: 150px;
   height: 100vh;
   top: 0;
   background: #116eee;
@@ -2090,7 +2090,7 @@ p.text-muted {
   float: left;
   height: 70px;
   text-align: center;
-  width: 217px;
+  width: 150px;
   margin-right: 0;
   padding: 10px 20px;
   -webkit-transition: all 0.3s ease-in-out;
@@ -2405,8 +2405,9 @@ p.text-muted {
   transition: all 0.15s ease-in-out;
 }
 .pcoded-navbar.navbar-collapsed:hover {
-  width: 264px !important;
+  width: 154px !important;
 }
+
 .pcoded-navbar.navbar-collapsed:hover .pcoded-badge {
   -webkit-transition-delay: 0.3s;
           transition-delay: 0.3s;
@@ -2414,8 +2415,9 @@ p.text-muted {
           transform: rotateX(0deg);
   opacity: 1;
 }
+/* cho nay hover thanh nav  */
 .pcoded-navbar.navbar-collapsed:hover .header-logo {
-  width: 264px;
+  width: 150px;
 }
 .pcoded-navbar.navbar-collapsed:hover .header-logo img {
   -webkit-transform: rotateY(0deg);
@@ -2813,7 +2815,7 @@ p.text-muted {
 .pcoded-content {
   position: relative;
   display: block;
-  padding: 30px;
+  padding:0 100px 0 100px;
 }
 
 .pcoded-main-container {
@@ -2823,7 +2825,7 @@ p.text-muted {
   clear: both;
   float: unset;
   right: 0;
-  margin-left: 215px;
+  margin-left: 155px;
   min-height: 5vh;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -2832,6 +2834,10 @@ p.text-muted {
 /* main content end*/
 /* ==========================    Rsponsive Menu  start   ====================== */
 @media only screen and (max-width: 991px) {
+
+  .b-brand .b-bg{
+    width: 50px;
+  }
   .pcoded-header {
     background: #3f4d67;
     color: #fff;
@@ -2920,6 +2926,11 @@ p.text-muted {
   }
 }
 @media only screen and (max-width: 575px) {
+  .pcoded-header .b-bg{
+    width: 50px;
+  }
+
+
   .pcoded-header .navbar-nav > li:first-child {
     padding-left: 0;
   }
@@ -2969,7 +2980,7 @@ p.text-muted {
     margin-bottom: 15px;
   }
 }
-/* @media only screen and (max-width: 1200px) and (min-width: 768px) {
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
   .pcoded-navbar .header-logo {
     -webkit-transition: none;
     transition: none;
@@ -3011,7 +3022,7 @@ p.text-muted {
             transition-delay: 0;
   }
 }
-/* responsive horizontal menu */
+/* responsive horizontal menu
 @media only screen and (max-width: 992px) {
   .pcoded-navbar.theme-horizontal {
     margin-left: 0;
@@ -9683,7 +9694,7 @@ div.code-toolbar > .toolbar span:hover {
 .radial-bar > img {
   z-index: 102;
 }
-.radial-bar.radial-bar-0 {
+/* .radial-bar.radial-bar-0 {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #d6d6d6), color-stop(50%, transparent), to(transparent)), -webkit-gradient(linear, left top, right top, color-stop(50%, #1de9b6), color-stop(50%, #d6d6d6), to(#d6d6d6));
   background-image: linear-gradient(90deg, #d6d6d6 50%, transparent 50%, transparent), linear-gradient(90deg, #1de9b6 50%, #d6d6d6 50%, #d6d6d6);
 }
@@ -10090,7 +10101,7 @@ div.code-toolbar > .toolbar span:hover {
 .radial-bar.radial-bar-info.radial-bar-100 {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #3ebfea), color-stop(50%, transparent), to(transparent)), -webkit-gradient(linear, right top, left top, color-stop(50%, #3ebfea), color-stop(50%, #d6d6d6), to(#d6d6d6));
   background-image: linear-gradient(450deg, #3ebfea 50%, transparent 50%, transparent), linear-gradient(270deg, #3ebfea 50%, #d6d6d6 50%, #d6d6d6);
-}
+} */
 
 .radial-bar-lg {
   width: 100px;
@@ -10583,7 +10594,7 @@ div.code-toolbar > .toolbar span:hover {
 	opacity: 1
 }
 
-/* nguyÃ¡Â»â€¦n mÃ¡ÂºÂ¡nh quÃƒÂ¢n */
+/* nguyÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¦n mÃƒÂ¡Ã‚ÂºÃ‚Â¡nh quÃƒÆ’Ã‚Â¢n */
 
 .student_learn{
   padding-top: 0px;

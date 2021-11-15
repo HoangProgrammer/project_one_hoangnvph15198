@@ -24,7 +24,7 @@
                             <!-- [ Main Content ] start -->
                             <div class="row">
                                 <!--[ daily sales section ] start-->
-                                <a href="index.php?action=learn" class="col-md-6 col-xl-4">
+                                <a href="index.php?act=learn" class="col-md-6 col-xl-4">
                                     <div class="card daily-sales course-english">
                                         <img class="course-english-img" src="assets/images/slider/coban.png" alt="">
                                         

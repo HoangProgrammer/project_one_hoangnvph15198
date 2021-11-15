@@ -9,16 +9,16 @@ if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
         case "learn":    
-            require("./layout/layout2/header.php") ;
+            require("./layout/layout2/nav.php") ;
             break;
             default:
-            require("./layout/layout_1/header.php") ;
+            require("./layout/layout_1/nav.php") ;
             break;
     }
 
 
 }else{
-    require("./layout/layout_1/header.php") ;
+    require("./layout/layout_1/nav.php") ;
 }
 
 
@@ -42,20 +42,22 @@ if(isset($_GET['act'])){
 
 // }
 
-
-
 // }else{}
     
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
     case "blog":      
-        require_once "blog.php";      
+        require_once "forum/blog.php";      
         break;
     case "learn":               
         require_once "hoc/learn.php";      
         break;
+    case "Rating":               
+        require_once "rating.php";      
+        break;
     default:
+
     require_once "home.php";
     break;
 }
