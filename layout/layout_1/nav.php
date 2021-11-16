@@ -32,393 +32,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
     <style>
-.progress-label-left
-{
-    float: left;
-    margin-right: 0.5em;
-    line-height: 1em;
-}
-.progress-label-right
-{
-    float: right;
-    margin-left: 0.3em;
-    line-height: 1em;
-}
-.star-light
-{
-	color:#e9ecef;
-}
 
-
-.c-comment-box.level2 {
-    padding-left: 85px;
-;
-}
-
-.c-comment-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 17px
-;
-}
-
-.c-comment-box.level2 .c-comment-box__content {
-    padding-left: 16px;
-    margin-left: 16px;
-    position: relative;
-    -webkit-box-shadow: inset 5px 0 0 0 #dee2e6;
-    box-shadow: inset 5px 0 0 0 #a6a6a6;
-    /* background-color: rgba(0,0,0,0); */
-}
-
-.c-comment-box__content {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-}
-
-.c-comment-name {
-    margin-right: 5px;
-    font-weight: 500;
-    color: #212529;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-.c-comment-text {
-    color: #444b52;
-    font-weight: 400;
-    margin-top: 4px
-;
-}
-
-.review{
-    background-color:white;
-    padding:20px;
-}
-
-
-.c-comment-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 17px;
-}
-
-.c-comment-box__avatar {
-    -ms-flex-preferred-size: 70px;
-    flex-basis: 70px;
-    height: 70px;
-    margin-right: 15px;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    border-radius: 4px;
-    background: #ced4da;
-    color: #fff;
-}
-.c-comment-box__content {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-}
-.c-comment-name {
-    margin-right: 5px;
-    font-weight: bold;
-    color: #212529;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-.c-comment-status {
-    margin-top: 4px;
-}
-
-.c-comment-name .time {
-    font-size: 14px;
-    line-height: 14px;
-    color: #99a2aa;
-    font-weight: 300;
-    display: inline-block;
-    margin-left: 4px;
-}
-
-
-/*  */
-
-.list-star ul {
-    list-style-type:none;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-}
-ol, ul {
-    padding-left: 0rem;
-}
-dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 0rem;
-}
-.c-comment .list-star ul span {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    color: #99a2aa;
-    margin-left: 4px;
-}
-
-.list-star ul+span {
-    font-weight: 300;
-    font-size: 14px;
-    vertical-align: text-bottom;
-}
-
-
-.viewport--sidenav .viewport__footer, .viewport--sidenav .viewport__header {
-    left: 6rem;
-}
-.viewport__footer {
-    position: absolute;
-    overflow: hidden;
-    height: 4.375rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
- 
-}
-.footer-main {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    height: inherit;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0.3125 rem2.5rem;
-    background-color: #fff;
-    font-size: .875rem;
-    line-height: 1.7; 
-    padding: 0 100px 0 100px;
-}
-.footer-main__link-list {
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-}
-.footer-main__social {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-left: auto;
-}
-.footer-main__copyright {
-    margin-right: 0.75rem;
-}
-.footer-main__link-item {
-    display: inline-block;
-}
-/*  */
-
-._1UYQp {
-    border-bottom: 2px
- solid #e5e5e5;
-    width: 100%;
-}
-._1UYQp {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    list-style-type: none;
-    margin-bottom: 0;
-}
-._7dkF0 {
-    margin-bottom: -2px;
-    padding-right: 13px;
-    text-align: left;
-    width: auto;
-}
-._7dkF0 h2 {
-    font-weight: 500;
-    margin-bottom: 0;
-}
-._26Aq_ {
-    border-bottom: none;
-    font-weight: 700;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-}
-
-
-._26Aq_ {
-    border-bottom: 2px solid #e5e5e5;
-    color: #afafaf;
-    display: inline-block;
-    font-size: 16px;
-    letter-spacing: .8px;
-    padding-bottom: 15px;
-    text-transform: uppercase;
-    width: 100%;
-
-
-}
-._35ADQ {
-    border-bottom: 2px solid #116eee;
-    color:#116eee;
-}
-
-._26Aq_:active, ._26Aq_:focus, ._26Aq_:hover {
-    border-bottom: 2px solid#116eee;
-    color: #116eee;
-    filter: brightness(1);
-    text-decoration: none;
-}
-._27Sfq {
-    float: left;
-    margin-top: 20px
-
-}
-._3B570, .UI5NM {
-    display: inline-block;
-}
-._1a3Pv {
-    float: right;
-    margin: 20px 0 0 20px
-;
-}
-._24xio {
-    width: 70px
-;
-}
-.mvAh1 {
-    color: #afafaf;
-    float: right;
-    font-weight: 700;
-    padding-top: 4px;
-    text-align: right;
-}
-
-._1CjUZ {
-    display: inline-block;
-    float: right;
-    height: 30px;
-    padding-right: 5px;
-}
-._2Nbkz {
-    border-bottom: 2px
- solid #e5e5e5;
-    padding: 25px 0 25px 80px;
-}
-._3ZcIW {
-    color: #4b4b4b;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 23px;
-    margin: 5px 0;
-}
-._2I7YD {
-    color: #afafaf;
-    margin-top: 5px;
-}
-._1xBLK {
-    margin: 0 5px;
-}
-._2Nbkz {
-    border-bottom: 2px solid #e5e5e5;
-        padding: 25px 0 25px 80px;
-}
-._34uU0 {
-    border: 2px
- solid hsla(0,0%,90%,.5);
-    border-radius: 200px;
-}
-._1hNyT {
-    bottom: -2px;
-    height: 60px;
-    left: -2px;
-    right: -2px;
-    top: -2px;
-    width: 60px;
-}
-
-._2mNT6 {
-    bottom: auto;
-    box-shadow: none;
-    display: inline-block;
-    float: right;
-    position: relative;
-    right: auto;
-}
-
-._2mNT6 {
-    border-radius: 100px;
-    bottom: 115px;
-    box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
-    color: #fff;
-    font-size: 30px;
-    position: fixed;
-    right: 25px;
-    z-index: 2;
-}
-._2pnz9 {
-    border-width: 0 0 4px;
-    padding: 12px
- 15px;
-}
-.QHkFc {
-    line-height: normal;
-    text-transform: uppercase;
-}
-._2NzLI {
-    border-radius: 15px
-;
-    border-style: solid;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    text-align: center;
-    text-transform: uppercase;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    vertical-align: middle;
-}
-._2mNT6 {
-    border-radius: 100px;
-    bottom: 115px;
-    box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
-    color: #fff;
-    font-size: 30px;
-    position: fixed;
-    right: 25px;
-    z-index: 2;
-}
-.waRHZ {
-    display: inline-block;
-    margin: 0 0 50px;
-}
-.waRHZ {
-    display: none;
-    font-size: 24px;
-    margin-top: 4px;
-}
 </style>
 
 </head>
@@ -467,17 +81,17 @@ if($_GET['act']=="Rating"){
                         <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
                     </li>  
 
-                    <li data-username="Maps Google" class="nav-item  <?= $forum ?>">
-                    <a href="index.php?act=blog" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
+                    <li  class="nav-item  <?= $forum ?>">
+                    <a href="index.php?act=blog" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
                 </li>
  
-                    <li data-username="Maps Google" class="nav-item  <?= $rating ?> "><a href="index.php?act=Rating" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">đánh giá</span></a></li>
+                    <li  class="nav-item  <?= $rating ?> "><a href="index.php?act=Rating" class="nav-link "><span class="pcoded-micon"><i class="fas fa-award"></i></span><span class="pcoded-mtext">đánh giá</span></a></li>
  
 
                
 
                     <li data-username="Table bootstrap datatable footable" class="nav-item <?= $social ?>">
-                        <a href="index.php?act=social" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">cộng đồng</span></a>
+                        <a href="index.php?act=social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">cộng đồng</span></a>
                     </li>
                     
                     
@@ -588,8 +202,9 @@ if($_GET['act']=="Rating"){
                 </li>
                 <li>
                     <div class="dropdown drp-user">
-                        <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon feather icon-settings"></i>
+                        <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
+                        <img  width="70px"  src="./assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                         
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
@@ -600,7 +215,7 @@ if($_GET['act']=="Rating"){
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="javascript:" class="dropdown-item"><i class="feather icon-settings"></i> Settings</a></li>
+                                <li><a href="index.php?act=update_account" class="dropdown-item"><i class="feather icon-settings"></i> Settings</a></li>
                                 <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
                                 <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
                                 <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>

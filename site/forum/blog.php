@@ -1,7 +1,5 @@
 <div class="pcoded-main-container">
 <div class="main-body">
-
-
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
 
@@ -28,7 +26,7 @@
     <div class="_1a3Pv">
         <div class="_24xio"><span class="mvAh1">7</span>
         <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg"></div></div>
-        <div class="_2Nbkz"><h3><a class="_3ZcIW" href="/comment/53746558">Ummm ghi thế này ![](link ảnh) nó k ra cái j thì sao ặ</a>
+        <div class="_2Nbkz"><h3><a class="_3ZcIW" href="index.php?act=detail_blog">Ummm ghi thế này ![](link ảnh) nó k ra cái j thì sao ặ</a>
     </h3><div class="_2I7YD">
       
             <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021">7 phút trước</span>

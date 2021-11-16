@@ -1,7 +1,4 @@
-<div class="pcoded-main-container">
 
-    <div class="pcoded-wrapper">
-  
     <!-- Required Js -->
     <footer-main class="viewport__footer" ng-if="LayoutMain.layout.footer">
         <footer class="footer-main">
@@ -49,10 +46,7 @@
 
 </footer>
 </footer-main>
-        </div>
-
-    </div>
-</div>
+ 
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script src="assets/js/vendor-all.min.js"></script>
@@ -60,8 +54,26 @@
     <script src="assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript">       
+         $(document).ready(function(){
          CKEDITOR.replace( 'editor1' );
+  $('#user').hover(function() {
+            $('.profile-notification').fadeIn(500);
+            
+  $(".profile-notification").hover(function(){
+    $(this).fadeIn(50);
+    }, function(){
+        $(this).fadeOut(100);
+  })
+        },function() {
+            $('.profile-notification').fadeOut(50);
+         })
+        
+
+
+
+});
+
      $(document).ready(function() {
 
  $("#rateYo").rateYo({

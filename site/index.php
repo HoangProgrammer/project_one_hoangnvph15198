@@ -50,11 +50,17 @@ if(isset($_GET['act'])){
     case "blog":      
         require_once "forum/blog.php";      
         break;
+    case "detail_blog":      
+        require_once "forum/detail_blog.php";      
+        break;
     case "learn":               
         require_once "hoc/learn.php";      
         break;
     case "Rating":               
         require_once "rating.php";      
+        break;
+    case "update_account":               
+        require_once "user/account.php";      
         break;
     default:
 
