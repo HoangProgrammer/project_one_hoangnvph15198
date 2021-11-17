@@ -64,12 +64,12 @@ if(isset($_GET['act'])){
         break;
     default:
 
-    require_once "home.php";
+    require_once "home2.php";
     break;
 }
 
 }else{
-    require_once "home.php";
+    require_once "home2.php";
 }
 
 

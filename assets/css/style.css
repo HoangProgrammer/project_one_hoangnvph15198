@@ -2822,6 +2822,7 @@ p.text-muted {
   position: relative;
   display: block;
   padding:0 100px 0 100px;
+  margin-bottom: 30px;
 }
 
 .pcoded-main-container {
@@ -10626,6 +10627,8 @@ div.code-toolbar > .toolbar span:hover {
   color: black;
   position: absolute;
   bottom: 0px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .course-english-tile:hover{
   color: #0386c3;
@@ -11479,6 +11482,14 @@ solid #116eee;
 header.navbar.pcoded-header.navbar-expand-lg.navbar-light {
   margin-bottom: 25px;
   box-shadow: 0px 0px 4px 0px;
+}
+
+/* nguyễn mạnh quân */
+.col-md-6{
+  margin-bottom: 26px;
+}
+.col-md-4{
+  margin-bottom: 26px;
 }
 /* slide */
 /* 
