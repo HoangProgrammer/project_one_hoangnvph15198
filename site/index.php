@@ -5,6 +5,7 @@ $menu=Get_menu();
 // }else{
 
 // }
+
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){

@@ -1,3 +1,43 @@
+<?php
+    include_once "./../../models/pdo.php";
+?>
+<?php
+    $conn=connect();
+    $error ="123";
+    if(isset($_POST['sign_up'])){
+        if($_POST['name_user'] != "" && $_POST['email_user'] != "" && $_POST['pass_user'] != "" && $_POST['check_pass_user'] != "" ){
+            $name = $_POST['name_user'];
+            $email = $_POST['email_user'];
+            $pass = $_POST['pass_user'];
+            $check_pass = $_POST['check_pass_user'];
+            $img = "abc";
+            $time = date("Y-m-d H:i:s");
+            $sql = "SELECT * FROM user WHERE ten_user = :ten_user";
+            $result = $conn -> prepare($sql);
+            $result -> execute(['ten_user' => $name]);
+            $number_of_rows = $result->fetchColumn(); 
+            if($number_of_rows == 0){
+                if($pass == $check_pass){
+                    $sql = "INSERT INTO user(ten_user,image,email,mat_khau,start_time) VALUES ('$name','$img','$email','$pass','$time')";
+                    pdo_execute($sql);
+                    $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 5s)";
+                    header( "refresh:5;url=sign_in.php");
+                }
+                else{
+                    $error="mật khẩu không trùng nhau";
+                }
+            }
+            else{
+                $error="tên đăng nhập đã tồn tại";
+            }
+            
+        }
+        else{
+            $error="Bạn phải nhập đầy đủ thông tin";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,13 +52,13 @@
     <meta name="author" content="CodedThemes"/>
 
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./../../assets/images/favicon.ico" type="image/x-icon">
     <!-- fontawesome icon -->
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./../../assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
-    <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="./../../assets/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./../../assets/css/style.css">
 
 </head>
 
@@ -32,20 +72,25 @@
                 <span class="r"></span>
             </div>
             <div class="card">
-                <div class="card-body text-center">
+                
+                <form action="" method="POST" class="card-body text-center">
                     <div class="mb-4">
                         <i class="feather icon-user-plus auth-icon"></i>
                     </div>
                     <h3 class="mb-4">Sign up</h3>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" name="name_user" class="form-control" placeholder="Username">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" name="email_user" class="form-control" placeholder="Email">
                     </div>
                     <div class="input-group mb-4">
-                        <input type="password" class="form-control" placeholder="password">
+                        <input type="password" name="pass_user" class="form-control" placeholder="password">
                     </div>
+                    <div class="input-group mb-4">
+                        <input type="password" name="check_pass_user" class="form-control" placeholder="check password">
+                    </div>
+                    
                     <div class="form-group text-left">
                         <div class="checkbox checkbox-fill d-inline">
                             <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-1" checked="">
@@ -58,9 +103,12 @@
                             <label for="checkbox-fill-2" class="cr">Send me the <a href="#!"> Newsletter</a> weekly.</label>
                         </div>
                     </div>
-                    <button class="btn btn-primary shadow-2 mb-4">Sign up</button>
+                    <button name="sign_up" class="btn btn-primary shadow-2 mb-4">Sign up</button>
                     <p class="mb-0 text-muted">Allready have an account? <a href="auth-signin.html"> Log in</a></p>
-                </div>
+                </form>
+                <div class="input-group mb-4">
+                        <?php if(isset($error)) echo $error; ?>
+                    </div>
             </div>
         </div>
     </div>
