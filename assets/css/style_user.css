@@ -168,7 +168,7 @@ dl, ol, ul {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    height: inherit;
+    min-height: 2px;
     -ms-flex-align: center;
     align-items: center;
     padding: 0.3125 rem2.5rem;
