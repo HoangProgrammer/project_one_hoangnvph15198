@@ -4,6 +4,8 @@
 <?php
 $conn=connect();
     if(isset($_POST['login'])){
+
+        
         if($_POST['name_user'] != "" && $_POST['pass_user'] != ""){
             $name_user = $_POST['name_user'];
             $pass = $_POST['pass_user'];

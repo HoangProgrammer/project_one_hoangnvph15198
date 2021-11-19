@@ -5,6 +5,7 @@
     $conn=connect();
     $error ="123";
     if(isset($_POST['sign_up'])){
+
         if($_POST['name_user'] != "" && $_POST['email_user'] != "" && $_POST['pass_user'] != "" && $_POST['check_pass_user'] != "" ){
             $name = $_POST['name_user'];
             $email = $_POST['email_user'];
