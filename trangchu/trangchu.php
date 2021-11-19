@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="trangchu/style.css">
+    <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,7 +29,7 @@
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="images/istockphoto-1041764000-612x612 (2).jpg" class="d-block w-100" alt="...">
+                        <img src="trangchu/images/istockphoto-1041764000-612x612 (2).jpg" class="d-block w-100" alt="...">
                         <div class="slide-wrap_content">
                             <div class="content">
                                 <div class="choose_language">
@@ -43,36 +43,36 @@
                                     </div>
                                     <ul>
                                         <li data-text="English">
-                                            <img src="images/england-150397_960_720.png" alt="">
+                                            <img src="trangchu/images/england-150397_960_720.png" alt="">
                                             <span>English</span>
                                         </li>
                                         <li data-text="France">
-                                            <img src="images/france-1524418_960_720.png" alt="">
+                                            <img src="trangchu/images/france-1524418_960_720.png" alt="">
                                             <span>France</span>
                         
                                         </li>
                                         <li data-text="India">
-                                            <img src="images/india-3115847_960_720.png" alt="">
+                                            <img src="trangchu/images/india-3115847_960_720.png" alt="">
                                             <span>India</span>
                         
                                         </li>
                                         <li data-text="Germany">
-                                            <img src="images/germany-1524614_960_720.png" alt="">
+                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
                                             <span>Germany</span>
                         
                                         </li>
                                         <li data-text="Germany1">
-                                            <img src="images/germany-1524614_960_720.png" alt="">
+                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
                                             <span>Germany1</span>
                         
                                         </li>
                                         <li data-text="Germany2">
-                                            <img src="images/germany-1524614_960_720.png" alt="">
+                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
                                             <span>Germany2</span>
                         
                                         </li>
                                         <li data-text="Germany3">
-                                            <img src="images/germany-1524614_960_720.png" alt="">
+                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
                                             <span>Germany3</span>
                         
                                         </li>
@@ -89,7 +89,7 @@
                 <div class="header__left">
                     <figure>
                         <a href="">
-                            <img src="images/Busuu_Logo.png" alt="logo">
+                            <img src="trangchu/images/Busuu_Logo.png" alt="logo">
                         </a>
                     </figure>
                     <div class="btnn btn--header">
@@ -105,12 +105,12 @@
                 </div>
                 <div class="header__right">
                     <div class="btnn btn--header">
-                        <a href="./../site/login/sign_in.php">
+                        <a href="site/login/sign_in.php">
                             Login
                         </a>
                     </div>
                     <div class="btnn btn--sign_up">
-                        <a href="./../site/login/sign_up.php">
+                        <a href="site/login/sign_up.php">
                             Sign up
                         </a>
                     </div>
@@ -129,7 +129,7 @@
 
             <div class="mid_content">
                 <div class="column1">
-                    <img src="images/icon-time2.png" alt="">
+                    <img src="trangchu/images/icon-time2.png" alt="">
                     <div class="text">
                         <h5>CHỦ ĐỘNG THỜI GIAN</h5>
                         <p>Chỉ cần máy tính, smartphone hoặc máy tính bảng có kết nối 
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="column1">
-                    <img src="images/icon-teacher.png" alt="">
+                    <img src="trangchu/images/icon-teacher.png" alt="">
                     <div class="text">
                         <h5>PHƯƠNG PHÁP 1 - 1</h5>
                         <p>Mỗi học viên sẽ học với một giáo viên, tương tác 2 chiều 
@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="column1">
-                    <img src="images/icon-good.png" alt="">
+                    <img src="trangchu/images/icon-good.png" alt="">
                     <div class="text">
                         <h5>TIẾT KIỆM - HIỆU QUẢ</h5>
                         <p>Với 100% giáo viên nước ngoài sẽ giúp bạn luyện phát 
@@ -167,7 +167,7 @@
                <br> phù hợp nhu cầu của bạn!</span>
             <div class="container">
                 <div class="coures1">
-                    <a href=""><img src="images/english-communication.jpg" alt=""></a>
+                    <a href=""><img src="trangchu/images/english-communication.jpg" alt=""></a>
                     <div class="info">
                         <div class="name">
                             <h6>TIẾNG ANH GIAO TIẾP</h6>
@@ -185,7 +185,7 @@
                 </div>
 
                 <div class="coures1">
-                    <a href="#"><img src="images/english-communication2.jpg" alt=""></a>
+                    <a href="#"><img src="trangchu/images/english-communication2.jpg" alt=""></a>
                     <div class="info">
                         <div class="name">
                             <h6>TIẾNG ANH CHO TRẺ EM</h6>
@@ -203,7 +203,7 @@
                 </div>
 
                 <div class="coures1">
-                    <a href=""><img src="images/english-communication3.jpg" alt=""></a>
+                    <a href=""><img src="trangchu/images/english-communication3.jpg" alt=""></a>
                     <div class="info">
                         <div class="name">
                             <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
@@ -221,7 +221,7 @@
                 </div>
 
                 <div class="coures1">
-                    <a href=""><img src="images/luyen-thi-ielts.jpg" alt=""></a>
+                    <a href=""><img src="trangchu/images/luyen-thi-ielts.jpg" alt=""></a>
                     <div class="info">
                         <div class="name">
                             <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
@@ -239,7 +239,7 @@
                 </div>
 
                 <div class="coures1">
-                    <a href=""><img src="images/Training_2.jpg" alt=""></a>
+                    <a href=""><img src="trangchu/images/Training_2.jpg" alt=""></a>
                     <div class="info">
                         <div class="name">
                             <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
@@ -257,7 +257,7 @@
                 </div>
 
                 <div class="coures1">
-                    <a href=""><img src="images/tieng-anh-phong-van copy.jpg" alt=""></a>
+                    <a href=""><img src="trangchu/images/tieng-anh-phong-van copy.jpg" alt=""></a>
                     <div class="info">
                         <div class="name">
                             <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
@@ -283,7 +283,7 @@
                <br> và tham gia đăng ký nhiều</span>
             <div class="container_teachers">
                 <div class="teacher1">
-                    <img src="images/Teacher-Cris.jpg" alt="">
+                    <img src="trangchu/images/Teacher-Cris.jpg" alt="">
                     <div class="info">
                         <h6>Giáo viên Cris</h6>
                         ⭐⭐⭐⭐⭐ <br>
@@ -292,7 +292,7 @@
                 </div>
 
                 <div class="teacher1">
-                    <img src="images/Teacher-Raiza.png" alt="">
+                    <img src="trangchu/images/Teacher-Raiza.png" alt="">
                     <div class="info">
                         <h6>Giáo viên Raiza</h6>
                         ⭐⭐⭐⭐⭐ <br>
@@ -301,7 +301,7 @@
                 </div>
 
                 <div class="teacher1">
-                    <img src="images/Teacher-Nik.jpg" alt="">
+                    <img src="trangchu/images/Teacher-Nik.jpg" alt="">
                     <div class="info">
                         <h6>Giáo viên Nik</h6>
                         ⭐⭐⭐⭐⭐ <br>
@@ -310,7 +310,7 @@
                 </div>
 
                 <div class="teacher1">
-                    <img src="images/56218190_826137094407022_142991049105604608_n.jpg" alt="">
+                    <img src="trangchu/images/56218190_826137094407022_142991049105604608_n.jpg" alt="">
                     <div class="info">
                         <h6>Giáo viên Quân</h6>
                         ⭐⭐⭐⭐⭐ <br>
@@ -347,7 +347,7 @@
 
             <div class="owl-carousel">
                 <div class="hv1"> 
-                    <img src="images/56218190_826137094407022_142991049105604608_n.jpg" alt="">
+                    <img src="trangchu/images/56218190_826137094407022_142991049105604608_n.jpg" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh Quân</h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -357,7 +357,7 @@
                     </div>
                 </div>
                 <div class="hv1"> 
-                    <img src="images/private-class-man.png" alt="">
+                    <img src="trangchu/images/private-class-man.png" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh </h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -368,7 +368,7 @@
                 </div>
 
                 <div class="hv1"> 
-                    <img src="images/private-class-man.png" alt="">
+                    <img src="trangchu/images/private-class-man.png" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh</h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -379,7 +379,7 @@
                 </div>
 
                 <div class="hv1"> 
-                    <img src="images/private-class-man.png" alt="">
+                    <img src="trangchu/images/private-class-man.png" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh</h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -390,7 +390,7 @@
                 </div>
 
                 <div class="hv1"> 
-                    <img src="images/private-class-man.png" alt="">
+                    <img src="trangchu/images/private-class-man.png" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh</h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -401,7 +401,7 @@
                 </div>
 
                 <div class="hv1"> 
-                    <img src="images/private-class-man.png" alt="">
+                    <img src="trangchu/images/private-class-man.png" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh</h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -412,7 +412,7 @@
                 </div>
 
                 <div class="hv1"> 
-                    <img src="images/private-class-man.png" alt="">
+                    <img src="trangchu/images/private-class-man.png" alt="">
                     <div class="content">
                         <h6>Học viên:Mạnh</h6>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
@@ -466,7 +466,7 @@
                 <ul>
                     <li>
                         <a href="">
-                            <img src="images/Busuu_Logo.png" alt="">
+                            <img src="trangchu/images/Busuu_Logo.png" alt="">
                         </a>
                         <ul>
                             <li><a href="">Giới thiệu</a></li>

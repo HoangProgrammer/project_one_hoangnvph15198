@@ -1,4 +1,5 @@
 <?php
+session_start();
     include_once "./../../models/pdo.php";
 ?>
 <?php
@@ -20,11 +21,11 @@ $conn=connect();
             if($number_of_rows == 1){
                 $row = $result -> fetch();
                 if($row['role'] == 0){
-                    $_SESSION['name_kh'] = $name_kh;
+                    $_SESSION['name_user'] = $name_user;
                     header('Location: ./../../index.php ');
                 }
                 else{
-                    $_SESSION['admin'] = $name_kh;
+                    $_SESSION['name_user'] = $name_user;
                     header('location: ./../../index.php');
                 }
             }

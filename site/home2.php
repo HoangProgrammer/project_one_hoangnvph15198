@@ -70,7 +70,7 @@
                             <!-- [ Main Content ] start -->
                             <div class="row">
                                 <!--[ daily sales section ] start-->
-                                <a href="" class="col-md-6 col-xl-4">
+                                <a href="site/hoc/more_cours.php" class="col-md-6 col-xl-4">
                                     <div class="card daily-sales course-english">
                                         <img class="course-english-img" src="assets/images/slider/giaotiep.png" alt="">
                                     </div>
