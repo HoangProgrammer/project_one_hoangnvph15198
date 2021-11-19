@@ -105,12 +105,12 @@
                 </div>
                 <div class="header__right">
                     <div class="btnn btn--header">
-                        <a href="#">
+                        <a href="./../site/login/sign_in.php">
                             Login
                         </a>
                     </div>
                     <div class="btnn btn--sign_up">
-                        <a href="#">
+                        <a href="./../site/login/sign_up.php">
                             Sign up
                         </a>
                     </div>
