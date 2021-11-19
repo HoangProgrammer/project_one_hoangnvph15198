@@ -80,7 +80,7 @@ if($_GET['act']=="Rating"){
            
 
 
-  <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item <?= $home ?>">
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item <?= $home ?>">
                         <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
                     </li>  
 
@@ -153,7 +153,8 @@ if($_GET['act']=="Rating"){
             <ul class="navbar-nav ml-auto">
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
+                        <a id="bell" class="dropdown-toggle" href="javascript:" data-toggle="dropdown">
+                            <i class="icon feather icon-bell"></i></a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Notifications</h6>
@@ -203,7 +204,9 @@ if($_GET['act']=="Rating"){
                         </div>
                     </div>
                 </li>
+                 <!-- user -->
                 <li>
+                   
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
                         <img  width="70px"  src="./assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
@@ -218,10 +221,10 @@ if($_GET['act']=="Rating"){
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="index.php?act=update_account" class="dropdown-item"><i class="feather icon-settings"></i> Settings</a></li>
-                                <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                                <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-settings"></i> cài đặt</a></li>
+                                <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
+                                <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
+                                <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
                                 <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quan tri</a></li>
                             </ul>
                         </div>

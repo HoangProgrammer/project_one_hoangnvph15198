@@ -509,7 +509,10 @@ tr:nth-child(even) {
 }
 
 /* boostrapt */
+td, th {
 
+  text-align: center !important;
+}
 tr:nth-child(even) {
   background-color: #efeff5 !important;
   color: #000000!important;

@@ -1,9 +1,46 @@
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+
+// $('#create').on('click',function(e){
+
+// $('#course_modal').modal('show');
+
+//   })
+
+// $('#closes').on('click', function(){
+//     $('#course_modal').modal('hide');
+//   })
+
+  $('.form-radio1').click(function(e){
+    $('#price').hide()
+  })
+
+  $('.form-radio2').click(function(e){
+    $('#price').show()
+  })
+
+})
+
+
+</script>
+
+
+
+
+
 <?php
+
+
 if (isset($success)) { ?>
   <script>
     Swal.fire({
@@ -15,6 +52,7 @@ if (isset($success)) { ?>
   </script>
 
 <?php   }  ?>
+
 
 <script type="text/javascript">
 
@@ -39,6 +77,8 @@ if (isset($success)) { ?>
     })
   }
 </script>
+
+
 
 <script type="text/javascript">
   $('.delete').on('click', function(e) {

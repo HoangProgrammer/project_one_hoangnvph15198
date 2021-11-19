@@ -1,35 +1,11 @@
-<?php
-// $db = data();
-// if (isset($_GET['page'])) {
-//   $page = $_GET['page'];
-// } else {
-//   $page = 1;
-// }
-// $number = 10;
-// $preRows = ($page - 1) * $number;
-// //4-1= 3*10=30
 
-// $sql =$db->prepare( "SELECT * FROM products  where 1 order by product_id desc  limit $preRows,$number");
-// $sql->execute();
-// $select = $sql->fetchAll();
-
-// // var_dump( $select);die();
-// $query = "SELECT * FROM products ";
-// $stmt = $db->prepare($query);
-// $stmt->execute();
-// $total_page = $stmt->rowCount();
-
-// $total_row = ceil($total_page / $number);
-
-// var_dump(  $caurse);
-?>
 
 
 <div id="main">
   
   <div class="head">
     <div class="col-div-6">
-      <p class="nav"> danh sách sản phẩm </p>
+      <p class="nav"> chủ đề </p>
     </div>
  
     <div class="col-div-6">
@@ -73,43 +49,42 @@
       <thead>
         <tr>
           <th style="color:blue" class="text-center">lựa chọn</th>
-          <th style="color:blue" class="text-center">tên khóa học</th>
-          <th style="color:blue" class="text-center">hình ảnh</th>
-          <th style="color:blue" class="text-center">giá khóa học</th>
-          <th style="color:blue" class="text-center">Thông Tin</th>
-          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_lesson">Thêm</a> </th>
+          <th style="color:blue" class="text-center">tên chủ đề</th>
+          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_lesson_topic&idCourse=<?=$id_course?>">Thêm</a> </th>
         </tr>
       </thead>
       <tbody>
 
 
      
-<?php foreach ($course as $val) { extract($val) ?>
+<?php  
+ foreach ($topic as $val) { extract($val);     $id_lesson_topics;?>
+
           <tr class="text-center">
          <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
-            <th name='ten'><?= $NameCaurse ?></th>
-            <th><img name="anh" width="200px" src="../img/"> </th>
-            <th name='dv'><?=$price?></th>
-            <th name='dv'><?=$description?></th>
-            
-         
-            <th><a class='btn btn-warning' href="index.php?action=update_lesson_topic&id=<?=$id_caurse ?> ">sửa</a> </th>
-            <th><a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_lesson&id=<?=$id_caurse ?>">xóa</a></th>
+            <th name='ten'><?= $topicName ?></th>       
+            <th>
+            <a class='btn btn-dark' href="index.php?action=detail_lesson&id_topic=<?=$id_lesson_topics ?>">xem bài học</a> 
+            <a class='btn btn-warning' href="index.php?action=update_lesson_topic&id_topic=<?=$id_lesson_topics ?> ">sửa</a> 
+            <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_topic&id=<?=$id_lesson_topics?>&idCourse=<?=$_GET["idCourse"] ?>">xóa</a></th>
           </tr>
-   <?php } ?>
+   <?php  }?>
         
       </tbody>
 
     </table>
 
     </form>
+
+      <a class="btn btn-primary"href="index.php?action=product?>">quay lại</a>
+  
     <!--  -->
-    <div class="border_checked">
+    <!-- <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
    <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
    <input  type="checkbox" hidden id="chose_all"> 
    <button class="btn btn-danger ">xóa tất cả lựa chọn</button>  
-</div>
+</div> -->
 <br>
 
 
@@ -120,53 +95,7 @@
 
 
 
-    <!-- pagination -->
-    <!-- <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <?php if ($page == 1) {
-        } else { ?>
-          <li class="page-item">
-            <a class="page-link" href="index.php?action=product&page=<?= 1 ?>">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="index.php?action=product&page=<?= $page - 1 ?>">
-              <span aria-hidden="true">&lsaquo;</span>
-            </a>
-          </li>
-        <?php } ?>
-        <!-- chạy vòng lặp -->
-        <?php
-        for ($i = 1; $i <= $total_row; $i++) { ?>
-          <?php if ($page == $i) { ?>
-            <li class="page-item active"><a class="page-link" href="index.php?action=product&page=<?= $i ?>"> <?= $i ?> </a></li>
-          <?php } else { ?>
-            <li class="page-item "><a class="page-link" href="index.php?action=product&page=<?= $i ?>" >  <?= $i ?> </a></li>
 
-          <?php  } ?>
-
-        <?php } ?>
-        <!--  -->
-        <?php
-
-        if ($page == $total_row) {
-        } else { ?>
-          <li class="page-item">
-            <a class="page-link" href="index.php?action=product&page=<?= $page + 1 ?>">
-              <span aria-hidden="true">&rsaquo;</span>
-            </a>
-          </li>
-
-          <li class="page-item">
-            <a class="page-link" href="index.php?action=product&page=<?= $total_row ?>">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        <?php  } ?> -->
-
-      </ul>
-    </nav>
 
   </div>
 </div>

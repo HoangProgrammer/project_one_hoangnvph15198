@@ -29,7 +29,7 @@
   
   <div class="head">
     <div class="col-div-6">
-      <p class="nav"> danh sách sản phẩm </p>
+      <p class="nav"> danh sách câu hỏi </p>
     </div>
  
     <div class="col-div-6">
@@ -73,28 +73,34 @@
       <thead>
         <tr>
           <th style="color:blue" class="text-center">lựa chọn</th>
-          <th style="color:blue" class="text-center">tên khóa học</th>
-          <th style="color:blue" class="text-center">hình ảnh</th>
-          <th style="color:blue" class="text-center">giá khóa học</th>
-          <th style="color:blue" class="text-center">Thông Tin</th>
-          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_quiz">Thêm</a> </th>
+          <th style="color:blue" class="text-center">Câu hỏi</th>
+          <th style="color:blue" class="text-center">lựa chọn 1</th>
+          <th style="color:blue" class="text-center">lựa chọn 2</th>
+          <th style="color:blue" class="text-center">lựa chọn 3</th>
+          <th style="color:blue" class="text-center"> đáp án đúng</th>
+          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_quiz&id_lesson=<?=$_GET["id_lesson"]?>">Thêm</a> </th>
         </tr>
       </thead>
       <tbody>
 
 
      
-<?php foreach ($course as $val) { extract($val) ?>
+<?php foreach ($getQuiz as $val) { extract($val) ?>
           <tr class="text-center">
-         <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
-            <th name='ten'><?= $NameCaurse ?></th>
-            <th><img name="anh" width="200px" src="../img/"> </th>
-            <th name='dv'><?=$price?></th>
-            <th name='dv'><?=$description?></th>
-            
-         
-            <th><a class='btn btn-warning' href="index.php?action=update_quiz&id=<?=$id_caurse ?> ">sửa</a> </th>
-            <th><a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_quiz&id=<?=$id_caurse ?>">xóa</a></th>
+         <th>
+            <input type="checkbox" name="chose_deletes[]" value="" class="select_chose">
+          </th> 
+            <th name='ten'><?= $question ?></th>
+            <th name='dv'><?=$Selection1?></th>
+            <th name='dv'><?=$Selection2?></th>
+            <th name='dv'><?=$Selection3  ?></th>
+            <th name='dv'><?=$answer?></th>    
+            <th>
+              <a class='btn btn-warning' href="index.php?action=update_quiz&id_quiz=<?=$id_quiz?> ">sửa</a>
+           <a  class=" btn btn-danger " href="index.php?action=delete_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$_GET["id_lesson"]?>">xóa</a>
+
+          </th>
+
           </tr>
    <?php } ?>
         
@@ -103,13 +109,13 @@
     </table>
 
     </form>
-    <!--  -->
-    <div class="border_checked">
+
+    <!-- <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
    <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
    <input  type="checkbox" hidden id="chose_all"> 
    <button class="btn btn-danger ">xóa tất cả lựa chọn</button>  
-</div>
+</div> -->
 <br>
 
 

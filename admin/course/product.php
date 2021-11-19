@@ -29,7 +29,7 @@
   
   <div class="head">
     <div class="col-div-6">
-      <p class="nav"> danh sách sản phẩm </p>
+      <p class="nav"> danh sách khóa học </p>
     </div>
  
     <div class="col-div-6">
@@ -43,7 +43,7 @@
 <br>
 <br>
 <br>
-  <form action="index.php?action=deletes_pr" method="post" >
+  
     <h5 class="text-warning">
      <?php  
    
@@ -56,54 +56,6 @@
 
     </h5>
     
-<div class="border_checked">
-     <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
-   <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
-   <input type="checkbox" hidden id="chose_all"> 
-   <button class=" btn btn-danger " name="btn-deletes">xóa tất cả lựa chọn</button>  
- 
-</div>
-
-<br>
-
-
-
-    <table border="1" cellspacing="4" class="table table-strip">
-   
-      <thead>
-        <tr>
-          <th style="color:blue" class="text-center">lựa chọn</th>
-          <th style="color:blue" class="text-center">tên khóa học</th>
-          <th style="color:blue" class="text-center">hình ảnh</th>
-          <th style="color:blue" class="text-center">giá khóa học</th>
-          <th style="color:blue" class="text-center">Thông Tin</th>
-          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add">Thêm</a> </th>
-        </tr>
-      </thead>
-      <tbody>
-
-
-     
-<?php foreach ($course as $val) { extract($val) ?>
-          <tr class="text-center">
-         <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
-            <th name='ten'><?= $NameCaurse ?></th>
-            <th><img name="anh" width="200px" src="../img/"> </th>
-            <th name='dv'><?=$price?></th>
-            <th name='dv'><?=$description?></th>
-            
-         
-            <th><a class='btn btn-warning' href="index.php?action=update_pr&id=<?=$id_caurse ?> ">sửa</a> </th>
-            <th><a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_pr_one&id=<?=$id_caurse ?>">xóa</a></th>
-          </tr>
-   <?php } ?>
-        
-      </tbody>
-
-    </table>
-
-    </form>
-    <!--  -->
     <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
    <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
@@ -111,17 +63,57 @@
    <button class="btn btn-danger ">xóa tất cả lựa chọn</button>  
 </div>
 <br>
+<table  class="table table-strip" >
+   <thead>
+     <tr>
+       <th style="color:blue" class="text-center">lựa chọn</th>
+       <th style="color:blue" class="text-center">tên khóa học</th>
+       <th style="color:blue" class="text-center">hình ảnh</th>
+       <th style="color:blue" class="text-center">giá khóa học</th>
+
+       <th colspan="2" style="color:blue" class="text-center"> 
+   <a class=" btn btn-primary " href="index.php?action=add">thêm</a>  
+      </th>
+     </tr>
+   </thead>
+   <tbody>
+<?php foreach ($course as $val) { extract($val) ?>
+       <tr class="text-center">
+      <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
+         <th name='ten'><?= $NameCaurse ?></th>
+         <th><img name="anh" width="150px"  src="../image/<?=$img?>"> </th>
+         <th name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 
+           echo '<p class="text-danger"> '. number_format($price,0).'vnđ </p>';}?></th>  
+         <td>
+         <a class='btn btn-dark' href="index.php?action=detail&idCourse=<?=$id_caurse ?>"> xem </a> 
+         <a class='btn btn-warning' href="index.php?action=updateCourse&id=<?=$id_caurse ?> ">sửa</a> 
+         <a name="id_product" class="delete btn btn-danger " href="index.php?action=deleteCourse&id=<?=$id_caurse ?>">xóa</a>
+       </td>
+       </tr>
+<?php } ?> 
+   </tbody>
+
+ </table>
+
+<br>
 
 
+    <!--  -->
+    <!-- <div class="border_checked">
+     <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
+   <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
+   <input  type="checkbox" hidden id="chose_all"> 
+   <button class="btn btn-danger ">xóa tất cả lựa chọn</button>  
+</div> -->
+<br>
+
+  </div>
 
 
+                               
+</div> 
 
-
-
-
-
-    <!-- pagination -->
-    <!-- <nav aria-label="Page navigation example">
+<!-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <?php if ($page == 1) {
         } else { ?>
@@ -136,7 +128,7 @@
             </a>
           </li>
         <?php } ?>
-        <!-- chạy vòng lặp -->
+
         <?php
         for ($i = 1; $i <= $total_row; $i++) { ?>
           <?php if ($page == $i) { ?>
@@ -147,7 +139,7 @@
           <?php  } ?>
 
         <?php } ?>
-        <!--  -->
+    
         <?php
 
         if ($page == $total_row) {
@@ -163,10 +155,74 @@
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
-        <?php  } ?> -->
+        <?php  } ?> 
 
       </ul>
-    </nav>
+    </nav> -->
+   
 
-  </div>
-</div>
+      
+    
+<div id="course_modal" class="modal">
+  
+ <div class="modal-dialog" role="document">
+
+
+    <form  method="POST" enctype="multipart/form-data" id="form"> 
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Thêm Khóa học</h5>
+                            <a type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                <span id="closes">&times;</span>
+                            </a>
+                        </div>
+                        <div class="modal-body">
+                      <!-- <a href="course/add_pr.php">ha</a> -->
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>tên khóa học  </h6>  </label>
+                                <input  type="text" name="course_name" id="name_course" class="form-control" placeholder="Enter Your Name" />
+                          <p class="text-danger error_name"> </p>
+                              </div>
+                            <div class="form-group">
+                            <label class="form-label" for=""> <h6>  ảnh  </h6> </label>
+                                <input type="file" name="image_course" id="image_course"  class="form-control" placeholder="Enter Your image" />
+                                <p class="text-danger error_image"> </p>
+                              </div>
+                            <div class="form-group">
+                            <label class="form-label" for=""> <h6>loại   </h6> </label>
+                            <div class="form-group">
+                            <label class="form-label" for="" > miễn phí  </label>
+                           <input type="radio" name="radio" id="free" value="0" class="form-radio1"  />
+                           <label class="form-label" for="">  mất phí </label>
+                             <input type="radio" name="radio" id="charge"  value="1"  class="form-radio2"  />   
+                                         
+                            </div>
+                            </div>
+                            <div class="form-group" style="display:none;" id="price">
+                            <label class="form-label" for=""> <h6> Giá </h6>  </label>
+                            <input type="text" name="price_course" id="price"  class="form-control" placeholder="Enter Your price" />   
+                           
+                            </div>
+
+                            <div class="form-group">
+                            <label class="form-label" for=""> <h6> mô tả </h6>  </label>
+                                <textarea name="description" id="mo_ta" class="form-control" placeholder="Type Review Here"></textarea>
+                                <p class="text-danger error_mo_ta"> </p>
+                              </div>
+
+                            <div class="form-group text-center mt-4">
+                                <button type="button" name="add_course" id="add_course" class="btn btn-primary" >Thêm</button>
+                            </div>
+
+
+
+                        </div> 
+                      
+                    
+
+                    </div>
+             </form>  
+            
+            </div>
+            </div>
+
