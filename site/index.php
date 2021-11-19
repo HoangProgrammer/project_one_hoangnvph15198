@@ -1,11 +1,10 @@
 <?php
-$menu=Get_menu();
-// if(!isset($_SESSION['user'])){
-    
-// }else{
 
-// }
 
+
+if(!isset($_SESSION['name_user'])){
+require_once('trangchu/trangchu.php');
+}else{
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
@@ -16,16 +15,9 @@ if(isset($_GET['act'])){
             require("./layout/layout_1/nav.php") ;
             break;
     }
-
-
 }else{
     require("./layout/layout_1/nav.php") ;
 }
-
-
-
-
-
 
 // if(!isset($_SESSION['user'])){
   
@@ -64,7 +56,6 @@ if(isset($_GET['act'])){
         require_once "user/account.php";      
         break;
     default:
-
     require_once "home2.php";
     break;
 }
@@ -73,10 +64,14 @@ if(isset($_GET['act'])){
     require_once "home2.php";
 }
 
-
-
-
 require("./layout/layout_1/footer.php");
+
+
+}
+
+
+
+
 
 ?>
 

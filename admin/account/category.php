@@ -15,7 +15,7 @@
 
 <?php require_once("nav_login.php") ?>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table">
         <thead>
             <tr>
 
@@ -32,26 +32,23 @@
         <tbody>
 
 <?php
-// $data= GetData_user();
-foreach($data as $values){ $status=$values['status']?>
-<tr>
-<td><?=$values['FULLNAME'] ?></td>
 
-<td>
-<?=$values['sex']==1?"Nam":"Nữ" ?>
-</td>
-<td><?=$values['phone'] ?></td>
-<td><?=$values['role']==1?" quản trị":"khách hàng" ?></td>
-<td><?=$values['EMAIL'] ?></td>
-<td><?= md5($values['PASSWORD']  )?> </td>
+foreach($account as $values){ extract($values)?>
+<tr>
+<td><?=$ten_user ?></td>
+
+<td><?=$image?></td>
+<td><?=$values['role']==1?" <p class='text-danger'>quản trị</p> ":"<p class='text-primary'>Khách hàng</p>" ?></td>
+<td><?=$email ?></td>
+<td><?=$start_time ?></td>
 <td> 
  <?php if($status==0){
     echo "<span class='text-success'>hoạt đông</span>"; }else{
         echo "<span class='text-danger'>khóa</span>";
  }  ?>   </td>
-<td><a class='btn btn-warning'href="index.php?action=edit_user&id=<?= $values['user_id'] ?>">sửa</a> 
- </td>
- <td><a class="delete btn btn-danger" href="index.php?action=xoa_user&id=<?=$values['user_id'] ?>">xóa</a> </td>
+<td>
+    <a class='btn btn-warning'href="index.php?action=edit_user&id=<?= $id_user  ?>">sửa</a> 
+<a class="delete btn btn-danger" href="index.php?action=xoa_user&id=<?= $id_user?>">xóa</a> </td>
 </tr>
 
 <?php } ?>

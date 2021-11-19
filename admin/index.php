@@ -6,6 +6,7 @@ require_once('../dao/courseDB.php');
 require_once('../dao/lesson_topicDB.php');
 require_once('../dao/lesson.php');
 require_once('../dao/quizDB.php');
+require_once('../dao/accountDB.php');
 
 ?>
 
@@ -435,8 +436,31 @@ if($insert==true){
             }
             break;
             case "account":
+                $account=Get_account();
 require_once ('./account/category.php');
 
+break;
+            case "edit_user":
+                $id=$_GET['id'];
+                $get_one=Get_user_one($id);
+require_once ('./account/update.php');
+break;
+            case "update_user":
+                if(isset($_POST['btn_course'])){
+                    $user_name=$_POST['user_name']; 
+                    $role=$_POST['role'];
+                    $status=$_POST['status'];
+                    $id=$_POST['id'];
+                }
+                $data=[
+                    ":ten_user"=>$user_name,
+                    ":status"=>$status,
+                    ":role"=>$role,
+                    ":id"=>$id,
+                ];
+
+                update_user_admin($data);
+                header("location:index.php?action=account");
 break;
         default:
             require_once('index.php');
