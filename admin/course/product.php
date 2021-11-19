@@ -63,13 +63,13 @@
    <button class="btn btn-danger ">xóa tất cả lựa chọn</button>  
 </div>
 <br>
-<table  class="table table-strip" >
+<table  class=" table-primary" >
    <thead>
      <tr>
-       <th style="color:blue" class="text-center">lựa chọn</th>
-       <th style="color:blue" class="text-center">tên khóa học</th>
-       <th style="color:blue" class="text-center">hình ảnh</th>
-       <th style="color:blue" class="text-center">giá khóa học</th>
+       <th style="color:blue" class="text-center "  scope="col">lựa chọn</th>
+       <th style="color:blue" class="text-center"  scope="col">tên khóa học</th>
+       <th style="color:blue" class="text-center"  scope="col">hình ảnh</th>
+       <th style="color:blue" class="text-center"  scope="col">giá khóa học</th>
 
        <th colspan="2" style="color:blue" class="text-center"> 
    <a class=" btn btn-primary " href="index.php?action=add">thêm</a>  
@@ -77,13 +77,14 @@
      </tr>
    </thead>
    <tbody>
+
 <?php foreach ($course as $val) { extract($val) ?>
        <tr class="text-center">
-      <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
-         <th name='ten'><?= $NameCaurse ?></th>
-         <th><img name="anh" width="150px"  src="../image/<?=$img?>"> </th>
-         <th name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 
-           echo '<p class="text-danger"> '. number_format($price,0).'vnđ </p>';}?></th>  
+      <td> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></td> 
+         <td name='ten'><?= $NameCaurse ?></td>
+         <td><img name="anh" width="150px"  src="../image/<?=$img?>"> </td>
+         <td name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 
+           echo '<p class="text-danger"> '. number_format($price,0).'vnđ </p>';}?></td>  
          <td>
          <a class='btn btn-dark' href="index.php?action=detail&idCourse=<?=$id_caurse ?>"> xem </a> 
          <a class='btn btn-warning' href="index.php?action=updateCourse&id=<?=$id_caurse ?> ">sửa</a> 
@@ -94,8 +95,6 @@
    </tbody>
 
  </table>
-
-<br>
 
 
     <!--  -->

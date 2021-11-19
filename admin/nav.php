@@ -41,7 +41,7 @@ session_start();
   <a href="index.php?action=dashboard" class="icon-a "><i class="fa fa-dashboard icons "></i> &nbsp;&nbsp;dashboard</a>
   <a href="index.php?action=product"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;khóa học</a>
   <a href="index.php?action=banner"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;banner</a>
-  <a href="index.php?action=banner"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;người dùng</a>
+  <a href="index.php?action=account"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;người dùng</a>
   <a href="index.php?action=banner"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;bình luận</a>
 
   <!-- <a href="index.php?action=lesson_topic"class="icon-a"><i class="fa fa-sliders icons"></i> &nbsp;&nbsp;chủ đề bài học</a> -->

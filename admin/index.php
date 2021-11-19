@@ -435,6 +435,8 @@ if($insert==true){
             }
             break;
             case "account":
+require_once ('./account/category.php');
+
 break;
         default:
             require_once('index.php');

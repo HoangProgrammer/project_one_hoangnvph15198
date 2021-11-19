@@ -20,11 +20,10 @@
             <tr>
 
         <th class="text-center">tên </th>
-        <th class="text-center">gioi tính</th>
-        <th class="text-center">số điện thoại</th>
+        <th class="text-center">ảnh</th>
         <th class="text-center">vai trò</th>
         <th class="text-center">email</th>  
-        <th class="text-center">mật khẩu</th>  
+        <th class="text-center">thời gian tham gia</th>  
         <th class="text-center">trạng thái</th>  
         <th colspan="2" class="text-center">thao tác</th>  
          </tr>

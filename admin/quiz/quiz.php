@@ -66,10 +66,7 @@
 
 <br>
 
-
-
-    <table border="1" cellspacing="4" class="table table-strip">
-   
+    <table >
       <thead>
         <tr>
           <th style="color:blue" class="text-center">lựa chọn</th>
