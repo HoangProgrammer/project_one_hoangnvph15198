@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./assets/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style_user.css">
 
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -67,17 +68,19 @@ if($_GET['act']=="Rating"){
                 <a href="index.html" class="b-brand">
                     <div class="b-bg">
                     <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>    
-                </div>
-
-                    <a class="mobile-menu on" id="mobile-collapse" ><span></span></a>
+                   
+                    </div>
+                    <span class="b-title">Busuu</span>
+                    
                 </a>
+                <a class="mobile-menu on" id="mobile-collapse" ><span></span></a>
             </div>
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);"><div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
                 <ul class="nav pcoded-inner-navbar">
            
 
 
-  <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item <?= $home ?>">
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item <?= $home ?>">
                         <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
                     </li>  
 
