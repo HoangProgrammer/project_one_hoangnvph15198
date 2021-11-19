@@ -59,7 +59,7 @@ if(isset($_GET['act'])){
     case "Rating":               
         require_once "rating.php";      
         break;
-    case "update_account":               
+    case "account":               
         require_once "user/account.php";      
         break;
     default:

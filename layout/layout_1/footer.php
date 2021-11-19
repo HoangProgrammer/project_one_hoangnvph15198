@@ -54,27 +54,21 @@
     <script src="assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-<script type="text/javascript">       
+<script type="text/javascript">    
+
          $(document).ready(function(){
+
          CKEDITOR.replace( 'editor1' );
-  $('#user').hover(function() {
-            $('.profile-notification').fadeIn(500);
-            
-  $(".profile-notification").hover(function(){
-    $(this).fadeIn(50);
-    }, function(){
-        $(this).fadeOut(100);
-  })
-        },function() {
-            $('.profile-notification').fadeOut(50);
-         })
+
+  $('#user').on( "click",function() {
+            $('.profile-notification').fadeToggle(500);
+            $('.notification').hide()
+        })
+  $('#bell').on( "click",function() {
+            $('.notification').fadeToggle(500);
+            $('.profile-notification').hide();
+        })
         
-
-
-
-});
-
-     $(document).ready(function() {
 
  $("#rateYo").rateYo({
    rating: 3.6

@@ -1,89 +1,106 @@
-
-
 <div id="main">
 	<div class="head">
 		<div class="col-div-6">
-<p class="nav"> create movie</p>
+<!-- <p class="nav"> create movie</p> -->
 </div>
-<div class="col-7">
-	
-<form  class="action_form" action="index.php?action=add_pr" method="POST" enctype="multipart/form-data">
-<div class="div_form">
+<div class="col-12">
+      
+      <form action="index.php?action=add_quizFROM" method="POST" enctype="multipart/form-data" > 
+<div id="add_course_modal" >
+  
+ <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Thêm bài Tập</h5>
+                            <a type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                <span id="closes">&times;</span>
+                            </a>
+                        </div>
+                        <div class="modal-body">
+                      <!-- <a href="course/add_pr.php">ha</a> -->
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>Câu hỏi   </h6>  </label>
+                                <input  type="text" name="question" class="form-control"  />
+                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['question'])){
+                              echo $_SESSION['question'];
+                              unset($_SESSION['question']);
+                          } ?> </p>
+
+                      <input  type="hidden" name="id_lesson" class="form-control" value="<?=$_GET['id_lesson']?>" />
+                              </div>
+                       
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>lựa chọn 1 </h6>  </label>
+                                <input  type="text" name="Selection1" class="form-control"  />
+                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['Selection1'])){
+                              echo $_SESSION['Selection1'];
+                              unset($_SESSION['Selection1']);
+                          } ?> </p>
 
 
-    <div class="from col-12 ">
-        <label class="form-label" for="">Tên </label>
-        <input class="form-control" name="ten" type="text">
-     <div class="text-danger">
- <?php 
-        if(isset($_SESSION['err_name'])){
-            echo $_SESSION['err_name'];
-            unset($_SESSION['err_name']);
-        }
-        
-        ?>
-     </div>  
-    </div>
-    <div class="from col-12">
-        <label class="form-label" for="">Ảnh</label>
-        <input class="form-control" name='anh' type="file">
-        <div class="text-danger">
- <?php 
-        if(isset($_SESSION['anh'])){
-            echo $_SESSION['anh'];
-            unset($_SESSION['anh']);
-        }
-        
-        ?>
-     </div>
-    </div>
+                              </div>
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>lựa chọn 2 </h6>  </label>
+                                <input  type="text" name="Selection2" class="form-control"  />
+                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['Selection2'])){
+                              echo $_SESSION['Selection2'];
+                              unset($_SESSION['Selection2']);
+                          } ?> </p>
 
 
-    
-    <div class="from col-12 ">
-        <label class="form-label" for="">giá </label>
-        <input class="form-control" name="gia" type="text">
-     <div class="text-danger">
- <?php 
-        if(isset($_SESSION['gia'])){
-            echo $_SESSION['gia'];
-            unset($_SESSION['gia']);
-        }
-        
-        ?>
-     </div>  
-    </div>
+                              </div>
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>lựa chọn 3 </h6>  </label>
+                                <input  type="text" name="Selection3" class="form-control"  />
+                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['Selection3'])){
+                              echo $_SESSION['Selection3'];
+                              unset($_SESSION['Selection3']);
+                          } ?> </p>
 
-    <div class="from col-12 ">
-        <label class="form-label" for="">thông tin </label>
-        
-        <textarea  name="description"  id="" cols="30" rows="10"></textarea>
-     <div class="text-danger">
- <?php 
-        if(isset($_SESSION['description'])){
-            echo $_SESSION['description'];
-            unset($_SESSION['description']);
-        }
-        
-        ?>
-     </div>  
-    </div>
+
+                              </div>
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>đáp Án Đúng </h6>  </label>
+                            <div class="form-group">
+               
+                            A   <input  type="radio" name="answer" width="100px" value="a"  /> <br>
+                               B <input  type="radio" name="answer" width="100px" value="b"  /> <br>
+                               C <input  type="radio" name="answer" width="100px" value="c"  />
+
+                            </div>
+                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['answer'])){
+                              echo $_SESSION['answer'];
+                              unset($_SESSION['answer']);
+                          } ?> </p>
+
+
+                              </div>
+                     
+             
+                            <div class="form-group text-center mt-4">
+                                <!-- <input type="submit" name="btn_course" value="thêm"> -->
+                                <button  name="btn_course" class="btn btn-primary" >Thêm</button>
+                                <a  href="" class="btn btn-primary" >quay lại</a>
+                            </div>
 
 
 
-    <br>
-   
+                        </div> 
+                      
+                    
 
-<!--  -->
-    <div class="to">
-        <button class="btn btn-primary" name="add">thêm</button> <a href="product.php">quay lại</a>
-    </div>
-    </div>
-</form>
+                    </div>
+            
+            
+            </div>
+
+         
+            </div> 
+            
+         </form> 
 
 </div>
-<br>
-<br>
+
 
     </div>
 </div>

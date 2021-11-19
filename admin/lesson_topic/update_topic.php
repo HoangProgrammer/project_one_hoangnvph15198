@@ -4,108 +4,74 @@
 
 foreach($stmt as $row ){
 
-        $id_caurse=$row['id_caurse'];
-        $ten=$row['NameCaurse'];
-        $gia=$row['price'];
-        $anh=$row['img'];
-        $thongtin=$row['description'];
-        $loai=$row['type'];
-       
-     
+        $topicName=$row['topicName'];
+        $id_lesson_topics  =$row['id_lesson_topics']; 
+        $id_caurse =$row['id_caurse']; 
 }
-
-
-
 ?>
 
 <div id="main">
 	<div class="head">
-      <h3 class="text-center">Edit <?=  $ten?> </h3>  
 		<div class="col-div-6">
-<p class="nav"> Edit</p>
+<!-- <p class="nav"> create movie</p> -->
 </div>
-	 <br>
-	 <br>
-<form  action="index.php?action=edit_pr" method="post" enctype="multipart/form-data">
-
-    <div class="mb-3">
-    <input class="form-control" name="id" type="hidden" value="<?= $id ?>">
-    <label class="form-label" for="">Tên </label>
-    <input class="form-control" name="ten" type="text" value="<?= $ten?>">
-    <div class="text-danger">
-<?php
-if(isset($_SESSION['err_name'])){
-    echo $_SESSION['err_name'];
-    unset($_SESSION['err_name']);
-}
-?>
-    </div>
-</div>
-
-    <div class="mb-3">
-    <label class="form-label" for="">giá </label>
-    <input class="form-control" name="gia" type="text" value="<?= $gia ?>">
-    <div class="text-danger">
-<?php
-if(isset($_SESSION['gia'])){
-    echo $_SESSION['gia'];
-    unset($_SESSION['gia']);
-}
-?>
-    </div>
-</div>
-
-<!--  -->
-<div class="mb-3">
-    <label class="form-label" for="" >Ảnh</label>
-<input name='anh' type="file"> <br>
-<img name="img_old" width='200px' src="../img/<?=$anh ?>" alt="">
-</div>
-
-<div class="mb-3">
-    <label class="form-label" for="">Thông Tin</label>
+<div class="col-12">
+      
+      <form action="index.php?action=update_topic" method="POST" enctype="multipart/form-data" > 
+<div id="add_course_modal" >
   
-    <textarea class="form-control" name="thong_tin" cols="10" rows="5"><?= $thongtin ?></textarea>
+ <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Thêm Chủ đề</h5>
+                            <a type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                <span id="closes">&times;</span>
+                            </a>
+                        </div>
+                        <div class="modal-body">
+                      <!-- <a href="course/add_pr.php">ha</a> -->
+                            <div class="form-group">
+                            <label class="form-label " for=""> <h6>tên chủ đề  </h6>  </label>
+                                <input  type="text" name="topic_name" class="form-control"value=<?= $topicName ?> />
+                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['name'])){
+                              echo $_SESSION['name'];
+                              unset($_SESSION['name']);
+                          } ?> </p>
 
-    <div class="text-danger">
-<?php
-if(isset($_SESSION['err_thong_tin'])){
-    echo $_SESSION['err_thong_tin'];
-    unset($_SESSION['err_thong_tin']);
-}
-?>
+<input  type="hidden" name="id_lesson" class="form-control" value="<?= $id_topics=$_GET['id_topic'] ?>" />
+<input  type="hidden" name="id_course" class="form-control" value="<?= $id_caurse ?>" />
+                              </div>
+             
+                            <div class="form-group text-center mt-4">
+                                <!-- <input type="submit" name="btn_course" value="thêm"> -->
+                                <button  name="btn_course" class="btn btn-primary" >sửa</button>
+                            </div>
+
+
+
+                        </div> 
+                      
+                    
+
+                    </div>
+            
+            
+            </div>
+
+         
+            </div> 
+            
+         </form> 
+
+</div>
+
+
     </div>
 </div>
 
-<div class="mb-3">
-    <label class="form-label" for="">loại</label>
-  
-    <textarea class="form-control" name="loai" cols="10" rows="5"><?=  $loai ?></textarea>
-
-    <div class="text-danger">
-<?php
-if(isset($_SESSION['loai'])){
-    echo $_SESSION['loai'];
-    unset($_SESSION['loai']);
-}
-?>
-    </div>
-</div>
 
 
 
-<div class="to">
-
-<button class="btn btn-primary" name="update"> update</button>
-
-<a href="product.php">quay lại</a>
-</div>
-    </form>
-
-
-
-</div>
-</div>
 
 
 
