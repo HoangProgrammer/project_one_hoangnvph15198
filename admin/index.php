@@ -6,6 +6,8 @@ require_once('../dao/courseDB.php');
 require_once('../dao/lesson_topicDB.php');
 require_once('../dao/lesson.php');
 require_once('../dao/quizDB.php');
+require_once('../dao/accountDB.php');
+require_once('../dao/BannerDB.php');
 
 ?>
 
@@ -435,17 +437,88 @@ if($insert==true){
             }
             break;
             case "account":
+                $account=Get_account();
 require_once ('./account/category.php');
 
 break;
+            case "edit_user":
+                $id=$_GET['id'];
+                $get_one=Get_user_one($id);
+require_once ('./account/update.php');
+break;
+            case "update_user":
+                if(isset($_POST['btn_course'])){
+                    $user_name=$_POST['user_name']; 
+                    $role=$_POST['role'];
+                    $status=$_POST['status'];
+                    $id=$_POST['id'];
+                }
+                $data=[
+                    ":ten_user"=>$user_name,
+                    ":status"=>$status,
+                    ":role"=>$role,
+                    ":id"=>$id,
+                ];
+
+                update_user_admin($data);
+                header("location:index.php?action=account");
+break;
+case "banner":
+    $banner=Get_Banner();
+    require_once('./slide/list_slider.php');
+    break;
+case "create_slide":
+    require_once('./slide/create_slide.php');
+    break;
+case "them_slide":
+  if(isset($_POST['create_slide_btn'])){
+$type=$_POST['type'];
+$image=$_FILES['image']['name'];
+$image_tmp=$_FILES['image']['tmp_name'];
+move_uploaded_file($image_tmp,"../image/".$image);
+$data=[
+    ":img"=>$image,
+    ":type"=>$type
+    
+];
+$insert=insert_Banner(  $data);
+header("location:index.php?action=banner");
+  }
+    break;
+
+case "update_slider":
+   $id=$_GET['id_banner'];
+   $banner=Get_banner_one($id);
+   require_once('./slide/update_slide.php');
+    break;
+case "sua_slider":
+  if(isset($_POST['update_btn'])){
+
+$type=$_POST['type'];
+$id=$_POST['id'];
+$image=$_FILES['image']['name'];
+$image_tmp=$_FILES['image']['tmp_name'];
+
+move_uploaded_file($image_tmp,"../image/".$image);
+
+$update=update_Banner($image,$type,$id);
+header("location:index.php?action=banner");
+
+  }
+  case "xoa_slider":
+    $id_banner=$_GET['id_banner'];
+  deleteBanner(  $id_banner);
+  header("location:index.php?action=banner");
+    break;
         default:
-            require_once('index.php');
+        require("./course/product.php");
             break;
     }
 }
-// else {
-//    header("Location:login.php");
-// }
+else {
+    $course = Get_caurse();
+            require("./course/product.php");
+}
 require_once('footer.php');
 
 ?>

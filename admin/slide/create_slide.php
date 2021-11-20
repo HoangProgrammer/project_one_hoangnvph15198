@@ -9,13 +9,15 @@
 
 <form  action="index.php?action=them_slide" method="post" enctype="multipart/form-data">
 <div class="mb-3">
-<label class="form-label" for="">ảnh sản phẩm</label>
 <input class="form-control" name="image" type="file">
+<label for=""><h6>Loại</h6></label> <br>
+loại 1 <input  type="radio" name="type" value="0"> <br>
+loại 2 <input type="radio" name="type" value="1">
 </div>
 
-<button class="btn btn-primary" name="create_slide_btn"> update</button>
+<button class="btn btn-primary" name="create_slide_btn"> Thêm</button>
 
-<a href="category.php">quay lại</a>
+<a href="index.php?action=banner">quay lại</a>
 
 
 </form>

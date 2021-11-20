@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="trangchu/owlcarousel/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- <img src="images/hero-text.png" alt=""> -->
+                                <!-- <img src="trangchu/images/hero-text.png" alt=""> -->
                             </div>
                         </div>
                       </div>

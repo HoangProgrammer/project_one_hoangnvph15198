@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/style_user.css">
 
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -215,7 +214,7 @@ if($_GET['act']=="Rating"){
                             <div class="pro-head">
                                 <img src="./assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>John Doe</span>
-                                <a href="auth-signin.html" class="dud-logout" title="Logout">
+                                <a href="site/login/sign_in.php" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                             </div>

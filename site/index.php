@@ -1,15 +1,9 @@
 <?php
-$menu=Get_menu();
-session_destroy();
 
-// if(!isset($_SESSION['user'])){
-    
-// }else{
-
-// }
 if(!isset($_SESSION['name_user'])){
-    require_once "trangchu/trangchu.php";
+require_once('trangchu/trangchu.php');
 }else{
+
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
@@ -23,13 +17,9 @@ if(isset($_GET['act'])){
 
 
 }else{
+
     require("./layout/layout_1/nav.php") ;
 }
-
-
-
-
-
 
 // if(!isset($_SESSION['user'])){
   
@@ -48,8 +38,8 @@ if(isset($_GET['act'])){
 // }
 
 // }else{}
-    
 if(isset($_GET['act'])){
+
     $act = $_GET['act'];
     switch ($act){
     case "blog":      
@@ -61,6 +51,12 @@ if(isset($_GET['act'])){
     case "learn":               
         require_once "hoc/learn.php";      
         break;
+    case "detail_course":               
+        require_once "hoc/more_cours.php";      
+        break;
+    case "quiz":               
+        require_once "hoc/exercise_cours.php";      
+        break;
     case "Rating":               
         require_once "rating.php";      
         break;
@@ -68,20 +64,23 @@ if(isset($_GET['act'])){
         require_once "user/account.php";      
         break;
     default:
-
     require_once "home2.php";
     break;
 }
 
 }else{
+
     require_once "home2.php";
+
 }
-
-
-
 
 require("./layout/layout_1/footer.php");
+
 }
+
+
+
+
 ?>
 
 
