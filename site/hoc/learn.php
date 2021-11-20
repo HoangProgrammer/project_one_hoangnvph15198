@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Document</title>
@@ -9,32 +9,23 @@
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
     <meta name="author" content="CodedThemes"/>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- Favicon icon -->
-   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
     <link rel="icon" href="./../../assets/images/favicon.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="./../../assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="./../../assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="./../../assets/css/style.css">
-    <link rel="stylesheet" href="cours.css">
     
-</head>
+    
+</head> -->
+<!-- <link rel="stylesheet" href="cours.css">
+<body cz-shortcut-listen="true"> -->
 
-<body cz-shortcut-listen="true">
-     <!-- [ Pre-loader ] start -->
-    
-    <!-- [ Pre-loader ] End -->
-    <!-- [ navigation menu ] start -->
-    <nav class="pcoded-navbar">
+    <!-- <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
             <div class="navbar-brand header-logo">
                 <a href="index.html" class="b-brand">
                     <div class="b-bg" style="background-color: azure;">
-                        <!-- <i class="feather icon-trending-up"></i> -->
+                      
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>
                     </div>
                     <span class="b-title">Datta Able</span>
@@ -42,16 +33,7 @@
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
             
-            <!-- <div class="navbar-brand header-logo">
-                <a href="index.html" class="b-brand">
-                    <div class="b-bg" style="background-color: azure;">
-                       
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>
-                    </div>
-                    <span class="b-title">Datta Able</span>
-                </a>
-                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-            </div> -->
+       
 
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);"><div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
                 <ul class="nav pcoded-inner-navbar">
@@ -116,11 +98,7 @@
             </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.5); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 683.2px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
         </div>
     </nav>
-<!-- [ navigation menu ] end -->
 
-
-
-    <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
@@ -140,7 +118,7 @@
                 <li class="nav-item dropdown">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>
                     <span>welcome to Nguyễn Mạnh Quân</span>
-                    <!-- <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown">Dropdown</a> -->
+             
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="javascript:">Action</a></li>
                         <li><a class="dropdown-item" href="javascript:">Another action</a></li>
@@ -247,26 +225,27 @@
             </ul>
         </div>
     </header>
+     -->
     <div class="pcoded-main-container ">
         
             <div class="pcoded-main-container-lesson">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DUw9-LcNghI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/teaUwHpmTbY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         <div class="pcoded-main-note">
             <ul class="pcoded-main-container-tab">
                 <li class="pcoded-main-container-tab-item">
                     <a href="#">Tổng quan</a>
                 </li>
-                <li class="pcoded-main-container-tab-item">
+                <!-- <li class="pcoded-main-container-tab-item">
                     <a href="#">Ghi chú</a>
                 </li>
                 <li class="pcoded-main-container-tab-item">
                     <a href="#">Liên quan</a>
-                </li>
+                </li> -->
             </ul>
             <div class="pcoded-main-container-tab-text">
-                <p>Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️</p>
-                <p>Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️</p>
+                <!-- <p>Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️</p>
+                <p>Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️</p> -->
             </div>
             <div class="pcoded-main-container-tab-cmt">
                 <h3 class="pcoded-main-container-tab-cmt-title">30 hỏi đáp</h3>
@@ -281,7 +260,7 @@
                 </form>
                 <div class="container-tab-cmt-ask">
                     <div class="container-tab-cmt-ask-img">
-                        <img src="../assets/images/logo-thumb.png" alt="">
+                        <img src="./assets/images/logo-thumb.png" alt="">
                     </div>
                     <div class="container-tab-cmt-ask-text">
                         <span>lú như con cú</span>
@@ -291,6 +270,7 @@
         </div>
 
     </div>
+    
     <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
         <div class="course-lesson__footer">
             <div class="course-lesson__footer-left">
@@ -347,13 +327,13 @@
             }
         }
     </script>
-    <script src="./../../assets/js/vendor-all.min.js"></script>
-	<script src="./../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./../../assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
+    <script src="./assets/js/vendor-all.min.js"></script>
+	<script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-</body>
-</html>
+<!-- </body>
+</html> -->

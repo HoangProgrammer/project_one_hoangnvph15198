@@ -1,12 +1,10 @@
 <?php
-// session_start();
+session_start();
     include_once "./../../models/pdo.php";
 ?>
 <?php
 $conn=connect(); 
-    if(isset($_POST['login'])){
-
-        
+    if(isset($_POST['login'])){  
         if($_POST['name_user'] != "" && $_POST['pass_user'] != ""){
             $name_user = $_POST['name_user'];
             $pass = $_POST['pass_user'];
@@ -22,11 +20,11 @@ $conn=connect();
                 $row = $result -> fetch();
                 if($row['role'] == 0){
                     $_SESSION['name_user'] = $name_user;
-                    header('Location:index.php');
+                    header('Location:../../index.php');
                 }
                 else{
                     $_SESSION['name_user'] = $name_user;
-                    header('Location:site/index.php');
+                    header('Location:../../index.php');
                 }
             }
 
@@ -42,13 +40,7 @@ $conn=connect();
 
 <head>
     <title>Datta Able Free Bootstrap 4 Admin Template</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-    <!-- Meta -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -98,7 +90,7 @@ $conn=connect();
                     </div>
                     <button name="login" class="btn btn-primary shadow-2 mb-4">Login</button>
                     <div class="input-group mb-3">
-                    <?php if(isset($error)) echo $error; ?>
+                    <?php if(isset($error)) echo "<p class='text-danger'> $error </p>"; ?>
                     </div>
                     <p class="mb-2 text-muted">Forgot password? <a href="auth-reset-password.html">Reset</a></p>
                     <p class="mb-0 text-muted">Don’t have an account? <a href="sign_up.php">Signup</a></p>

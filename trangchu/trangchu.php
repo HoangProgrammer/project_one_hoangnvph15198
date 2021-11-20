@@ -105,11 +105,7 @@
                 </div>
                 <div class="header__right">
                     <div class="btnn btn--header">
-<<<<<<< HEAD
-                        <a href="./site/login/sign_in.php">
-=======
                         <a href="site/login/sign_in.php">
->>>>>>> dc8d89b7423729669b19add1403c566cac7cf037
                             Login
                         </a>
                     </div>
