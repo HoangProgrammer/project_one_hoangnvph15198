@@ -33,11 +33,11 @@
         <div class="navbar-wrapper">
             <div class="navbar-brand header-logo">
                 <a href="index.html" class="b-brand">
-                    <div class="b-bg" style="background-color: azure;">
+                    <div class="b-bg">
                         <!-- <i class="feather icon-trending-up"></i> -->
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>
                     </div>
-                    <span class="b-title">Datta Able</span>
+                    <span class="b-title">Bussu</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -65,25 +65,6 @@
                         </a>
                         <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
                             <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                <a href="tbl_bootstrap.html" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
-                                    </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập 1</span>
-                                </a>
-                            </li>
-                        </ul>
-                        
-                    </li>        
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
-                        <a href="#" class="nav-link ">
-                            <span class="pcoded-micon">
-                                <i class="feather icon-home"></i>
-                            </span>
-                            <span class="pcoded-mtext">Phần 1</span>
-                        </a>
-                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
                                 <a href="exercise_cours.php" class="nav-link ">
                                     <span class="pcoded-micon">
                                         
@@ -93,25 +74,7 @@
                             </li>
                         </ul>
                         
-                    </li>        
-                    
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Blog</span></a>
-                    </li>
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext">Từ điển</span></a>
-                    </li>
-                    
-                    <li data-username="Maps Google" class="nav-item"><a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a></li>
-                    
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                            <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
-                        </ul>
-                    </li>
-                    <li data-username="Disabled Menu" class="nav-item disabled"><a href="javascript:" class="nav-link"><span class="pcoded-micon"><i class="feather icon-power"></i></span><span class="pcoded-mtext">Disabled menu</span></a></li>
+                    </li> 
                 </ul>
             </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.5); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 683.2px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
         </div>
@@ -128,7 +91,7 @@
                    <div class="b-bg">
                        <i class="feather icon-trending-up"></i>
                    </div>
-                   <span class="b-title">Datta Able</span>
+                   <span class="b-title">Bussu</span>
                </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -136,7 +99,6 @@
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
                 <li class="nav-item dropdown">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>
                     <span>welcome to Nguyễn Mạnh Quân</span>
@@ -249,8 +211,9 @@
     </header>
     <div class="pcoded-main-container ">
         
-            <div class="pcoded-main-container-lesson">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DUw9-LcNghI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="container_lesson">
+                <div class="pcoded-main-container-lesson">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/KF4zd2hb2nk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                </div>
             </div>
         <div class="pcoded-main-note">
             <ul class="pcoded-main-container-tab">

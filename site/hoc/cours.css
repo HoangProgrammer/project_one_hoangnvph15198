@@ -247,12 +247,13 @@ li{
 
 /* learn-courses */
 .pcoded-main-note{
-    width: 88%;
+    width: 70%;
     height: auto;
     margin: auto;
 }
 .pcoded-main-container-lesson{
-    width: 100%;
+    width: 70%;
+    margin: auto;
     height: 620px;
     /* padding: 10px 10px; */
     background-color: blanchedalmond;
@@ -417,4 +418,9 @@ li{
     border-bottom: 2px solid #4692fd;
     font-size: 16px;
     font-weight: bold;
+}
+
+.container_lesson{
+    width: 100%;
+    background-color: black;
 }

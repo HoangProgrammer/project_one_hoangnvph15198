@@ -1,4 +1,5 @@
-<?php  require_once "./layout/layout_1/slider.php" ;
+<?php 
+//  require_once "./layout/layout_1/slider.php" ;
 
 
 ?>

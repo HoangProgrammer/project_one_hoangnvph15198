@@ -1,5 +1,6 @@
 <?php
 $menu=Get_menu();
+session_destroy();
 
 // if(!isset($_SESSION['user'])){
     
