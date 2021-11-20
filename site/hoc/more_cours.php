@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Favicon icon -->
-   
     <link rel="icon" href="./../../assets/images/favicon.ico" type="image/x-icon">
     <!-- fontawesome icon -->
     <link rel="stylesheet" href="./../../assets/fonts/fontawesome/css/fontawesome-all.min.css">
@@ -21,7 +19,7 @@
     <!-- vendor css -->
     <link rel="stylesheet" href="./../../assets/css/style.css">
     <link rel="stylesheet" href="cours.css">
-    
+    <title>Document</title>
 </head>
 
 <body cz-shortcut-listen="true">
@@ -41,58 +39,11 @@
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
-            
-            <!-- <div class="navbar-brand header-logo">
-                <a href="index.html" class="b-brand">
-                    <div class="b-bg" style="background-color: azure;">
-                       
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="white"></path><path d="M15.8045 10.9829C19.1314 10.988 21.1098 13.4565 21.1073 16.4965C21.1022 19.5391 19.1213 22.0026 15.7918 22L7.47431 21.9873C5.51367 21.9873 4.00256 20.428 4.00256 18.3378L4.01272 10.9677L15.8045 10.9829Z" fill="#116EEE" fill-opacity="0.5"></path><path d="M13.0311 2.01017L8.59428 2.00001C6.0673 1.99493 4.01524 4.03937 4.0127 6.56635L4 17.6647C4 17.6749 4.3454 13.1695 13.0184 13.1695C16.099 13.1721 18.6006 10.6781 18.6057 7.59492C18.6082 4.51429 16.1143 2.01271 13.0311 2.01017Z" fill="white"></path></svg>
-                    </div>
-                    <span class="b-title">Datta Able</span>
-                </a>
-                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-            </div> -->
-
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);"><div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
                 <ul class="nav pcoded-inner-navbar">
                     
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
-                        <a href="#" class="nav-link ">
-                            <span class="pcoded-micon">
-                                <i class="feather icon-home"></i>
-                            </span>
-                            <span class="pcoded-mtext">Phần 1</span>
-                        </a>
-                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                <a href="tbl_bootstrap.html" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
-                                    </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập 1</span>
-                                </a>
-                            </li>
-                        </ul>
-                        
-                    </li>        
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
-                        <a href="#" class="nav-link ">
-                            <span class="pcoded-micon">
-                                <i class="feather icon-home"></i>
-                            </span>
-                            <span class="pcoded-mtext">Phần 1</span>
-                        </a>
-                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                <a href="exercise_cours.php" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
-                                    </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập 1</span>
-                                </a>
-                            </li>
-                        </ul>
-                        
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
+                        <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Khóa học</span></a>
                     </li>        
                     
                     <li data-username="Table bootstrap datatable footable" class="nav-item">
@@ -224,7 +175,7 @@
                         
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="./../../assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="../assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>John Doe</span>
                                 <a href="auth-signin.html" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
@@ -241,55 +192,172 @@
                 </li>
                 <li>
                     <div class="pro-head" >
-                        <img src="./../../assets/images/user/avatar-1.jpg" width="50px" class="img-radius" alt="User-Profile-Image">
+                        <img src="../assets/images/user/avatar-1.jpg" width="50px" class="img-radius" alt="User-Profile-Image">
                     </div>
                 </li>
             </ul>
         </div>
     </header>
-    <div class="pcoded-main-container ">
-        
-            <div class="pcoded-main-container-lesson">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DUw9-LcNghI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        <div class="pcoded-main-note">
-            <ul class="pcoded-main-container-tab">
-                <li class="pcoded-main-container-tab-item">
-                    <a href="#">Tổng quan</a>
-                </li>
-                <li class="pcoded-main-container-tab-item">
-                    <a href="#">Ghi chú</a>
-                </li>
-                <li class="pcoded-main-container-tab-item">
-                    <a href="#">Liên quan</a>
-                </li>
-            </ul>
-            <div class="pcoded-main-container-tab-text">
-                <p>Tham gia nhóm Học lập trình tại F8 trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️</p>
-                <p>Các bạn subscribe kênh Youtube F8 Official để nhận thông báo khi có các bài học mới nhé ❤️</p>
-            </div>
-            <div class="pcoded-main-container-tab-cmt">
-                <h3 class="pcoded-main-container-tab-cmt-title">30 hỏi đáp</h3>
-                <form class="container-tab-cmt-ask" action="">
-                    <div class="container-tab-cmt-ask-img">
-                        <img src="../assets/images/logo-thumb.png" alt="">
+    <div class="pcoded-main-container">
+        <div class="pcoded-module">
+            <div class="pcoded-module-left">
+                <div class="pcoded-module-left-title">
+                    <h3>Kiến Thức Nhập Môn</h3>
+                    <span>Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.</span>
+                </div>
+                <div class="pcoded-module-left-content">
+                    <h3>Bạn sẽ học được gì</h3>
+                </div>
+                <ul class="pcoded-module-left-description">
+                    <li class="pcoded-module-left-description-item">
+                        <i class="fas fa-check"></i>
+                        <span>Các kiến thức cơ bản, nền móng của ngành IT</span>
+                    </li>
+                    <li class="pcoded-module-left-description-item">
+                        <i class="fas fa-check"></i>
+                        <span>Các kiến thức cơ bản, nền móng của ngành IT</span>
+                    </li>
+                    <li class="pcoded-module-left-description-item">
+                        <i class="fas fa-check"></i>
+                        <span>Các mô hình, kiến trúc cơ bản khi triển khai ứng dụng Tiếng Anh</span>
+                    </li>
+                    <li class="pcoded-module-left-description-item">
+                        <i class="fas fa-check"></i>
+                        <span>Các kiến thức cơ bản, nền móng của ngành IT</span>
+                    </li>
+                    
+                </ul>
+                <div>
+                    <div class="pcoded-module-left-content">
+                        <h3>Nội dung khóa học</h3>
                     </div>
-                    <div class="container-tab-cmt-ask-text">
-                        <input type="text" placeholder="Bạn có thắc mắc gì trong bài học này">
+                    <ul class="pcoded-module-left-time">
+                        <li>
+                            <span>4 phần  .</span>
+                        </li>
+                        <li>
+                            <span>8 bài học  .</span>
+                        </li>
+                        <li>
+                            <span>Thời lượng 02 giờ 15 phút</span>
+                        </li>
+                    </ul>
+                    <div>
+                   
+                    <div class="pcoded-module-left-noidung">
+                        <div class="pcoded-module-left-noidung-item">
+                            <i class="fas fa-plus"></i>
+                            <div class="pcoded-module-left-noidung-item-name">
+                                <span>1. Khái niệm kỹ thuật cần biết</span>
+                            </div>
+                            <div>
+                                <span>2 bài học</span>
+                            </div>
+                        </div>
+                        <div class="course-lesson__body" >
+                            <div class="course-lesson__body-item">
+                                <a href="" class="course-lesson__body-item-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>1. What is your name</span>
+                                </a>
+                            </div>
+                            <div class="course-lesson__body-item">
+                                <a href="" class="course-lesson__body-item-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>2. My name is Quân</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Bình luận</button>
-                </form>
-                <div class="container-tab-cmt-ask">
-                    <div class="container-tab-cmt-ask-img">
-                        <img src="../assets/images/logo-thumb.png" alt="">
+
+                    <div class="pcoded-module-left-noidung">
+                        <div class="pcoded-module-left-noidung-item">
+                            <i class="fas fa-plus"></i>
+                            <div class="pcoded-module-left-noidung-item-name">
+                                <span>2. Phương pháp học tập</span>
+                            </div>
+                            <div>
+                                <span>2 bài học</span>
+                            </div>
+                        </div>
+                        <div class="course-lesson__body" >
+                            <div class="course-lesson__body-item">
+                                <a href="" class="course-lesson__body-item-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>1. What is your name</span>
+                                </a>
+                            </div>
+                            <div class="course-lesson__body-item">
+                                <a href="" class="course-lesson__body-item-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>2. My name is Quân</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="container-tab-cmt-ask-text">
-                        <span>lú như con cú</span>
+                    <div class="pcoded-module-left-noidung">
+                        <div class="pcoded-module-left-noidung-item">
+                            <i class="fas fa-plus"></i>
+                            <div class="pcoded-module-left-noidung-item-name">
+                                <span>3. Tư duy phát triển</span>
+                            </div>
+                            <div>
+                                <span>2 bài học</span>
+                            </div>
+                        </div>
+                        <div class="course-lesson__body" >
+                            <div class="course-lesson__body-item">
+                                <a href="" class="course-lesson__body-item-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>1. What is your name</span>
+                                </a>
+                            </div>
+                            <div class="course-lesson__body-item">
+                                <a href="" class="course-lesson__body-item-title">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>2. My name is Quân</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                </div>
+            </div>
+            <div class="pcoded-module-right">
+                <div class="pcoded-module-right-video">
+                    <iframe class="pcoded-module-right-video-english" src="https://www.youtube.com/embed/gvtKHz7MWpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+                <div class="pcoded-module-right-money">
+                    <h3>Giảm: 550k</h3>
+                </div>
+                <form class="pcoded-module-right-add" action="">
+                    <button type="submit" class="btn btn-primary">Đăng ký học</button>
+                </form>
+                <div class="pcoded-module-right-parameter">
+                    <ul class="pcoded-module-right-parameter-item">
+                        <li>
+                            <i class="fas fa-feather"></i>
+                            <span>Trình độ cơ bản</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-film"></i>
+                            <span>Tổng số 8 bài học</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Thời lượng 02 giờ 15 phút</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-pied-piper"></i>
+                            <span>Học mọi lúc, mọi nơi</span>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
         </div>
-
+        
     </div>
     <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
         <div class="course-lesson__footer">
@@ -307,49 +375,29 @@
             </div>
         </div>
     </footer>
-    <script>
-        
-        var menu = document.querySelector('.mobile-menu');
-        var baitap = document.querySelectorAll('.baitap1');
-        var dem = 0;
-        menu.onclick = function(e){
-            dem++;
-        for(let i=0; i < baitap.length; i++){
-            
-                if(dem % 2 ==0){
-                    baitap[i].style.display = "block";
-                    // baitap[i].classList.add('baitap');
-                    
-                }
-                else{
-                    baitap[i].style.display = "none";
-                    
-                }
+<script>
+    var pcoded = document.querySelectorAll('.pcoded-module-left-noidung');
+    var course = document.querySelectorAll('.course-lesson__body');
+    var dem = 0;
+    for(let i=0; i < pcoded.length; i++){
+        pcoded[i].onclick = function(e){
+            if(dem % 2 ==0){
+                course[i].style.display = "block";
+                dem++;
+            }
+            else{
+                course[i].style.display = "none";
+                dem++;
             }
         }
+    }
+</script>
 
-        
-        var inner = document.querySelectorAll('.menu_item');
-        var baitap = document.querySelectorAll('.baitap1');
-        var dem = 0;
-        for(let i=0; i < inner.length; i++){
-            inner[i].onclick = function(e){
-                if(dem % 2 ==0){
-                    // baitap[i].classList.add('baitap');
-                    baitap[i].style.display = "block";
-                    
-                    dem++;
-                }
-                else{
-                    baitap[i].style.display = "none";
-                    dem++;
-                }
-            }
-        }
-    </script>
-    <script src="./../../assets/js/vendor-all.min.js"></script>
-	<script src="./../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./../../assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
+
+
+    <script src="../assets/js/vendor-all.min.js"></script>
+	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
 
 
 

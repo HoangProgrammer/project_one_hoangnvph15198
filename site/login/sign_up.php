@@ -3,7 +3,7 @@
 ?>
 <?php
     $conn=connect();
-    $error ="123";
+    $error ="";
     if(isset($_POST['sign_up'])){
 
         if($_POST['name_user'] != "" && $_POST['email_user'] != "" && $_POST['pass_user'] != "" && $_POST['check_pass_user'] != "" ){
@@ -105,11 +105,12 @@
                         </div>
                     </div>
                     <button name="sign_up" class="btn btn-primary shadow-2 mb-4">Sign up</button>
-                    <p class="mb-0 text-muted">Allready have an account? <a href="auth-signin.html"> Log in</a></p>
-                </form>
-                <div class="input-group mb-4">
+                    <div class="input-group mb-4">
                         <?php if(isset($error)) echo $error; ?>
                     </div>
+                    <p class="mb-0 text-muted">Allready have an account? <a href="sign_in.php"> Log in</a></p>
+                </form>
+                
             </div>
         </div>
     </div>

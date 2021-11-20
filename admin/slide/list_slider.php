@@ -1,24 +1,24 @@
 
 
 <?php
- $db=data();
- if(isset($_GET['page']) && $_GET['page'] >= 1){
-   $page=$_GET['page'];
- }else{
-   $page=1;
- }
-$number=5;
-$preRow= $page*$number-$number; 
-$sql="SELECT * FROM slider   limit $preRow,$number";
 
- $statement = $db->prepare($sql);
- $statement->execute();
+//  if(isset($_GET['page']) && $_GET['page'] >= 1){
+//    $page=$_GET['page'];
+//  }else{
+//    $page=1;
+//  }
+// $number=5;
+// $preRow= $page*$number-$number; 
+// $sql="SELECT * FROM slider   limit $preRow,$number";
 
- $query= "SELECT * FROM slider ";
- $stmt= $db->prepare( $query);
-  $stmt->execute();
-$total_page= $stmt->rowCount();
-$total_row=ceil($total_page/$number);
+//  $statement = $db->prepare($sql);
+//  $statement->execute();
+
+//  $query= "SELECT * FROM slider ";
+//  $stmt= $db->prepare( $query);
+//   $stmt->execute();
+// $total_page= $stmt->rowCount();
+// $total_row=ceil($total_page/$number);
 
 ?>
 
@@ -34,32 +34,32 @@ $total_row=ceil($total_page/$number);
 		<button class="btn-form">    <i class="fa fa-search search-icon"></i>	 </button>	
 		</form>
 </div>
+
 <?php require_once("nav_login.php") ?>
 
-<table class="table table-striped table-bordered">
+<table class="">
         <thead>
             <tr>
-        <th>id slider </th>
-        <th>anh slider</th>
-        <th><a href="index.php?action=create_slide">thêm slide</a></th>
+        <th scope="col" class="text-dark" >stt</th>
+        <th scope="col" class="text-dark">anh</th>
+        <th scope="col" class="text-dark">loai</th>
+        <th scope="col" class="text-dark"><a href="index.php?action=create_slide">thêm slide</a></th>
     
          </tr>
         </thead>
 
         <tbody>
 <?php
-while(true){
-    $row= $statement->fetch();
-    if($row==false){
-        break;
-    }
-    extract($row);
+$count=0;
+foreach($banner as $value){
+  extract($value)
     ?>
 <tr>
-<th><?=$slider_id   ?></th>
-<th><img width="200px" src="../img/<?=$slider_image ?>" alt=""></th>
- <td> <a href="index.php?action=sua_slider&id=<?=$slider_id  ?>">sửa</a></td>
- <td> <a onclick=" return confirm('bạn có muốn xóa không ?')" href="index.php?action=xoa_slider&id=<?=$slider_id  ?>">xóa</a></td>
+<th><?=$count+=1 ?></th>
+<th><img width="200px" src="../image/<?=$image ?>" alt=""></th>
+<th><?=$type?></th>
+ <td> <a class="btn btn-warning"href="index.php?action=update_slider&id_banner=<?=$id_banner  ?>">sửa</a>
+<a class="delete btn btn-danger" href="index.php?action=xoa_slider&id_banner=<?=$id_banner  ?>">xóa</a></td>
 </tr>
 
 <?php } ?>
@@ -68,7 +68,12 @@ while(true){
     </table>
 
 <!-- pagination -->
-<nav aria-label="Page navigation example">
+
+
+</div>
+</div>
+
+<!-- <nav aria-label="Page navigation example">
   <ul class="pagination">
     <?php  if($page == 1){
       }else{?>
@@ -83,7 +88,7 @@ while(true){
       </a>
     </li>
     <?php } ?>
-    <!-- chạy vòng lặp -->
+ 
   <?php 
   for ($i=1; $i <= $total_row; $i++) { ?>
    <?php if($page == $i){?>
@@ -94,7 +99,7 @@ while(true){
   <?php  }?>
    
  <?php } ?>
-  <!--  -->
+
  <?php 
 
  if($page==$total_row){
@@ -113,8 +118,4 @@ while(true){
 <?php  }?>
 
   </ul>
-</nav>
-
-</div>
-</div>
-
+</nav> -->

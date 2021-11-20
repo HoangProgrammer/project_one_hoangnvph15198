@@ -1,35 +1,35 @@
 
 <?php 
-if(isset($_GET['id'])){
-   $id=$_GET['id']; 
 
-   $stmt=GetData_slider_id($id);
-foreach($stmt as $value){
-$id_slide=$value['slider_id'];
-$slider_image=$value['slider_image'];
+
+foreach( $banner as $value){
+$id_slide=$value['id_banner'];
+$slider_image=$value['image'];
+$type=$value['type'];
 }
-}
+
 ?>
 
 <div id="main">
 <div class="head">
     <div class="col-div-6">
-<p class="nav"> SỬA slider</p>
+<p class="nav"> SỬA Banner</p>
 </div>
 <br>
 
-<form  action="index.php?action=update_slider" method="post" enctype="multipart/form-data">
-
-<input name="id" type="hidden" value="<?= $id ?>">
+<form  action="index.php?action=sua_slider" method="post" enctype="multipart/form-data">
 <div class="mb-3">
-<label class="form-label" for="">ảnh sản phẩm</label>
+
 <input class="form-control" name="image" type="file">
-<input class="form-control" value="<?=$id_slide?>" name="id_slide" type="hidden">
+<input class="form-control" value="<?=$id_slide?>" name="id" type="hidden">
 <br>
-<img width="500px" src="../img/<?=$slider_image?>" alt="">
+<img width="500px" src="../image/<?=$slider_image?>" alt="">
 </div>
-
-
+<div class="mb-3">
+<label for=""><h6>Loại</h6></label> <br>
+loại 1 <input  type="radio" name="type" value="0" <?php  if($type=="0"){echo "checked";}else{} ?>> <br>
+loại 2 <input type="radio" name="type" value="1" <?php  if($type=="1"){echo "checked";}else{} ?>>
+</div>
 <button class="btn btn-primary" name="update_btn"> update</button>
 
 <a href="category.php">quay lại</a>

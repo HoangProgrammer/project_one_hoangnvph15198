@@ -72,7 +72,6 @@ require("./layout/layout_1/footer.php");
 
 
 
-
 ?>
 
 
