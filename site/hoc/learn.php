@@ -87,7 +87,6 @@ foreach($getAll_topic as $val){
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
                 <li class="nav-item dropdown">
                     <h3 class="text-primary">Chủ Đề <?=  $nameTopic ?></h3>
                 </li>

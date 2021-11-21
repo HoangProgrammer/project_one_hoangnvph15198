@@ -11,21 +11,13 @@
     </div>
 
       <?php
-      $error=true;
                              $id_user;
                            $Get_oderCourse=Get_oderCourse();
                            
                              foreach ($Get_oderCourse as $value){   
-                                 $id_users=$value['id_user'];  
-                                  if(  $id_users !=$id_user){  
-                                      $error=false;
-                                   }else{
-                                    $error=true;  
-                                   }                    
-                           }   
-
-                           
-                           if($error==false){     
+                                 $id_users=$value['id_user'];                        
+                          } 
+                                if(  $id_users !=$id_user){
 
                              }else{ ?>
 
@@ -94,7 +86,8 @@
                              foreach ($course as $key=> $values):
                             if(  $values['id_caurse']== $value['id_caurse']  && $values['type']==1){
                                  $other_id= $values['id_caurse'];
-                          
+ 
+                                
                                     }    
                                   endforeach;    
 endif; endforeach;
