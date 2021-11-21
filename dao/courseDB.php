@@ -18,6 +18,28 @@ while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
 return $rows;
 }
 
+
+function Get_other_course($id){
+$conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM course where id_caurse <> ? ");
+    $stmt->execute([$id]);
+    $rows=array();
+      while(true){
+           $row=$stmt->fetch(\PDO::FETCH_ASSOC);
+          if($row==false){
+              break;
+          }        
+    $rows[]=$row;
+
+return $rows;
+}
+
+    
+
+
+}
+
+
 function insert_into($data){
  
 $conn=connect();

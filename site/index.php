@@ -1,20 +1,22 @@
 <?php
-
+if(isset($_SESSION['name_user'])){
+  $id_user=$_SESSION['name_user']["id"];
+  
+  }
+  
 if(!isset($_SESSION['name_user'])){
 require_once('trangchu/trangchu.php');
 }else{
-
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
         case "learn":    
-            require("./layout/layout2/nav.php") ;
+            // require("./layout/layout2/nav.php") ;
             break;
             default:
             require("./layout/layout_1/nav.php") ;
             break;
     }
-
 
 }else{
 
@@ -48,10 +50,15 @@ if(isset($_GET['act'])){
     case "detail_blog":      
         require_once "forum/detail_blog.php";      
         break;
-    case "learn":               
+    case "learn":     
         require_once "hoc/learn.php";      
         break;
-    case "detail_course":               
+    case "detail_course":   
+        if(isset($_GET['id_course']))   {
+            $id_course= $_GET['id_course'];
+            $getAll_topic=getAll_topic( $id_course);
+        }      
+
         require_once "hoc/more_cours.php";      
         break;
     case "quiz":               

@@ -1,6 +1,6 @@
 <?php
 session_start();
-    include_once "./../../models/pdo.php";
+    require_once "./../../models/pdo.php";
 ?>
 <?php
 $conn=connect(); 
@@ -18,12 +18,18 @@ $conn=connect();
             $number_of_rows = $result->rowCount(); 
             if($number_of_rows == 1){
                 $row = $result -> fetch();
+                     $dataUser=[
+                        "id"=>$row['id_user'],
+                        "user_name"=>$row['ten_user'],
+                    ];
                 if($row['role'] == 0){
-                    $_SESSION['name_user'] = $name_user;
+                    $_SESSION['name_user'] = $dataUser;
+               
                     header('Location:../../index.php');
+                  
                 }
-                else{
-                    $_SESSION['name_user'] = $name_user;
+                else{                  
+                    $_SESSION['name_user'] = $dataUser;
                     header('Location:../../index.php');
                 }
             }

@@ -2,9 +2,9 @@
     <div class="pcoded-main-container">
         <div class="pcoded-module">
             <div class="pcoded-module-left">
-                <div class="pcoded-module-left-title">
+                <!-- <div class="pcoded-module-left-title">
                     <h3>Những Kiến Thức và bài giảng</h3>
-                    <!-- <span>Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.</span> -->
+                    <span>Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.</span>
                 </div>
                 <div class="pcoded-module-left-content">
                     <h3>Bạn sẽ học được gì</h3>
@@ -27,12 +27,13 @@
                         <span>Các kiến thức cơ bản,tập làm quen với tiếng anh</span>
                     </li>
                     
-                </ul>
+                </ul> -->
+
                 <div>
                     <div class="pcoded-module-left-content">
                         <h3>Nội dung khóa học</h3>
                     </div>
-                    <ul class="pcoded-module-left-time">
+                    <!-- <ul class="pcoded-module-left-time">
                         <li>
                             <span>4 phần  .</span>
                         </li>
@@ -42,98 +43,87 @@
                         <li>
                             <span>Thời lượng 02 giờ 15 phút</span>
                         </li>
-                    </ul>
-                    <div>
-                   
-                    <div class="pcoded-module-left-noidung">
-                        <div class="pcoded-module-left-noidung-item">
-                            <i class="fas fa-plus"></i>
-                            <div class="pcoded-module-left-noidung-item-name">
-                                <span>1. Chủ đề Xã Hội</span>
-                            </div>
-                            <div>
-                                <span>2 bài học</span>
-                            </div>
-                        </div>
-                        <div class="course-lesson__body" >
-                            <div class="course-lesson__body-item">
-                                <a href="" class="course-lesson__body-item-title">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>1. What is your name</span>
-                                </a>
-                            </div>
-                            <div class="course-lesson__body-item">
-                                <a href="" class="course-lesson__body-item-title">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>2. My name is Quân</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </ul> -->
 
+                    <div>
+                   <?php
+               if(empty($getAll_topic)){?>
+             
+                   <img width="100%" src="image/erro.png" alt="">
+            
+                 
+           <?php }else{ ?>
+
+              <?php
+                   foreach ( $getAll_topic as $val): extract($val);
+                   $get_lesson =getAll_lesson($id_lesson_topics); 
+                   $sumLesson=0;
+                   foreach($get_lesson as $val){  $sumLesson +=1;  }?>
                     <div class="pcoded-module-left-noidung">
+
                         <div class="pcoded-module-left-noidung-item">
+
                             <i class="fas fa-plus"></i>
+                           
                             <div class="pcoded-module-left-noidung-item-name">
-                                <span>2. học theo mô hình</span>
+                                <span><?=$topicName ?></span>
                             </div>
+
                             <div>
-                                <span>2 bài học</span>
+                                <span><?=  $sumLesson ?> bài học</span>
                             </div>
+
                         </div>
+                        
+                       
+                       <?php foreach( $get_lesson as $val): extract($val); ?>
                         <div class="course-lesson__body" >
                             <div class="course-lesson__body-item">
-                                <a href="" class="course-lesson__body-item-title">
+                                <a  class="course-lesson__body-item-title">
                                     <i class="fas fa-play-circle"></i>
-                                    <span>1. What is your name</span>
+                                    <span class="text-secondary"><?= $lessonName?></span>
                                 </a>
-                            </div>
-                            <div class="course-lesson__body-item">
-                                <a href="" class="course-lesson__body-item-title">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>2. My name is Quân</span>
-                                </a>
-                            </div>
+                            </div>                      
                         </div>
-                    </div>
-                    <div class="pcoded-module-left-noidung">
-                        <div class="pcoded-module-left-noidung-item">
-                            <i class="fas fa-plus"></i>
-                            <div class="pcoded-module-left-noidung-item-name">
-                                <span>3. Tư duy phát triển</span>
-                            </div>
-                            <div>
-                                <span>2 bài học</span>
-                            </div>
-                        </div>
-                        <div class="course-lesson__body" >
-                            <div class="course-lesson__body-item">
-                                <a href="" class="course-lesson__body-item-title">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>1. What is your name</span>
-                                </a>
-                            </div>
-                            <div class="course-lesson__body-item">
-                                <a href="" class="course-lesson__body-item-title">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>2. My name is Quân</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                        <?php endforeach; ?>            
+ 
+ </div>
+<?php endforeach; ?>
+
+<?php  } ?>
+
                 </div>
                 </div>
             </div>
+
+            <!-- right -->
+<?php $course=Get_course_one($_GET['id_course']);
+foreach(  $course as $val) { ;
+   $price=$val['price'];
+   $type=$val['type'];
+
+}
+?>
             <div class="pcoded-module-right">
                 <div class="pcoded-module-right-video">
                     <iframe class="pcoded-module-right-video-english" src="https://www.youtube.com/embed/gvtKHz7MWpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 </div>
                 <div class="pcoded-module-right-money">
-                    <h3>Miễn Phí</h3>
-                </div>
-                <form class="pcoded-module-right-add" action="">
-<a class="btn btn-primary text-light" href="index.php?act=learn">  học ngay</a>
+                    <h3><?=  $price=( $price==0)?'Miễn Phí':"<h4 class='text-danger'>".number_format($price)." vnd</h4> "?></h3>
+                </div> 
+                <form class="pcoded-module-right-add" action="">    
+        <?php if( $type==1){?>
+            <a class="btn btn-danger text-light" href="index.php?act=buyCourse">  Mua Ngay </a>
+       <?php }else{?>
+   <a class="btn btn-primary text-light" href="index.php?act=learn&idTopic=<?=$id_lesson_topics ?>">  học ngay </a>     
+   <?php } ?>
+        
+
+ 
+        <!-- <a class="btn btn-danger text-light" href="index.php?act=buyCourse "> Mua ngay </a> -->
+       
+
                 </form>
                 <div class="pcoded-module-right-parameter">
                     <ul class="pcoded-module-right-parameter-item">
@@ -177,19 +167,26 @@
         </div>
     </footer>
 <script>
-    var pcoded = document.querySelectorAll('.pcoded-module-left-noidung');
+
+    $('.course-lesson__body').slideDown();
+ 
+    var pcoded = document.querySelectorAll('.pcoded-module-left-noidung-item');
     var course = document.querySelectorAll('.course-lesson__body');
     var dem = 0;
-    for(let i=0; i < pcoded.length; i++){
-        pcoded[i].onclick = function(e){
-            if(dem % 2 ==0){
-                course[i].style.display = "block";
-                dem++;
-            }
-            else{
+
+
+    for(let i=0; i <= pcoded.length; i++){ 
+        pcoded[i].onclick = function(e){ 
+            dem++;
+             for(let i=0; i < course.length; i++) {
+            if(dem % 2 ==0){           
+  course[i].style.display = "block";         
+            } else{
                 course[i].style.display = "none";
-                dem++;
+              
             }
+           
+        }
         }
     }
 </script>
