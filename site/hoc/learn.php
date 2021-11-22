@@ -33,33 +33,50 @@
             </div>
             
        
-
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);"><div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
                 <ul class="nav pcoded-inner-navbar">
                  <?php
-                   if(isset($_GET['idTopic']))   {
-                    $id= $_GET['idTopic'];
-                    $get_lesson =getAll_lesson($id); 
+                   if(isset($_GET['idCourse']))   {
+                    $id= $_GET['idCourse'];
+                    $getAll_topic =getAll_topic($id); 
                 }    
-                 foreach(  $get_lesson as $val) : extract($val);$video ?>   
+                 foreach(  $getAll_topic as $val) : extract($val);?>   
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
                         <a href="#" class="nav-link ">
                             <span class="pcoded-micon">
                             <i class="fas fa-circle " style="color:blue"></i>
                             </span>
-                            <span class="pcoded-mtext"><?=$lessonName?></span>
+                            <span class="pcoded-mtext"><?=$topicName?></span>
                         </a>
+                        <?php 
+                        
+                        $getAll_lesson=getAll_lesson($id_lesson_topics);
+                        foreach($getAll_lesson as $val) : extract($val); ?>   
+                        
+                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1 btn-secondary">
+                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
+                                 <a href="index.php?act=learn&idCourse=12&id_learn=<?=$id_lesson?>" class="nav-link ">
+                                    <span class="pcoded-micon">                                 
+                                    </span>
+                                    <span style="color: white;" class="pcoded-mtext"><?=$lessonName?> </span>
+                                </a>
+                            </li>
+                            </ul>
+ 
                         <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
                             <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                 <a href="site/hoc/exercise_cours.php" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
+                                 <a href="site/hoc/exercise_cours.php?id_learn=<?=$id_lesson?>" class="nav-link ">
+                                    <span class="pcoded-micon">                                
                                     </span>
                                     <span style="color: white;" class="pcoded-mtext">quiz </span>
                                 </a>
                             </li>
                         </ul>
                         
+
+                            
+                        
+                       <?php  endforeach; ?>
                     </li>   
                     <?php endforeach; ?>       
                 </ul>
@@ -67,11 +84,7 @@
             <div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.5); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 683.2px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
         </div>
     </nav>
-<?php  
- $getAll_topic=get_one_topic($id);
-foreach($getAll_topic as $val){
-  $nameTopic=$val['topicName'];
-} ?>
+
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
@@ -88,7 +101,7 @@ foreach($getAll_topic as $val){
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <h3 class="text-primary">Chủ Đề <?=  $nameTopic ?></h3>
+                    <h3 class="text-primary"></h3>
                 </li>
 
                 <li class="nav-item">
@@ -192,22 +205,23 @@ foreach($getAll_topic as $val){
     </header>
 
     
- 
-
-
-
 <!-- video -->
     <div class="pcoded-main-container "> 
             <div class="pcoded-main-container-lesson">
            <?php  
-             foreach(  $get_lesson as $val) : extract($val);
-        $get_lesson= Get_lesson_one($id_lesson );
-        foreach(  $get_lesson as $value) 
-        :?>
-             <?php  endforeach;  endforeach;
-              ?>
-            <iframe width="100%" height="100%" src="" title="YouTube video player" ></iframe>
-          
+           if(isset($_GET['id_learn'])){
+               $id_learns=$_GET['id_learn']; 
+               $get_lesson_id= Get_lesson_one($id_learns); 
+               foreach(  $get_lesson_id as $value) :                   
+               ?>
+  <iframe width="100%" height="100%" src="<?= $value['video']?>" title="YouTube video player" ></iframe>
+        <?php   endforeach;   }else{ 
+             foreach(  $getAll_lesson as $val) : extract($val);
+        $get_lesson= Get_lesson_one($id_lesson);
+        foreach(  $get_lesson as $value) :?>                 
+            <iframe width="100%" height="100%" src="<?=$video?>" title="YouTube video player" ></iframe>
+            <?php  endforeach;  endforeach; }?>
+             
             </div>
         <div class="pcoded-main-note">
             <ul class="pcoded-main-container-tab">

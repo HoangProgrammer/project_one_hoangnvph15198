@@ -27,8 +27,18 @@
 
 if (!isset($_SESSION['name_user'])) {
 } else { ?>
+<?php    
 
+$Get_oderCourse = Get_oderCourse();
+                                $arr=array();
+                                foreach ($Get_oderCourse as $value) {}
+                                    if ($value['id_user'] == $id_user) {}
+                                        $Get_course_one = Get_course_one($value['id_caurse']);
+                                        if(empty($Get_course_one)){
 
+                                        } else{  ?>   
+                                
+                                    
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -42,7 +52,7 @@ if (!isset($_SESSION['name_user'])) {
                                 $id_user;
                                 $Get_oderCourse = Get_oderCourse();
                                 $arr=array();
-                                foreach ($Get_oderCourse as $value) :
+                                foreach ($Get_oderCourse as $value):
                                     if ($value['id_user'] == $id_user) :
                                         $Get_course_one = Get_course_one($value['id_caurse']);
                                         foreach ($Get_course_one as $val) : extract($val); ?>
@@ -53,15 +63,17 @@ if (!isset($_SESSION['name_user'])) {
                                                 <span class="course-english-tile">
                                                     <?= $NameCaurse  ?>
                                                 </span>
-                                                <?php array_push( $arr,$value['id_caurse']) ;?>
+
+                                                <?php 
+                                                array_push( $arr,$value['id_caurse']) ; ?>
                                             </a>
                                 <?php endforeach;
-                                    endif; endforeach; 
+                                    endif; endforeach;  ?>
 
 
                         
-
-                                ?>
+   
+                               
 
                             </div>
                         </div>
@@ -73,80 +85,14 @@ if (!isset($_SESSION['name_user'])) {
 
     </div>
 
-<?php  }    ?>
-
-
-
-<!-- 
-            <div class="pcoded-main-container">
-        <div class="pcoded-wrapper">
-
-            <div class="pcoded-content">
-                <h3 class="pcoded-content-name">Khóa chưa học</h3>
-                <div class="pcoded-inner-content">
-               
-                    <div class="main-body">
-                        <div class="page-wrapper">
-                          
-                            <div class="row">
-
-                            
-                             <?php
-                                $other_id = array();
-
-                                $id_user; // id người dùng
-                                $Get_oderCourse = Get_oderCourse();  // lấy ra giỏ hàng
-                                foreach ($Get_oderCourse as $value) : // duyệ giỏ hàng
-                                    if ($value['id_user'] == $id_user) : // nếu mà  id user trong giỏ = với id_user hiện tại                                   
-                                        $course = Get_caurse();              // lấy ra tất cả khóa học                                                            
-                                        foreach ($course as $key => $values) : // duyệt tất cả khóa học
-                                            if ($values['id_caurse'] == $value['id_caurse']) {   // nếu mà id_khóa học = id khóa học trong giỏ                                                          
-                                                $other_id = [
-                                                    "id" =>  $values['id_caurse']
-                                                ];
-                                                implode(",", $other_id);
-                                            }
-
-                                            $conn = connect();
-                                            $stmt = $conn->prepare("SELECT * FROM course ");
-                                            $stmt->execute();
-                                            $row = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-                                            foreach ($row as $key => $other) {
-                                                if ($other['id_caurse'] == $other_id['id']) {  ?>
-                                                      
-                          
-                       <?php  } else { ?>
-                          <a href="index.php?act=detail_course&id_course=<?= $other['id_caurse'] ?>" class="col-md-6 col-xl-4">
-                                    <div class="card daily-sales course-english">
-                                        <img class="course-english-img" src="image/<?= $other['img'] ?>" alt="">                                     
-                                    </div>
-                                    <span class="course-english-tile" >
-                                        <?= $other['NameCaurse'] ?>
-                                    </span>
-                                </a>  
-                                <?php  }
-                                            }
-                                        endforeach;
-                                    endif;
-                                endforeach;  ?>
-
-                    </div>
-                        </div>
-                    </div>                  
-                </div>
-            </div>
-            </div>          
-            </div> -->
-
-
-
-
+<?php  }      } ?>
+                               
 
 <div class="pcoded-main-container">
     <div class="pcoded-wrapper">
 
         <div class="pcoded-content">
-            <h3 class="pcoded-content-name">Khóa chưa</h3>
+            <h3 class="pcoded-content-name">Khóa Chưa Học</h3>
             <div class="pcoded-inner-content">
 
                 <div class="main-body">

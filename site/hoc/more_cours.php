@@ -76,7 +76,7 @@
                         </div>
                         
                        
-                       <?php foreach( $get_lesson as $val): extract($val); ?>
+                       <?php foreach( $get_lesson as $val): extract($val); $id_lesson ?>
                         <div class="course-lesson__body" >
                             <div class="course-lesson__body-item">
                                 <a  class="course-lesson__body-item-title">
@@ -116,7 +116,7 @@ foreach(  $course as $val) { ;
         <?php if( $type==1){?>
             <a class="btn btn-danger text-light" href="index.php?act=buyCourse">  Mua Ngay </a>
        <?php }else{?>
-   <a class="btn btn-primary text-light" href="index.php?act=learn&idTopic=<?=$id_lesson_topics ?>">  học ngay </a>     
+   <a class="btn btn-primary text-light" href="index.php?act=learn&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
    <?php } ?>
         
 

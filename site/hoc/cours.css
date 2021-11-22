@@ -254,6 +254,7 @@ li{
 .pcoded-main-container-lesson{
     width: 70%;
     margin: auto;
+    overflow: hidden;
     height: 620px;
     /* padding: 10px 10px; */
     background-color: blanchedalmond;
