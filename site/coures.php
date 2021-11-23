@@ -36,11 +36,6 @@
                             <span>New</span> Try live lessons
                         </a>
                     </div>
-                    <div class="btnn btn--header">
-                        <a href="#">
-                            Các khóa học
-                        </a>
-                    </div>
                 </div>
                 <div class="header__right">
                     <div class="btnn btn--header">
