@@ -1,3 +1,11 @@
+<?php
+    require_once './../dao/courseDB.php';
+    $data = Get_caurse();
+    // echo "<pre>";
+    // var_dump($data[0]['description']);die;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +60,7 @@
             <div class="coures">
                 <div class="fillter">
                     <h3>CÁC KHÓA HỌC</h3>
-                    <div class="fillter_coures">
+                    <!-- <div class="fillter_coures">
                         <div class="btn btn-warning" data-text="k1">
                             <span>Khóa học dành cho người mới</span>
                         </div>
@@ -62,114 +70,32 @@
                         <div class="btn btn-warning" data-text="k3">
                             <span>Khóa học dành cho người mới2</span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
+
                 <div class="container_coures">
-                    <div class="coures1 k1">
-                        <a href=""><img src="./../assets/images/slider/Training_2.jpg" alt=""></a>
-                        <div class="info">
-                            <div class="name">
-                                <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
+                    <?php foreach ($data as $key => $value) { ?>
+                    <div class="coures1">
+                            <a href=""><img src="<?php echo $data[$key]['img'] ?>" alt=""></a>
+                            <div class="info">
+                                <div class="name">
+                                    <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
+                                </div>
+                                <div class="coures_info">
+                                    <p><?php echo $data[$key]['description'] ?></p>
+                                </div>
+                                <div class="count_student">
+                                    <p><b>Học viên: 8398</b></p>
+                                </div>
                             </div>
-                            <div class="coures_info">
-                                <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                            </div>
-                            <div class="count_student">
-                                <p><b>Học viên: 8398</b></p>
-                            </div>
-                        </div>
-                        <div class="more">
-                            <span>Xem thêm</span>
-                        </div>
-                    </div>
-                    <div class="coures1 k2">
-                        <a href=""><img src="./../assets/images/slider/Training_2.jpg" alt=""></a>
-                        <div class="info">
-                            <div class="name">
-                                <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                            </div>
-                            <div class="coures_info">
-                                <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                            </div>
-                            <div class="count_student">
-                                <p><b>Học viên: 8398</b></p>
+                            <div class="more">
+                                <span>Xem thêm</span>
                             </div>
                         </div>
-                        <div class="more">
-                            <span>Xem thêm</span>
-                        </div>
-                    </div>
-                    <div class="coures1 k3">
-                        <a href=""><img src="./../assets/images/slider/Training_2.jpg" alt=""></a>
-                        <div class="info">
-                            <div class="name">
-                                <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                            </div>
-                            <div class="coures_info">
-                                <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                            </div>
-                            <div class="count_student">
-                                <p><b>Học viên: 8398</b></p>
-                            </div>
-                        </div>
-                        <div class="more">
-                            <span>Xem thêm</span>
-                        </div>
-                    </div>
-                    <div class="coures1 k3">
-                        <a href=""><img src="./../assets/images/slider/Training_2.jpg" alt=""></a>
-                        <div class="info">
-                            <div class="name">
-                                <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                            </div>
-                            <div class="coures_info">
-                                <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                            </div>
-                            <div class="count_student">
-                                <p><b>Học viên: 8398</b></p>
-                            </div>
-                        </div>
-                        <div class="more">
-                            <span>Xem thêm</span>
-                        </div>
-                    </div>
-                    <div class="coures1 k3">
-                        <a href=""><img src="./../assets/images/slider/Training_2.jpg" alt=""></a>
-                        <div class="info">
-                            <div class="name">
-                                <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                            </div>
-                            <div class="coures_info">
-                                <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                            </div>
-                            <div class="count_student">
-                                <p><b>Học viên: 8398</b></p>
-                            </div>
-                        </div>
-                        <div class="more">
-                            <span>Xem thêm</span>
-                        </div>
-                    </div>
-                    <div class="coures1 k3">
-                        <a href=""><img src="./../assets/images/slider/Training_2.jpg" alt=""></a>
-                        <div class="info">
-                            <div class="name">
-                                <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                            </div>
-                            <div class="coures_info">
-                                <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                            </div>
-                            <div class="count_student">
-                                <p><b>Học viên: 8398</b></p>
-                            </div>
-                        </div>
-                        <div class="more">
-                            <span>Xem thêm</span>
-                        </div>
-                    </div>
-                </div>
+                    <?php } ?>
             </div>
         </div>
+
 
         <!-- footer -->
         <div class="wrap_footer">

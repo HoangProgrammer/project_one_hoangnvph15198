@@ -1,26 +1,27 @@
 <?php  
+    require_once './../models/pdo.php';
 
 function Get_caurse(){
-
+    $conn=connect();
     $stmt="SELECT * FROM course";
-   $result= get_all( $stmt); 
- return $result;
+    $result= get_all( $stmt); 
+    return $result;
 }
 
 function Get_course_one($id){
-$conn=connect();
+    $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM course where id_caurse=?");
     $stmt->execute([$id]);
     $rows=array();
-while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
     $rows[]=$row;
-}
-return $rows;
+    }
+    return $rows;
 }
 
 
 function Get_other_course($id){
-$conn=connect();
+    $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM course where id_caurse <> ? ");
     $stmt->execute([$id]);
     $rows=array();
@@ -42,7 +43,7 @@ return $rows;
 
 function insert_into($data){
  
-$conn=connect();
+    $conn=connect();
     $stmt=$conn->prepare("INSERT INTO course(NameCaurse,img,price,description,type)
    VALUES( :name , :img , :price , :description, :type) ");
     $stmt->execute($data);
@@ -52,7 +53,7 @@ return true;
 
 
 function deleteCourse($id){
-$conn=connect();
+    $conn=connect();
     $stmt=$conn->prepare("DELETE FROM course WHERE id_caurse=?");
     $stmt->execute([$id]);
 return true;
@@ -61,7 +62,7 @@ return true;
 
 
 function update_course($course_name,$image_course,$price_course,$description,$type,$id){
-$conn=connect();
+    $conn=connect();
 if($type=="0"){
     $price_course=0;
 }
