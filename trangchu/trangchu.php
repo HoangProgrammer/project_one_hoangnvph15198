@@ -97,11 +97,11 @@
                             <span>New</span> Thử khóa học
                         </a>
                     </div>
-                    <div class="btnn btn--header">
+                    <!-- <div class="btnn btn--header">
                         <a href="/du_an_1/site/coures.php">
                             Các khóa học
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="header__right">
                     <div class="btnn btn--header">
