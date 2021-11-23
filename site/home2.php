@@ -24,19 +24,19 @@
 //                              }                     
 //                       } 
 
+    if (!isset($_SESSION['name_user'])) {
+    } else { ?>
+    <?php    
 
-if (!isset($_SESSION['name_user'])) {
-} else { ?>
-<?php    
+    $Get_oderCourse = Get_oderCourse();
+    $arr=array();
+    foreach ($Get_oderCourse as $value) {}
+    if ($value['id_user'] == $id_user) {}
+        $Get_course_one = Get_course_one($value['id_caurse']);
+        if(empty($Get_course_one)){
 
-$Get_oderCourse = Get_oderCourse();
-                                $arr=array();
-                                foreach ($Get_oderCourse as $value) {}
-                                    if ($value['id_user'] == $id_user) {}
-                                        $Get_course_one = Get_course_one($value['id_caurse']);
-                                        if(empty($Get_course_one)){
-
-                                        } else{  ?>   
+    } else{  ?>
+                                  
                                 
                                     
     <div class="pcoded-main-container">
