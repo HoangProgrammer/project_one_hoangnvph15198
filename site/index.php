@@ -1,5 +1,5 @@
 <?php
-
+// session_destroy();
 if(!isset($_SESSION['name_user'])){
 require_once('trangchu/trangchu.php');
 }else{

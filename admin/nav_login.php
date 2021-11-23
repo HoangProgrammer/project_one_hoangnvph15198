@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="profile">
 <?php if (isset($image)) { ?>
@@ -20,4 +20,4 @@
   <p><i class="fa fa-cogs"></i><a  href="login.php"> &nbsp;&nbsp;đăng nhập</a>   </p>
 </div>
 <?php } ?>
-</div>
+</div> -->
