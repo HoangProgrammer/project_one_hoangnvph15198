@@ -1,5 +1,4 @@
 <?php  
-    require_once './../models/pdo.php';
 
 function Get_caurse(){
     $conn=connect();
