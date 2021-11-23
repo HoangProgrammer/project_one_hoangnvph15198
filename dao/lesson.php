@@ -38,7 +38,7 @@ function delete_lesson($id){
 
     function Get_lesson_one($id){
         $conn=connect();
-            $stmt=$conn->prepare("SELECT * FROM lesson where id_lesson =?");
+            $stmt=$conn->prepare("SELECT * FROM lesson where id_lesson =? order by id_lesson ASC ");
             $stmt->execute([$id]);
             $rows=array();
         while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){

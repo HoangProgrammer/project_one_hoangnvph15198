@@ -1,7 +1,6 @@
 <?php  
 
 function Get_account(){
-
     $stmt="SELECT * FROM user";
    $result= get_all( $stmt); 
  return $result;

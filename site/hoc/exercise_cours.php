@@ -1,3 +1,9 @@
+<?php 
+require_once "./../../models/pdo.php";
+require_once "./../../dao/quizDB.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,64 +71,46 @@
             <header class="header-exercise">
                 <img class="header-exercise-logo" src="../assets/images/logo-thumb.png" alt="">
             <div class="header-exercise-title">
-                <span>Bài tập 1: Thì hiện tại đơn</span>
+                <span>Final test </span>
             </div>
             <img class="header-exercise-user" src="../assets/images/user/avatar-2.jpg" alt="">
             </header>
             <form action="" class="container-exercise-page">
                 <div class="container-exercise-title">
-                    <h3>Final test</h3>
+                   
                     <p>Trắc nghiệm cuối bài</p>
-                    <span>5/10.0 points (graded)</span>
+                    <span>0 points (graded)</span>
                 </div>
+                <?php 
+                $count=0;
+              
+                if(isset($_GET['id_learn'])){
+                    $id_learn = $_GET['id_learn'];}
+                  $quiz= getAll_quiz($id_learn);
+                  foreach($quiz as $val): extract($val); ?>
+
                 <div class="container-exercise-question">
                     <div class="container-exercise-question-name">
-                        <span>Câu 1:</span>
+                        <span>Câu <?=$count+=1?>:</span>
                     </div>
                     <div class="container-exercise-question-problem">
-                        <span>Which phrase means “help”?</span>
+                        <span><?=$question ?></span>
                     </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
+                    <label class="container-exercise-question-answer">
+                        <input name="<?=$id_quiz ?>" type="radio">
+                        <span><?=$Selection1?></span>
+                    </label>
+                    <label class="container-exercise-question-answer">
+                        <input name="<?=$id_quiz ?>" type="radio">
+                        <span><?=$Selection2?></span>
+                    </label>
+                    <label class="container-exercise-question-answer">
+                        <input name="<?=$id_quiz ?>" type="radio">
+                        <span><?=$Selection3?></span>
+                    </label>
+                
                 </div>
-                <div class="container-exercise-question">
-                    <div class="container-exercise-question-name">
-                        <span>Câu 2:</span>
-                    </div>
-                    <div class="container-exercise-question-problem">
-                        <span>Which phrase means “help”?</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                    <div class="container-exercise-question-answer">
-                        <input name="question-answer" type="radio">
-                        <span>Put this on out of</span>
-                    </div>
-                </div>
+            <?php endforeach; ?>
                 <button  class="btn btn-primary">Nộp bài</button>
             </form>
         </div>

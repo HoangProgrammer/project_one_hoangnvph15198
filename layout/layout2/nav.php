@@ -45,13 +45,18 @@
 
             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);"><div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
                 <ul class="nav pcoded-inner-navbar">
-                    
+                 <?php
+                   if(isset($_GET['id']))   {
+                    $id= $_GET['id'];
+                    $get_lesson =getAll_lesson($id); 
+                }    
+                 foreach(  $get_lesson as $val) : extract($val); ?>   
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
                         <a href="#" class="nav-link ">
                             <span class="pcoded-micon">
                                 <i class="feather icon-home"></i>
                             </span>
-                            <span class="pcoded-mtext">bài 1</span>
+                            <span class="pcoded-mtext"><?=$lessonName?></span>
                         </a>
                         <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
                             <li data-username="Table bootstrap datatable footable" class="nav-item ">
@@ -59,73 +64,19 @@
                                     <span class="pcoded-micon">
                                         
                                     </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập </span>
+                                    <span style="color: white;" class="pcoded-mtext">quiz </span>
                                 </a>
                             </li>
                         </ul>
                         
-                    </li>        
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
-                        <a href="#" class="nav-link ">
-                            <span class="pcoded-micon">
-                                <i class="feather icon-home"></i>
-                            </span>
-                            <span class="pcoded-mtext">bài 2</span>
-                        </a>
-                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                            <a href="site/hoc/exercise_cours.php" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
-                                    </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập </span>
-                                </a>
-                            </li>
-                        </ul>
-                        
-                    </li>        
-                    
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
-                        <a href="#" class="nav-link ">
-                            <span class="pcoded-micon">
-                                <i class="feather icon-home"></i>
-                            </span>
-                            <span class="pcoded-mtext">bài 3</span>
-                        </a>
-                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                <a href="site/hoc/exercise_cours.php" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
-                                    </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập </span>
-                                </a>
-                            </li>
-                        </ul>
-                        
-                    </li>        
-                    
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
-                        <a href="#" class="nav-link ">
-                            <span class="pcoded-micon">
-                                <i class="feather icon-home"></i>
-                            </span>
-                            <span class="pcoded-mtext">bài 4</span>
-                        </a>
-                        <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                            <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                <a href="exercise_cours.php" class="nav-link ">
-                                    <span class="pcoded-micon">
-                                        
-                                    </span>
-                                    <span style="color: white;" class="pcoded-mtext">Bài tập 1</span>
-                                </a>
-                            </li>
-                        </ul>
-                        
-                    </li>        
-                    
-            
+                    </li>   
+                    <?php endforeach; ?>   
+
+
+
+ 
+                
+                       
                 </ul>
             </div>
             <div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.5); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 683.2px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>

@@ -53,14 +53,15 @@
     color: black;
 }
 .course-lesson__body{
-    width: 99%;
+    width: 100%;
     height: auto;
-    padding-top: 10px;
+    /* padding-top: 0px; */
     padding-bottom: 15px;
+    border-bottom: 1px solid #dcd9d9;
     margin: auto;
-    background-color: white;
-    margin-top: 5px;
-    border-radius: 20px;
+    /* background-color: white; */
+    margin-top: 3px;
+    /* border-radius: 20px; */
     display: none;
     transition: 2s;
     cursor: auto;
@@ -83,9 +84,7 @@
     font-size: 16px;
     color: black;
 }
-.course-lesson__body-item .fa-play-circle{
-    color: #4692fd;
-}
+.course-lesson__body-item .fa-play-circle{color: rgba(240,81,35,.4);}
 .pcoded-main-footer{
     height: 60px;
     background-color: white;
@@ -186,6 +185,7 @@ li{
 }
 .pcoded-module-left-noidung{
     width: 100%;
+    color: #43efef;
     margin-top: 8px;
     cursor: pointer;
 }
@@ -194,12 +194,12 @@ li{
     width: 100%;
     height: 52px;
     padding: 0 10px;
-    background-color: white;
+    background-color: #e3e3e3;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: black;
+    color: #121212;
     font-size: 16px;
     font-weight: bold;
 }
@@ -254,6 +254,7 @@ li{
 .pcoded-main-container-lesson{
     width: 70%;
     margin: auto;
+    overflow: hidden;
     height: 620px;
     /* padding: 10px 10px; */
     background-color: blanchedalmond;
