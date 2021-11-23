@@ -19,8 +19,8 @@
 <thead>
 
 <tr class="text-center text-primary">
-    <th>tên SP</th>
-    <th>ảnh SP</th>
+    <th>Tên SP</th>
+    <th>Ảnh SP</th>
     <th>Thông Tin</th>  
     <th> <a href="index.php?action=add">Thêm</a> </th>  
 </tr>
@@ -51,7 +51,7 @@ if(isset($_SESSION['search'])){  ?>
         <th  name='ten'><?=$value['product_name']?></th>
         <td><img name="anh" width="200px" src="../img/<?=$value['product_image']?>"> </td>
         <th name='thong_tin'><?=$value['product_info']?></th>
-        <th ><a href="index.php?action=update_pr&id=<?=$value['product_id'] ?>">sửa</a> / <a href="index.php?action=xoa&id=<?=$value['product_id']?>">xóa</a></th>
+        <th ><a href="index.php?action=update_pr&id=<?=$value['product_id'] ?>">sửa</a> / <a href="index.php?action=xoa&id=<?=$value['product_id']?>">Xóa</a></th>
     </tr>
 
  <?php } ?>

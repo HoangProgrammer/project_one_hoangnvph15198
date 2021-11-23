@@ -55,7 +55,7 @@ if (isset($_GET['action'])) {
                  $err=false;
              }
 
-                          move_uploaded_file($image_tmp,"../image/".$image_course);
+             move_uploaded_file($image_tmp,"../image/".$image_course);
 $data=[
     ":name"=>$course_name, 
     ":img"=>$image_course,

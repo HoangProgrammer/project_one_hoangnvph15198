@@ -20,7 +20,7 @@
                         <div class="modal-body">
                       <!-- <a href="course/add_pr.php">ha</a> -->
                             <div class="form-group">
-                            <label class="form-label " for=""> <h6>tên khóa học  </h6>  </label>
+                            <label class="form-label " for=""> <h6>Tên khóa học  </h6>  </label>
                                 <input  type="text" name="course_name" id="name_course" class="form-control" placeholder="Enter Your Name" />
                           <p class="text-danger error_name"> <?php if(isset(  $_SESSION['name'])){
 
@@ -29,7 +29,7 @@
                           } ?> </p>
                               </div>
                             <div class="form-group">
-                            <label class="form-label" for=""> <h6>  ảnh  </h6> </label>
+                            <label class="form-label" for=""> <h6>  Ảnh  </h6> </label>
                                 <input type="file" name="image_course" id="image_course"  class="form-control" placeholder="Enter Your image" />
                                 <p class="text-danger error_image"><?php if(isset(  $_SESSION['image_course'])){
 
@@ -38,11 +38,11 @@ unset($_SESSION['image_course']);
 } ?> </p>
                               </div>
                             <div class="form-group">
-                            <label class="form-label" for=""> <h6>loại   </h6> </label>
+                            <label class="form-label" for=""> <h6>Loại   </h6> </label>
                             <div class="form-group">
-                            <label class="form-label" for="" > miễn phí  </label>
+                            <label class="form-label" for="" > Miễn phí  </label>
                            <input type="radio" name="type" id="free" value="0" class="form-radio1"  />
-                           <label class="form-label" for="">  mất phí </label>
+                           <label class="form-label" for=""> Mất phí </label>
                              <input type="radio" name="type" id="charge"  value="1"  class="form-radio2"  />   
                                          
                             </div>
@@ -54,7 +54,7 @@ unset($_SESSION['image_course']);
                             </div>
 
                             <div class="form-group">
-                            <label class="form-label" for=""> <h6> mô tả </h6>  </label>
+                            <label class="form-label" for=""> <h6> Mô tả </h6>  </label>
                                 <textarea name="description" id="mo_ta" class="form-control" placeholder="Type Review Here"></textarea>
                                 <p class="text-danger error_mo_ta"> <?php if(isset(  $_SESSION['description'])){
 
