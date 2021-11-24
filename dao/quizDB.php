@@ -4,6 +4,18 @@ function getAll_quiz($id_lesson ){
     $stmt= $conn->prepare("SELECT * FROM quiz Where id_lesson = ? ");
     $stmt->execute([$id_lesson ]);
   $rows=array();
+   while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+   }
+   return $rows;
+
+}
+
+function final_test($id_quiz ){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT answer FROM quiz Where id_quiz = ?  ");
+    $stmt->execute([$id_quiz ]);
+  $rows=array();
 
    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
        $rows[]=$row;
@@ -11,6 +23,7 @@ function getAll_quiz($id_lesson ){
    return $rows;
 
 }
+
 
 function insert_quiz($data){
   

@@ -10,6 +10,9 @@ require_once "./dao/lesson.php";
 require_once "./dao/lesson_topicDB.php";
 require_once "./dao/orderCourse.php";
 require_once "./dao/courseDB.php";
+require_once "./dao/BannerDB.php";
+require_once "./dao/pointDB.php";
+require_once "./dao/comment_lesson.php";
 require_once "./site/index.php";
 
 ?>

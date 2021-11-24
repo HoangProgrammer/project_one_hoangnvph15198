@@ -50,15 +50,21 @@ if(isset($_GET['act'])){
     case "detail_blog":      
         require_once "forum/detail_blog.php";      
         break;
+        case "Topic":     
+            if(isset($_GET['idCourse']))   {
+                $id_course= $_GET['idCourse'];
+                $getAll_topic=getAll_topic($id_course);
+            }     
+            require_once "hoc/topic_lesson.php";  
+            break;
     case "learn":     
-        require_once "hoc/learn.php";      
+        require_once "hoc/learn.php";         
         break;
     case "detail_course":   
         if(isset($_GET['id_course']))   {
             $id_course= $_GET['id_course'];
             $getAll_topic=getAll_topic( $id_course);
         }      
-
         require_once "hoc/more_cours.php";      
         break;
     case "quiz":               

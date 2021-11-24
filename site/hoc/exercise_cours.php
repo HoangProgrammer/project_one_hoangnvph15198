@@ -44,9 +44,9 @@ require_once "./../../dao/quizDB.php";
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../../index.php">Trang chủ</a>
                       </li>
-                      <!-- <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Cộng đồng</a>
-                      </li> -->
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">quay lại</a>
+                      </li>
                       <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Mạnh Quân</a>
                       </li> -->
@@ -67,6 +67,40 @@ require_once "./../../dao/quizDB.php";
               </nav>
             
         
+<?php  
+
+
+if (isset($_POST['final'])) {
+  $arr = $_POST; 
+    $mark=0; 
+  // var_dump($arr);die();
+  $check=true;
+ 
+  foreach($arr as $key => $val){
+ 
+    if(is_numeric($key) ){
+      $final_test=final_test($key);
+      // $cau_hoi=$connect->prepare("SELECT answer FROM cau_hoi Where id_cau_hoi= ? ");
+      // $cau_hoi->execute([$key ]);
+      // $answer=$cau_hoi->fetch(PDO::FETCH_ASSOC);
+    foreach(  $final_test as $key => $value){
+      if($val==$value['answer']){
+        $check=true;
+$mark+=2;
+      }else{
+        $check=false;
+      }
+}
+  
+    }
+
+  }
+
+ 
+}
+
+?>
+
         <div class="container-exercise">
             <header class="header-exercise">
                 <img class="header-exercise-logo" src="../assets/images/logo-thumb.png" alt="">
@@ -75,11 +109,11 @@ require_once "./../../dao/quizDB.php";
             </div>
             <img class="header-exercise-user" src="../assets/images/user/avatar-2.jpg" alt="">
             </header>
-            <form action="" class="container-exercise-page">
+            <form action="exercise_cours.php?id_learn=<?=$_GET['id_learn']?>" method="post" class="container-exercise-page">
                 <div class="container-exercise-title">
                    
                     <p>Trắc nghiệm cuối bài</p>
-                    <span>0 points (graded)</span>
+                    <span> <?php if(isset($mark)){echo $mark; }else{ echo "0";}?> points (graded)</span>
                 </div>
                 <?php 
                 $count=0;
@@ -97,21 +131,21 @@ require_once "./../../dao/quizDB.php";
                         <span><?=$question ?></span>
                     </div>
                     <label class="container-exercise-question-answer">
-                        <input name="<?=$id_quiz ?>" type="radio">
+                        <input name="<?=$id_quiz ?>" value="a" type="radio">
                         <span><?=$Selection1?></span>
                     </label>
                     <label class="container-exercise-question-answer">
-                        <input name="<?=$id_quiz ?>" type="radio">
+                        <input name="<?=$id_quiz ?>" value="b" type="radio">
                         <span><?=$Selection2?></span>
                     </label>
                     <label class="container-exercise-question-answer">
-                        <input name="<?=$id_quiz ?>" type="radio">
+                        <input name="<?=$id_quiz ?>" value="c" type="radio">
                         <span><?=$Selection3?></span>
                     </label>
                 
                 </div>
             <?php endforeach; ?>
-                <button  class="btn btn-primary">Nộp bài</button>
+                <button name="final"  class="btn btn-primary">Nộp bài</button>
             </form>
         </div>
     </div>

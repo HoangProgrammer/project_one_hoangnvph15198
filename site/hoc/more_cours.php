@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="site/hoc/cours.css">
+
     <div class="pcoded-main-container">
         <div class="pcoded-module">
             <div class="pcoded-module-left">
@@ -116,7 +117,7 @@ foreach(  $course as $val) { ;
         <?php if( $type==1){?>
             <a class="btn btn-danger text-light" href="index.php?act=buyCourse">  Mua Ngay </a>
        <?php }else{?>
-   <a class="btn btn-primary text-light" href="index.php?act=learn&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
+   <a class="btn btn-primary text-light" href="index.php?act=topic&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
    <?php } ?>
         
 

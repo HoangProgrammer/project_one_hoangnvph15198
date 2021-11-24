@@ -11,82 +11,76 @@
 </div>
 
 <?php
-//   $error=false;
-//                          $id_user;
-//                        $Get_oderCourse=Get_oderCourse();
-
-//                          foreach ($Get_oderCourse as $value){   
-
-//                              if(  $id_users ==$id_user){
-//                               echo   $error=true;
-//                              } else{
-//                                 echo    $error =false;
-//                              }                     
-//                       } 
 
 
 if (!isset($_SESSION['name_user'])) {
 } else { ?>
-<?php    
+    <?php
+    $arr = array();
+    $ar = array();
+    $Get_oderCourse = Get_oderCourse();
 
-$Get_oderCourse = Get_oderCourse();
-                                $arr=array();
-                                foreach ($Get_oderCourse as $value) {}
-                                    if ($value['id_user'] == $id_user) {}
-                                        $Get_course_one = Get_course_one($value['id_caurse']);
-                                        if(empty($Get_course_one)){
+    foreach ($Get_oderCourse as $value) {
+        if ($value['id_user'] == $id_user) {
+            $value['id_caurse'];
+            array_push($ar, $value['id_caurse']);
+        }
+    }
+    $gop = implode("','", $ar);
+    $get_course_in = Get_course_one_in($gop);
+    if (empty($get_course_in)) {
+    } else { ?>
 
-                                        } else{  ?>   
-                                
-                                    
-    <div class="pcoded-main-container">
-        <div class="pcoded-wrapper">
-            <div class="pcoded-content">
-                <div class="pcoded-inner-content">
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
 
-                    <div class="main-body">
-                        <div class="page-wrapper">
-                            <h3 class="pcoded-content-name">Khóa Đang học</h3>
-                            <div class="row">
-                                <?php
-                                $id_user;
-                                $Get_oderCourse = Get_oderCourse();
-                                $arr=array();
-                                foreach ($Get_oderCourse as $value):
-                                    if ($value['id_user'] == $id_user) :
-                                        $Get_course_one = Get_course_one($value['id_caurse']);
-                                        foreach ($Get_course_one as $val) : extract($val); ?>
-                                            <a href="index.php?act=learn" class="col-md-6 col-xl-4">
-                                                <div class="card daily-sales course-english">
-                                                    <img class="course-english-img" src="image/<?= $img ?>" alt="">
-                                                </div>
-                                                <span class="course-english-tile">
-                                                    <?= $NameCaurse  ?>
-                                                </span>
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                <h3 class="pcoded-content-name">Khóa Đang học</h3>
+                                <div class="row">
+                                    <?php
+                                    $id_user;
+                                    $Get_oderCourse = Get_oderCourse();
+                                    $arr = array();
+                                    foreach ($Get_oderCourse as $value) :
+                                        if ($value['id_user'] == $id_user) :
+                                            $Get_course_one = Get_course_one($value['id_caurse']);
+                                            foreach ($Get_course_one as $val) : extract($val); ?>
+                                                <a href="index.php?act=Topic&idCourse=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
+                                                    <div class="card daily-sales course-english">
+                                                        <img class="course-english-img" src="image/<?= $img ?>" alt="">
+                                                    </div>
+                                                    <span class="course-english-tile">
+                                                        <?= $NameCaurse  ?>
+                                                    </span>
 
-                                                <?php 
-                                                array_push( $arr,$value['id_caurse']) ; ?>
-                                            </a>
-                                <?php endforeach;
-                                    endif; endforeach;  ?>
+                                                    <?php
+                                                    array_push($arr, $value['id_caurse']); ?>
+                                                </a>
+                                    <?php endforeach;
+                                        endif;
+                                    endforeach;  ?>
 
 
-                        
-   
-                               
 
+
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
 
-    </div>
+<?php  }
+} ?>
 
-<?php  }      } ?>
-                               
 
 <div class="pcoded-main-container">
     <div class="pcoded-wrapper">
@@ -103,18 +97,15 @@ $Get_oderCourse = Get_oderCourse();
 
                             <?php
                             $course = Get_caurse();
-                                  
-                            $bien=implode("','",$arr);
 
-                            $conn=connect();
-                            $stml=$conn->prepare("SELECT * FROM course 
+                            $bien = implode("','", $arr);
+
+                            $conn = connect();
+                            $stml = $conn->prepare("SELECT * FROM course 
                             WHERE id_caurse NOT IN( '$bien')");
                             $stml->execute();
-                           $row= $stml->fetchAll();
-                        //    echo "<pre>";
-                        //     var_dump( $row); 
-                        //    echo "</pre>";
-                        
+                            $row = $stml->fetchAll();                    
+
                             foreach ($row as $value) : extract($value); ?>
                                 <a href="index.php?act=detail_course&id_course=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
                                     <div class="card daily-sales course-english">
