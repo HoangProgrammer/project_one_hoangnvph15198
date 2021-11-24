@@ -12,7 +12,6 @@
 
 <?php
 
-
 if (!isset($_SESSION['name_user'])) {
 } else { ?>
     <?php
@@ -62,11 +61,6 @@ if (!isset($_SESSION['name_user'])) {
                                     <?php endforeach;
                                         endif;
                                     endforeach;  ?>
-
-
-
-
-
 
                                 </div>
                             </div>

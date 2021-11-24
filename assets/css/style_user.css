@@ -903,3 +903,31 @@ a:hover{
 .collapse.navbar-collapse {
   margin: 0 35px 0 216px;
 } */
+
+/* social */
+.container_social{
+  box-shadow: 0 0 5px #ccc;
+  padding: 10px;
+  margin: 50px 0;
+}
+.container_social .wrap_social{
+  box-shadow: 0 0 5px #eee;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  margin: 20px 0;
+}
+.container_social .wrap_social img{
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+.container_social .wrap_social .user_info{
+  display: flex;
+  align-items: center;
+}
+.container_social .wrap_social .btn a{
+  color: #fff;
+}

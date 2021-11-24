@@ -33,25 +33,25 @@
                         <div class="slide-wrap_content">
                             <div class="content">
                                 <div class="choose_language">
-                                    <h3>Speak a language in 10 minutes a day</h3>
+                                    <h3>Học Tiếng Anh 10 Phút Mỗi Ngày</h3>
                                     <a href="#" class="btn_choose">
-                                        Start learning <span class="choose"></span>
+                                        Bẳt đầu học <span class="choose"></span>
                                     </a>
                                     <br>
                                     <div class="want">
-                                        <h3>I want to learn</h3>
+                                        <h3>Bạn muốn học</h3>
                                     </div>
                                     <ul>
-                                        <li data-text="English">
+                                        <li data-text="Tiếng anh">
                                             <img src="trangchu/images/england-150397_960_720.png" alt="">
-                                            <span>English</span>
+                                            <span>Tiếng anh</span>
                                         </li>
-                                        <li data-text="France">
+                                        <li data-text="Tiếng anh cho người mới">
                                             <img src="trangchu/images/france-1524418_960_720.png" alt="">
-                                            <span>France</span>
+                                            <span>Tiếng anh</span>
                         
                                         </li>
-                                        <li data-text="India">
+                                        <li data-text="Tiếng anh Ielts">
                                             <img src="trangchu/images/india-3115847_960_720.png" alt="">
                                             <span>India</span>
                         
@@ -94,11 +94,11 @@
                     </figure>
                     <div class="btnn btn--header">
                         <a href="#">
-                            <span>New</span> Try live lessons
+                            <span>New</span> Thử khóa học
                         </a>
                     </div>
                     <div class="btnn btn--header">
-                        <a href="coures.html">
+                        <a href="/du_an_1/site/coures.php">
                             Các khóa học
                         </a>
                     </div>
@@ -106,12 +106,12 @@
                 <div class="header__right">
                     <div class="btnn btn--header">
                         <a href="site/login/sign_in.php">
-                            Login
+                            Đăng nhập
                         </a>
                     </div>
                     <div class="btnn btn--sign_up">
                         <a href="site/login/sign_up.php">
-                            Sign up
+                            Đăng kí
                         </a>
                     </div>
                 </div>

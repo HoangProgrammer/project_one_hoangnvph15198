@@ -38,7 +38,7 @@ foreach($stmt as $row ){
                         <div class="modal-body">
                       <!-- <a href="course/add_pr.php">ha</a> -->
                             <div class="form-group">
-                            <label class="form-label " for=""> <h6>tên khóa học  </h6>  </label>
+                            <label class="form-label " for=""> <h6>Tên khóa học  </h6>  </label>
                                 <input  type="text" name="course_name" id="name_course" class="form-control"  value="<?=  $ten ?>" />
                           <p class="text-danger error_name"> <?php if(isset(  $_SESSION['name'])){
                               echo $_SESSION['name'];
@@ -49,7 +49,7 @@ foreach($stmt as $row ){
 <input type="hidden" name="id" value="<?= $id_course ?>">
                               
                             <div class="form-group">
-                            <label class="form-label" for=""> <h6>  ảnh  </h6> </label>
+                            <label class="form-label" for=""> <h6>  Ảnh  </h6> </label>
                                 <input type="file" name="image_course" id="image_course"  class="form-control" placeholder="Enter Your image" />
                            
                             <p class="text-danger error_image"><?php if(isset(  $_SESSION['image_course'])){
@@ -60,11 +60,11 @@ unset($_SESSION['image_course']);
 <img width="100px"  src="../image/<?= $anh ?>" alt="">
                               </div>
                             <div class="form-group">
-                            <label class="form-label" for=""> <h6>loại   </h6> </label>
+                            <label class="form-label" for=""> <h6>Loại   </h6> </label>
                             <div class="form-group">
-                            <label class="form-label" for="" > miễn phí  </label>
+                            <label class="form-label" for="" > Miễn phí  </label>
                            <input type="radio" name="type" value="0" class="form-radio1" <?php if($type=="0"){echo "checked" ;}else{}   ?>  />
-                           <label class="form-label" for="">  mất phí </label>
+                           <label class="form-label" for="">  Mất phí </label>
                              <input type="radio" name="type"  value="1"  class="form-radio2"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
                             </div>
                             </div>
@@ -84,7 +84,7 @@ unset($_SESSION['image_course']);
                        
 
                             <div class="form-group">
-                            <label class="form-label" for=""> <h6> mô tả </h6>  </label>
+                            <label class="form-label" for=""> <h6> Mô tả </h6>  </label>
                                 <textarea name="description" id="mo_ta" class="form-control" placeholder="Type Review Here"><?= $description ?> </textarea>
                                 <p class="text-danger error_mo_ta"> <?php if(isset(  $_SESSION['description'])){
 echo $_SESSION['description'];
@@ -94,7 +94,7 @@ unset($_SESSION['nadescriptionme']);
 
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
-                                <button  name="update_course" class="btn btn-primary" >sửa</button>
+                                <button  name="update_course" class="btn btn-primary" >Sửa</button>
                             </div>
 
 

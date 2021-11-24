@@ -29,7 +29,7 @@
   
   <div class="head">
     <div class="col-div-6">
-      <p class="nav"> danh sách khóa học </p>
+      <p class="nav"> Danh sách khóa học </p>
     </div>
  
     <div class="col-div-6">
@@ -57,22 +57,22 @@
     </h5>
     
     <div class="border_checked">
-     <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
-   <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
+     <label for="chose_all" class=" btn btn-primary btn-select" >Chọn tất cả</label>  
+   <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >Cỏ chọn</label> 
    <input  type="checkbox" hidden id="chose_all"> 
-   <button class="btn btn-danger ">xóa tất cả lựa chọn</button>  
+   <button class="btn btn-danger ">Xóa tất cả lựa chọn</button>  
 </div>
 <br>
 <table  class=" table-primary" >
    <thead>
      <tr>
-       <th style="color:blue" class="text-center "  scope="col">lựa chọn</th>
-       <th style="color:blue" class="text-center"  scope="col">tên khóa học</th>
-       <th style="color:blue" class="text-center"  scope="col">hình ảnh</th>
-       <th style="color:blue" class="text-center"  scope="col">giá khóa học</th>
+       <th style="color:blue" class="text-center "  scope="col">Lựa chọn</th>
+       <th style="color:blue" class="text-center"  scope="col">Tên khóa học</th>
+       <th style="color:blue" class="text-center"  scope="col">Hình ảnh</th>
+       <th style="color:blue" class="text-center"  scope="col">Giá khóa học</th>
 
        <th colspan="2" style="color:blue" class="text-center"> 
-   <a class=" btn btn-primary " href="index.php?action=add">thêm</a>  
+   <a class=" btn btn-primary " href="index.php?action=add">Thêm</a>  
       </th>
      </tr>
    </thead>
@@ -86,9 +86,9 @@
          <td name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 
            echo '<p class="text-danger"> '. number_format($price,0).'vnđ </p>';}?></td>  
          <td>
-         <a class='btn btn-dark' href="index.php?action=detail&idCourse=<?=$id_caurse ?>"> xem </a> 
-         <a class='btn btn-warning' href="index.php?action=updateCourse&id=<?=$id_caurse ?> ">sửa</a> 
-         <a name="id_product" class="delete btn btn-danger " href="index.php?action=deleteCourse&id=<?=$id_caurse ?>">xóa</a>
+         <a class='btn btn-dark' href="index.php?action=detail&idCourse=<?=$id_caurse ?>"> Xem </a> 
+         <a class='btn btn-warning' href="index.php?action=updateCourse&id=<?=$id_caurse ?> ">Sửa</a> 
+         <a name="id_product" class="delete btn btn-danger " href="index.php?action=deleteCourse&id=<?=$id_caurse ?>">Xóa</a>
        </td>
        </tr>
 <?php } ?> 

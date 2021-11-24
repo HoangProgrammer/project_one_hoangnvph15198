@@ -11,8 +11,6 @@ if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
         case "learn":    
-            // require("./layout/layout2/nav.php") ;
-            break;
             default:
             require("./layout/layout_1/nav.php") ;
             break;
@@ -72,6 +70,9 @@ if(isset($_GET['act'])){
         break;
     case "Rating":               
         require_once "rating.php";      
+        break;
+    case "social":               
+        require_once "social.php";      
         break;
     case "account":               
         require_once "user/account.php";      
