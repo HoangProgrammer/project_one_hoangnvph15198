@@ -17,15 +17,25 @@ function Get_course_one($id){
     }
     return $rows;
 }
+function Get_course_one_in($id){
+$conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM course where id_caurse IN(?)");
+    $stmt->execute([$id]);
+    $rows=array();
+while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+    $rows[]=$row;
+}
+return $rows;
+}
 
 
 function Get_other_course($id){
-    $conn=connect();
-    $stmt=$conn->prepare("SELECT * FROM course where id_caurse <> ? ");
-    $stmt->execute([$id]);
+$conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM course   WHERE id_caurse NOT IN(?)");
+    $stmt->execute();
     $rows=array();
       while(true){
-           $row=$stmt->fetch(\PDO::FETCH_ASSOC);
+           $row=$stmt->fetchAll(\PDO::FETCH_ASSOC);
           if($row==false){
               break;
           }        
@@ -33,10 +43,6 @@ function Get_other_course($id){
 
 return $rows;
 }
-
-    
-
-
 }
 
 

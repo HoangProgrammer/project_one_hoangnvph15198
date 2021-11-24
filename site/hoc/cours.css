@@ -290,12 +290,14 @@ li{
 }
 .container-tab-cmt-ask .container-tab-cmt-ask-img{
     width: 36px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     height: 36px;
     border-radius: 50%;
     background-color: blanchedalmond;
     margin-right: 10px;
     overflow: hidden;
-    
 }
 .container-tab-cmt-ask-img img{
     width: 100%;
@@ -424,4 +426,30 @@ li{
 .container_lesson{
     width: 100%;
     background-color: black;
+}
+button.chat.btn.btn-primary {
+    float: right;
+    margin-top: 5px;
+}
+
+.content_comment {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 20px;
+    height: auto;
+    background: #dfdddd;
+    width: auto;
+}
+
+span.user_comment {
+    width: 100%;
+    font-weight: bold;
+    color: black;
+}
+
+i.fas.fa-user {
+    /* width: 100%; */
+    font-size: 36px !important;
+    /* height: 100%; */
 }

@@ -51,7 +51,11 @@ if($_GET['act']=="Rating"){
 }else if($_GET['act']=="blog"){
     $forum="active";
 
-}else{
+}else if($_GET['act']=="social"){
+    $social="active";
+
+}
+else{
     $home="active";
 }
 }else{
