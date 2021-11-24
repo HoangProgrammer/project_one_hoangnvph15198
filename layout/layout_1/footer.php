@@ -72,7 +72,6 @@
 
 </footer>
 </footer-main>
- 
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script src="assets/js/vendor-all.min.js"></script>
@@ -80,8 +79,8 @@
 <script src="assets/js/pcoded.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-<script type="text/javascript">    
 
+<script type="text/javascript">    
          $(document).ready(function(){
 
          CKEDITOR.replace( 'editor1' );
@@ -97,8 +96,11 @@
         
 
  $("#rateYo").rateYo({
-   rating: 3.6
- });
+                fullStar: true,
+                onSet: function(rating, rate) {
+                    $('#rating').val(rating);
+                }
+            });
 
 
         $('#add_review').click(function() {
@@ -161,6 +163,27 @@
 
     });
 </script>
+<!-- 
+$('#five_star').css('width', (<?= $five_star /  $total_review ?>) * 100 + "%") // sao / bình luận
+            $('#four_star').css('width', (<?= $four_star /  $total_review ?>) * 100 + "%")
+            $('#three_star').css('width', (<?= $three_star /  $total_review ?>) * 100 + "%")
+            $('#two_star').css('width', (<?= $two_star /  $total_review ?>) * 100 + "%")
+            $('#one_star').css('width', (<?= $one_star /  $total_review ?>) * 100 + "%")
+            var count = 0;
+            $('.main_star').each(function() {
+                count++;
+                if (<?= $avg_rating ?> >= count) {
+                    $(this).addClass('text-warning');
+                }
+            }) -->
+
+
+
+
+
+
+
+
 <!-- 
     // $('#save_review').click(function(){
 

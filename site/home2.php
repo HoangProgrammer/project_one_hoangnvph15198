@@ -12,7 +12,7 @@
 
 <?php
 
-if (!isset($_SESSION['name_user'])) {
+if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
 } else { ?>
     <?php
     $arr = array();

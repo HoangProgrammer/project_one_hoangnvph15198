@@ -1,12 +1,21 @@
 <?php
-if(isset($_SESSION['name_user'])){
-  $id_user=$_SESSION['name_user']["id"];
-  
-  }
-  
-if(!isset($_SESSION['name_user'])){
+if( !isset($_SESSION['user']) && !isset($_SESSION['admin']) ){
 require_once('trangchu/trangchu.php');
 }else{
+
+if(isset($_SESSION['user'])){
+  $id_user=$_SESSION['user']["id"];
+  $role=0;
+  }
+  
+if(isset($_SESSION['admin'])){
+  $id_user=$_SESSION['admin']["id"];
+  $role=1;
+  }
+
+
+
+
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
@@ -73,6 +82,24 @@ if(isset($_GET['act'])){
         break;
     case "social":               
         require_once "social.php";      
+        break;
+    case "formRating":  
+       if(isset($_POST['content'])){
+         $content =$_POST['content'];
+         $rating =$_POST['rating'];
+         $id_user =$_POST['id_user'];
+         $id_child =$_POST['child'];
+         $time = $_POST['time'];
+             
+         $data=[
+             "id_user"=>$id_user,
+             "id_child"=>$id_child,
+             "content"=>$content,
+             "time"=>$time,
+             "rating"=>$rating,
+         ];
+        //  insert_Rating($data);
+       } 
         break;
     case "account":               
         require_once "user/account.php";      

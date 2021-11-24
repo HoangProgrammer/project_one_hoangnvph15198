@@ -39,7 +39,7 @@
                 </div>
                 <div class="header__right">
                     <div class="btnn btn--header">
-                        <a href="#">
+                        <a href="../site/login/sign_in.php">
                             Đăng nhập
                         </a>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="container_coures">
                     <?php foreach ($data as $key => $value) { ?>
                     <div class="coures1">
-                            <a href=""><img src="<?php echo $data[$key]['img'] ?>" alt=""></a>
+                            <a href=""><img src="../image/<?php echo $data[$key]['img'] ?>" alt=""></a>
                             <div class="info">
                                 <div class="name">
                                     <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
