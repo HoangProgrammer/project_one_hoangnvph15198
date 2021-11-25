@@ -56,42 +56,44 @@
 
 
             <div class="coures">
-                <div class="fillter">
-                    <h3>CÁC KHÓA HỌC</h3>
-                    <!-- <div class="fillter_coures">
-                        <div class="btn btn-warning" data-text="k1">
-                            <span>Khóa học dành cho người mới</span>
-                        </div>
-                        <div class="btn btn-warning" data-text="k2">
-                            <span>Khóa học dành cho người mới1</span>
-                        </div>
-                        <div class="btn btn-warning" data-text="k3">
-                            <span>Khóa học dành cho người mới2</span>
-                        </div>
-                    </div> -->
-                </div>
+                <h3>CÁC KHÓA HỌC</h3>
+                <div class="coures_flex">
+                    <div class="fillter">
+                        <ul>
+                            <li>
+                            <i class="fa-solid fa-heart"></i>    
+                            Miễn phí
+                            </li>
+                            <li>
+                            <i class="fa-solid fa-dollar-sign"></i>   
+                            Trả phí
 
-                <div class="container_coures">
-                    <?php foreach ($data as $key => $value) { ?>
-                    <div class="coures1">
-                            <a href=""><img src="./../image/<?php echo $data[$key]['img'] ?>" alt=""></a>
-                            <div class="info">
-                                <div class="name">
-                                    <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="container_coures">
+                        <?php foreach ($data as $key => $value) { ?>
+                        <div class="coures1">
+                                <a href=""><img src="./../image/<?php echo $data[$key]['img'] ?>" alt=""></a>
+                                <div class="info">
+                                    <div class="name">
+                                        <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
+                                    </div>
+                                    <div class="coures_info">
+                                        <p><?php echo $data[$key]['description'] ?></p>
+                                    </div>
+                                    <div class="count_student">
+                                        <p><b>Học viên: 8398</b></p>
+                                    </div>
                                 </div>
-                                <div class="coures_info">
-                                    <p><?php echo $data[$key]['description'] ?></p>
-                                </div>
-                                <div class="count_student">
-                                    <p><b>Học viên: 8398</b></p>
+                                <div class="more">
+                                    <span><a href="">Xem thêm</a></span>
                                 </div>
                             </div>
-                            <div class="more">
-                                <span><a href="">Xem thêm</a></span>
-                            </div>
-                        </div>
-                    <?php } ?>
-            </div>
+                        <?php } ?>
+                                </div>
+                </div>
         </div>
 
 
