@@ -20,7 +20,7 @@
                         ?>
                         <div class="wrap_social">
                             <div class="user_info">
-                                <img src="./image/<?=$image?>" alt="">
+                                <img src="./image/<?=$image?>" alt="avatar">
                                 <p><?=$ten_user?></p>
                             </div>
                             <div class="btn btn-primary">

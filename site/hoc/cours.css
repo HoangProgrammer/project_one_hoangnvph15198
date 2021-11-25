@@ -259,7 +259,7 @@
         overflow: hidden;
         height: 620px;
         /* padding: 10px 10px; */
-        background-color: blanchedalmond;
+        background-color: black !important;
     }
     .pcoded-main-container-tab{
         margin: 0px;
