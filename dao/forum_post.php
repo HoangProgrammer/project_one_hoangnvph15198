@@ -39,6 +39,7 @@ function getAll_comment_post($id_post){
     $stmt->execute(['id_post' => $id_post]);
     $rows = $stmt -> fetchAll();
     return $rows;
+    
 
 }
 function count_comment_post($id_post){
