@@ -117,7 +117,7 @@ foreach(  $course as $val) { ;
         <?php if( $type==1){?>
             <a class="btn btn-danger text-light" href="index.php?act=buyCourse&id=<?= $id_course ?>">  Mua Ngay </a>
        <?php }else{?>
-   <a class="btn btn-primary text-light" href="index.php?act=topic&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
+   <a class="btn btn-primary text-light" href="index.php?act=Topic&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
    <?php } ?>
         
 

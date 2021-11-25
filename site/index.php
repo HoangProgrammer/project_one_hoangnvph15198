@@ -19,7 +19,8 @@ if(isset($_SESSION['admin'])){
 if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act){
-        case "learn":    
+        case "learn":   
+            break; 
             default:
             require("./layout/layout_1/nav.php") ;
             break;

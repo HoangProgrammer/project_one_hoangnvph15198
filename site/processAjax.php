@@ -18,11 +18,18 @@ if(isset($_POST['content'])){
     $rating =$_POST['rating'];
     $id_user =$_POST['id_user'];
     $child =$_POST['child'];
-    $time = date('D-m-y H:i:s');   
+    $time = date('Y-m-d H:i:s');  
     insert_Rating($id_user,$child, $content,$time,$rating);
   } 
 
-
+  if(isset($_POST['reply'])){
+    $content =$_POST['contentReply'];
+    $id_user =$_POST['user_id'];
+    $child =$_POST['child'];
+    $time = date('Y-m-d H:i:s');   
+    insert_Reply($id_user,$child, $content,$time);
+    header('location:../index.php?act=Rating');
+  } 
 
 $rating=Get_Rating();
 
@@ -57,11 +64,29 @@ foreach ($rating as $value) :
                 <?php if ($role == 0) {
                 } else { ?>
                     <div class="c-comment-status">
-                        <a class="text-primary" style="cursor: pointer;">Trả lời</a>
+                        <a class="rep_a text-primary "  style="cursor: pointer;">Trả lời</a>
+
+                        <form action="site/processAjax.php" method="post" class="formRep">
+                            <input type="hidden" name="user_id" id="user_id" value="<?=$id_user?>">
+                            <input type="hidden" name="child" id="child" value="<?=$value['id_Rating']?>">
+     <div class="c-user-rate-form f-comment-5314009">
+                    <textarea name="contentReply" rows="4" placeholder="Viết câu hỏi của bạn">
+                    </textarea>
+                 
+                    <button type="submit" class="btn btn-primary" name="reply">Trả Lời </button>
+                </div>
+</form>
+
+   <span  class="er text-warning">  </span>
+                  
                     </div>
                 <?php     } ?>
 
+               
             </div>
+        </div>
+        <div id="manga">
+
         </div>
         <?php foreach ($rating as $val) :
             if ($val['id_parent'] == $value['id_Rating']) :
@@ -69,8 +94,8 @@ foreach ($rating as $value) :
                 <div class="c-comment-box level2">
                     <!-- <div class="c-comment-box__avatar">VTH</div> -->
                     <div class="c-comment-box__content">
-                        <div class="c-comment-name"><?= ucfirst($val['ten_user']) ?><span class="badge badge-primary">Quản trị viên</span>
-                            <div class="time">3 giờ trước</div>
+                        <div class="c-comment-name"><?= ucfirst($val['ten_user']) ?> <span class="badge badge-primary">Quản trị viên</span>
+                            <div class="time"><?=$val['time']?></div>
                         </div>
                         <div class="c-comment-text" data-idcmt="5288542">
                             <p>Chào <?= ucfirst($value['ten_user']) ?></p>
@@ -85,7 +110,22 @@ foreach ($rating as $value) :
         endforeach; ?>
 <?php endif;
 endforeach; ?>
+<?php 
 
+
+
+?>
+
+
+<script>
+    $(document).ready(function(){
+  $('.formRep').hide();
+$('.rep_a').on('click',function(e) {
+  $(this).next().slideToggle();
+})
+ })
+  
+</script>
 
 
 

@@ -221,8 +221,8 @@ $avg_rating = $total_rating /  $total_review;
                         id_user: id_user,
                         child: child,
                     },
-                    success: function(data) {
-                        
+                    success: function(data) {   
+                        $('#review_modal').modal('hide')                  
                         fetch();
                     }
                 })
@@ -230,5 +230,8 @@ $avg_rating = $total_rating /  $total_review;
 
         })
 
+
+
     })
+    
 </script>
