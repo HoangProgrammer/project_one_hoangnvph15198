@@ -1,12 +1,3 @@
-<?php
-    require_once './../dao/courseDB.php';
-    require_once './../models/pdo.php';
-    $data = Get_caurse();
-    // echo "<pre>";
-    // var_dump($data[0]['description']);die;
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,88 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./../assets/css/coures.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="./../assets/css/coures_detail.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
 </head>
 <body>
     <div class="wrap">
-        <div class="header">
-            <div class="wrap_header">
-                <div class="header__left">
-                    <figure>
-                        <a href="">
-                            <img src="./../assets/images/slider/Busuu_Logo.png" alt="logo">
-                        </a>
-                    </figure>
-                    <div class="btnn btn--header">
-                        <a href="#">
-                            <span>New</span> Try live lessons
-                        </a>
-                    </div>
+        <!-- header -->
+        <?php
+            require_once('header_coures.php');
+        ?>
+
+        <div class="wrap_detail">
+            <div class="detail_left">
+                <div class="detail_info">
+                    <h3>Khóa học nâng cao</h3>
+                    <p>Hiểu sâu hơn về cách Javascript hoạt động, 
+                        tìm hiểu về IIFE, closure, reference types, 
+                        this keyword, bind, call, apply, prototype, ...
+                    </p>
                 </div>
-                <div class="header__right">
-                    <div class="btnn btn--header">
-                        <a href="../site/login/sign_in.php">
-                            Đăng nhập
-                        </a>
+
+                <div class="detail_info">
+                    <h3>Bạn sẽ học được gì</h3>
+                    <div class="row">
+                        <p> ✔️ Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí.</p>
+                        <p> ✔️ Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí.</p>
+                        <p> ✔️ Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí.</p>
+                        <p> ✔️ Được học kiến thức miễn phí với nội dung chất lượng hơn mất phí.</p>
                     </div>
-                    <div class="btnn btn--sign_up">
-                        <a href="#">
-                            Đăng kí
-                        </a>
+
+                </div>
+
+                <div class="detail_info">
+                    <h3>Nội dung khóa học</h3>
+                    <p><span class="span">2 phần</span> <span class="span">14 bài học</span> <span class="span">Thời lượng 06 giờ 27 phút</span></p>
+                    <div class="toastt">
+                        <div class="topic">
+                            <h5>+ Nội dung khóa học nâng cao</h5>
+
+                        </div>
+                        <div class="topic_content">
+                            <ul>
+                                <li>Giới thiệu</li>
+                                <li>Giới thiệu</li>
+                                <li>Giới thiệu</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-
-            <div class="coures">
-                <h3>CÁC KHÓA HỌC</h3>
-                <div class="coures_flex">
-                    <div class="fillter">
-                        <ul>
-                            <li>
-                            <i class="fa-solid fa-heart"></i>    
-                            Miễn phí
-                            </li>
-                            <li>
-                            <i class="fa-solid fa-dollar-sign"></i>   
-                            Trả phí
-
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="container_coures">
-                        <?php foreach ($data as $key => $value) { ?>
-                        <div class="coures1">
-                                <a href=""><img src="./../image/<?php echo $data[$key]['img'] ?>" alt=""></a>
-                                <div class="info">
-                                    <div class="name">
-                                        <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
-                                    </div>
-                                    <div class="coures_info">
-                                        <p><?php echo $data[$key]['description'] ?></p>
-                                    </div>
-                                    <div class="count_student">
-                                        <p><b>Học viên: 8398</b></p>
-                                    </div>
-                                </div>
-                                <div class="more">
-                                    <span><a href="">Xem thêm</a></span>
-                                </div>
-                            </div>
-                        <?php } ?>
-                                </div>
+            <div class="container_detail">
+                <div class="detail_right">
+                    <img src="images/english-communication2.jpg" alt="">
+                    <button style="display:block" class="btn btn-primary">Đăng kí</button>
                 </div>
+            </div>
         </div>
-
 
         <!-- footer -->
         <div class="wrap_footer">
@@ -180,21 +149,6 @@
     
             </div>
         </div>
-
     </div>
-
-    <script>
-        var btn = document.querySelectorAll('.btn');
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].onclick = function(e){
-                let coures = e.target.getAttribute('data-text');
-                let abc = document.querySelector(`.${coures}`);
-                console.log(abc)
-                abc.style.display = 'none';
-            }            
-
-        }
-
-    </script>
 </body>
 </html>

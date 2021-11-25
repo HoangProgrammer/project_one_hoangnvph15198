@@ -101,7 +101,7 @@
                         </a>
                     </div>
                     <div class="btnn btn--header">
-                        <a href="/du_an_1/site/coures.php">
+                        <a href="/du_an_1/trangchu/coures.php">
                             Các khóa học
                         </a>
                     </div>

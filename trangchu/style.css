@@ -299,7 +299,7 @@
     animation:  fade .5s ease;
 
 }
-.container .coures1 .more span{
+.container .coures1 .more span a{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -311,12 +311,13 @@
     transition: .5s ;
     display: none;
     z-index: 2;
+    text-decoration: none;
 }
-.coures1:hover .more span{
+.coures1:hover .more span a{
     display: block;
     box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 30%);
 }
-.coures1 .more span:hover{
+.coures1 .more span a:hover{
     color: #116eee;
     background-color: white;
     cursor: pointer;
