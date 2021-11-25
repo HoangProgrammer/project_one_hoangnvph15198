@@ -214,6 +214,12 @@
     ?>
 
         <div class="pcoded-main-container ">
+
+        <div class="pcoded-wrapper">
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+
+
             <div class="pcoded-main-container-lesson">
                 <?php
 
@@ -289,11 +295,11 @@
                             <button type="submit" name="comment" class="btn btn-primary">Bình luận</button>
                         </form>
                         <!--  -->
-                        <?php $getAll_comments=getAll_comments($_GET['lesson']); ?>
+                        <?php $getAll_comments=getAll_comments($_GET['lesson']); ?>                    
                         <?php
         function get_comments($data,$parent=0){
            
-echo  "<ul style='margin-left:15px'>";
+echo  "<ul style='margin-left:5%'>";
 foreach($data as $key=>$val){
     $image='';
     if($val['image']==''){
@@ -344,6 +350,11 @@ echo  "</ul>";
 
             </div>
 
+
+
+        </div>
+        </div>
+        </div>
         </div>
    
 

@@ -15,5 +15,15 @@ function insert_Rating($id_user,$child, $content,$time,$rating){
     ":rating"=>$rating,]);
     return true;
 }
+function insert_Reply($id_user,$child, $content,$time){
+    $conn=connect();
+    $stmt=$conn->prepare("INSERT INTO rating ( id_user,id_parent,content,time ) VALUES(:id_user,:child,:content,:time)");
+    $stmt->execute([   ":id_user"=>$id_user,
+    ":child"=>$child,
+    ":content"=>$content,
+    ":time"=>$time,
+    ]);
+    return true;
+}
 
 ?>
