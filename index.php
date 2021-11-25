@@ -15,6 +15,7 @@ require_once "./dao/pointDB.php";
 require_once "./dao/comment_lesson.php";
 require_once "./dao/accountDB.php";
 require_once "./dao/RatingDB.php";
+require_once "./dao/forum_post.php";
 require_once "./site/index.php";
 
 ?>

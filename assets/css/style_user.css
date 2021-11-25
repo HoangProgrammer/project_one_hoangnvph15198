@@ -931,3 +931,32 @@ a:hover{
 .container_social .wrap_social .btn a{
   color: #fff;
 }
+/* nguyễn mạnh quân */
+.container-tab-cmt-ask{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.container-tab-cmt-ask .container-tab-cmt-ask-img{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: blanchedalmond;
+  margin-right: 10px;
+  overflow: hidden;
+  
+}
+.container-tab-cmt-ask-img img{
+  width: 100%;
+}
+.container-tab-cmt-ask .container-tab-cmt-ask-text{
+  margin-right: 10px;
+  flex: 1;
+}
+.container-tab-cmt-ask-text input{
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(150, 150, 150);
+  background-color: #eff1f3;
+}
