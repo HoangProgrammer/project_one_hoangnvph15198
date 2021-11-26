@@ -35,7 +35,6 @@ foreach ($rating as $row) {
     $avg_rating = $total_rating /  $total_review;
 }
 
-
 ?>
 
 <div class="pcoded-main-container">
@@ -128,10 +127,6 @@ foreach ($rating as $row) {
 </div>
 
 
-
-
-
-
 <div id="review_modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -192,7 +187,6 @@ foreach ($rating as $row) {
                 $(this).addClass('text-warning');
             }
         })
-
         function fetch() {
             $.ajax({
                 method: 'post',
@@ -202,7 +196,6 @@ foreach ($rating as $row) {
                 }
             })
         }
-
         fetch();
         $('#save_review').on('click', function(e) {
             e.preventDefault();
@@ -229,6 +222,7 @@ foreach ($rating as $row) {
                     }
                 })
             }
+
 
         })
 

@@ -5,6 +5,18 @@ function getAll_post(){
     $stmt->execute();
     $rows = $stmt -> fetchAll();
     return $rows;
+}
+
+function get_post(){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM forum_post join user on forum_post.id_user=user.id_user where 1");
+    $stmt->execute();
+    $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+
+    }
+    return $rows;
 
 }
 function get_one_post($id_post){
