@@ -69,7 +69,7 @@
             <div class="container_detail">
                 <div class="detail_right">
                     <img src="./../image/<?php echo $data[0]['img'] ?>" alt="">
-                    <button style="display:block" class="btn btn-primary">Đăng kí</button>
+                    <a href="./../site/login/sign_in.php" style="display:block" class="btn btn-primary">Đăng kí</a>
                 </div>
             </div>
         </div>
