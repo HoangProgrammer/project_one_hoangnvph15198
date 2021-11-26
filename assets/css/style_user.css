@@ -493,7 +493,7 @@ ol, ul {
     width: 60px;
     border: 2px
  solid hsla(0,0%,90%,.5);
-    border-radius: 213px;
+    border-radius: 200px;
 }
 ._287pv {
     width: 100%;
@@ -847,7 +847,7 @@ header.navbar.pcoded-header.navbar-expand-lg.navbar-light {
   box-shadow: 0px 0px 4px 0px;
 }
 
-/* nguyÃ¡Â»â€¦n mÃ¡ÂºÂ¡nh quÃƒÂ¢n */
+/* nguyá»…n máº¡nh quÃ¢n */
 .col-md-6{
   margin-bottom: 26px;
 }
@@ -933,7 +933,7 @@ a:hover{
 .container_social .wrap_social .btn a{
   color: #fff;
 }
-/* nguyá»…n máº¡nh quÃ¢n */
+/* nguyễn mạnh quân */
 .container-tab-cmt-ask{
   width: 80%;
   display: flex;

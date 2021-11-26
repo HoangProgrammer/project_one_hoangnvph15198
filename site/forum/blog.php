@@ -9,34 +9,43 @@
         </span>     
     </div>
 
-<h1>Diễn Đàn Ngôn Ngữ Bussuu</h1>
+<h1>Diễn Đàn  Bussuu</h1>
 <br>
 <ul class="_1UYQp" id="ul">
 <li class="_7dkF0"><h2 ><a class="likes_post _26Aq_ _35ADQ" > Ưa thích nhiều nhất</a></h2></li>
 <li class="_7dkF0"><h2 ><a class="news_posts _26Aq_ ">Mới</a></h2></li>
-<li class="_7dkF0"><h2 ><a class="follows  _26Aq_ " >Đã theo dõi</a></h2></li>
+<!-- <li class="_7dkF0"><h2 ><a class="follows  _26Aq_ " >Đã theo dõi</a></h2></li> -->
 </ul>
 
 <br>
 <div id="news" style="display: none; padding-bottom:50px">
+<?php $get_new_post=get_new_post();
+foreach ($get_new_post as $value):
+    $get_comment_post=get_comment_post($value['id_post']);
+        
+     $count=   count($get_comment_post);
+    
+?>
 <div>
-    <span class="_27Sfq"><span class="UI5NM"><a href="https://www.duolingo.com/profile/phngkhnh704644" rel="nofollow">
-    <img alt="https://www.duolingo.com/profile/phngkhnh704644" class="_34uU0 _1hNyT" src="//duolingo-images.s3.amazonaws.com/avatars/840755176/nu60ecRheR/large">
+    <span class="_27Sfq"><span class="UI5NM"><a href="image/<?=$value['image']?>" rel="nofollow">
+    <img alt="" class="_34uU0 _1hNyT" src="image/<?=$value['image']?>">
 </a></span></span>
     <div class="_1a3Pv">
-        <div class="_24xio"><span class="mvAh1">7</span>
+        <div class="_24xio"><span class="mvAh1"><?= $count?></span>
         <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg"></div></div>
-        <div class="_2Nbkz"><h3><a class="_3ZcIW" href="index.php?act=detail_blog">Ummm ghi thế này ![](link ảnh) nó k ra cái j thì sao ặ</a>
+        <div class="_2Nbkz"><h3><a class="_3ZcIW" href="index.php?act=detail_blog&id_post=<?= $value['id_post']?>"><?=$value['title_post']?></a>
     </h3><div class="_2I7YD">
       
-            <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021">7 phút trước</span>
+            <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021"><?=$value['time']?></span>
             <span class="_2D8L4"><span>từ 
-                <a href="https://www.duolingo.com/profile/phngkhnh704644">phngkhnh704644</a></span>
+                <a href="https://www.duolingo.com/profile/phngkhnh704644"><?=$value['ten_user']?></a></span>
         </span>
     </div>
 </div>
 
     </div>
+    <?php endforeach; ?>
+
 </div>
 <div id="follows" style="display: none; padding-bottom:50px">
 <H1>Trống</H1>
@@ -51,13 +60,18 @@
     <div>
         <span class="_27Sfq">
             <span class="UI5NM">
-                <a href="https://www.duolingo.com/profile/phngkhnh704644" rel="nofollow">
-                <img alt="https://www.duolingo.com/profile/phngkhnh704644" class="_34uU0 _1hNyT" src="//duolingo-images.s3.amazonaws.com/avatars/840755176/nu60ecRheR/large">
+                <a href="image/<?=$value['image']?>" rel="nofollow">
+                <img alt="no image" class="_34uU0 _1hNyT" src="image/<?=$value['image']?>">
                 </a>
             </span>
         </span>
+        <?php $get_comment_post=get_comment_post($value['id_post']);
+        
+     $count=   count($get_comment_post);
+        ?>
+        
         <div class="_1a3Pv">
-            <div class="_24xio"><span class="mvAh1">7</span>
+            <div class="_24xio"><span class="mvAh1"><?= $count?></span>
                 <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg">
             </div>
         </div>
@@ -67,7 +81,7 @@
             </h3>
             <div class="_2I7YD">
     
-                <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021"><?=$value['time']?></span>
+                <span class="_1xBLK" itemprop="dateCreated" ><?=$value['time']?></span>
                 <span class="_2D8L4">
                     <span>
                     từ 
