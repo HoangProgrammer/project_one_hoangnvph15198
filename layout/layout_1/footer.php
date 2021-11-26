@@ -77,6 +77,7 @@
 
 
 <script type="text/javascript">
+
   $(document).ready(function(){
     const swiper = new Swiper('.swiper', {
 autoplay:true,
@@ -94,10 +95,14 @@ autoplay:true,
 
     </script>
 
-<script type="text/javascript">    
+<script type="text/javascript">   
+
+  CKEDITOR.replace( 'editor1' );
+
+
          $(document).ready(function(){
 
-         CKEDITOR.replace( 'editor1' );
+       
 
   $('#user').on( "click",function() {
             $('.profile-notification').fadeToggle(500);

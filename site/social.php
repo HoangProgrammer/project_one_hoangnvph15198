@@ -34,12 +34,11 @@ foreach ($Select_MyFriend as $val) {
                         <form action="" method="post">
                             <?php $Friends_request = Friends_request2($id_user, $val['id_user']);
                             if (empty($Friends_request)) { ?>
-                                <button type='submit' id="send_request<?= $val['id_user'] ?>" data-id="<?= $val['id_user'] ?>"  class='btn_request btn btn-primary'><i class="fas fa-user-plus"></i>Kết bạn</button>
+                                <button type='submit' id="send_request<?=$val['id_user']?>"  data-id="<?= $val['id_user'] ?>"  class='btn_request btn btn-primary'><i class="fas fa-user-plus"></i>Kết bạn</button>
                                 <?php } else {
                                 foreach ($Friends_request as $value) {
                                     extract($value);
-                                }
-                                
+                                }                           
                                 if (empty($value)) { ?>
                                     <button type='submit' class=' btn btn-primary'>Kết bạn</button>
                                     <?php } else {

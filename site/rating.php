@@ -1,5 +1,7 @@
 <?php
+
 $rating = Get_Rating();
+
 $five_star = 0;
 $four_star = 0;
 $three_star = 0;
@@ -30,8 +32,9 @@ foreach ($rating as $row) {
         $total_review++;
         $total_rating += $row['rating'];
     }
+    $avg_rating = $total_rating /  $total_review;
 }
-$avg_rating = $total_rating /  $total_review;
+
 
 ?>
 
@@ -175,9 +178,6 @@ $avg_rating = $total_rating /  $total_review;
 </div>
 
 
-
-
-
 <script>
     $(document).ready(function() {
         $('#five_star').css('width', (<?= $five_star /  $total_review ?>) * 100 + "%") // sao / bình luận
@@ -202,6 +202,7 @@ $avg_rating = $total_rating /  $total_review;
                 }
             })
         }
+
         fetch();
         $('#save_review').on('click', function(e) {
             e.preventDefault();

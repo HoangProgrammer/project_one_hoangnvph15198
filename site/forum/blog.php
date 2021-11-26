@@ -71,7 +71,7 @@
                 <span class="_2D8L4">
                     <span>
                     từ 
-                    <a href="https://www.duolingo.com/profile/phngkhnh704644"><?php if(isset($_SESSION['admin'])){ echo $_SESSION['admin']; }  ?> abc</a>
+                    <a href="https://www.duolingo.com/profile/phngkhnh704644"><?php if(isset($_SESSION['admin'])){ echo $_SESSION['admin']['id']; }  ?> abc</a>
                     </span>
                 </span>
             </div>
@@ -204,9 +204,9 @@
                                 <input type="text" name="title" id="user_name" class="form-control" placeholder="Tiêu Đề" />
                             </div>
                             <div class="form-group">
-                            <textarea name="editor1" >
 
-                            </textarea>
+                            <textarea name="editor1" > </textarea>   
+                                                 
                             </div>
                             <div class="form-group text-center mt-4">
                                 <button type="submit" name="button" class="btn btn-primary" id="save_blog">Đăng</button>
@@ -267,5 +267,38 @@ $('a._26Aq_').click(function() {
         //         menu[i].className="_35ADQ"
         //      }
         //  }
+
+        function timeSince(date) {
+
+var seconds = Math.floor((new Date() - date) / 1000);
+
+var interval = seconds / 31536000;
+
+if (interval > 1) {
+  return Math.floor(interval) + " years";
+}
+interval = seconds / 2592000;
+if (interval > 1) {
+  return Math.floor(interval) + " months";
+}
+interval = seconds / 86400;
+if (interval > 1) {
+  return Math.floor(interval) + " days";
+}
+interval = seconds / 3600;
+if (interval > 1) {
+  return Math.floor(interval) + " hours";
+}
+interval = seconds / 60;
+if (interval > 1) {
+  return Math.floor(interval) + " minutes";
+}
+return Math.floor(seconds) + " seconds";
+}
+
+var aDay = 24*60*60*1000;
+console.log(timeSince(new Date(Date.now()-aDay)));
+console.log(timeSince(new Date(Date.now()-aDay*2)));
+
 
 </script>
