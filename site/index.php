@@ -24,6 +24,8 @@ if(isset($_GET['act'])){
             default:
             require("./layout/layout_1/nav.php") ;
             break;
+        case "buyCourse":
+            break;
     }
 
 }else{
@@ -58,13 +60,17 @@ if(isset($_GET['act'])){
     case "detail_blog":      
         require_once "forum/detail_blog.php";      
         break;
-        case "Topic":     
-            if(isset($_GET['idCourse']))   {
-                $id_course= $_GET['idCourse'];
-                $getAll_topic=getAll_topic($id_course);
-            }     
-            require_once "hoc/topic_lesson.php";  
-            break;
+    // case "add_blog":
+    //     header('Location: index.php?act=blog');
+    //     break;
+    case "Topic":     
+        if(isset($_GET['idCourse']))   {
+            $id_course= $_GET['idCourse'];
+            $getAll_topic=getAll_topic($id_course);
+        }     
+        require_once "hoc/topic_lesson.php";  
+        break;
+    
     case "learn":     
         require_once "hoc/learn.php";         
         break;
@@ -83,6 +89,9 @@ if(isset($_GET['act'])){
         break;
     case "social":               
         require_once "social.php";      
+        break;
+    case "buyCourse":
+        require_once "vnpay_php/index.php";
         break;
     case "account":               
         require_once "user/account.php";      

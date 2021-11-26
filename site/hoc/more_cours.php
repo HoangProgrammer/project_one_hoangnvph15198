@@ -102,7 +102,7 @@
 foreach(  $course as $val) { ;
    $price=$val['price'];
    $type=$val['type'];
-
+    $id_course=$val['id_caurse'];
 }
 ?>
             <div class="pcoded-module-right">
@@ -115,7 +115,7 @@ foreach(  $course as $val) { ;
                 </div> 
                 <form class="pcoded-module-right-add" action="">    
         <?php if( $type==1){?>
-            <a class="btn btn-danger text-light" href="index.php?act=buyCourse">  Mua Ngay </a>
+            <a class="btn btn-danger text-light" href="index.php?act=buyCourse&id=<?= $id_course ?>">  Mua Ngay </a>
        <?php }else{?>
    <a class="btn btn-primary text-light" href="index.php?act=Topic&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
    <?php } ?>

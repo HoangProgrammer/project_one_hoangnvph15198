@@ -1,3 +1,9 @@
+<?php
+    require_once 'dao/courseDB.php';
+    require_once 'models/pdo.php';
+    $data = Get_caurse();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +21,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
 
 </head>
 <body>
@@ -98,7 +101,7 @@
                         </a>
                     </div>
                     <div class="btnn btn--header">
-                        <a href="/du_an_1/site/coures.php">
+                        <a href="/du_an_1/trangchu/coures.php">
                             Các khóa học
                         </a>
                     </div>
@@ -162,118 +165,29 @@
 
         <!-- coures -->
         <div class="coures">
-            <h3>CÁC KHÓA HỌC TIÊU BIỂU TẠI <span class="span_blue">BUSSU</span></h3>
-            <span>BUSSU cung cấp mọi khóa học
-               <br> phù hợp nhu cầu của bạn!</span>
+            <h3>CÁC KHÓA HỌC NỔI BẬT</h3>
             <div class="container">
-                <div class="coures1">
-                    <a href=""><img src="trangchu/images/english-communication.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="name">
-                            <h6>TIẾNG ANH GIAO TIẾP</h6>
-                        </div>
-                        <div class="coures_info">
-                            <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                        </div>
-                        <div class="count_student">
-                            <p><b>Học viên: 8398</b></p>
-                        </div>
+                            <?php foreach ($data as $key => $value) { ?>
+                            <div class="coures1">
+                                    <a href=""><img src="image/<?php echo $data[$key]['img'] ?>" alt=""></a>
+                                    <div class="info">
+                                        <div class="name">
+                                            <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
+                                        </div>
+                                        <div class="coures_info">
+                                            <p><?php echo $data[$key]['description'] ?></p>
+                                        </div>
+                                        <div class="count_student">
+                                            <p><b>Học viên: 8398</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="more">
+                                        <span><a href="/du_an_1/trangchu/coures_detail.php?id_coures=<?php echo $data[$key]['id_caurse'] ?>">Xem thêm</a></span>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                                    </div>
                     </div>
-                    <div class="more">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-
-                <div class="coures1">
-                    <a href="#"><img src="trangchu/images/english-communication2.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="name">
-                            <h6>TIẾNG ANH CHO TRẺ EM</h6>
-                        </div>
-                        <div class="coures_info">
-                            <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                        </div>
-                        <div class="count_student">
-                            <p><b>Học viên: 8398</b></p>
-                        </div>
-                    </div>
-                    <div class="more">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-
-                <div class="coures1">
-                    <a href=""><img src="trangchu/images/english-communication3.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="name">
-                            <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                        </div>
-                        <div class="coures_info">
-                            <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                        </div>
-                        <div class="count_student">
-                            <p><b>Học viên: 8398</b></p>
-                        </div>
-                    </div>
-                    <div class="more">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-
-                <div class="coures1">
-                    <a href=""><img src="trangchu/images/luyen-thi-ielts.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="name">
-                            <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                        </div>
-                        <div class="coures_info">
-                            <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                        </div>
-                        <div class="count_student">
-                            <p><b>Học viên: 8398</b></p>
-                        </div>
-                    </div>
-                    <div class="more">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-
-                <div class="coures1">
-                    <a href=""><img src="trangchu/images/Training_2.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="name">
-                            <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                        </div>
-                        <div class="coures_info">
-                            <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                        </div>
-                        <div class="count_student">
-                            <p><b>Học viên: 8398</b></p>
-                        </div>
-                    </div>
-                    <div class="more">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-
-                <div class="coures1">
-                    <a href=""><img src="trangchu/images/tieng-anh-phong-van copy.jpg" alt=""></a>
-                    <div class="info">
-                        <div class="name">
-                            <h6>TIẾNG ANH CHO DOANH NGHIỆP</h6>
-                        </div>
-                        <div class="coures_info">
-                            <p>Khi tham gia chương trình anh văn giao tiếp học viên sẽ được cung..</p>
-                        </div>
-                        <div class="count_student">
-                            <p><b>Học viên: 8398</b></p>
-                        </div>
-                    </div>
-                        <div class="more">
-                        <span>Xem thêm</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- list_teachers -->
@@ -460,9 +374,86 @@
     </div>
 
     <!-- footer -->
-    <?php 
-        require_once 'footer_coures.php';
-    ?>
+    <div class="wrap_footer">
+            <div class="footer">
+                <div class="column1">
+                    <ul>
+                        <li>
+                                <img src="trangchu/images/Busuu_Logo.png" alt="">
+                            <ul>
+                                <li><a href="">Giới thiệu</a></li>
+                                <li><a href="">Liên hệ</a></li>
+                                <li><a href="">Chính sách chăm sóc khách hàng</a></li>
+                                <li><a href="">Câu hỏi thường gặp</a></li>
+                                <li><a href="">Hướng dẫn học</a></li>
+                                <li><a href="">Tổng đài CSKH <span style="padding: 5px 10px; background-color: #11ee92; border-radius: 25px;">0354171002</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column1">
+                    <ul>
+                        <li>
+                            <h3>Chúng tôi</h3>
+                            <ul>
+                                <li><a href="">Giới thiệu</a></li>
+                                <li><a href="">Liên hệ</a></li>
+                                <li><a href="">Chính sách</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="column1">
+                    <ul>
+                        <li>
+                            <h3>Kết nối với chúng tôi</h3>
+                               <a href="" data-text="blue"><i class="fab fa-facebook-square"></i></a>
+                               <a href="" data-text="#116eee"><i class="fab fa-telegram"></i></a>
+                               <a href="" data-text="red"><i class="fab fa-instagram-square"></i></a>
+                               <a href="" data-text="blue"><i class="fab fa-twitter-square"></i></a>
+                               <a href="" data-text="orange"><i class="fab fa-google-plus-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="fb-page column1" 
+                    data-href="https://www.facebook.com/busuucom/" 
+                    data-tabs="hide_cover" 
+                    data-width="300" 
+                    data-height="" 
+                    data-small-header="false" 
+                    data-adapt-container-width="true" 
+                    data-hide-cover="false" 
+                    data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/busuucom/" 
+                    class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/busuucom/">Meta</a>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="copyright">
+                <br>
+                <hr>
+                <br>
+                <div class="container_copyright">
+                    <div class="right">
+                        <span>©2021 Bussu copyright</span>
+                        <div class="link">
+                            <a href="#">Terms |</a>
+                            <a href="#">Privacy</a>
+                        </div>
+                    </div>
+                    <div class="left">
+                        <div class="btnn btn--sign_up">
+                            <a href="#">
+                                Sign up
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
 </div>
 
     <script>

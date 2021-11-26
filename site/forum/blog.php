@@ -43,24 +43,42 @@
 </div>
 
 <div id="likes">
-<div>
-    <span class="_27Sfq"><span class="UI5NM"><a href="https://www.duolingo.com/profile/phngkhnh704644" rel="nofollow">
-    <img alt="https://www.duolingo.com/profile/phngkhnh704644" class="_34uU0 _1hNyT" src="//duolingo-images.s3.amazonaws.com/avatars/840755176/nu60ecRheR/large">
-</a></span></span>
-    <div class="_1a3Pv">
-        <div class="_24xio"><span class="mvAh1">7</span>
-        <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg"></div></div>
-        <div class="_2Nbkz"><h3><a class="_3ZcIW" href="/comment/53746558">Ummm ghi thế này ![](link ảnh) nó k ra cái j thì sao ặ</a>
-    </h3><div class="_2I7YD">
-      
-            <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021">7 phút trước</span>
-            <span class="_2D8L4"><span>từ 
-                <a href="https://www.duolingo.com/profile/phngkhnh704644">phngkhnh704644</a></span>
+<?php
+    $rows = getAll_post();
+    foreach ($rows as $key => $value) {
+        
+?>
+    <div>
+        <span class="_27Sfq">
+            <span class="UI5NM">
+                <a href="https://www.duolingo.com/profile/phngkhnh704644" rel="nofollow">
+                <img alt="https://www.duolingo.com/profile/phngkhnh704644" class="_34uU0 _1hNyT" src="//duolingo-images.s3.amazonaws.com/avatars/840755176/nu60ecRheR/large">
+                </a>
+            </span>
         </span>
-    </div>
-</div>
+        <div class="_1a3Pv">
+            <div class="_24xio"><span class="mvAh1">7</span>
+                <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg">
+            </div>
+        </div>
+        <div class="_2Nbkz">
+            <h3>
+                <a class="_3ZcIW" href="index.php?act=detail_blog&id_post=<?= $value['id_post'] ?>"><?php echo $value['title_post'] ?></a>
+            </h3>
+            <div class="_2I7YD">
+    
+                <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021">7 phút trước</span>
+                <span class="_2D8L4">
+                    <span>
+                    từ 
+                    <a href="https://www.duolingo.com/profile/phngkhnh704644"><?php if(isset($_SESSION['admin'])){ echo $_SESSION['admin']; }  ?> abc</a>
+                    </span>
+                </span>
+            </div>
+        </div>
 
     </div>
+<?php } ?>
 
 <div>
     <span class="_27Sfq"><span class="UI5NM"><a href="https://www.duolingo.com/profile/phngkhnh704644" rel="nofollow">
@@ -152,6 +170,25 @@
 
 <!-- modal -->
 
+<?php
+    if(isset($_POST['button'])){
+        $title = $_POST['title'];
+        $content = $_POST['editor1'];
+        $time = date("Y-m-d H:i:s");
+        $interactions = 1;
+        
+        $data=[
+            'id_user' => $id_user,
+            'content' => $content,
+            'time' => $time,
+            'interactions' => $interactions,
+            'title_post' => $title,
+        ];
+        insert_post($data);
+    }
+
+?>
+
 <div id="blog_modal" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -161,17 +198,20 @@
                                 <span id="closes_blog">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        
+                        <form action="" method="POST" class="modal-body">
                             <div class="form-group">
                                 <input type="text" name="title" id="user_name" class="form-control" placeholder="Tiêu Đề" />
                             </div>
                             <div class="form-group">
-                            <textarea name="editor1" ></textarea>
+                            <textarea name="editor1" >
+
+                            </textarea>
                             </div>
                             <div class="form-group text-center mt-4">
-                                <button type="button" class="btn btn-primary" id="save_blog">Đăng</button>
+                                <button type="submit" name="button" class="btn btn-primary" id="save_blog">Đăng</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
