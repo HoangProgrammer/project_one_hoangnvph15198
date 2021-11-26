@@ -165,6 +165,7 @@
 
         <!-- coures -->
         <div class="coures">
+            <h3>CÁC KHÓA HỌC NỔI BẬT</h3>
             <div class="container">
                             <?php foreach ($data as $key => $value) { ?>
                             <div class="coures1">
@@ -181,7 +182,7 @@
                                         </div>
                                     </div>
                                     <div class="more">
-                                        <span><a href="">Xem thêm</a></span>
+                                        <span><a href="/du_an_1/trangchu/coures_detail.php?id_coures=<?php echo $data[$key]['id_caurse'] ?>">Xem thêm</a></span>
                                     </div>
                                 </div>
                             <?php } ?>

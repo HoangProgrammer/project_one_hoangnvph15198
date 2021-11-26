@@ -1,3 +1,11 @@
+<?php
+    require_once('./../dao/courseDB.php');
+    require_once('./../models/pdo.php');
+    $id = $_GET['id_coures'];
+    $data = Get_course_one($id);
+    // var_dump($data);die;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +29,7 @@
         <div class="wrap_detail">
             <div class="detail_left">
                 <div class="detail_info">
-                    <h3>Khóa học nâng cao</h3>
+                    <h3> <?php echo $data[0]['NameCaurse'] ?> </h3>
                     <p>Hiểu sâu hơn về cách Javascript hoạt động, 
                         tìm hiểu về IIFE, closure, reference types, 
                         this keyword, bind, call, apply, prototype, ...
@@ -60,7 +68,7 @@
 
             <div class="container_detail">
                 <div class="detail_right">
-                    <img src="images/english-communication2.jpg" alt="">
+                    <img src="./../image/<?php echo $data[0]['img'] ?>" alt="">
                     <button style="display:block" class="btn btn-primary">Đăng kí</button>
                 </div>
             </div>
