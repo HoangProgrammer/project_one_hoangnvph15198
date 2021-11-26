@@ -17,6 +17,17 @@ while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
 return $rows;
 }
 
+function Get_user_other($id,$my_id){
+$conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN(?) and id_user <> ?  order by id_user desc");
+    $stmt->execute([$id,$my_id]);
+    $rows=array();
+while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+    $rows[]=$row;
+}
+return $rows;
+}
+
 function insert_user($data){
  
 $conn=connect();

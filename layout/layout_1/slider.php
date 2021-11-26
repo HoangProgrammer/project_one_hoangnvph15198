@@ -1,37 +1,40 @@
+
 <div class="pcoded-main-container banner_silde">
         <div class="pcoded-wrapper ">
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
                     
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="assets/images/slider/banner_1.jpg" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="assets/images/slider/banner_2.jpg" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="assets/images/slider/banner_3.jpg" class="d-block w-100" alt="...">
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-                    
-                </div>
                 
+                      <div class="swiper">
+ 
+  <div class="swiper-wrapper">
+ <?php $banner=Get_Banner(); 
+ foreach($banner as $value):
+ ?>
+    <div class="swiper-slide">
+      <img class="image_banner" src="image/<?=$value['image']?>" alt="">
+    </div>
+
+    <?php
+ endforeach
+ ?>
+  </div>
+
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-scrollbar"></div>
+</div>
+
+
+
+
+
+
+
+
+                </div>            
             </div>
         </div>
     </div>
+

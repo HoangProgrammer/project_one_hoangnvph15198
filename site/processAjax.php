@@ -12,6 +12,45 @@ if(isset($_SESSION['user'])){
     
 require_once ('../models/pdo.php');
 require_once ('../dao/RatingDB.php');
+require_once ('../dao/Friend.php');
+
+
+if(isset($_POST['action']) && $_POST['action']=="friend_request"){
+    $id_friend = $_POST['id_friend'];
+    $time =date('Y-m-d H:i:s');
+    fiend_request($id_user,$id_friend,$time);
+}
+
+
+
+if(isset($_POST['action']) && $_POST['action']=="accept"){
+    $id_friends = $_POST['id_friends'];
+    accept_Friend($id_user,$id_friends);
+    delete_sender( $id_friends);
+}
+
+if(isset($_POST['action']) && $_POST['action']=="accept_check"){
+    $toID = $_POST['toID'];
+    accept_Friend($id_user,$toID);
+    delete_sender( $toID);
+}
+
+
+if(isset($_POST['action']) && $_POST['action']=='delete_request'){
+    $toID = $_POST['toID'];
+    delete_request($toID) ;
+}
+
+
+if(isset($_POST['action']) && $_POST['action']=='cancel_request'){
+    $toID = $_POST['toID'];
+    delete_receiver($toID) ;
+}
+
+
+
+
+
 
 if(isset($_POST['content'])){
     $content =$_POST['content'];

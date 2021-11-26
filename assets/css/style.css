@@ -10707,3 +10707,25 @@ div.code-toolbar > .toolbar span:hover {
   transform: translateY(-50%);
   padding: 10px 11px;
 }
+
+img.image_banner {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper {
+
+  height: 445px !important;
+
+}
+
+span.notifications_number {
+    background: red;
+    border-radius: 10px;
+    color: white;
+    padding: 0px 2px 2px 5px;
+    text-align: center;
+}
+a#bell {
+  font-size: 20px;
+}

@@ -594,8 +594,8 @@ px
   border-bottom: 0.1875rem solid #116eee;
 }
 .nav__link--active, .nav__link:hover {
-  color: #116eee;
-  border-bottom: 0.1875rem solid #116eee;
+  color: #116eee !important;
+  border-bottom: 0.1875rem solid #116eee !important;
 }
 
 
@@ -847,7 +847,7 @@ header.navbar.pcoded-header.navbar-expand-lg.navbar-light {
   box-shadow: 0px 0px 4px 0px;
 }
 
-/* nguyễn mạnh quân */
+/* nguyá»…n máº¡nh quÃ¢n */
 .col-md-6{
   margin-bottom: 26px;
 }

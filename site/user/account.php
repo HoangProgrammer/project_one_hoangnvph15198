@@ -7,15 +7,35 @@
         <div class="panel-main settings__panel">
             <div class="settings__menu">
                 <h1 class="settings__heading" data-cy="UserSettings__heading">Cài đặt</h1>
-                <!-- <div class="tab-menu__tabs" data-cy="MyProfile__menuTabs">
+                <div class="tab-menu__tabs" data-cy="MyProfile__menuTabs">
                     <a class="nav__link  nav__link--active " id="account">Tài khoản</a>
-                    <a class="nav__link " id="images">Ảnh</a>
-                    <a class="nav__link " data-qa-settings-languages="true">Ngôn ngữ</a>
+                    <a class="nav__link " id="friend">Bạn Bè</a>
+                    <!-- <a class="nav__link " data-qa-settings-languages="true">Ngôn ngữ</a>
                    <a class="nav__link " data-qa-settings-personal="true">Cài đặt cá nhân</a>
                     <a class="nav__link " data-qa-settings-subscription="true">Đăng ký</a>
-                    <a class="nav__link " data-qa-settings-studyplan="true">Kế hoạch học tập</a></div>              
-            </div> -->
-            <div class="settings__view-container" id="echangeAcount">
+                    <a class="nav__link " data-qa-settings-studyplan="true">Kế hoạch học tập</a></div>               -->
+            </div>
+            <div class="settings__view-container" id="friends">
+             
+               <table cellspacing="10" cellpadding="10">
+                   <thead>
+                    <?php  
+               $Select_MyFriend=Select_MyFriend($id_user);
+               if(empty($Select_MyFriend)){
+                   echo "<h1 class='text-center'>Trống</h1>";
+               }else{         
+               foreach ($Select_MyFriend as $val){  ?>                 
+                       <tr>
+                           <th><?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img style="width:50px; border-radius:50%" src="image/'.$val['image'].'" alt="">'  ?></th>
+                           <th><?= ucfirst($val['ten_user'])?></th>
+                           <th><button class="btn btn-danger">xóa</button></th>
+                       </tr>
+               <?php }} ?>   
+                   </thead>
+
+               </table>
+            </div>
+            <div class="settings__view-container" id="exchangeAcount">
                         <!-- <h1 class="settings__title">Tài khoản</h1> -->
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
@@ -83,4 +103,23 @@
         </div>
         </div>
 
-   
+   <script>
+           $('#friends').hide();
+              $('#account').click(function() {
+                  $('#friends').hide();
+                  $('#exchangeAcount').show();
+              })  
+              $('#friend').click(function() {
+                  $('#friends').show();
+                  $('#exchangeAcount').hide();
+              })  
+
+
+              
+$('a.nav__link').click(function() {
+    $('a.nav__link--active').removeClass('nav__link--active');
+    $(this).addClass('nav__link--active')
+
+})
+
+   </script>

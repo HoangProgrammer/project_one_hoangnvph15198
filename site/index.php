@@ -84,26 +84,19 @@ if(isset($_GET['act'])){
     case "social":               
         require_once "social.php";      
         break;
-    case "formRating":  
-       if(isset($_POST['content'])){
-         $content =$_POST['content'];
-         $rating =$_POST['rating'];
-         $id_user =$_POST['id_user'];
-         $id_child =$_POST['child'];
-         $time = $_POST['time'];
-             
-         $data=[
-             "id_user"=>$id_user,
-             "id_child"=>$id_child,
-             "content"=>$content,
-             "time"=>$time,
-             "rating"=>$rating,
-         ];
-        //  insert_Rating($data);
-       } 
-        break;
     case "account":               
         require_once "user/account.php";      
+        break;
+    case "logout":               
+        if(isset($_SESSION['user'])){
+            unset($_SESSION['user']);
+            header("Location:site/login/sign_in.php");
+        }     
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+            header("Location:site/login/sign_in.php");
+        }     
+
         break;
     default:
     require_once "home2.php";

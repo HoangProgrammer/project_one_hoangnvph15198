@@ -103,7 +103,8 @@ $avg_rating = $total_rating /  $total_review;
                         </div>
                         <div class="col-sm-4 text-center">
                             <h4 class="mt-4 mb-3">Viết nhận xét Tại Đây</h4>
-                            <button type="button" name="add_review" id="add_review" class="btn btn-primary">gửi đánh giá của bạn</button>
+                            <?php $disabled=''; if($role==1){ $disabled='disabled';}else{ $disabled=''; } ?>
+                            <button <?=$disabled?> type="button" name="add_review" id="add_review" class="btn btn-primary">gửi đánh giá của bạn</button>
                         </div>
                     </div>
                 </div>
