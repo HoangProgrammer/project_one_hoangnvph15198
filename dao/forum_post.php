@@ -5,8 +5,43 @@ function getAll_post(){
     $stmt->execute();
     $rows = $stmt -> fetchAll();
     return $rows;
+}
+
+function get_post(){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM forum_post join user on forum_post.id_user=user.id_user where 1");
+    $stmt->execute();
+    $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+    }
+    return $rows;
+}
+
+function get_new_post(){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM forum_post join user on forum_post.id_user=user.id_user where 1 order by id_post desc limit 5");
+    $stmt->execute();
+    $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+    }
+    return $rows;
+}
+
+function get_comment_post($id){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM comments_post join user on comments_post.id_user=user.id_user
+    join forum_post on comments_post.id_post=forum_post.id_post where forum_post.id_post=?");
+    $stmt->execute([$id]);
+    $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+    }
+    return $rows;
 
 }
+
 function get_one_post($id_post){
     $conn=connect();
     $stmt= $conn->prepare("SELECT * FROM forum_post Where id_post  = :id_post");

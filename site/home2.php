@@ -18,7 +18,6 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
     $arr = array();
     $ar = array();
     $Get_oderCourse = Get_oderCourse();
-
     foreach ($Get_oderCourse as $value) {
         if ($value['id_user'] == $id_user) {
             $value['id_caurse'];
@@ -87,7 +86,6 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                     <div class="page-wrapper">
 
                         <div class="row">
-
 
                             <?php
                             $course = Get_caurse();

@@ -60,9 +60,25 @@ if(isset($_GET['act'])){
     case "detail_blog":      
         require_once "forum/detail_blog.php";      
         break;
-    // case "add_blog":
-    //     header('Location: index.php?act=blog');
-    //     break;
+    case "add_post":
+        if(isset($_POST['button'])){
+            $title = $_POST['title'];
+            $content = $_POST['editor1'];
+            $time = date("Y-m-d H:i:s");
+            $interactions = 1;
+            
+            $data=[
+                'id_user' => $id_user,
+                'content' => $content,
+                'time' => $time,
+                'interactions' => $interactions,
+                'title_post' => $title,
+            ];
+            insert_post($data);
+            
+        }
+        header('Location: index.php?act=blog');
+        break;
     case "Topic":     
         if(isset($_GET['idCourse']))   {
             $id_course= $_GET['idCourse'];
