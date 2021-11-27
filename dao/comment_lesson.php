@@ -53,7 +53,45 @@ $stmt->execute([":id_user"=>$id_user,":id_lesson"=>$id_lesson,":content"=>$conte
 return true;
 }
 
+function select_comment()
+{
 
+   $conn = connect();
+   $sql = "SELECT  comments.id_comment  as IDcomment , lesson.id_lesson  as IDlesson , count(comments.id_comment) as sumBL ,
+   min(comments.time) as minDate, max(comments.time) as maxDate
+   FROM lesson   inner join comments on comments.id_lesson  =  lesson.id_lesson  group by  lesson.id_lesson";
+   $stmt = $conn->prepare($sql);
+   $stmt->execute();
+   $row = array();
+   while (true) {
+      $row = $stmt->fetch();
+      if ($row == false) {
+         break;
+      }
+      $rows[] = $row;
+   }
+   return  $rows;
+}
+
+function detail_comment_id($id)
+{
+   $conn = connect();
+   $sql = "SELECT * FROM  comments as cm inner join lesson as pr on
+    cm.id_lesson =  pr.id_lesson join user on cm.id_user=user.id_user where pr.id_lesson=:id ";
+   $stmt = $conn->prepare($sql);
+   $stmt->execute([":id" => $id]);
+   $row = array();
+   if ($stmt->rowCount()) {
+      while (true) {
+         $row = $stmt->fetch();
+         if ($row == false) {
+            break;
+         }
+         $rows[] = $row;
+      }
+      return  $rows;
+   }
+}
 
 
 ?>

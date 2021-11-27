@@ -263,11 +263,12 @@
                     }
 
                     if (isset($_POST['comment_child'])) {
-                        $id_user = $_POST['id_user'];
+                        $id_user;
                         $child=$_POST['child'];
                         $id_lesson = $_POST['id_lesson'];
                         $content = $_POST['content'];
                         $time = date('Y-m-d H:i:s');
+                        // var_dump($time);
                         $arr = array();
                         if ($content == "") {
                             $_SESSION['err'] = "không được để trống";
@@ -323,7 +324,6 @@ echo '<li>
         <a class="text-danger chats" style="margin-right: 10px; cursor:pointer;">trả lời </a> <span>'.$val['time'].'</span>
         <form action="" method="post" class="formTwo">
             <input type="hidden" name="child" value="'.$val['id_comment'].'">
-            <input type="hidden" name="id_user" value="'.$val['id_user'].'">
             <input type="hidden" name="id_lesson" value="'.$_GET['lesson'].'">
             <div class="container-tab-cmt-ask-text">
                 <input name="content" type="text" placeholder=" Trả lời ' .ucfirst($val['ten_user']). ' ">

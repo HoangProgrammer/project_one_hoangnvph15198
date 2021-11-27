@@ -5,8 +5,10 @@ require_once('../models/pdo.php');
 require_once('../dao/courseDB.php');
 require_once('../dao/lesson_topicDB.php');
 require_once('../dao/lesson.php');
+require_once('../dao/comment_lesson.php');
 require_once('../dao/quizDB.php');
 require_once('../dao/accountDB.php');
+require_once('../global.php');
 require_once('../dao/BannerDB.php');
 
 ?>
@@ -509,6 +511,12 @@ header("location:index.php?action=banner");
     $id_banner=$_GET['id_banner'];
   deleteBanner(  $id_banner);
   header("location:index.php?action=banner");
+    break;
+  case "comments":
+    require("./comment/list_comments.php");
+    break;
+  case "detail_cm":
+    require("./comment/detail_comment.php");
     break;
         default:
         require("./course/product.php");

@@ -3,7 +3,7 @@
 <div id="main">
 	<div class="head">
 		<div class="col-div-6">
-<p class="nav"> danh sách bình luận</p>
+<p class="nav"> Bình Luận bài học</p>
 
 </div>
 	<div class="col-div-6">
@@ -17,7 +17,7 @@
         <thead>
             <tr> 
         <th>id comment </th>
-        <th> id sản phẩm</th>
+        <th> id bài học</th>
         <th>tổng số bình luận</th>
         <th>bình luận mới nhất</th>
         <th>bình luận cũ nhất</th>
@@ -27,17 +27,17 @@
 
         <tbody>
 <?php
-// $cm=select_comment();
+$cm=select_comment();
 foreach($cm as $val){
     extract($val);
     ?>
 <tr>
 <td><?=$IDcomment ?></td>
-<td><?=$IDproduct  ?></td>
+<td><?=$IDlesson  ?></td>
 <td><?=$sumBL ?></td>
-<td><?=$maxDate ?></td>
-<td><?=$minDate ?></td>
-<td><a class="btn btn-primary" href="index.php?action=detail_cm&id=<?= $IDproduct   ?>">xem chi tiết</a>  </td>  
+<td><?=get_time($maxDate )?></td>
+<td><?=get_time($minDate) ?></td>
+<td><a class="btn btn-primary" href="index.php?action=detail_cm&id=<?= $IDlesson   ?>">xem chi tiết</a>  </td>  
 
 </tr>
 

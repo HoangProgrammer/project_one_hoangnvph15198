@@ -81,7 +81,7 @@ foreach ($get_new_post as $value):
             </h3>
             <div class="_2I7YD">
     
-                <span class="_1xBLK" itemprop="dateCreated" ><?=$value['time']?></span>
+                <span class="_1xBLK" itemprop="dateCreated" ><?=get_time($value['time'])?></span>
                 <span class="_2D8L4">
                     <span>
                     từ 

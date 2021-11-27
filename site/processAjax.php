@@ -9,10 +9,11 @@ if(isset($_SESSION['user'])){
     $id_user=$_SESSION['admin']["id"];
     $role=1;
     }
-    
+require_once ('../global.php');    
 require_once ('../models/pdo.php');
 require_once ('../dao/RatingDB.php');
 require_once ('../dao/Friend.php');
+
 
 
 if(isset($_POST['action']) && $_POST['action']=="friend_request"){
@@ -96,7 +97,8 @@ foreach ($rating as $value) :
                             <?php }
                             } ?>
                         </ul>
-                        <span><?= $value['time'] ?></span>
+                        <span>
+                            <?= $time=get_time($value['time'])  ?></span>
                     </ul>
                 </div>
                 <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div>
@@ -134,7 +136,7 @@ foreach ($rating as $value) :
                     <!-- <div class="c-comment-box__avatar">VTH</div> -->
                     <div class="c-comment-box__content">
                         <div class="c-comment-name"><?= ucfirst($val['ten_user']) ?> <span class="badge badge-primary">Quản trị viên</span>
-                            <div class="time"><?=$val['time']?></div>
+                            <div class="time"><?=$time=get_time($val['time'])?></div>
                         </div>
                         <div class="c-comment-text" data-idcmt="5288542">
                             <p>Chào <?= ucfirst($value['ten_user']) ?></p>

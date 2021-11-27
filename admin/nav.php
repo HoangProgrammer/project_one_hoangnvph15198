@@ -42,7 +42,7 @@ session_start();
   <a href="index.php?action=product"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Khóa học</a>
   <a href="index.php?action=banner"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Banner</a>
   <a href="index.php?action=account"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người dùng</a>
-  <a href="index.php?action=banner"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
+  <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
 
   <!-- <a href="index.php?action=lesson_topic"class="icon-a"><i class="fa fa-sliders icons"></i> &nbsp;&nbsp;chủ đề bài học</a> -->
   <!-- <a href="index.php?action=lesson"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;bài học</a>

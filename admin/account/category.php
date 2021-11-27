@@ -37,10 +37,10 @@ foreach($account as $values){ extract($values)?>
 <tr>
 <td><?=$ten_user ?></td>
 
-<td><?=$image?></td>
+<td><img width=100px src="../image/<?=$image?>" alt=""></td>
 <td><?=$values['role']==1?" <p class='text-danger'>quản trị</p> ":"<p class='text-primary'>Khách hàng</p>" ?></td>
 <td><?=$email ?></td>
-<td><?=$start_time ?></td>
+<td><?=get_time($start_time) ?></td>
 <td> 
  <?php if($status==0){
     echo "<span class='text-success'>hoạt đông</span>"; }else{
