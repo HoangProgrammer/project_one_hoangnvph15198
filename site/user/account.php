@@ -1,4 +1,9 @@
 <?php
+    require_once('./dao/accountDB.php');
+    require_once('./models/pdo.php');
+    $id = $_SESSION['user']['id'];
+    $data = Get_user_one($id);
+
 ?>
 
 <div class="pcoded-main-container">
@@ -43,7 +48,7 @@
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
                              <div class="avatar-upload__no-crop">
-                             <div class="avatar-upload__dropzone"><img src="">bạn chưa có ảnh</div>
+                             <div class="avatar-upload__dropzone"><img src="./image/<?php echo $data[0]['image'] ?>" width="200px"></div>
                              <label for="file-select" class="btn btn--default btn--s avatar-upload__select-cta-label">Tải ảnh lên
                                  <input type="file" class="avatar-upload__select-cta" id="file-select">
                         </label>
@@ -57,10 +62,10 @@
                         </div>
                         <form class="settings-account__form"><div class="form-group settings__column">
                             <label class="form__label" for="name">Tên đăng nhập</label>
-                            <input class="form__input" name="name" id="name" placeholder="Họ tên" type="text" required="" value="hoang"></div>
+                            <input class="form__input" name="name" id="name" placeholder="Họ tên" type="text" required="" value="<?php echo $data[0]['ten_user'] ?>"></div>
                             <div class="form-group settings__column">
                                 <label class="form__label" for="email">Email</label>
-                                <input class="form__input" name="email" id="email" placeholder="Email" type="email" value="nguyenvanhoang444@gmail.com">
+                                <input class="form__input" name="email" id="email" placeholder="Email" type="email" value="<?php echo $data[0]['email'] ?>">
                             </div>
                           
                     <div class="settings__wrap-container">
@@ -74,18 +79,6 @@
                                         <input class="form__input" name="confirmPassword" type="password" id="confirmPassword" pattern="^.{6,}$" title="Mật khẩu của bạn phải có ít nhất 6 ký tự." value=""></div>
                                     </div>
                                 </div><div class="form-group settings__column">
-                                    <label for="interfaceLanguage" class="form__label">Ngôn ngữ giao diện</label>
-                                    <div class="form__select-wrap">
-                                        <select id="interfaceLanguage" class="form__select" name="interfaceLanguage" data-qa-interface-lang="vi">
-                                            <option value="ar">اللغة العربية</option><option value="zh">中文</option>
-                                            <option value="en">English</option><option value="fr">Français</option><option value="de">Deutsch</option>
-                                            <option value="it">Italiano</option><option value="ja">日本語</option>
-                                            <option value="pl">Polski</option>
-                                            <option value="pt">Português</option><option value="ru">Pусский</option>
-                                            <option value="es">Español</option><option value="tr">Türkçe</option><option value="id">Bahasa Indonesia</option>
-                                            <option value="ko">한국어</option><option value="vi">Tiếng Việt</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <button class="btn btn--s btn--primary settings__cta" type="submit" data-qa-save="true">Lưu</button>
                             </form>
@@ -95,11 +88,6 @@
 
                             </div>
                         </div>
-    
-
-
-    
-
                         
     </div>
         </div>
