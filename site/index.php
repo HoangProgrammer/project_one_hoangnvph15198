@@ -33,23 +33,8 @@ if(isset($_GET['act'])){
     require("./layout/layout_1/nav.php") ;
 }
 
-// if(!isset($_SESSION['user'])){
-  
-// if(isset($_GET['act']) ){
-//     $act = $_GET['act'];
-//     switch ($act){
-//         case "signup":      
-//             require_once "login/auth-signup.php"; 
-// break;
-//     }
+require_once('./layout/layout_1/header.php');
 
-// }else{  
-
-// require_once "login/auth-signin.php"; 
-
-// }
-
-// }else{}
 if(isset($_GET['act'])){
 
     $act = $_GET['act'];
