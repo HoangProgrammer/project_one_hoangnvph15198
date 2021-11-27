@@ -32,8 +32,8 @@ foreach ($rating as $row) {
         $total_review++;
         $total_rating += $row['rating'];
     }
-    $avg_rating = $total_rating /  $total_review;
 }
+$avg_rating = $total_rating /  $total_review;
 
 ?>
 
