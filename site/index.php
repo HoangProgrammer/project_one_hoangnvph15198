@@ -97,6 +97,9 @@ if(isset($_GET['act'])){
     case "account":               
         require_once "user/account.php";      
         break;
+    case "history":               
+        require_once "history.php";      
+        break;
     case "logout":               
         if(isset($_SESSION['user'])){
             unset($_SESSION['user']);
@@ -106,8 +109,8 @@ if(isset($_GET['act'])){
             unset($_SESSION['admin']);
             header("Location:index.php");
         }     
-
         break;
+
     default:
     require_once "home2.php";
     break;

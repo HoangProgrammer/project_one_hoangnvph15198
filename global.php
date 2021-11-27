@@ -23,26 +23,17 @@ function get_time($time){
 
     if($seconds <=60){
         return "just now";
-    }else if($minute <=60){
+    }else
+     if($minute <=60){
 if($minute==1){
     return "1 phút trước";
 }else{
     return "$minute phút trước";
 }
-
-    }else
-     if($minute<=24){
-        if($day==1){
-            return "ngày hôm qua";
-        }else{
-            return "$day ngày trước";
-        }
-
-    }
-    else
+    }  else
      if($hour<=24){
-        if($day==1){
-            return "1 giờ trươc";
+        if($hour==1){
+            return "1 giờ trước";
         }else{
             return "$hour giờ trước";
         }
@@ -51,14 +42,14 @@ if($minute==1){
     else
       if($day<=7){
         if($day==1){
-            return "1 ngày trước";
+            return " ngày hôm qua";
         }else{
             return "$day ngày trước";
         }
 
     } else
      if($week<=4.3){
-        if($day==1){
+        if($week==1){
             return "1 tuần trước";
         }else{
             return "$week tuần trước";
@@ -77,7 +68,7 @@ if($minute==1){
     }
     else{
   
-        if($moth==1){
+        if($year==1){
             return "1 năm trước";
         }else{
             return "$year năm trước";

@@ -40,7 +40,9 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item"><a title='lịch sử học' href="index.php?act=history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
             </ul>
+            
             <ul class="navbar-nav ml-auto">
                 <li>
                     
@@ -62,7 +64,7 @@ if(empty($notification)) {
 <?php }else{ ?>
   <span class="notifications_number"><?=  $count?> </span>
  <?php }?>                    
-                        <a id="bell" class="dropdown-toggle " data-toggle="dropdown" >
+                        <a title="thông báo" id="bell" class="dropdown-toggle " data-toggle="dropdown" >
                             
                             <i class="icon feather icon-bell"></i></a>
                         <div class="dropdown-menu dropdown-menu-right notification">
