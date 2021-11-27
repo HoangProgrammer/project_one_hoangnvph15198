@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="site/hoc/cours.css">
-
+<?php 
+$data=[
+    'id_user'=>$id_user,
+    'id_course'=>$_GET['idCourse'],
+];
+insert_progress($data) ;?>
      <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
                 <div class="pcoded-content">

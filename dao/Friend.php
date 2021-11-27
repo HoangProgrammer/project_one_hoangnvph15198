@@ -112,17 +112,28 @@ function Select_MyFriend($my_id)
      $notification->bindValue(':my_id',$my_id,PDO::PARAM_INT);
     $notification->execute();
     $data = [];
-   $row = $notification->fetchAll();
+   $row = $notification->fetchAll(\PDO::FETCH_ASSOC);
    foreach ($row as $val){
 if($val['id_user_one']==$my_id){
-    $getUser= $con->prepare("SELECT  id_user, ten_user ,image FROM user WHERE id_user=?");
+    $getUser= $con->prepare("SELECT  *FROM user WHERE id_user=?");
     $getUser->execute([$val['id_user_two']]);
-    array_push($data, $getUser->fetch());
+    array_push($data, $getUser->fetch(PDO::FETCH_ASSOC));
 }else{
-    $getUser= $con->prepare("SELECT id_user, ten_user, image FROM user WHERE id_user=?");
+    $getUser= $con->prepare("SELECT * FROM user WHERE id_user=?");
     $getUser->execute([$val['id_user_one']]);
-    array_push($data, $getUser->fetch());
+    array_push($data, $getUser->fetch(PDO::FETCH_ASSOC));
 }
    }         
     return  $data;
 }
+
+function Get_user_other($id){
+    $conn=connect();
+        $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN($id) ");
+        $stmt->execute();
+        $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+        $rows[]=$row;
+    }
+    return $rows;
+    }

@@ -189,7 +189,8 @@ if(empty($notification)) {
 <?php }else{ ?>
   <span class="notifications_number"><?=  $count?> </span>
  <?php }?>                    
-                        <a id="bell" >
+                        <a id="bell" class="dropdown-toggle " data-toggle="dropdown" >
+                            
                             <i class="icon feather icon-bell"></i></a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
@@ -259,16 +260,29 @@ if(empty($notification)) {
                 </li>
                 <!-- user -->
                 <li>
+<?php $get_account= Get_user_one($id_user) ;
+foreach($get_account as $value){
+    extract($value);
 
+}
+$images='image/iconn_user.png';
+if($image==''){
+    $images='image/iconn_user.png';
+}else{
+    $images='image/'.$image.'';
+}
+?>
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
-                            <img width="70px" src="./assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                            
+                            <img width="70px" src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="./assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                                <span>John Doe</span>
+                                
+                                <img src="<?= $images?>" class="img-radius" alt="User-Profile-Image">
+                                <span><?=$ten_user?></span>
                                 <a href="index.php?act=logout" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
                                 </a>

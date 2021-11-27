@@ -732,6 +732,7 @@ solid #008a22;
 }
 
 .avatar-upload__dropzone {
+  background-size: cover;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
@@ -742,9 +743,7 @@ solid #008a22;
   height: 13.75rem;
   padding: 1.25rem;
   background-color: #f2f7fd;
-  margin: 0 auto 30px
-;
-
+  margin: 0 auto 30px;
   border: 1px
 
 dashed #a7b0b7;

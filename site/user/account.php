@@ -1,8 +1,8 @@
 <?php
     require_once('./dao/accountDB.php');
     require_once('./models/pdo.php');
-    $id = $_SESSION['user']['id'];
-    $data = Get_user_one($id);
+    // $id_user = $_SESSION['user']['id'];
+    $data = Get_user_one($id_user);
 
 ?>
 
@@ -34,11 +34,21 @@
                }else{         
                foreach ($Select_MyFriend as $val){  ?>                 
                        <tr>
-                           <th><?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img style="width:50px; border-radius:50%" src="image/'.$val['image'].'" alt="">'  ?></th>
+                           <th><?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img  style="width:50px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></th>
                            <th><?= ucfirst($val['ten_user'])?></th>
                            <th><button class="btn btn-danger">xóa</button></th>
                        </tr>
-               <?php }} ?>   
+               <?php }} 
+             foreach($data as $value){
+                 extract($value);$image;
+             }  
+               $images='image/iconn_user.png';
+if($image==''){
+    $images='./image/iconn_user.png';
+}else{
+    $images='./image/'.$image.'';
+}
+               ?>   
                    </thead>
 
                </table>
@@ -48,7 +58,9 @@
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
                              <div class="avatar-upload__no-crop">
-                             <div class="avatar-upload__dropzone"><img src="./image/<?php echo $data[0]['image'] ?>" width="200px"></div>
+                             <div class="avatar-upload__dropzone" id='display_image'>
+                                 <img id="image_change" src="<?=$images?>" width="200px" style="border-radius:50%;">
+                                </div>
                              <label for="file-select" class="btn btn--default btn--s avatar-upload__select-cta-label">Tải ảnh lên
                                  <input type="file" class="avatar-upload__select-cta" id="file-select">
                         </label>
@@ -95,6 +107,20 @@
         </div>
 
    <script>
+
+       $('#file-select').on('change', function() {
+var upload=''
+        const file=new FileReader();
+        file.addEventListener('load', function() {
+            upload=file.result;
+
+            $('#display_image').css('backgroundImage',`url(${upload}`);
+$('#image_change').hide();
+        })
+        file.readAsDataURL(this.files[0]);
+       })
+
+
            $('#friends').hide();
               $('#account').click(function() {
                   $('#friends').hide();
