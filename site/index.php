@@ -115,11 +115,11 @@ if(isset($_GET['act'])){
     case "logout":               
         if(isset($_SESSION['user'])){
             unset($_SESSION['user']);
-            header("Location:site/login/sign_in.php");
+            header("Location:index.php");
         }     
         if(isset($_SESSION['admin'])){
             unset($_SESSION['admin']);
-            header("Location:site/login/sign_in.php");
+            header("Location:index.php");
         }     
 
         break;

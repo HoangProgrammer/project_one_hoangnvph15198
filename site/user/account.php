@@ -1,3 +1,6 @@
+<?php
+?>
+
 <div class="pcoded-main-container">
 <div class="main-body">
     <div class="pcoded-wrapper">
@@ -57,7 +60,7 @@
                             <input class="form__input" name="name" id="name" placeholder="Họ tên" type="text" required="" value="hoang"></div>
                             <div class="form-group settings__column">
                                 <label class="form__label" for="email">Email</label>
-                                <input class="form__input" name="email" id="email" placeholder="Email" type="email" value="nguyenvanhoang2444@gmail.com">
+                                <input class="form__input" name="email" id="email" placeholder="Email" type="email" value="nguyenvanhoang444@gmail.com">
                             </div>
                           
                     <div class="settings__wrap-container">
