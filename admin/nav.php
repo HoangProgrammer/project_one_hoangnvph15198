@@ -28,6 +28,7 @@ require_once('../dao/accountDB.php');
 require_once('../global.php');
 require_once('../dao/BannerDB.php');
 require_once('../dao/RatingDB.php');
+require_once('../dao/payments.php');
 ?>
 
 

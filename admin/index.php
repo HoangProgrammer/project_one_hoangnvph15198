@@ -1,19 +1,7 @@
 <?php
 
 require_once('nav.php');
-<<<<<<< HEAD
-=======
-require_once('../models/pdo.php');
-require_once('../dao/courseDB.php');
-require_once('../dao/lesson_topicDB.php');
-require_once('../dao/lesson.php');
-require_once('../dao/comment_lesson.php');
-require_once('../dao/quizDB.php');
-require_once('../dao/accountDB.php');
-require_once('../global.php');
-require_once('../dao/BannerDB.php');
-require_once('../dao/payments.php');
->>>>>>> 3d7b895d657ae0a7adbfa67f551c324a93f829a6
+
 
 
 ?>

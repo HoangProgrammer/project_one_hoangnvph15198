@@ -6,6 +6,13 @@ function Get_oderCourse(){
  return $result;
  
 }
+function delete_oderCourse($id_course){
+  $conn=connect();
+    $stmt= $conn->prepare("DELETE FROM ordercaurse WHERE id_caurse=$id_course");
+    $stmt->execute();
+ return true;
+ 
+}
 function Get_one_oderCourse($id){
   $conn=connect();
     $stmt= $conn->prepare("SELECT * FROM ordercaurse where id_user=? ");
