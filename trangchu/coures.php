@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./../assets/css/coures.css">
+    <!-- ajax -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,11 +37,15 @@
                 <div class="coures_flex">
                     <div class="fillter">
                         <ul>
-                            <li>
+                            <li id="all" style="cursor:pointer">
+                            <i class="fa-solid fa-heart"></i>    
+                            Tất cả
+                            </li>
+                            <li id="free" style="cursor:pointer">
                             <i class="fa-solid fa-heart"></i>    
                             Miễn phí
                             </li>
-                            <li>
+                            <li id="nfree" style="cursor:pointer">
                             <i class="fa-solid fa-dollar-sign"></i>   
                             Trả phí
 
@@ -46,29 +53,10 @@
 
                         </ul>
                     </div>
-                    <div class="container_coures">
-                        <?php foreach ($data as $key => $value) { ?>
-                        <div class="coures1">
-                                <a href=""><img src="./../image/<?php echo $data[$key]['img'] ?>" alt=""></a>
-                                <div class="info">
-                                    <div class="name">
-                                        <h6><?php echo $data[$key]['NameCaurse'] ?></h6>
-                                    </div>
-                                    <div class="coures_info">
-                                        <p><?php echo $data[$key]['description'] ?></p>
-                                    </div>
-                                    <div class="count_student">
-                                        <p><b>Học viên: 8398</b></p>
-                                    </div>
-                                </div>
-                                <div class="more">
-                                    <span><a href="/du_an_1/trangchu/coures_detail.php?id_coures=<?php echo $data[$key]['id_caurse'] ?>" >Xem thêm</a></span>
-                                </div>
-                            </div>
-                        <?php } ?>
-                                </div>
+                    <div id="stage"></div>
+ 
                 </div>
-        </div>
+            </div>
 
 
         <!-- footer -->
@@ -169,6 +157,40 @@
 
         }
 
+    </script>
+
+<script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                
+                   $('#stage').load('fillter_course.php');
+                
+             });
+    </script>
+
+    <script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#free").click(function(event){
+                   $('#stage').load('fillter_course.php?gia=0');
+                });
+             });
+    </script>
+
+             <!-- no free -->
+    <script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#nfree").click(function(event){
+                   $('#stage').load('fillter_course.php?gia=1');
+                });
+             });
+    </script>
+
+            <!-- all -->
+    <script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#all").click(function(event){
+                   $('#stage').load('fillter_course.php');
+                });
+             });
     </script>
 </body>
 </html>

@@ -30,10 +30,7 @@
             <div class="detail_left">
                 <div class="detail_info">
                     <h3> <?php echo $data[0]['NameCaurse'] ?> </h3>
-                    <p>Hiểu sâu hơn về cách Javascript hoạt động, 
-                        tìm hiểu về IIFE, closure, reference types, 
-                        this keyword, bind, call, apply, prototype, ...
-                    </p>
+                    <p> <?php echo $data[0]['description'] ?> </p>
                 </div>
 
                 <div class="detail_info">
