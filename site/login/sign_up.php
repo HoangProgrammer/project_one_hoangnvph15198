@@ -21,7 +21,7 @@
                 if($pass == $check_pass){
                     $sql = "INSERT INTO user(ten_user,image,email,mat_khau,start_time) VALUES ('$name','$img','$email','$pass','$time')";
                     pdo_execute($sql);
-                    $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 5s)";
+                    $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 3s)";
                     header( "refresh:5;url=sign_in.php");
                 }
                 else{

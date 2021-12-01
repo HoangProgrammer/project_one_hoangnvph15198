@@ -53,7 +53,11 @@ if($image==''){
 
                </table>
             </div>
-            <div class="settings__view-container" id="exchangeAcount">
+            <?php
+                
+
+            ?>
+            <form action="" method="POST" class="settings__view-container" id="exchangeAcount">
                         <!-- <h1 class="settings__title">Tài khoản</h1> -->
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
@@ -72,7 +76,8 @@ if($image==''){
                         </div>
                         </div> -->
                         </div>
-                        <form class="settings-account__form"><div class="form-group settings__column">
+                        <div class="settings-account__form">
+                            <div class="form-group settings__column">
                             <label class="form__label" for="name">Tên đăng nhập</label>
                             <input class="form__input" name="name" id="name" placeholder="Họ tên" type="text" required="" value="<?php echo $data[0]['ten_user'] ?>"></div>
                             <div class="form-group settings__column">
@@ -93,10 +98,10 @@ if($image==''){
                                 </div><div class="form-group settings__column">
                                 </div>
                                 <button class="btn btn--s btn--primary settings__cta" type="submit" data-qa-save="true">Lưu</button>
-                            </form>
+                            </div>
              
                             
-                            </div>
+                            </form>
 
                             </div>
                         </div>
