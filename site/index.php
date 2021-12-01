@@ -33,23 +33,8 @@ if(isset($_GET['act'])){
     require("./layout/layout_1/nav.php") ;
 }
 
-// if(!isset($_SESSION['user'])){
-  
-// if(isset($_GET['act']) ){
-//     $act = $_GET['act'];
-//     switch ($act){
-//         case "signup":      
-//             require_once "login/auth-signup.php"; 
-// break;
-//     }
+require_once('./layout/layout_1/header.php');
 
-// }else{  
-
-// require_once "login/auth-signin.php"; 
-
-// }
-
-// }else{}
 if(isset($_GET['act'])){
 
     $act = $_GET['act'];
@@ -112,6 +97,9 @@ if(isset($_GET['act'])){
     case "account":               
         require_once "user/account.php";      
         break;
+    case "history":               
+        require_once "history.php";      
+        break;
     case "logout":               
         if(isset($_SESSION['user'])){
             unset($_SESSION['user']);
@@ -121,8 +109,8 @@ if(isset($_GET['act'])){
             unset($_SESSION['admin']);
             header("Location:index.php");
         }     
-
         break;
+
     default:
     require_once "home2.php";
     break;

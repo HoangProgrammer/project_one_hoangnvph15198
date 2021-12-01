@@ -17,11 +17,11 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
     <?php
     $arr = array();
     $ar = array();
-    $Get_oderCourse = Get_oderCourse();
+    $Get_oderCourse = Get_progress($id_user);
     foreach ($Get_oderCourse as $value) {
         if ($value['id_user'] == $id_user) {
-            $value['id_caurse'];
-            array_push($ar, $value['id_caurse']);
+            $value['id_causer'];
+            array_push($ar, $value['id_causer']);
         }
     }
     $gop = implode("','", $ar);
@@ -40,22 +40,22 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                                 <div class="row">
                                     <?php
                                     $id_user;
-                                    $Get_oderCourse = Get_oderCourse();
+                                    $Get_progress = Get_progress($id_user);
                                     $arr = array();
-                                    foreach ($Get_oderCourse as $value) :
+                                    foreach ($Get_progress as $value) :
                                         if ($value['id_user'] == $id_user) :
-                                            $Get_course_one = Get_course_one($value['id_caurse']);
-                                            foreach ($Get_course_one as $val) : extract($val); ?>
+                                            $Get_course_one = Get_course_one($value['id_causer']);
+                                            $Get_order_course= Get_oderCourse();
+                                            foreach ($Get_course_one as $val) : extract($val);?>                                         
                                                 <a href="index.php?act=Topic&idCourse=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
                                                     <div class="card daily-sales course-english">
                                                         <img class="course-english-img" src="image/<?= $img ?>" alt="">
                                                     </div>
                                                     <span class="course-english-tile">
-                                                        <?= $NameCaurse  ?>
+                                                        <?= $NameCaurse  ?> 
                                                     </span>
-
                                                     <?php
-                                                    array_push($arr, $value['id_caurse']); ?>
+                                                    array_push($arr, $value['id_causer']); ?>
                                                 </a>
                                     <?php endforeach;
                                         endif;

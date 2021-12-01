@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="./assets/css/social.css">
 <?php
-$arr = array();
-$Select_MyFriend = Select_MyFriend($id_user);
-foreach ($Select_MyFriend as $val) {
-    array_push($arr, $val['id_user']);
+
+$MyFriend = Select_MyFriend($id_user);
+$arr_friend = array($id_user);
+foreach ($MyFriend as $val) {
+    array_push($arr_friend, $val['id_user']);
 }
 
 ?>
@@ -15,10 +16,12 @@ foreach ($Select_MyFriend as $val) {
                 <h4>Gợi ý kết bạn</h4>
 
                 <?php
+                $import = implode(',',$arr_friend);
                 // var_dump($import);
-                $import = implode(',', $arr);
-                $user = Get_user_other($import,$id_user);
+
+                $user = Get_user_other($import );
                 $dem = 0;
+
                 foreach ($user as $val) :
                 ?>
                     <div class="wrap_social">

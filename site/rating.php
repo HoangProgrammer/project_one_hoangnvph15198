@@ -45,7 +45,7 @@ foreach ($rating as $row) {
 
             <h1 class="mt-5 mb-5">Nhận Xét Và Đánh Giá </h1>
             <div class="card">
-                <div class="card-header">Trải nghiệm của bạn</div>
+                <div class="card-header">Trải nghiệm của bạn về trang web</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-4 text-center">
