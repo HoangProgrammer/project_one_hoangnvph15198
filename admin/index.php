@@ -10,6 +10,7 @@ require_once('../dao/quizDB.php');
 require_once('../dao/accountDB.php');
 require_once('../global.php');
 require_once('../dao/BannerDB.php');
+require_once('../dao/payments.php');
 
 ?>
 
@@ -492,6 +493,30 @@ case "update_slider":
    $id=$_GET['id_banner'];
    $banner=Get_banner_one($id);
    require_once('./slide/update_slide.php');
+    break;
+    // mua khóa học
+case "shopping" :
+        require "./course/shopping_course.php";
+        break;
+case "oder_shopping" :
+    $payments ="quỵt";
+    $data=[
+        'id_user' => $_GET['id_user'],
+        'id_caurse' => $_GET['id_caurse'],
+        'payments' => $payments,
+        'time' => $_GET['time'],
+    ];
+    $dem_dong = [
+      'id_caurse' => $_GET['id_caurse'],
+      'id_user' => $_GET['id_user'],
+    ];
+    $number_of_rows = number_rows_ordercaurse($dem_dong);
+    if($number_of_rows == 0){
+      insert_ordercaurse($data);
+    //   delete_ordercaurse($value['id_payments']);
+      // header('Location: index.php?action=shopping');
+    }
+    require "./course/shopping_course.php";
     break;
 case "sua_slider":
   if(isset($_POST['update_btn'])){

@@ -97,7 +97,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                             WHERE id_caurse NOT IN( '$bien')");
                             $stml->execute();
                             $row = $stml->fetchAll();                    
-
+                            
                             foreach ($row as $value) : extract($value); ?>
                                 <a href="index.php?act=detail_course&id_course=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
                                     <div class="card daily-sales course-english">
