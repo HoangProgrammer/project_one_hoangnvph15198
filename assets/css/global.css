@@ -1,0 +1,159 @@
+.profile-header {
+    background: #fff;
+    margin: 0.1875rem 0 2.5rem;
+    padding-top: 2.5rem;
+    -webkit-box-shadow: 0 0.4375rem 0.5625rem -0.4375rem #d6dee6;
+    box-shadow: 0 0.4375rem 0.5625rem -0.4375rem #d6dee6;
+}
+.profile-header .page-wrap {
+    padding-bottom: 0;
+}
+.page-wrap--medium {
+    max-width: 67.5rem;
+}
+.page-wrap {
+    margin: 0 auto;
+    max-width: 80rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+.profile-info {
+    padding: 0 0.625rem 0.625rem;
+}
+.profile-info__avatar {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0.9375rem;
+}
+.profile-info__picture {
+    display: block;
+    border-radius: 100%;
+    width: 6.25rem;
+    height: 6.25rem;
+    border: 0.125rem solid #f2f7fd;
+    overflow: hidden;
+}
+.profile-info__data {
+    display: inline-block;
+    vertical-align: middle;
+}
+.profile-info__name {
+    display: block;
+    margin-bottom: 0.875rem;
+    font-size: 1.875rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+.profile-description {
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.9375rem;
+    padding: 0 1.25rem;
+    word-break: break-word;
+}
+.profile__actions {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.625rem 0;
+    margin-bottom: 0.875rem;
+    border-bottom: 0.125rem solid #f2f7fd;
+}
+.tab-menu__tabs {
+    display: block;
+}
+.profile-info__data-list {
+    margin: 0;
+    padding: 0;
+}
+.profile-info__data-list .icon-text {
+    margin-right: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+.icon-text {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1rem;
+}
+.friend-request-cta {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.friend-request-cta .btn {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 0 0.3125rem;
+    max-width: 18.125rem;
+}
+
+.btn {
+    font-family: inherit;
+    font-weight: 500;
+}
+.btn--icon {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.btn--s {
+    padding: 0.375rem 1.75rem;
+    font-size: .875rem;
+}
+.btn--default {
+    border: 0.125rem solid #116eee;
+    color: #fff;
+    background-color: #116eee;
+}
+.btn {
+    display: inline-block;
+    border-radius: 2.815rem;
+    margin: 0 0.3125rem 0.3125rem;
+    padding: 0.75rem 2.5rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: normal;
+    cursor: pointer;
+    text-decoration: none;
+    word-wrap: break-word;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    -webkit-appearance: none;
+}
+.btn--s.btn--icon .icon {
+    height: 1rem;
+    width: 1rem;
+}
+.btn--icon .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+}
+.icon--light {
+    fill: #fff;
+}
+.icon-text {
+
+    font-size: 1rem;
+}
+.progress_friend {
+    padding: 40px;
+    max-width: 100%;
+    text-align: center;
+}

@@ -22,7 +22,7 @@ function get_time($time){
     $year=round($seconds/31553280);
 
     if($seconds <=60){
-        return "just now";
+        return "vừa mới";
     }else
      if($minute <=60){
 if($minute==1){

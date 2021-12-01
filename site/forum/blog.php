@@ -30,9 +30,11 @@ foreach ($get_new_post as $value):
     <span class="_27Sfq"><span class="UI5NM"><a href="image/<?=$value['image']?>" rel="nofollow">
     <img alt="" class="_34uU0 _1hNyT" src="image/<?=$value['image']?>">
 </a></span></span>
+
     <div class="_1a3Pv">
-        <div class="_24xio"><span class="mvAh1"><?= $count?></span>
-        <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg"></div></div>
+        <div class="_24xio"><span class="mvAh1"> <?= $count?></span>
+        <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg"></div>
+    </div>
         <div class="_2Nbkz"><h3><a class="_3ZcIW" href="index.php?act=detail_blog&id_post=<?= $value['id_post']?>"><?=$value['title_post']?></a>
     </h3><div class="_2I7YD">
       

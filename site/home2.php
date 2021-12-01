@@ -40,13 +40,13 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                                 <div class="row">
                                     <?php
                                     $id_user;
-                                    $Get_progress = Get_progress($id_user);
-                                    $arr = array();
+                                       $arr = array();
+                                    $Get_progress = Get_progress();// xuat tu odercause                               
                                     foreach ($Get_progress as $value) :
-                                        if ($value['id_user'] == $id_user) :
+                                        if ($value['id_user'] == $id_user) :// so sanh id o trong gio vs id ss
                                             $Get_course_one = Get_course_one($value['id_causer']);
-                                            $Get_order_course= Get_oderCourse();
-                                            foreach ($Get_course_one as $val) : extract($val);?>                                         
+                                            // $Get_order_course= Get_oderCourse();
+                                            foreach ($Get_course_one as $val) : extract($val); ?>                                         
                                                 <a href="index.php?act=Topic&idCourse=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
                                                     <div class="card daily-sales course-english">
                                                         <img class="course-english-img" src="image/<?= $img ?>" alt="">
@@ -55,7 +55,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                                                         <?= $NameCaurse  ?> 
                                                     </span>
                                                     <?php
-                                                    array_push($arr, $value['id_causer']); ?>
+                                                    array_push($arr, $value['id_causer']); ?> 
                                                 </a>
                                     <?php endforeach;
                                         endif;
@@ -76,24 +76,20 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
 
 
 <div class="pcoded-main-container">
-    <div class="pcoded-wrapper">
+ 
 
         <div class="pcoded-content">
             <h3 class="pcoded-content-name">Khóa Chưa Học</h3>
-            <div class="pcoded-inner-content">
-
-                <div class="main-body">
-                    <div class="page-wrapper">
-
+        
                         <div class="row">
 
                             <?php
                             $course = Get_caurse();
 
-                            $bien = implode("','", $arr);
-
+                            $bien = implode("','", $arr);// chuyen mang thanh chuoi 
+// var_dump( $bien);
                             $conn = connect();
-                            $stml = $conn->prepare("SELECT * FROM course 
+                            $stml = $conn->prepare(" SELECT * FROM course 
                             WHERE id_caurse NOT IN( '$bien')");
                             $stml->execute();
                             $row = $stml->fetchAll();                    
@@ -106,6 +102,9 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                                     <span class="course-english-tile">
                                         <?= $NameCaurse  ?>
                                     </span>
+                                    <span class="course-english-tile">
+                                        <?= $price=($price==0)?"<p class='text-primary'>miễn phí</p>":'<p class="text-danger">mất phí</p> '  ?>
+                                    </span>
                                 </a>
 
                             <?php endforeach; ?>
@@ -113,8 +112,4 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-</div>
+     

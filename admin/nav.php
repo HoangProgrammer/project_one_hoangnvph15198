@@ -18,9 +18,18 @@ session_start();
 //       }
 
 //   }
-
-
+require_once('../models/pdo.php');
+require_once('../dao/courseDB.php');
+require_once('../dao/lesson_topicDB.php');
+require_once('../dao/lesson.php');
+require_once('../dao/comment_lesson.php');
+require_once('../dao/quizDB.php');
+require_once('../dao/accountDB.php');
+require_once('../global.php');
+require_once('../dao/BannerDB.php');
+require_once('../dao/RatingDB.php');
 ?>
+
 
 <!Doctype HTML>
 <html>
@@ -43,6 +52,8 @@ session_start();
   <a href="index.php?action=banner"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Banner</a>
   <a href="index.php?action=account"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người dùng</a>
   <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
+
+  <a href="index.php?action=rating"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;đánh giáo</a>
 
   <!-- <a href="index.php?action=lesson_topic"class="icon-a"><i class="fa fa-sliders icons"></i> &nbsp;&nbsp;chủ đề bài học</a> -->
   <!-- <a href="index.php?action=lesson"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;bài học</a>

@@ -1,18 +1,9 @@
 <?php
 
 require_once('nav.php');
-require_once('../models/pdo.php');
-require_once('../dao/courseDB.php');
-require_once('../dao/lesson_topicDB.php');
-require_once('../dao/lesson.php');
-require_once('../dao/comment_lesson.php');
-require_once('../dao/quizDB.php');
-require_once('../dao/accountDB.php');
-require_once('../global.php');
-require_once('../dao/BannerDB.php');
+
 
 ?>
-
 <?php
 
 // if(!isset(  $name_admin))
@@ -518,14 +509,23 @@ header("location:index.php?action=banner");
   case "detail_cm":
     require("./comment/detail_comment.php");
     break;
+  case "dashboard":
+    require("./dashboard.php");
+    break;
+  case "rating":
+    require("./rating/list_rating.php");
+    break;
         default:
+    $course = Get_caurse();
+
         require("./course/product.php");
             break;
     }
-}
-else {
-    $course = Get_caurse();
-            require("./course/product.php");
+
+
+}else {
+    // $course = Get_caurse();
+            require("./dashboard.php");
 }
 require_once('footer.php');
 

@@ -1,6 +1,6 @@
-<!-- 
 
-<div class="profile">
+
+<!-- <div class="profile">
 <?php if (isset($image)) { ?>
 <img src="../img/<?php if (isset($image)) echo $image; ?>" class="pro-img" />
 <?php } else { ?>

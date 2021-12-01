@@ -11,7 +11,23 @@ body{
  
   justify-content: space-around;
 }
+.body_web {
+  padding: 22px;
+  background: aliceblue;
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 1px 0px 0px grey;
+}
 
+.block_center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.parameter {
+  width: 270px;
+}
 
 .clearfix{
 	clear: both;

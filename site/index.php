@@ -33,7 +33,7 @@ if(isset($_GET['act'])){
     require("./layout/layout_1/nav.php") ;
 }
 
-require_once('./layout/layout_1/header.php');
+// require_once('./layout/layout_1/header.php');
 
 if(isset($_GET['act'])){
 
@@ -99,6 +99,9 @@ if(isset($_GET['act'])){
         break;
     case "history":               
         require_once "history.php";      
+        break;
+    case "profile":               
+        require_once "social/profile_friend.php";      
         break;
     case "logout":               
         if(isset($_SESSION['user'])){
