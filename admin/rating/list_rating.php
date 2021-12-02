@@ -35,7 +35,7 @@
 <br>
 
 <table id="table_rating" class="table ">
-    
+
     </table>
 
  </div>

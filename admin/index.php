@@ -7,14 +7,14 @@ require_once('nav.php');
 ?>
 <?php
 
-// if(!isset(  $name_admin))
-// {
+if(!isset( $_SESSION["Admin"]))
+{
 
-// header("Location:login.php");
+header("Location:login.php");
 
-// }else{
+}else{
 
-// }
+
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -540,9 +540,11 @@ header("location:index.php?action=banner");
   case "rating":
     require("./rating/list_rating.php");
     break;
+  case "request":
+    require("./rating/request_rating.php");
+    break;
         default:
     $course = Get_caurse();
-
         require("./course/product.php");
             break;
     }
@@ -551,6 +553,8 @@ header("location:index.php?action=banner");
 }else {
     // $course = Get_caurse();
             require("./dashboard.php");
+}
+
 }
 require_once('footer.php');
 

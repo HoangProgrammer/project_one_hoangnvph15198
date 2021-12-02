@@ -6,6 +6,20 @@ function Get_account(){
  return $result;
 }
 
+function login_user($email,$password){
+    $conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM user where email=? and mat_khau=?");
+    $stmt->execute([$email,$password]);
+    if($stmt->rowCount() >0){
+     while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+         $arr[]=$row;
+     }  
+     return $arr;
+    }
+
+}
+
+
 function Get_user_one($id){
 $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM user where id_user =?");

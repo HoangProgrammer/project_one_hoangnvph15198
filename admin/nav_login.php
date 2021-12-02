@@ -1,8 +1,8 @@
 
 
-<!-- <div class="profile">
+<div class="profile">
 <?php if (isset($image)) { ?>
-<img src="../img/<?php if (isset($image)) echo $image; ?>" class="pro-img" />
+<img src="../image/<?php if (isset($image)) echo $image; ?>" class="pro-img" />
 <?php } else { ?>
 <i class="fas fa-user user_icon "></i>
 <?php   } ?>
@@ -20,4 +20,4 @@
   <p><i class="fa fa-cogs"></i><a  href="login.php"> &nbsp;&nbsp;đăng nhập</a>   </p>
 </div>
 <?php } ?>
-</div> -->
+</div>

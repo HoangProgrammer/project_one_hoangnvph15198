@@ -7,17 +7,16 @@ session_start();
 // require_once('../backend/model/commentDB.php');
 // require_once('../backend/model/newDB.php');
 
-// if (isset($_SESSION["Admin"])) {
+if (isset($_SESSION["Admin"])) {
 
-//  $admin = $_SESSION["Admin"];
-//       foreach ($admin as $key => $val) {
-//           $name_admin = $val['FULLNAME'];
-//           $phone_admin = $val['phone'];
-//           $image = $val['image_usre'];
-//           $admin_id =  $val[$key];
-//       }
+ $admin = $_SESSION["Admin"];
+      foreach ($admin as $key => $val) {
+          $name_admin = $val['ten_user'];
+          $image = $val['image'];
+          $admin_id =  $val['id_user'];
+      }
 
-//   }
+  }
 require_once('../models/pdo.php');
 require_once('../dao/courseDB.php');
 require_once('../dao/lesson_topicDB.php');
