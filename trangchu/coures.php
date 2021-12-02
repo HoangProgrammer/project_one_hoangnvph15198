@@ -38,7 +38,7 @@
                     <div class="fillter">
                         <ul>
                             <li id="all" style="cursor:pointer">
-                            <i class="fa-solid fa-heart"></i>    
+                            <i class="fa-brands fa-buromobelexperte"></i>    
                             Tất cả
                             </li>
                             <li id="free" style="cursor:pointer">
