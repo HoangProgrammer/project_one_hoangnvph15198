@@ -10,6 +10,18 @@
            return $rows;
         
         }   
+      function getAll_point_by_user($id_user ){
+            $conn=connect();
+            $stmt= $conn->prepare("SELECT point.point_total as point FROM point join lesson
+            on point.id_lesson=lesson.id_lesson JOIN user on point.id_user=user.id_user WHERE user.id_user=?;");
+            $stmt->execute([$id_user]);
+          $rows=array();
+           while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+               $rows[]=$row;
+           }
+           return $rows;
+        
+        }   
         
 function insert_point($id_user,$id_lesson,$mark){
     $conn=connect();

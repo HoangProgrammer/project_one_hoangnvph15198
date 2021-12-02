@@ -59,6 +59,17 @@ if(isset($_GET['new'])){
                                     <i class="fas fa-play-circle text-primary"></i>
                                     <a  href="index.php?act=learn&idCourse=<?=$_GET['idCourse']?>&Topic=<?=$id_lesson_topics?>&lesson=<?=$id_lesson?>"class="text-dark"><?= $lessonName?></a>
                                 </a>
+                                <?php $getAll_point_user = getAll_point_user($id_user, $id_lesson);
+                                                foreach ($getAll_point_user as $val) {  $total_points = $val['point_total']; ?>
+                                           <span class="text-dark" style="float: right"><?=$total_points?>/10</span>                                                      
+                                              <?php  if ($total_points < 10) { ?>
+                                             
+                                                <?php } else { ?>
+                                                    <span class="pcoded-micon" style="float: right; margin-right:5px">
+                                                        <i class="fas fa-check text-success"></i>
+                                                    </span>
+                                                <?php    } }?>
+                               
                             </div>                      
                         </div>
                         <?php endforeach; ?>            
