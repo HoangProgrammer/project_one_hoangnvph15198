@@ -68,7 +68,7 @@ if(isset($_POST['content'])){
     $child =$_POST['child'];
     $time = date('Y-m-d H:i:s');   
     insert_Reply($id_user,$child, $content,$time);
-    header('location:../index.php?act=Rating');
+    header('location:../index.php?act=rating');
   } 
 
 $rating=Get_Rating();
@@ -122,12 +122,10 @@ foreach ($rating as $value) :
                   
                     </div>
                 <?php     } ?>
-
-               
+             
             </div>
         </div>
         <div id="manga">
-
         </div>
         <?php foreach ($rating as $val) :
             if ($val['id_parent'] == $value['id_Rating']) :

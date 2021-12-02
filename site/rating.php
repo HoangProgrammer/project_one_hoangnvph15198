@@ -37,7 +37,7 @@ foreach ($rating as $row) {
 
 ?>
 
-<div class="pcoded-main-container">
+<div class="pcoded-main-container border-rating">
 
     <div class="pcoded-wrapper">
 

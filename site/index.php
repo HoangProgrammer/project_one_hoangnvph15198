@@ -85,7 +85,7 @@ if(isset($_GET['act'])){
     case "quiz":               
         require_once "hoc/exercise_cours.php";      
         break;
-    case "Rating":               
+    case "RaTing":               
         require_once "rating.php";      
         break;
     case "social":               

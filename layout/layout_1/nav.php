@@ -4,13 +4,14 @@
 
 <head>
     <title>học tiếng anh online </title>
-
+<base href="http://localhost:81/du_an_1/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Free Datta Able Admin Template come up with latest Bootstrap 4 framework with basic components, form elements and lots of pre-made layout options" />
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template" />
     <meta name="author" content="CodedThemes" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Favicon icon -->
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
@@ -55,16 +56,14 @@ $rating = "";
 $social = "";
 
 if (isset($_GET['act'])) {
-    if ($_GET['act'] == "Rating") {
+    if ($_GET['act'] == "RaTing") {
         $rating = "active";
-    } else if ($_GET['act'] == "Social") {
+    } else if ($_GET['act'] == "social") {
         $social = "active";
     } else if ($_GET['act'] == "blog") {
         $forum = "active";
-    } else if ($_GET['act'] == "social") {
-        $social = "active";
     } else {
-        $home = "active";
+        // $home = "active";
     }
 } else {
     $home = "active";
@@ -100,15 +99,15 @@ if (isset($_GET['act'])) {
                         </li>
 
                         <li class="nav-item  <?= $forum ?>">
-                            <a href="index.php?act=blog" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
+                            <a href="blog" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
                         </li>
 
                         <li class="nav-item  <?= $rating ?> ">
-                            <a href="index.php?act=Rating" class="nav-link "><span class="pcoded-micon"><i class="fas fa-award"></i></span><span class="pcoded-mtext">Đánh giá</span></a>
+                            <a href="RaTing" class="nav-link "><span class="pcoded-micon"><i class="fas fa-award"></i></span><span class="pcoded-mtext">Đánh giá</span></a>
                         </li>
 
                         <li class="nav-item  <?= $social ?> ">
-                            <a href="index.php?act=social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Cộng đồng</span></a>
+                            <a href="social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Cộng đồng</span></a>
                         </li>
 
                         <!-- <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">

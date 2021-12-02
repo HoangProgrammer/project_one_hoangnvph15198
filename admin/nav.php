@@ -55,7 +55,7 @@ require_once('../dao/payments.php');
   <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
   <a href="index.php?action=shopping"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người mua</a>
 
-  <a href="index.php?action=rating"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;đánh giáo</a>
+  <a href="index.php?action=rating"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;đánh giá</a>
 
   <!-- <a href="index.php?action=lesson_topic"class="icon-a"><i class="fa fa-sliders icons"></i> &nbsp;&nbsp;chủ đề bài học</a> -->
   <!-- <a href="index.php?action=lesson"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;bài học</a>

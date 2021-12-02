@@ -81,7 +81,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
 
 
 <?php 
-$arr = array();
+$arr_progress = array();
     $ar = array();
     $Get_progress = Get_progress();
     foreach ($Get_progress as $value) {
@@ -93,9 +93,6 @@ $arr = array();
     $get_course_in = Get_course_one_in($gop);
     if (empty($get_course_in)) {
     } else { ?>
-
-  
-
 <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
                 <div class="pcoded-content">
@@ -110,7 +107,7 @@ $arr = array();
                                     <?php
                                     $id_user;
                                     $Get_progress = Get_progress();// xuat tu odercause
-                                    $arr = array();
+                                    // $arr = array();
                                     foreach ($Get_progress as $value) :
                                         if ($value['id_user'] == $id_user) :// so sanh id o trong gio vs id ss
                                             $Get_course_one = Get_course_one($value['id_causer']);
@@ -124,7 +121,7 @@ $arr = array();
                                                         <?= $NameCaurse  ?> 
                                                     </span>
                                                     <?php
-                                                    array_push($arr, $value['id_causer']); ?> 
+                                                    array_push($arr_progress, $value['id_causer']); ?> 
                                                 </a>
                                     <?php endforeach;
                                         endif;
@@ -140,11 +137,12 @@ $arr = array();
 
         </div>
 
-
         <?php }
     ?>
 
-     
+     <?php $merge= array_merge($arr,$arr_progress) ;
+   
+     ?>
 <div class="pcoded-main-container">
  
 
@@ -156,7 +154,8 @@ $arr = array();
                             <?php
                             $course = Get_caurse();
 
-                            $bien = implode("','", $arr);// chuyen mang thanh chuoi 
+                            $bien = implode("','", $merge);// chuyen mang thanh chuoi 
+// var_dump( $bien);
 // var_dump( $bien);
                             $conn = connect();
                             $stml = $conn->prepare(" SELECT * FROM course 

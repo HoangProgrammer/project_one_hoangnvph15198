@@ -6,9 +6,10 @@
 // ];
 if(isset($_GET['new'])){
     delete_oderCourse($_GET['idCourse']);
-}else{
-   insert_progress($id_user,$_GET['idCourse']) ; 
 }
+
+
+   insert_progress($id_user,$_GET['idCourse']) ; 
 ?>
      <div class="pcoded-main-container">
             <div class="pcoded-wrapper">

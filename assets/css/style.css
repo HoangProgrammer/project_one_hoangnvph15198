@@ -65,6 +65,10 @@ body {
   background: #f4f7fa;
   position: relative;
 }
+*{
+  padding:0;
+  margin:0;
+}
 
 *:focus {
   outline: none;
@@ -10741,3 +10745,7 @@ a#bell {
             width: 1px;
            
         }
+        
+        .pcoded-main-container.border-rating {
+    margin-bottom: 15rem;
+}

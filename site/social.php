@@ -97,7 +97,7 @@ foreach ($MyFriend as $val) {
                         $('#send_request' + to_id).html('đang gửi...')
                     },
                     success: function(data) {
-                        $('#send_request' + to_id).attr('disabled', 'disabled')
+                        $('#send_request' + to_id).attr('disabled', 'disabled')     
                         $('#send_request' + to_id).html('đã gửi yêu cầu')
                     }
                 })

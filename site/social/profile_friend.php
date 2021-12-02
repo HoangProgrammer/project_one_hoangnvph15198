@@ -40,7 +40,7 @@
                                 <div class="profile__actions">
 
                                     <div class="profile__languages">
-                                        <span class="icon-text">
+                                        <div class="icon-text">
                                             <?php
 
                                             $Get_progress_course = Get_progress_course($_GET['id']);
@@ -52,42 +52,41 @@
                                             <span class="icon-text__text">Tôi chưa học khóa học nào</span>
 
 <?php }else {?>  
-    <span class="icon-text__text">Tôi học 
-  
-    <?php 
-       $Get_progress_course = Get_progress_course($_GET['id']);
-       foreach ($Get_progress_course as $val) { ?>
-        <span>
-          <?= $NameCourse ?>  
-        </span>    
-     <?php  }
-        ?>
-   </span>
-    <?php } ?>
-    <?php 
     
+    <div class="icon-text__text">Tôi học 
+  
+ 
+        <div class="flex-course">
+     
+        </div>    
+   
+   </div>
+    <?php } ?>
+
+                                            <div class="profile__language">
+                                            <?php 
         $Get_progress = Get_progress();// xuat tu odercause                       
         foreach ($Get_progress as $value) :
             if ($value['id_user'] == $_GET['id']) :// so sanh id o trong gio vs id ss
-                $Get_course_one = Get_course_one($_GET['id']);
+                $Get_course_one = Get_course_one($value['id_causer']);
                 // $Get_order_course= Get_oderCourse();
-                foreach ($Get_course_one as $val) : extract($val); ?>                                         
-                    <a href="index.php?act=Topic&idCourse=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
-                        <div class="card daily-sales course-english">
-                            <img class="course-english-img" src="image/<?= $img ?>" alt="">
+                foreach ($Get_course_one as $val) : extract($val); ?>      
+               
+          <a  class="col-md-6 col-xl-4" title="<?=$NameCaurse?>">
+        
+                        <div class="card-english">
+                            <img  class="course-img" src="image/<?= $img ?>" alt="">
+ 
                         </div>
-                        <span class="course-english-tile">
-                            <?= $NameCaurse  ?> 
-                        </span>
-                        <?php
-                        array_push($arr, $value['id_causer']); ?> 
+                      
                     </a>
+                                                    
+          
         <?php endforeach;
             endif;
         endforeach;  ?>
-                                            <div class="profile__language">
                                             </div>
-                                        </span>
+                                        </div>
                                     </div>
                                     <div class="profile__friend-cta">
                                         <div class="friend-request-cta">

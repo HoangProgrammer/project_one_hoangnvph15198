@@ -156,7 +156,7 @@ dl, ol, ul {
     left: 6rem;
 }
 .viewport__footer {
-    position: fixed;
+    /* position: fixed; */
     overflow: hidden;
     height: 2.375rem;
     left: 0;
@@ -175,7 +175,7 @@ dl, ol, ul {
     background-color: #fff;
     font-size: .875rem;
     line-height: 1.7;
-    padding: 0px 144px 0 219px;
+    padding: 0px 40px 0 290px;
 }
 .footer-main__link-list {
     -ms-flex-negative: 0;
