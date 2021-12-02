@@ -1,7 +1,8 @@
 
 <?php  
 session_start();
-require_once('../backend/model/Khach_hang.php');
+require_once('../models/pdo.php');
+require_once('../dao/accountDB.php');
 
     if(isset($_POST['login'])){  
         // var_dump($_POST);die();
@@ -16,12 +17,8 @@ require_once('../backend/model/Khach_hang.php');
             setcookie('pass', ""); 
           }
 
-          $data=[
-            "email"=>$email,
-            "password"=>$password 
-        ];
-
-               $login=login_user($data);  
+        
+               $login=login_user($email,$password);  
 if(isset($login)){
     foreach($login as $val){
   $role=$val['role'];

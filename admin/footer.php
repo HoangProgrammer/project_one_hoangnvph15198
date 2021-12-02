@@ -1,4 +1,6 @@
-
+<?php 
+// $thong_ke=GetData_Thong_ke() 
+?>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
@@ -199,7 +201,7 @@ if (isset($success)) { ?>
       foreach ($thong_ke as $val) {
         if ($i == $sumCategory) $Phay = "";
         else $Phay = ",";
-        echo "['" . $val['nameDM'] . "'," . $val['countSp'] . "]" . $Phay;
+        echo "['" . $val['NameCaurse'] . "'," . $val['count_sv'] . "]" . $Phay;
         $i += 1;
       }
       ?>

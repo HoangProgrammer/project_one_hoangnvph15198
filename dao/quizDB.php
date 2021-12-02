@@ -1,7 +1,7 @@
 <?php
 function getAll_quiz($id_lesson ){
     $conn=connect();
-    $stmt= $conn->prepare("SELECT * FROM quiz Where id_lesson = ? ");
+    $stmt= $conn->prepare("SELECT * FROM quiz Where  id_lesson = ? order by RAND() ");
     $stmt->execute([$id_lesson ]);
   $rows=array();
    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){

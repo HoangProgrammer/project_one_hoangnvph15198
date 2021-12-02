@@ -2198,9 +2198,12 @@ p.text-muted {
 .pcoded-navbar .pcoded-inner-navbar li {
   position: relative;
 }
+.li_lesson{
+  background-color: lightskyblue;
+}
 .pcoded-navbar .pcoded-inner-navbar li > a {
   text-align: left;
-  padding: 7px 15px;
+  padding: 9px 40px 14px 60px;
   margin: 5px 0 0;
   display: block;
   border-radius: 0;
