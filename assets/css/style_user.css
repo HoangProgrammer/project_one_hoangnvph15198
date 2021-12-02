@@ -177,6 +177,10 @@ dl, ol, ul {
     font-size: .875rem;
     line-height: 1.7;
     padding: 0px 40px 0 290px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .footer-main__link-list {
     -ms-flex-negative: 0;
