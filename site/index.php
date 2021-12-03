@@ -45,6 +45,40 @@
                         case "detail_blog":      
                             require_once "forum/detail_blog.php";      
                             break;
+                        case "rep_forum":                                                         
+                            if (isset($_POST['reply'])) {
+                                $id_post = $_POST['id_post'];      
+                                $contentReply = $_POST['contentReply'];
+                                $child = $_POST['child'];
+                                $time = date("Y-m-d H:i:s");       
+                                $data = [
+                                    'id_user' => $id_user,
+                                    'id_post' => $id_post,
+                                    'content' => $contentReply,
+                                    'id_parent' => $child,
+                                    'time' => $time,
+                                ];
+                                insert_comment_post($data);
+                                header('Location:index.php?act=detail_blog&id_post='.$id_post.'');
+                            }     
+                            break;
+                        case "comment_post":      
+                            if (isset($_POST['button'])) {
+                                $comment = $_POST['comment'];
+                                $id_post = $_POST['id_post'];
+                                $id_parent = 0;
+                                $time = date("Y-m-d H:i:s");
+                                $data = [
+                                    'id_user' => $id_user,
+                                    'id_post' => $id_post,
+                                    'content' => $comment,
+                                    'id_parent' => $id_parent,
+                                    'time' => $time,
+                                ];
+                                insert_comment_post($data);
+                                header('Location:index.php?act=detail_blog&id_post='.$id_post.'');
+                            }   
+                            break;
                         case "add_post":
                             if(isset($_POST['button'])){
                                 $title = $_POST['title'];

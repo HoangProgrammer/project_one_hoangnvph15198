@@ -93,26 +93,15 @@ if (isset($_GET['id_post'])) {
                             <div class="_1DQz6">
                                 <div>
                                     <?php
-                                    if (isset($_POST['button'])) {
-                                        $comment = $_POST['comment'];
-                                        $id_parent = 0;
-                                        $time = date("Y-m-d H:i:s");
-                                        $data = [
-                                            'id_user' => $id_user,
-                                            'id_post' => $id_post,
-                                            'content' => $comment,
-                                            'id_parent' => $id_parent,
-                                            'time' => $time,
-                                        ];
-                                        insert_comment_post($data);
-                                    }
+        
                                     ?>
-                                    <form action="" method="POST" class="_287pv">
+                                    <form action="index.php?act=comment_post" method="POST" class="_287pv">
                                         <div class="_3o9OB"><span class="UI5NM">
                                                 <a href="https://www.duolingo.com/profile/hoang150521" rel="nofollow">
                                                     <img alt="https://www.duolingo.com/profile/hoang150521" class="_34uU0 _1sRb7 U95Un" src="//duolingo-images.s3.amazonaws.com/avatars/698129379/nOBnxOurQg/large"></a></span></div>
                                         <div class="_1KvMS">
                                             <div>
+                                                <input type="hidden" name='id_post' value="<?= $_GET['id_post']?>>">
                                                 <textarea class="_1Ch3x _2yvtl gFN2J" dir="auto" name="comment" placeholder="Gửi một bình luận mới"></textarea>
                                                 <div>
                                                     <button name="button" class="_1qPrY _2pnz9 _2NzLI QHkFc" style="background: rgb(28, 176, 246); border-color: rgb(24, 153, 214); color: rgb(255, 255, 253);">Đăng</button>
@@ -123,8 +112,13 @@ if (isset($_GET['id_post'])) {
                                             </div>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
+
+                        <div class>
+
+                        </div>    
                             <?php
                             $count = count_comment_post($id_post);
                             ?>
@@ -133,38 +127,14 @@ if (isset($_GET['id_post'])) {
                                     <h2 class="Gm8SO"><span class=""><?php echo $count['so_luong'] ?> Nhận xét </span></h2>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-4">
-                        <section class="PZMcl">
-                            <div class="_1TjKD">
-
-                            </div>
-                            <div class="_2VdVL">
-                                <h2 class="_2q02F">Bài Viết Ấn Tượng</h2>
-                                <ul>
-                                    <li class="_5DXbf">
-                                        <h3> <a class="_1y1Vb" href="/comment/52684660">|Góc_trợ_giúp| Người điều phối diễn đàn là ai?</a>
-                                        </h3>
-                                        <div class="_34sSH">14 Nhận xét</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-
-
-                </div>
-
-
-
+                    
                 <?php
                 $datas = getAll_comment_post_by_user($_GET['id_post']);
 
                 function get_comments_post_fuc($data, $parent = 0)
                 {
-                    echo  "<ul style='margin-left: 2%;'>";
+                    echo  "<ul style='margin-left:5%;'>";
                     foreach ($data as $key => $val) {
                         extract($val);
                         $image = '';
@@ -178,20 +148,19 @@ if (isset($_GET['id_post'])) {
                                                 <div class="c-comment-box">   
                                                 <div class="c-comment-box__avatar"  style="width: 50px;height: 60px;">' . $image . ' </div>
                                                 <div class="c-comment-box__content">
-                                                    <div class="c-comment-name"> ' . $ten .'<p style="margin-left:10px" class="text-secondary">'. get_time($time). '</p>  </div>      
+                                                    <div class="c-comment-name"> ' . $ten .'<p style="margin-left:10px" class="text-secondary">'. get_time($time).' </p>  </div>      
                                                     <div class="c-comment-text" data-idcmt="5288527">' . $content_cm . '</div>
                                                 
                                                         <div class="c-comment-status">
                                                             <a class="rep_a text-primary "  style="cursor: pointer;">Trả lời</a>
                                                 
-                                                            <form style="display:none;" action="site/processAjax.php" method="post" class="formRep">
-                                                                <input type="hidden" name="user_id" id="user_id" value="">
-                                                                <input type="hidden" name="child" id="child" value="">
+                                                            <form style="display:none;" action="index.php?act=rep_forum" method="post" class="formRep">                               
+                                                                <input type="hidden" name="child" id="child" value="'.$id_comment.'">
+                                                                <input type="hidden" name="id_post" id="child" value="'.$_GET['id_post'].'">
                                                 <div class="c-user-rate-form f-comment-5314009">
-                                                        <textarea dir="auto" name="contentReply" rows="4" placeholder="Viết câu hỏi của bạn"> </textarea>
-                                                       
-                                                     
-                                                        <button type="submit" class="btn btn-primary" name="reply">Trả Lời </button>
+                                                        <textarea dir="auto" id="content" name="contentReply" rows="4" placeholder="Viết câu hỏi của bạn"> </textarea>
+                                                          <p class="err"></p>                                          
+                                                        <button type="submit" class="reply  btn btn-primary" name="reply">Trả Lời </button>
                                                     </div>
                                                 </form>
                                                 
@@ -212,17 +181,38 @@ if (isset($_GET['id_post'])) {
                 get_comments_post_fuc($datas, $parent = 0)
                 ?>
 
+</div>
+                    </div>
+<!-- bài viết liên quan -->
+
+
+                    <div class="col-lg-4">
+                        <section class="PZMcl">
+                            <div class="_1TjKD">
+
+                            </div>
+                            <div class="_2VdVL">
+                                <h2 class="_2q02F">Bài Viết Ấn Tượng</h2>
+                                <ul>
+                                    <li class="_5DXbf">
+                                        <h3> <a class="_1y1Vb" href="/comment/52684660">|Góc_trợ_giúp| Người điều phối diễn đàn là ai?</a>
+                                        </h3>
+                                        <div class="_34sSH">14 Nhận xét</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                    
+                </div>
 
 
                 <script>
                     $(document).ready(function() {
-
-
                         $('a.rep_a').click(function() {
 
                             $(this).next().slideToggle();
-                        })
-
+                        })     
                     })
                 </script>
 

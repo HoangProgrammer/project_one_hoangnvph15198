@@ -97,7 +97,7 @@ function getAll_comment_post_by_user($id_post){
     user.ten_user as ten, user.id_user as id_user , user.image as anh , comments_post.id_parent as id_parent 
      FROM comments_post join user on comments_post.id_user=user.id_user  
     join forum_post on forum_post.id_post =comments_post.id_post 
-     WHERE comments_post.id_post  =:id_post ");
+     WHERE comments_post.id_post  =:id_post order by comments_post.time desc");
     $stmt->execute(['id_post' => $id_post]);
     $arr=array();
   while ($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
