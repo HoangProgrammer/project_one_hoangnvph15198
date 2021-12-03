@@ -1,48 +1,6 @@
 <?php
-session_start();
-require_once "./../../models/pdo.php";
+require_once("../login/index.php") ;
 ?>
-<?php
-$conn = connect();
-if (isset($_POST['login'])) {
-    if ($_POST['name_user'] != "" && $_POST['pass_user'] != "") {
-        $name_user = $_POST['name_user'];
-        $pass = $_POST['pass_user'];
-        $sql = "SELECT * FROM user WHERE ten_user = :name_user && mat_khau = :pass ";
-        $result = $conn->prepare($sql);
-        $abc = [
-            'name_user' => $name_user,
-            'pass' => $pass
-        ];
-        $result->execute($abc);
-        $number_of_rows = $result->rowCount();
-        if ($number_of_rows == 1) {
-            $row = $result->fetch();
-            if ($row['role'] == 0) {
-                $dataUser= [
-                    "id" => $row['id_user'],
-                    "user_name" => $row['ten_user'],              
-                ];
-                $_SESSION['user']=$dataUser;
-                header('Location:../processAjax.php');
-                header('Location:../../index.php');
-            } else {
-                $dataAdmin=[
-                    "id" => $row['id_user'],
-                    "user_name" => $row['ten_user'],                 
-                ];
-                $_SESSION['admin'] = $dataAdmin;
-                header('Location:../processAjax.php');
-                header('Location:../../index.php');
-            }
-        }
-    } else {
-        $error = "Không được để trống";
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +24,21 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="./../../assets/css/style.css">
 
 </head>
+<?php  
 
+if(isset($_POST['resetPass'])){
+$password= $_POST['NewPass'];
+$EnterPass= $_POST['EnterPass'];
+$error=array();
+if($password!=$EnterPass){
+    $error['fail']='mật Khẩu không khớp';
+}else{
+        $error['success']='đổi mật khẩu thành công ';
+    $ResetPass=ResetPass($password,$_SESSION['email']);
+    header('refresh:2s;sign_in.php');
+}
+}
+?>
 <body>
     <div class="auth-wrapper">
         <div class="auth-content">
@@ -81,27 +53,23 @@ if (isset($_POST['login'])) {
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>
-                    <h3 class="mb-4">Đăng Nhập</h3>
+                    <h3 class="mb-4">Đổi mật khẩu</h3>
                     <div class="input-group mb-3">
-                        <input type="text" name="name_user" class="form-control" placeholder="Username">
+                        <input type="password" name="NewPass" class="form-control" placeholder="new password">
                     </div>
 
                     <div class="input-group mb-4">
-                        <input type="password" name="pass_user" class="form-control" placeholder="password">
+                        <input type="password" name="EnterPass" class="form-control" placeholder="enter password">
                     </div>
 
-                    <div class="form-group text-left">
-                        <div class="checkbox checkbox-fill d-inline">
-                            <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                            <label for="checkbox-fill-a1" class="cr"> Nhớ</label>
-                        </div>
-                    </div>
-                    <button name="login" class="btn btn-primary shadow-2 mb-4">Đăng Nhập</button>
+
+                    <button name="resetPass" class="btn btn-primary shadow-2 mb-4">Đổi Mật khẩu</button>
                     <div class="input-group mb-3">
-                        <?php if (isset($error)) echo "<p class='text-danger'> $error </p>"; ?>
+                        <?php if (isset($error['fail'])) echo "<p class='text-danger'>" .$error['fail']." </p>"; ?>
+                        <?php if (isset($error['success'])) echo "<p class='text-success'>" .$error['success']." </p>"; ?>
                     </div>
-                    <p class="mb-2 text-muted">Quên Mật khẩu? <a href="reset-password.php">Reset</a></p>
                     <p class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="sign_up.php">Đăng ký</a></p>
+                    <p class="mb-0 text-muted">Bạn đã có tài khoản? <a href="sign_in.php">Đăng nhập</a></p>
                      </form>
             </div>
         </div>
