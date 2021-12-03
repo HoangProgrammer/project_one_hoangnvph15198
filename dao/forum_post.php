@@ -55,6 +55,20 @@ function get_one_post($id_post){
 
 }
 
+function get_one_by_user($id_post){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM forum_post join user on  forum_post.id_user=user.id_user
+    Where forum_post.id_post= :id_post");
+    $stmt->execute(['id_post' => $id_post]);
+    // $rows=array();
+    // while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+    //    $rows[]=$row;
+    // }
+    $rows = $stmt -> fetch();
+    return $rows;
+
+}
+
 function insert_post($data){
     $conn=connect();
         $stmt=$conn->prepare("INSERT INTO forum_post(id_user,content,time,interactions,title_post)  VALUES( :id_user, :content, :time, :interactions, :title_post) ");   
@@ -77,6 +91,21 @@ function getAll_comment_post($id_post){
     
 
 }
+function getAll_comment_post_by_user($id_post){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT comments_post.id_comment_post as id_comment,comments_post.time as time ,comments_post.content as content_cm ,
+    user.ten_user as ten, user.id_user as id_user , user.image as anh , comments_post.id_parent as id_parent 
+     FROM comments_post join user on comments_post.id_user=user.id_user  
+    join forum_post on forum_post.id_post =comments_post.id_post 
+     WHERE comments_post.id_post  =:id_post ");
+    $stmt->execute(['id_post' => $id_post]);
+    $arr=array();
+  while ($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+    $arr[]=$row;
+  }
+    return $arr;
+}
+
 function count_comment_post($id_post){
     $conn=connect();
     $stmt= $conn->prepare("SELECT COUNT(*) as so_luong FROM comments_post WHERE id_post = :id_post ");

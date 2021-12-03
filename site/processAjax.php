@@ -76,7 +76,7 @@ $rating=Get_Rating();
 foreach ($rating as $value) :
     if ($value['id_parent'] == 0) :
 ?>
-        <div class="c-comment-box">
+    <div class="c-comment-box">
             
             <div class="c-comment-box__avatar">BV</div>
             <div class="c-comment-box__content">
@@ -149,12 +149,6 @@ foreach ($rating as $value) :
         endforeach; ?>
 <?php endif;
 endforeach; ?>
-<?php 
-
-
-
-?>
-
 
 <script>
     $(document).ready(function(){

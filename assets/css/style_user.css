@@ -70,6 +70,7 @@
 
 .c-comment-box {
     display: -webkit-box;
+    border-bottom: 1px solid #c4c4c4;
     display: -ms-flexbox;
     display: flex;
     margin-bottom: 17px;
@@ -433,6 +434,7 @@ dl, ol, ul {
 ._2povu {
     font-size: 15px;
     line-height: 22px;
+    overflow: hidden;
     margin: 10px 0;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -441,7 +443,7 @@ dl, ol, ul {
     border-bottom: 0;
     border-top: 0;
     float: right;
-    margin: 0 0 0 40px;
+    margin: 0px 0 0 0px;
     padding: 0;
     width: 348px;
 }
@@ -452,7 +454,7 @@ dl, ol, ul {
     border-radius: 15px;
     display: block;
     margin-bottom: 24px;
-    padding: 24px;
+    padding: 10px;
     width: 348px;
 }
 
@@ -851,7 +853,7 @@ header.navbar.pcoded-header.navbar-expand-lg.navbar-light {
   box-shadow: 0px 0px 4px 0px;
 }
 
-/* nguyÃ¡Â»â€¦n mÃ¡ÂºÂ¡nh quÃƒÂ¢n */
+/* nguyÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚Â»ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦n mÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â¡nh quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢n */
 .col-md-6{
   margin-bottom: 26px;
 }
@@ -937,7 +939,10 @@ a:hover{
 .container_social .wrap_social .btn a{
   color: #fff;
 }
-/* nguyá»…n máº¡nh quÃ¢n */
+.pcoded-main-container.forum_content {
+  margin-bottom: 20rem;
+}
+/* nguyÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¦n mÃƒÂ¡Ã‚ÂºÃ‚Â¡nh quÃƒÆ’Ã‚Â¢n */
 .container-tab-cmt-ask{
   width: 80%;
   display: flex;
