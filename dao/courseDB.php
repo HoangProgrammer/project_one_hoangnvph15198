@@ -82,6 +82,30 @@ if(!empty($image_course)){
     return true;
 }
 
-
 }
+
+
+function GetData_Thong_ke()
+{
+   $db = connect();
+   $sql = "SELECT course.id_caurse as id_course , course.NameCaurse as NameCaurse, 
+   count(course.id_caurse) as count_sv, min(progress.id_user) as min_sv , 
+   max(progress.id_user) as max_sp , AVG(progress.id_user) as avg_sv 
+   FROM course  join progress on course.id_caurse = progress.id_causer 
+   group by course.id_caurse ";
+   $statement = $db->prepare($sql);
+   $statement->execute();
+   $row = array();
+   while (true) {
+      $row = $statement->fetch(PDO::FETCH_ASSOC);
+      if ($row == false) {
+         break;
+      }
+
+      $rows[] = $row;
+   }
+   return  $rows;
+}
+
+
 ?>

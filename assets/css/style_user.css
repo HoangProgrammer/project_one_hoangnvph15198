@@ -156,12 +156,13 @@ dl, ol, ul {
     left: 6rem;
 }
 .viewport__footer {
-    /* position: fixed; */
-    overflow: hidden;
-    height: 2.375rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    position: absolute;
+    /* overflow: hidden; */
+    /* height: 2.375rem; */
+    /* left: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
 }
 .footer-main {
     display: -ms-flexbox;
@@ -176,6 +177,10 @@ dl, ol, ul {
     font-size: .875rem;
     line-height: 1.7;
     padding: 0px 40px 0 290px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 .footer-main__link-list {
     -ms-flex-negative: 0;
@@ -846,7 +851,7 @@ header.navbar.pcoded-header.navbar-expand-lg.navbar-light {
   box-shadow: 0px 0px 4px 0px;
 }
 
-/* nguyá»…n máº¡nh quÃ¢n */
+/* nguyÃ¡Â»â€¦n mÃ¡ÂºÂ¡nh quÃƒÂ¢n */
 .col-md-6{
   margin-bottom: 26px;
 }
@@ -932,7 +937,7 @@ a:hover{
 .container_social .wrap_social .btn a{
   color: #fff;
 }
-/* nguyễn mạnh quân */
+/* nguyá»…n máº¡nh quÃ¢n */
 .container-tab-cmt-ask{
   width: 80%;
   display: flex;

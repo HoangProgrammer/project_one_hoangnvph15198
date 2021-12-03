@@ -38,20 +38,18 @@ foreach($Get_Rating as $values){ extract($values)?>
 
     <td>
       <?php
- if($st==2){ ?>
-    <a class="delete btn btn-success" href="index.php?action=edit_request&id_rating=<?= $id_rating?>">sửa phản hồi</a> 
-    
-    
+ if($values['st']==2){ ?>
+    <button style="cursor:help" class="delete btn btn-warning" disabled href="index.php?action=edit_request&id_rating=<?= $id_rating?>">đã phản hồi</button> 
 <?php }else{ ?> 
-<a class="delete btn btn-success" href="index.php?action=request&id_rating=<?= $id_rating?>"> phản hồi</a> 
-
+<a class="delete btn btn-success" href="index.php?action=request&id_rating=<?= $values['id_rating']?>"> phản hồi</a> 
     <?php } ?>  
+
     </td>
-<td>
-    
 
+    <td>
+<a class="delete btn btn-danger" href="index.php?action=xoa_user&id_rating=<?= $id_rating?>">xóa</a>
+ </td>
 
-<a class="delete btn btn-danger" href="index.php?action=xoa_user&id_rating=<?= $id_rating?>">xóa</a> </td>
 </tr>
 
 <?php } ?>

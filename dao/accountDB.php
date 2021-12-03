@@ -6,6 +6,39 @@ function Get_account(){
  return $result;
 }
 
+function login_user($email,$password){
+    $conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM user where email=? and mat_khau=?");
+    $stmt->execute([$email,$password]);
+    if($stmt->rowCount() >0){
+     while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+         $arr[]=$row;
+     }  
+     return $arr;
+    }
+
+}
+function ResetPass($password,$email){
+    $conn=connect();
+    $stmt=$conn->prepare("UPDATE user SET mat_khau=? WHERE email=?");
+    $stmt->execute([$password,$email]);
+    return true;
+
+}
+function mail_user($email){
+    $conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM user where email=?");
+    $stmt->execute([$email]);
+    if($stmt->rowCount() >0){
+     while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+         $arr[]=$row;
+     }  
+     return $arr;
+    }
+
+}
+
+
 function Get_user_one($id){
 $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM user where id_user =?");
