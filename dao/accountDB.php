@@ -60,4 +60,31 @@ $conn=connect();
  return true;
 
 }
+
+function update_khach_hang($data){
+    $conn=connect();
+    
+        $stmt=$conn->prepare(" UPDATE user set ten_user=:ten_user,image=:image, email=:email, mat_khau=:mat_khau WHERE id_user=:id_user ");
+        $stmt->execute($data);
+     return true;
+    
+    }
+
+function update_khach_hang_no_img($data){
+    $conn=connect();
+    
+        $stmt=$conn->prepare(" UPDATE user set ten_user=:ten_user, email=:email, mat_khau=:mat_khau WHERE id_user=:id_user ");
+        $stmt->execute($data);
+        return true;
+    
+    }
+
+function number_rows_user($name){
+    $conn=connect();
+    $sql = "SELECT * FROM user WHERE ten_user = :ten_user";
+    $stmt=$conn->prepare($sql);
+    $stmt->execute(['ten_user' => $name]);
+    $number_of_rows = $stmt->fetchColumn(); 
+    return $number_of_rows;
+}
 ?>

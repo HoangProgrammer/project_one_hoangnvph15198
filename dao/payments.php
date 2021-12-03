@@ -1,7 +1,7 @@
 <?php
     function getAll_payments(){
         $conn=connect();
-        $stmt= $conn->prepare("SELECT * FROM thanh_toan ");
+        $stmt= $conn->prepare("SELECT t.*, u.*, c.*  FROM thanh_toan t inner join user u on t.id_user = u.id_user inner join course c on t.id_caurse = c.id_caurse ");
         $stmt->execute();
         $rows = $stmt -> fetchAll();
         return $rows;

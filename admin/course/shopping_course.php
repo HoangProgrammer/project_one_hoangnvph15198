@@ -23,8 +23,8 @@
   ?>
     <tr>
       <th scope="row">1</th>
-      <td><?php echo $value['id_user'] ?></td>
-      <td><?php echo $value['id_caurse'] ?></td>
+      <td><?php echo $value['ten_user'] ?></td>
+      <td><?php echo $value['NameCaurse'] ?></td>
       <td><?php echo $value['money'] ?></td>
       <td><?php echo $value['time'] ?></td>
       <td><?php echo $value['note'] ?></td>

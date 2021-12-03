@@ -54,10 +54,55 @@ if($image==''){
                </table>
             </div>
             <?php
-                
+            $error ="";
+                if(isset($_POST['button'])){
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $newPassword = $_POST['newPassword'];
+                    $confirmPassword = $_POST['confirmPassword'];
+                    $file = $_FILES['image_avt']['tmp_name'];
+                    $file_name = $_FILES['image_avt']['name'];
+                    
+                    
+                    $number_of_rows = number_rows_user($name);
+                    if($number_of_rows == 0 || $name = $data[0]['ten_user'] ){
+                        if($newPassword == $confirmPassword){
+                            if($file_name == ""){
+                                $data2=[
+                                    'ten_user' => $name,
+                                    'email' => $email,
+                                    'mat_khau' => $newPassword,
+                                    'id_user' => $id_user,
+                                ];
+                                update_khach_hang_no_img($data2);
+                                header("location:index.php?act=account");
+                            }
+                            else{
+                                $data=[
+                                    'ten_user' => $name,
+                                    'image' => $file_name,
+                                    'email' => $email,
+                                    'mat_khau' => $newPassword,
+                                    'id_user' => $id_user,
+                                ];
+                                move_uploaded_file($file,'./image/'.$file_name );
+                                update_khach_hang($data);
+                                header("location:index.php?act=account");
+                            }
+                        }
+                        else{
+                            $error ="Mật khẩu phải trùng nhau";
+                        }
+                    }
+                    else{
+                        $error ="Tên đăng nhập đã tồn tại";
+                    }
+                    
+                    
+                }
 
             ?>
-            <form action="" method="POST" class="settings__view-container" id="exchangeAcount">
+            <form action="" method="POST" enctype="multipart/form-data" class="settings__view-container" id="exchangeAcount">
                         <!-- <h1 class="settings__title">Tài khoản</h1> -->
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
@@ -66,7 +111,7 @@ if($image==''){
                                  <img id="image_change" src="<?=$images?>" width="200px" style="border-radius:50%;">
                                 </div>
                              <label for="file-select" class="btn btn--default btn--s avatar-upload__select-cta-label">Tải ảnh lên
-                                 <input type="file" class="avatar-upload__select-cta" id="file-select">
+                                 <input type="file" name="image_avt" class="avatar-upload__select-cta" id="file-select">
                         </label>
                     </div>
                     <!-- <div class="avatar-upload__crop">
@@ -76,6 +121,9 @@ if($image==''){
                         </div>
                         </div> -->
                         </div>
+                        <div class="settings__row">
+                                <?php echo $error; ?>
+                            </div>
                         <div class="settings-account__form">
                             <div class="form-group settings__column">
                             <label class="form__label" for="name">Tên đăng nhập</label>
@@ -97,9 +145,9 @@ if($image==''){
                                     </div>
                                 </div><div class="form-group settings__column">
                                 </div>
-                                <button class="btn btn--s btn--primary settings__cta" type="submit" data-qa-save="true">Lưu</button>
+                                <button class="btn btn--s btn--primary settings__cta" name="button" type="submit" data-qa-save="true">Lưu</button>
                             </div>
-             
+                            
                             
                             </form>
 

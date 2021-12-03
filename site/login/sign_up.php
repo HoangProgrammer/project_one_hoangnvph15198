@@ -107,6 +107,7 @@
                     <button name="sign_up" class="btn btn-primary shadow-2 mb-4">Sign up</button>
                     <div class="input-group mb-4">
                         <?php if(isset($error)) echo $error; ?>
+                        <?php if(isset($error2)) echo $error2; ?>
                     </div>
                     <p class="mb-0 text-muted">Allready have an account? <a href="sign_in.php"> Log in</a></p>
                 </form>
