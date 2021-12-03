@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
 body{
 	margin:0px;
 	padding: 0px;
 	background-color:#efeff5;
-	font-family: system-ui;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .border_checked {
