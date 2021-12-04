@@ -75,10 +75,14 @@ $rating=Get_Rating();
 
 foreach ($rating as $value) :
     if ($value['id_parent'] == 0) :
+        $image ='';
+        if ($value['image'] == '') {    
+            $image = '<img style="width: 100%;height: 100%; border-radius:50%"  src="./image/user_defaul.png">';
+        } 
 ?>
     <div class="c-comment-box">
             
-            <div class="c-comment-box__avatar">BV</div>
+            <div class="c-comment-box__avatar avatar-rating"  style="background-image: url(./image/<?=$value['image']?>)"> <?= $image ?></div>
             <div class="c-comment-box__content">
                 <div class="c-comment-name"><?= ucfirst($value['ten_user']);?></div>
                 <div class="list-star">
@@ -101,7 +105,22 @@ foreach ($rating as $value) :
                             <?= $time=get_time($value['time'])  ?></span>
                     </ul>
                 </div>
-                <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div>
+                <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div> 
+                <?php if($value['id_user']==$id_user){ ?>
+                    <div  class=" c-comment-status">  <a data-edit='<?=$value['id_Rating']?>' style='margin-right: 10px; font-weight: bold ;cursor: pointer;' class="editRating text-primary" >chỉnh sửa</a> 
+                     <a style='margin-right: 10px; font-weight: bold' class="text-danger" href="">xóa</a> </div>
+
+                     <form id="editRating<?=$value['id_Rating']?>" action="site/processAjax.php" method="post" class="formRep">
+                            <input type="hidden" name="user_id" id="user_id<?=$value['id_Rating']?>" value="<?=$id_user?>">
+                            <!-- <input type="hidden" name="child" id="child" value="<?=$value['id_Rating']?>"> -->
+     <div class="c-user-rate-form f-comment-5314009">
+                    <textarea name="content<?=$value['id_Rating']?>" rows="4" placeholder="Viết câu hỏi của bạn">
+                    </textarea>
+                 
+                    <button data-btn="<?=$value['id_Rating']?>"  class="btn-rating  btn btn-primary" name="edit">Chỉnh Sửa </button>
+                </div>
+</form>
+                <?php } ?>
                 <?php if ($role == 0) {
                 } else { ?>
                     <div class="c-comment-status">
@@ -114,9 +133,11 @@ foreach ($rating as $value) :
                     <textarea name="contentReply" rows="4" placeholder="Viết câu hỏi của bạn">
                     </textarea>
                  
-                    <button type="submit" class="btn btn-primary" name="reply">Trả Lời </button>
+                    <button  type="submit" class="  btn btn-primary" name="reply">Trả Lời </button>
                 </div>
 </form>
+
+      
 
    <span  class="er text-warning">  </span>
                   
@@ -155,6 +176,20 @@ endforeach; ?>
   $('.formRep').hide();
 $('.rep_a').on('click',function(e) {
   $(this).next().slideToggle();
+})
+
+
+$('.editRating').click(function() {
+
+var parent=$(this).data('edit');
+
+$('#editRating'+parent).slideToggle()
+}) 
+
+
+$('.btn-rating').on('click', function(e) {
+    e.preventDefault();
+   
 })
  })
   

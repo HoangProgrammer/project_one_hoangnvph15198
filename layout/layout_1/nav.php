@@ -280,7 +280,7 @@ if($image==''){
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
                             
-                            <img width="70px" src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
+                            <img  src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">

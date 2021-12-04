@@ -107,8 +107,8 @@ if($image==''){
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
                              <div class="avatar-upload__no-crop">
-                             <div class="avatar-upload__dropzone" id='display_image'>
-                                 <img id="image_change" src="<?=$images?>" width="200px" style="border-radius:50%;">
+                             <div class="avatar-upload__dropzone" id='display_image' style='background-image:url(<?=$images?>)'>
+                                 <!-- <img id="image_change" src="<?=$images?>"  style="border-radius:50%;"> -->
                                 </div>
                              <label for="file-select" class="btn btn--default btn--s avatar-upload__select-cta-label">Tải ảnh lên
                                  <input type="file" name="image_avt" class="avatar-upload__select-cta" id="file-select">

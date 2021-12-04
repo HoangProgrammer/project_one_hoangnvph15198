@@ -3,6 +3,7 @@ if (isset($_GET['id_post'])) {
     $id_post = $_GET['id_post'];
 
     $rows = get_one_by_user($id_post);
+   
 }
 
 ?>
@@ -128,39 +129,61 @@ if (isset($_GET['id_post'])) {
                                 </div>
                             </div>
 
-                    
+                  
                 <?php
+                // echo '<prev>';
+                // var_dump(getAll_comment_post($_GET['id_post']));
+                // echo '</prev>';
                 $datas = getAll_comment_post_by_user($_GET['id_post']);
 
-                function get_comments_post_fuc($data, $parent = 0)
+                function get_comments_post_fuc($data, $parent = 0 ,$user)
                 {
+                    $arr=array();
                     echo  "<ul style='margin-left:5%;'>";
+
                     foreach ($data as $key => $val) {
                         extract($val);
+                        $display='';
+                       
                         $image = '';
-                        if ($val['anh'] == '') {
+                        if ($val['anh'] == '') {    
                             $image = '<img style="width: 100px;height: 100%; border-radius:50%"  src="./image/user_defaul.png">';
-                        } else {
-                            $image = '<img  style="width: 100px;height: 100%; border-radius:50%" src="./image/' . $val['anh'] . '" alt="">';
-                        }
+                        } 
                         if ($val['id_parent'] == $parent) {
+                            if($val['id_user']==$user){
+                                $display= '<a onclick=" return confirm("bạn có chắc chắn muốn xóa không !") " class="text-danger" href="index.php?act=delete_cm_forum&id_comment='.$val['id_comment'].'&id_post='.$_GET['id_post'].'">xóa</a>';
+                            }
                             echo '<li>
-                                                <div class="c-comment-box">   
-                                                <div class="c-comment-box__avatar"  style="width: 50px;height: 60px;">' . $image . ' </div>
+                                                <div class="c-comment-box c-forum">   
+                                                <div class="c-comment-box__avatar avata_forum"  style="background-image: url(./image/'. $val['anh'].')">' . $image . ' </div>
                                                 <div class="c-comment-box__content">
-                                                    <div class="c-comment-name"> ' . $ten .'<p style="margin-left:10px" class="text-secondary">'. get_time($time).' </p>  </div>      
+                                                    <div class="c-comment-name"> ' . ucfirst($ten) .'<p style="margin-left:10px" class="text-secondary">'. get_time($time).' </p>  </div>      
                                                     <div class="c-comment-text" data-idcmt="5288527">' . $content_cm . '</div>
-                                                
+                                          
                                                         <div class="c-comment-status">
-                                                            <a class="rep_a text-primary "  style="cursor: pointer;">Trả lời</a>
-                                                
-                                                            <form style="display:none;" action="index.php?act=rep_forum" method="post" class="formRep">                               
+                                                        <div class="c-comment-rep-p">  
+                                                                  <a data-id='.$id_comment.'  class="rep_a text-primary "style="cursor: pointer;">Trả lời</a>                                              
+                                                                  <a data-edit='.$id_comment.'  class="edit_a text-primary "style="cursor: pointer;">sửa</a>                                              
+                                                        '. $display.'                                                      
+                                                         </div>   
+                                                                                                                         
+                                                            <form id="form'.$id_comment.'" style="display:none;" action="index.php?act=rep_forum" method="post" class="formRep">                               
                                                                 <input type="hidden" name="child" id="child" value="'.$id_comment.'">
                                                                 <input type="hidden" name="id_post" id="child" value="'.$_GET['id_post'].'">
                                                 <div class="c-user-rate-form f-comment-5314009">
                                                         <textarea dir="auto" id="content" name="contentReply" rows="4" placeholder="Viết câu hỏi của bạn"> </textarea>
                                                           <p class="err"></p>                                          
                                                         <button type="submit" class="reply  btn btn-primary" name="reply">Trả Lời </button>
+                                                    </div>
+                                                </form>
+
+                                                            <form id="form_edit'.$id_comment.'" style="display:none;" action="index.php?act=edit_post" method="post" class="formRep">                               
+                                                                <input type="hidden" name="id_comment" id="child" value="'.$id_comment.'">
+                                                                <input type="hidden" name="id_post" id="child" value="'.$_GET['id_post'].'">
+                                                <div class="c-user-rate-form f-comment-5314009">
+                                                        <textarea dir="auto" id="content" name="content" rows="4" placeholder="Viết câu hỏi của bạn"> </textarea>
+                                                          <p class="err"></p>                                          
+                                                        <button type="submit" class="edit_cm_post  btn btn-primary" name="edit">Trả Lời </button>
                                                     </div>
                                                 </form>
                                                 
@@ -171,15 +194,29 @@ if (isset($_GET['id_post'])) {
                                                 </div> ';
 
                             $id = $val['id_comment'];
-                            get_comments_post_fuc($data, $id);
+                            get_comments_post_fuc($data, $id,$user);
+                        
+                          
                         }
+
                     }
                     echo "<li>";
                     echo  "</ul>";
+               
                 }
 
-                get_comments_post_fuc($datas, $parent = 0)
+                get_comments_post_fuc($datas, $parent = 0,$user=$id_user);
+              
+                function delete($data,$id_post){
+                    foreach($data as $val){
+                        if($val['id_comment_post']==$id_post){
+                            
+                        }
+                    }
+                    
+                }
                 ?>
+                
 
 </div>
                     </div>
@@ -211,7 +248,16 @@ if (isset($_GET['id_post'])) {
                     $(document).ready(function() {
                         $('a.rep_a').click(function() {
 
-                            $(this).next().slideToggle();
+                          var parent=$(this).data('id');
+                          
+                          $('#form'+parent).slideToggle()
+                        })     
+                        
+                        $('a.edit_a').click(function() {
+
+                          var parent=$(this).data('edit');
+                          
+                          $('#form_edit'+parent).slideToggle()
                         })     
                     })
                 </script>

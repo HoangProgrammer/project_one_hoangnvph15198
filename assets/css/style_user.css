@@ -66,9 +66,21 @@
     background-color:white;
     padding:20px;
 }
+.c-comment-box__avatar.avatar-rating {
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+.c-comment-box__avatar.avata_forum {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+}
 
-
-.c-comment-box {
+.c-forum {
     display: -webkit-box;
     border-bottom: 1px solid #c4c4c4;
     display: -ms-flexbox;
@@ -853,7 +865,7 @@ header.navbar.pcoded-header.navbar-expand-lg.navbar-light {
   box-shadow: 0px 0px 4px 0px;
 }
 
-/* nguyÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚Â»ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦n mÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â¡nh quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢n */
+/* nguyÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â»ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦n mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂºÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡nh quÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢n */
 .col-md-6{
   margin-bottom: 26px;
 }
@@ -926,8 +938,8 @@ a:hover{
   margin: 20px 0;
 }
 .container_social .wrap_social img{
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 65px;
   border-radius: 50%;
   margin-right: 30px;
 }
@@ -942,7 +954,7 @@ a:hover{
 .pcoded-main-container.forum_content {
   margin-bottom: 20rem;
 }
-/* nguyÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¦n mÃƒÂ¡Ã‚ÂºÃ‚Â¡nh quÃƒÆ’Ã‚Â¢n */
+/* nguyÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚Â»ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦n mÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â¡nh quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢n */
 .container-tab-cmt-ask{
   width: 80%;
   display: flex;
@@ -957,6 +969,11 @@ a:hover{
   margin-right: 10px;
   overflow: hidden;
   
+}
+.c-comment-rep-p {
+    width: 135px;
+    display: flex;
+    justify-content: space-between;
 }
 .container-tab-cmt-ask-img img{
   width: 100%;
