@@ -13,6 +13,26 @@ function get_history($id){
      }
 return $rows;
 }
+function get_history_course($id){
+    $conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM course JOIN lesson_topics ON
+     course.id_caurse =lesson_topics.id_caurse join lesson 
+     on lesson.id_lesson_topics=lesson_topics.id_lesson_topics WHERE lesson.id_lesson=?");
+     $stmt->execute([$id]);
+     $rows=array();
+     while ($row =$stmt->fetch(\PDO::FETCH_ASSOC)){
+         $rows[]=$row;
+     }
+return $rows;
+}
+
+
+function delete_history($id_history){
+    $conn=connect();
+    $query=$conn->prepare("DELETE FROM history WHERE id_hytory IN($id_history)");
+    $query->execute();
+    return true;
+}
 
 function insert_history($id_user,$time,$id_lesson){
     $time_ago=strtotime($time);

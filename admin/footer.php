@@ -1,5 +1,5 @@
 <?php 
-// $thong_ke=GetData_Thong_ke() 
+$thong_ke=GetData_Thong_ke() 
 ?>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -201,7 +201,7 @@ if (isset($success)) { ?>
       foreach ($thong_ke as $val) {
         if ($i == $sumCategory) $Phay = "";
         else $Phay = ",";
-        echo "['" . $val['NameCaurse'] . "'," . $val['count_sv'] . "]" . $Phay;
+        echo "['" . $val['NameCourse'] . "'," . $val['tong_topic'] . "]" . $Phay;
         $i += 1;
       }
       ?>
@@ -210,7 +210,7 @@ if (isset($success)) { ?>
 
     // Optional; add a title and set the width and height of the chart
     var options = {
-      'title': 'biểu đồ thống kê',
+      'title': 'Biểu Đồ Thống Kê Khóa Học',
       'width': 1150,
       'height': 800
     };

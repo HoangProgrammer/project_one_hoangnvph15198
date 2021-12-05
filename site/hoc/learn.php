@@ -162,7 +162,7 @@ if(isset($_GET['lesson'])){
                         </div>
                     </div>
                 </li>
-                <li class="nav-item"><a title='lịch sử học' href="index.php?act=history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
+                <li class="nav-item"><a title='lịch sử học' href="history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
@@ -380,6 +380,7 @@ if(isset($_GET['lesson'])){
                                         foreach ($data as $key => $val) {
                                             extract($val);
                                             $display = '';
+                                            $display_edit = '';
 
                                             $image = '';
                                             if ($val['image'] == '') {
@@ -388,6 +389,7 @@ if(isset($_GET['lesson'])){
                                             if ($val['child'] == $parent) {
                                                 if ($val['id_user'] == $user) {
                                                     $display = '<a onclick=" return confirm("bạn có chắc chắn muốn xóa không !") " class="text-danger" href="index.php?act=delete_cm_lesson&id_comment=' . $val['id_comment'] . '&id_lesson='. $_GET['lesson'] .'&id_topic='.$_GET['Topic'] .'&id_course='. $_GET['idCourse'] .'">xóa</a>';
+                                                    $display_edit=' <a data-edit=' . $id_comment . '  class="edit_a text-primary "style="cursor: pointer;">sửa</a> ';
                                                 }
                                                 echo '<li>
                                                                      <div class="c-comment-box c-forum">   
@@ -399,7 +401,7 @@ if(isset($_GET['lesson'])){
                                                                              <div class="c-comment-status">
                                                                              <div class="c-comment-rep-p">  
                                                                                        <a data-id=' . $id_comment . '  class="rep_a text-primary "style="cursor: pointer;">Trả lời</a>                                              
-                                                                                       <a data-edit=' . $id_comment . '  class="edit_a text-primary "style="cursor: pointer;">sửa</a>                                              
+                                                                                         '. $display_edit.'                                          
                                                                              ' . $display . '                                                      
                                                                               </div>   
                                                                                                                                               

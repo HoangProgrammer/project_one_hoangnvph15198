@@ -246,6 +246,12 @@
                                 case "history":
                                     require_once "history.php";
                                     break;
+                                case "delHistory":
+                                    if(isset($_GET['id_history'])){
+                                        delete_history($_GET['id_history']);
+                                        header("Location:history");
+                                    }
+                                    break;
                                 case "profile":
                                     require_once "social/profile_friend.php";
                                     break;

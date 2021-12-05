@@ -106,21 +106,6 @@ foreach ($rating as $value) :
                     </ul>
                 </div>
                 <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div> 
-                <?php if($value['id_user']==$id_user){ ?>
-                    <div  class=" c-comment-status">  <a data-edit='<?=$value['id_Rating']?>' style='margin-right: 10px; font-weight: bold ;cursor: pointer;' class="editRating text-primary" >chỉnh sửa</a> 
-                     <a style='margin-right: 10px; font-weight: bold' class="text-danger" href="">xóa</a> </div>
-
-                     <form id="editRating<?=$value['id_Rating']?>" action="site/processAjax.php" method="post" class="formRep">
-                            <input type="hidden" name="user_id" id="user_id<?=$value['id_Rating']?>" value="<?=$id_user?>">
-                            <!-- <input type="hidden" name="child" id="child" value="<?=$value['id_Rating']?>"> -->
-     <div class="c-user-rate-form f-comment-5314009">
-                    <textarea name="content<?=$value['id_Rating']?>" rows="4" placeholder="Viết câu hỏi của bạn">
-                    </textarea>
-                 
-                    <button data-btn="<?=$value['id_Rating']?>"  class="btn-rating  btn btn-primary" name="edit">Chỉnh Sửa </button>
-                </div>
-</form>
-                <?php } ?>
                 <?php if ($role == 0) {
                 } else { ?>
                     <div class="c-comment-status">

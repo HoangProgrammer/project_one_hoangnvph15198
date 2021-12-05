@@ -58,7 +58,7 @@
     
     <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >Chọn tất cả</label>  
-   <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >Cỏ chọn</label> 
+   <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
    <input  type="checkbox" hidden id="chose_all"> 
    <button class="btn btn-danger ">Xóa tất cả lựa chọn</button>  
 </div>
@@ -80,7 +80,7 @@
 
 <?php foreach ($course as $val) { extract($val) ?>
        <tr class="text-center">
-      <td> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></td> 
+      <td> <input type="checkbox" name="chose_deletes[]" value="<?=$id_caurse ?>" class="select_chose"></td> 
          <td name='ten'><?= $NameCaurse ?></td>
          <td><img name="anh" width="150px"  src="../image/<?=$img?>"> </td>
          <td name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 

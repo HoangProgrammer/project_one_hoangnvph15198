@@ -144,6 +144,7 @@ if (isset($_GET['id_post'])) {
                     foreach ($data as $key => $val) {
                         extract($val);
                         $display='';
+                        $displays='';
                        
                         $image = '';
                         if ($val['anh'] == '') {    
@@ -152,6 +153,8 @@ if (isset($_GET['id_post'])) {
                         if ($val['id_parent'] == $parent) {
                             if($val['id_user']==$user){
                                 $display= '<a onclick=" return confirm("bạn có chắc chắn muốn xóa không !") " class="text-danger" href="index.php?act=delete_cm_forum&id_comment='.$val['id_comment'].'&id_post='.$_GET['id_post'].'">xóa</a>';
+                                          
+                                $displays='<a data-edit='.$id_comment.'  class="edit_a text-primary "style="cursor: pointer;">sửa</a>    ';
                             }
                             echo '<li>
                                                 <div class="c-comment-box c-forum">   
@@ -162,8 +165,8 @@ if (isset($_GET['id_post'])) {
                                           
                                                         <div class="c-comment-status">
                                                         <div class="c-comment-rep-p">  
-                                                                  <a data-id='.$id_comment.'  class="rep_a text-primary "style="cursor: pointer;">Trả lời</a>                                              
-                                                                  <a data-edit='.$id_comment.'  class="edit_a text-primary "style="cursor: pointer;">sửa</a>                                              
+                                                                  <a data-id='.$id_comment.'  class="rep_a text-primary "style="cursor: pointer;">Trả lời</a>   
+                                                                  '.$displays.'                                           
                                                         '. $display.'                                                      
                                                          </div>   
                                                                                                                          
