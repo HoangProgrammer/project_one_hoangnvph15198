@@ -118,6 +118,86 @@
                                     break;
 
 
+// comment lesson
+
+                                case "comment_lesson":
+                                    if (isset($_POST['comment'])) {
+                                        $id_user = $_POST['id_user'];
+                                        $id_lesson = $_POST['id_lesson'];                                     
+                                        $id_course = $_POST['id_course'];
+                                        $Topic = $_POST['Topic'];
+                                        $content = $_POST['content'];
+                                        $child = 0;
+                                        $time = date('Y-m-d H:i:s');
+                                        $arr = array();
+                                        if ($content == "") {
+                                            $_SESSION['err'] = "không được để trống";
+                                            header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
+                                        } else {
+                                            insert_comments($id_user, $id_lesson, $content, $child, $time);
+                                            
+                                        }
+                                    }
+                                    header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
+                                    break;
+
+                                case "rep_lesson":
+                                                  if (isset($_POST['comment_child'])) {
+                                    $id_user;
+                                    $child = $_POST['child'];
+                                    $id_lesson = $_POST['id_lesson'];
+                                    $id_course = $_POST['id_course'];
+                                    $Topic = $_POST['Topic'];
+                                    $content = $_POST['content'];
+                                    $time = date('Y-m-d H:i:s');
+                                    // var_dump($time);
+                                    $arr = array();
+                                    if ($content == "") {
+                                        $_SESSION['err'] = "không được để trống";
+                                        header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);   
+                                    } else {
+                                        insert_comments($id_user, $id_lesson, $content, $child, $time);
+                                    }
+                                }
+                                    header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
+                                    break;
+
+                                case "edit_cm_lesson":
+                                    // var_dump($_POST);exit;
+                                                  if (isset($_POST['edit_btn'])) {
+                                    $id_comment= $_POST['id_comment'];                               
+                                    $id_lesson = $_POST['id_lesson'];
+                                    $id_course = $_POST['id_course'];
+                                    $Topic = $_POST['id_topic'];
+                                    $content = $_POST['content'];
+                                    $time = date('Y-m-d H:i:s');
+                                    $arr = array();
+                                    if ($content == "") {
+                                        $_SESSION['err'] = "không được để trống";
+                                        header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);   
+                                    } else {
+                                        update_comments($content, $time, $id_comment);
+                                    }
+                                }
+                                    header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
+                                    break;
+
+                                case "delete_cm_lesson":
+
+                                                  if (isset($_GET['id_comment'])) {
+                                    $id_comment= $_GET['id_comment'];                               
+                                    $id_lesson = $_GET['id_lesson'];
+                                    $id_course = $_GET['id_course'];
+                                    $Topic = $_GET['id_topic'];  
+                                   $list= getAll_comment_lesson( $id_lesson );
+                                    delete_comment_lesson($id_comment,$list);             
+                                        delete_comment_one($id_comment);
+                                   
+                                }
+                                    header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
+                                    break;
+
+
 
 
 

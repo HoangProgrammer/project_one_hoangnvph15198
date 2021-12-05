@@ -2,7 +2,8 @@
 
 function get_history($id){
     $conn=connect();
-    $stmt=$conn->prepare("SELECT history.id_hytory as id_history, lesson.lessonName as lessonName ,history.time as timeHistory FROM 
+    $stmt=$conn->prepare("SELECT history.id_hytory as id_history, lesson.lessonName as lessonName ,
+    history.id_lesson as id_lesson ,history.time as timeHistory FROM     
     `history` join user on user.id_user=history.id_user 
     join lesson on history.id_lesson=lesson.id_lesson where user.id_user=? order by history.time desc ");
      $stmt->execute([$id]);
@@ -13,19 +14,43 @@ function get_history($id){
 return $rows;
 }
 
-function insert_history($id_user,$id_lesson,$time){
+function insert_history($id_user,$time,$id_lesson){
+    $time_ago=strtotime($time);
+    $current=time();
+    $time_diff=$current-$time_ago;
+    $seconds=$time_diff;
+    $minute=round($seconds/60);
+    $hour=round($seconds/3600);//60*60
+    $day=round($seconds/86400); //24*60*60
+    $week=round($seconds/604800);
+    $moth=round($seconds/2629440);
+    $year=round($seconds/31553280);
+
     $conn=connect();
-    $TimeCurrent=24*60*60;
-   if($time <= $TimeCurrent){
-    $stmt=$conn->prepare("UPDATE history set(time=:time) Where id_lesson=:id_lesson ");
+        $stmt=$conn->prepare("SELECT * FROM history  Where id_lesson=?");
+        $stmt->execute([$id_lesson]);
+        if($stmt->rowCount()>0){
+            if(  $day>=1){
+            $stmt=$conn->prepare("INSERT INTO history (id_user ,id_lesson,time) VALUES(? ,?,?)");
+                $stmt->execute([$id_user,$id_lesson,$time]);
+                return true;   
+   
+            }else{
+                          $stmt=$conn->prepare("UPDATE history set time=? Where id_lesson=? ");
     $stmt->execute([$time,$id_lesson]);
-    return true;
-   }else{
-         $stmt=$conn->prepare("INSERT INTO history (id_user ,id_lesson,time) VALUES(:id_user ,:id_lesson,:time)");
+    return true;    
+              
+            }
+        }else{
+
+         $stmt=$conn->prepare("INSERT INTO history (id_user ,id_lesson,time) VALUES(? ,?,?)");
      $stmt->execute([$id_user,$id_lesson,$time]);
      return true;
-   }
+   
 
+
+        }
+  
 }
 
 ?>

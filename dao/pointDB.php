@@ -1,14 +1,13 @@
 <?php 
       function getAll_point_user($id_user ,$id_lesson){
             $conn=connect();
-            $stmt= $conn->prepare("SELECT * FROM point Where id_user= ? and id_lesson=?");
+            $stmt= $conn->prepare("SELECT point.point_total as point_total,point.id_lesson as id_lesson FROM point Where id_user= ? and id_lesson=?");
             $stmt->execute([$id_user ,$id_lesson]);
           $rows=array();
            while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
                $rows[]=$row;
            }
-           return $rows;
-        
+           return $rows;     
         }   
       function getAll_point_by_user($id_user ){
             $conn=connect();
