@@ -27,17 +27,16 @@ function insert_history($id_user,$time,$id_lesson){
     $year=round($seconds/31553280);
 
     $conn=connect();
-        $stmt=$conn->prepare("SELECT * FROM history  Where id_lesson=?");
-        $stmt->execute([$id_lesson]);
+        $stmt=$conn->prepare("SELECT * FROM history  Where id_lesson=? and id_user=?");
+        $stmt->execute([$id_lesson,$id_user]);
         if($stmt->rowCount()>0){
             if(  $day>=1){
             $stmt=$conn->prepare("INSERT INTO history (id_user ,id_lesson,time) VALUES(? ,?,?)");
                 $stmt->execute([$id_user,$id_lesson,$time]);
                 return true;   
-   
             }else{
-                          $stmt=$conn->prepare("UPDATE history set time=? Where id_lesson=? ");
-    $stmt->execute([$time,$id_lesson]);
+                          $stmt=$conn->prepare("UPDATE history set time=? Where id_lesson=? and  id_user=?");
+    $stmt->execute([$time,$id_lesson,$id_user]);
     return true;    
               
             }
