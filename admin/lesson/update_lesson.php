@@ -6,7 +6,6 @@ foreach($lesson as $row ){
     $lessonName=$row['lessonName'];
     $video=$row['video'];
     $time=$row['time'];
-    $type=$row['type'];
     $id_topics=$row['id_lesson_topics'];
     $id_lesson =$row['id_lesson'];
 }
@@ -41,7 +40,8 @@ foreach($lesson as $row ){
                               unset($_SESSION['name']);
                           } ?> </p>
 
-                      <input  type="hidden" name="id_topic" class="form-control" value="<?= $id_topics ?>" />
+       <input type="hidden" name="id_course" value=<?=$_GET['id_course']?> >
+       <input  type="hidden" name="id_topic" value="<?=$_GET['id_topic']?>" />
                       <input  type="hidden" name="id_lesson" class="form-control" value="<?=$id_lesson ?>" />
                               </div>
                             <div class="form-group">
@@ -64,23 +64,11 @@ foreach($lesson as $row ){
 
 
                               </div>
-                            <div class="form-group">
-                            <label class="form-label " for=""> <h6>loại bài học   </h6>  </label>
-                            <div class="form-group">
-                             thường   <input  type="radio" <?=$type=($type==0)?"checked":"" ?> name="type" value="0"/>
-                             đặc biệt   <input  type="radio"  <?=$type=($type==1)?"checked":"" ?> name="type"  value="1"/>
-                             </div>
-                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['type'])){
-                              echo $_SESSION['type'];
-                              unset($_SESSION['type']);
-                          } ?> 
-                          </p>
-
-                              </div>
-             
-                            <div class="form-group text-center mt-4">
+                        
+                           <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                 <button  name="btn_course" class="btn btn-primary" >Sửa</button>
+                                <a class="btn btn-primary" href="index.php?action=detail_lesson&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">quay lại</a>
                             </div>
 
 

@@ -158,7 +158,7 @@ if (isset($_GET['act'])) {
                     </ul>
                 </li> -->
                 <li class="nav-item">
-                    <div class="main-search">
+                    <!-- <div class="main-search">
                         <div class="input-group">
                             <input type="text" id="m-search" class="form-control" placeholder="Search . . .">
                             <a href="javascript:" class="input-group-append search-close">
@@ -168,7 +168,7 @@ if (isset($_GET['act'])) {
                                 <i class="feather icon-search input-group-text"></i>
                             </span>
                         </div>
-                    </div>
+                    </div> -->
                 </li>
                 <li class="nav-item"><a title='lịch sử học' href="history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
             </ul>
@@ -201,8 +201,8 @@ if(empty($notification)) {
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Thông báo</h6>
                                 <div class="float-right">
-                                    <a href="javascript:" class="m-r-10">bài viết mới nhất</a>
-                                    <a href="javascript:">clear all</a>
+                                    <!-- <a href="javascript:" class="m-r-10">bài viết mới nhất</a> -->
+                                    <!-- <a href="javascript:">clear all</a> -->
                                 </div>
                             </div>
                             <ul class="noti-body">
@@ -218,7 +218,7 @@ if(empty($notification)) {
                                         <div class="media">
                                             <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i><?=get_time($val['time'])?></span></p>
                                            <div style="display:flex">
                                                    <form action="" method="POST">                                  
                                                   <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
@@ -257,10 +257,11 @@ if(empty($notification)) {
                                     </div>
                                 </li> -->
                             </ul>
-                            <div class="noti-footer">
+                            <!-- <div class="noti-footer">
                                 <a href="javascript:">show all</a>
-                            </div>
+                            </div> -->
                         </div>
+                        
                     </div>
                 </li>
                 <!-- user -->
@@ -294,13 +295,13 @@ if($image==''){
                             </div>
                             <ul class="pro-body">
                                 <?php if($role==1){?>
-    <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
+    <li><a href="profile" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
                                 <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
                                 <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
                                 <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
                                 <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
                                <?php }else{?>
-                                <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
+                                <li><a href="profile" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
                                 <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
                                 <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
                                 <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
@@ -318,6 +319,33 @@ if($image==''){
 
     <script>
         $(document).ready(function() {
+
+            $('#remove_friend').on('click', function(e) {
+                            e.preventDefault();
+                            var toID = $(this).data('remove')                     
+                            var action = "remove_friend";
+                            if (toID > 0) {
+                                $.ajax({
+                                    url: "site/processAjax.php",
+                                    method: "POST",
+                                    data: {
+                                        toID: toID,
+                                        action: action
+                                    },
+                                    beforeSend: function(){
+                                       return    $('#remove_friend').html('......');;
+                                    },
+                                    success: function(data) {
+
+                                         $('#remove_friend').html('xóa thành công');
+                                        $('#remove_friend').attr('disabled', 'disabled')
+                                       
+                                    }
+                                })
+                            }
+                        })
+
+
          
 $('.accept_btn').on('click', function(e) {
     e.preventDefault();

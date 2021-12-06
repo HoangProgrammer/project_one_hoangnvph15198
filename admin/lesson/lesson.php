@@ -53,7 +53,7 @@
 
           <th colspan="2" style="color:blue" class="text-center"> 
 
-          <a class="btn btn-primary" href="index.php?action=add_lesson&id_topic=<?=$id_topic?>">Thêm</a> 
+          <a class="btn btn-primary" href="index.php?action=add_lesson&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">Thêm</a> 
           
         </th>
 
@@ -70,9 +70,9 @@
             <th name='ten'><?= $time ?></th>   
 
             <th>
-            <a class='btn btn-dark' href="index.php?action=quiz&id_lesson=<?=$id_lesson ?>">xem quiz</a> 
-            <a class='btn btn-warning' href="index.php?action=update_lesson&id_lesson=<?=$id_lesson ?>">sửa</a> 
-            <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_lesson&id_lesson=<?=$id_lesson?>&id_topic=<?=$_GET["id_topic"]?>">xóa</a>
+            <a class='btn btn-dark' href="index.php?action=quiz&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">xem quiz</a> 
+            <a class='btn btn-warning' href="index.php?action=update_lesson&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">sửa</a> 
+            <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_lesson&id_lesson=<?=$id_lesson?>&id_topic=<?=$_GET["id_topic"]?>&id_course=<?=$_GET['id_course']?>">xóa</a>
           </th>
           </tr>
    <?php  }?>
@@ -80,7 +80,9 @@
       </tbody>
 
     </table>
-
+    <br>
+    <br>
+<a href="index.php?action=detail&idCourse=<?=$_GET['id_course']?>" class="btn btn-primary ">quay lại</a>
     </form>
     
     <!--  -->

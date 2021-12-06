@@ -75,7 +75,7 @@
           <th style="color:blue" class="text-center">lựa chọn 2</th>
           <th style="color:blue" class="text-center">lựa chọn 3</th>
           <th style="color:blue" class="text-center"> đáp án đúng</th>
-          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_quiz&id_lesson=<?=$_GET["id_lesson"]?>">Thêm</a> </th>
+          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_quiz&&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">Thêm</a> </th>
         </tr>
       </thead>
       <tbody>
@@ -93,8 +93,8 @@
             <th name='dv'><?=$Selection3  ?></th>
             <th name='dv'><?=$answer?></th>    
             <th>
-              <a class='btn btn-warning' href="index.php?action=update_quiz&id_quiz=<?=$id_quiz?> ">sửa</a>
-           <a  class=" btn btn-danger " href="index.php?action=delete_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$_GET["id_lesson"]?>">xóa</a>
+              <a class='btn btn-warning' href="index.php?action=update_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?> ">sửa</a>
+           <a  class=" btn btn-danger " href="index.php?action=delete_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">xóa</a>
 
           </th>
 
@@ -104,7 +104,9 @@
       </tbody>
 
     </table>
-
+    <br>
+    <br>
+<a class="btn btn-primary" href="index.php?action=detail_lesson&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET['id_topic']?>">quay lại</a>
     </form>
 
     <!-- <div class="border_checked">

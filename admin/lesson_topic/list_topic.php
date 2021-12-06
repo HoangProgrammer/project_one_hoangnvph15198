@@ -64,8 +64,8 @@
          <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
             <th name='ten'><?= $topicName ?></th>       
             <th>
-            <a class='btn btn-dark' href="index.php?action=detail_lesson&id_topic=<?=$id_lesson_topics ?>">xem bài học</a> 
-            <a class='btn btn-warning' href="index.php?action=update_lesson_topic&id_topic=<?=$id_lesson_topics ?> ">sửa</a> 
+            <a class='btn btn-dark' href="index.php?action=detail_lesson&id_course=<?=$_GET['idCourse']?>&id_topic=<?=$id_lesson_topics ?>">xem bài học</a> 
+            <a class='btn btn-warning' href="index.php?action=update_lesson_topic&id_course=<?=$_GET['idCourse']?>&id_topic=<?=$id_lesson_topics ?> ">sửa</a> 
             <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_topic&id=<?=$id_lesson_topics?>&idCourse=<?=$_GET["idCourse"] ?>">xóa</a></th>
           </tr>
    <?php  }?>
