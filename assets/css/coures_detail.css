@@ -82,12 +82,12 @@
     padding: 20px 50px;
     border-radius: 10px;
     background-color: #eee;
+    margin-bottom: 30px;
 }
 .toastt .topic_content ul,
 .toastt .topic_content li{
-    list-style: none;
     margin-bottom: 0 !important;
-    list-style: upper-roman;
+    /* list-style: upper-roman; */
 }
 .wrap_detail .detail_right{
     display: flex;

@@ -8,7 +8,7 @@ function exit_param($file){
     return array_key_exists($file,$_REQUEST);
 }
 
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 function get_time($time){
     $time_ago=strtotime($time);
     $current=time();
@@ -42,7 +42,7 @@ if($minute==1){
     else
       if($day<=7){
         if($day==1){
-            return " ngày hôm qua";
+            return "  hôm qua";
         }else{
             return "$day ngày trước";
         }

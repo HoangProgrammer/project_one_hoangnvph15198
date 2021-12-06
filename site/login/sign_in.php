@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
                 ];
                 $_SESSION['user']=$dataUser;
                 header('Location:../processAjax.php');
-                header('Location:../../index.php');
+                header('Location:../../index.html');
             } else {
                 $dataAdmin=[
                     "id" => $row['id_user'],
@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
                 ];
                 $_SESSION['admin'] = $dataAdmin;
                 header('Location:../processAjax.php');
-                header('Location:../../index.php');
+                header('Location:../../index.html');
             }
         }
     } else {

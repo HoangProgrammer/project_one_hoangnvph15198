@@ -28,6 +28,7 @@ if(isset($login)){
 
 }
 
+
                if($login > 0){
                 if($status==1){
                     $_SESSION['error_account']='tài khoản của bạn bị vô hiệu hóa';

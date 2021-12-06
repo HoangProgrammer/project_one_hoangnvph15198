@@ -48,6 +48,11 @@ if(isset($_POST['action']) && $_POST['action']=='cancel_request'){
     delete_receiver($toID) ;
 }
 
+if(isset($_POST['action']) && $_POST['action']=='remove_friend'){
+    $toID = $_POST['toID'];
+    delete_Friend($toID) ;
+}
+
 
 
 
@@ -75,10 +80,14 @@ $rating=Get_Rating();
 
 foreach ($rating as $value) :
     if ($value['id_parent'] == 0) :
+        $image ='';
+        if ($value['image'] == '') {    
+            $image = '<img style="width: 100%;height: 100%; border-radius:50%"  src="./image/user_defaul.png">';
+        } 
 ?>
-        <div class="c-comment-box">
+    <div class="c-comment-box">
             
-            <div class="c-comment-box__avatar">BV</div>
+            <div class="c-comment-box__avatar avatar-rating"  style="background-image: url(./image/<?=$value['image']?>)"> <?= $image ?></div>
             <div class="c-comment-box__content">
                 <div class="c-comment-name"><?= ucfirst($value['ten_user']);?></div>
                 <div class="list-star">
@@ -101,7 +110,7 @@ foreach ($rating as $value) :
                             <?= $time=get_time($value['time'])  ?></span>
                     </ul>
                 </div>
-                <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div>
+                <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div> 
                 <?php if ($role == 0) {
                 } else { ?>
                     <div class="c-comment-status">
@@ -114,9 +123,11 @@ foreach ($rating as $value) :
                     <textarea name="contentReply" rows="4" placeholder="Viết câu hỏi của bạn">
                     </textarea>
                  
-                    <button type="submit" class="btn btn-primary" name="reply">Trả Lời </button>
+                    <button  type="submit" class="  btn btn-primary" name="reply">Trả Lời </button>
                 </div>
 </form>
+
+      
 
    <span  class="er text-warning">  </span>
                   
@@ -149,18 +160,26 @@ foreach ($rating as $value) :
         endforeach; ?>
 <?php endif;
 endforeach; ?>
-<?php 
-
-
-
-?>
-
 
 <script>
     $(document).ready(function(){
   $('.formRep').hide();
 $('.rep_a').on('click',function(e) {
   $(this).next().slideToggle();
+})
+
+
+$('.editRating').click(function() {
+
+var parent=$(this).data('edit');
+
+$('#editRating'+parent).slideToggle()
+}) 
+
+
+$('.btn-rating').on('click', function(e) {
+    e.preventDefault();
+   
 })
  })
   

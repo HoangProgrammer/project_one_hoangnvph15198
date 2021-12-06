@@ -37,35 +37,40 @@ foreach ($MyFriend as $val) {
                         </div>
                         <form action="" method="post">
                             <?php $Friends_request = Friends_request2($id_user, $val['id_user']);
+                          
                             if (empty($Friends_request)) { ?>
                                 <button type='submit' id="send_request<?= $val['id_user'] ?>" data-id="<?= $val['id_user'] ?>" class='btn_request btn btn-primary'><i class="fas fa-user-plus"></i>Kết bạn</button>
-                                <?php } else {
+                                <?php } else  {
                                 foreach ($Friends_request as $value) {
                                     extract($value);
                                 }
                                 if (empty($value)) { ?>
-                                    <button type='submit' class=' btn btn-primary'>Kết bạn</button>
+                                    <!-- <button type='submit' class=' btn btn-primary'>Kết bạn</button> -->
+                                    <!-- Trống -->
                                     <?php } else {
                                     $sender = sender($val['id_user'], $id_user);
+
                                     if (empty($sender)) {
+                                        // trống
                                     } else {
-                                        foreach ($sender as $va) {
+                                        foreach ($sender as $va) { // get người gửi 
                                             extract($va);
-                                        }
-                                        if ($va['sender'] == $val['id_user']) {
+                                        
+                                        if ($va['sender'] == $val['id_user']) { 
                                             echo "<button type='submit' data-check=" . $val['id_user'] . " id='success-btn" . $val['id_user'] . "' class='make_fiend btn btn-success'>Chấp Nhận</button >";
                                         } else {
                                             $status; ?>
                                             <?= $status = ($status == 0) ? " <button id='cancel" . $val['id_user'] . "'  type='button' data-cancel='" . $val['id_user'] . "'  class='cancel_request btn btn-secondary'><i class='fas fa-window-close'></i> Hủy yêu cầu</button >" :
                                                 " <button type='submit' data-id_user='" . $val['id_user'] . "' class=' btn btn-primary'>Kết bạn</button >" ?>
-                                <?php }
-                                    }
-                                } ?>
-                            <?php } ?>
+                                <?php } } } ?>
+                            
+                            <?php } } ?>
                         </form>
 
                     </div>
-                <?php endforeach; ?>
+                <?php
+     
+            endforeach; ?>
 
 
             </div>

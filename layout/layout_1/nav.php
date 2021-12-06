@@ -170,7 +170,7 @@ if (isset($_GET['act'])) {
                         </div>
                     </div>
                 </li>
-                <li class="nav-item"><a title='lịch sử học' href="index.php?act=history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
+                <li class="nav-item"><a title='lịch sử học' href="history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
             </ul>
             
             <ul class="navbar-nav ml-auto">
@@ -280,7 +280,7 @@ if($image==''){
                     <div class="dropdown drp-user">
                         <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
                             
-                            <img width="70px" src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
+                            <img  src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
@@ -293,11 +293,20 @@ if($image==''){
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-settings"></i> cài đặt</a></li>
+                                <?php if($role==1){?>
+    <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
                                 <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
                                 <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
                                 <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
-                                <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quan tri</a></li>
+                                <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
+                               <?php }else{?>
+                                <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
+                                <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
+                                <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
+                                <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
+                                <!-- <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quan tri</a></li> -->
+                           <?php    } ?>
+                                
                             </ul>
                         </div>
                     </div>

@@ -88,11 +88,10 @@ if(!empty($image_course)){
 function GetData_Thong_ke()
 {
    $db = connect();
-   $sql = "SELECT course.id_caurse as id_course , course.NameCaurse as NameCaurse, 
-   count(course.id_caurse) as count_sv, min(progress.id_user) as min_sv , 
-   max(progress.id_user) as max_sp , AVG(progress.id_user) as avg_sv 
-   FROM course  join progress on course.id_caurse = progress.id_causer 
-   group by course.id_caurse ";
+   $sql = "SELECT course.id_caurse as id_caurse,  course.NameCaurse as NameCourse, COUNT(lesson_topics.id_lesson_topics)as tong_topic FROM 
+   lesson_topics join course on lesson_topics.id_caurse=course.id_caurse
+        GROUP by course.id_caurse 
+   ";
    $statement = $db->prepare($sql);
    $statement->execute();
    $row = array();

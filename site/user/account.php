@@ -34,7 +34,7 @@
                }else{         
                foreach ($Select_MyFriend as $val){  ?>                 
                        <tr>
-                           <th><?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img  style="width:50px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></th>
+                           <th><a href="index.php?act=profile&id=<?=$val['id_user']?>"> <?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img  style="width:50px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></a></th>
                            <th><?= ucfirst($val['ten_user'])?></th>
                            <th><button class="btn btn-danger">xóa</button></th>
                        </tr>
@@ -107,8 +107,8 @@ if($image==''){
                         <p class="settings__copy">Thông tin tài khoản</p>
                               <div class="">
                              <div class="avatar-upload__no-crop">
-                             <div class="avatar-upload__dropzone" id='display_image'>
-                                 <img id="image_change" src="<?=$images?>" width="200px" style="border-radius:50%;">
+                             <div class="avatar-upload__dropzone" id='display_image' style='background-image:url(<?=$images?>)'>
+                                 <!-- <img id="image_change" src="<?=$images?>"  style="border-radius:50%;"> -->
                                 </div>
                              <label for="file-select" class="btn btn--default btn--s avatar-upload__select-cta-label">Tải ảnh lên
                                  <input type="file" name="image_avt" class="avatar-upload__select-cta" id="file-select">

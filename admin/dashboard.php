@@ -1,5 +1,10 @@
 
-
+<style>
+	div#piechart {
+    position: absolute;
+    left: 20%;
+}
+</style>
 <div id="main">
 	<div class="head">
 		<div class="col-div-6">
@@ -78,10 +83,15 @@
 	</div>
 </div>
 
-
-	<div class="col-12">
+<br>
+<br>
+<br>
+<div class="row">
+<div class="col-lg-12">
 	<div id="piechart"></div>
 	</div>
+</div>
+	
 
 
 

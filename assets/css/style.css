@@ -58,13 +58,15 @@ File: style.css
       Custom css start
 ==========================  **/
 body {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Montserrat', sans-serif!important;
 
-  font-size: 14px;
-  color: #888;
-  font-weight: 400;
+  font-size: 15px;
+  color: #030101;
+  font-weight: 600;
   background: #f4f7fa;
   position: relative;
+
+
 }
 *{
   padding:0;
@@ -123,7 +125,9 @@ strong {
 }
 
 .img-radius {
+  width: 55px;
   border-radius: 50%;
+  height: 50px;
 }
 
 .page-header-title + .breadcrumb {

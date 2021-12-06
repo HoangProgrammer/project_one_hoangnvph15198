@@ -1,9 +1,13 @@
 <?php
     require_once('./../dao/courseDB.php');
     require_once('./../models/pdo.php');
+    require_once './../dao/lesson_topicDB.php';
+    require_once './../dao/lesson.php';
     $id = $_GET['id_coures'];
-    $data = Get_course_one($id);
-    // var_dump($data);die;
+    $data = Get_course_one($id); 
+    $data_lesson = getAll_topic($id);
+    // echo "<pre>";
+    // var_dump($data_lesson);die;
 ?>
 
 <!DOCTYPE html>
@@ -48,17 +52,23 @@
                     <h3>Nội dung khóa học</h3>
                     <p><span class="span">2 phần</span> <span class="span">14 bài học</span> <span class="span">Thời lượng 06 giờ 27 phút</span></p>
                     <div class="toastt">
-                        <div class="topic">
-                            <h5>+ Nội dung khóa học nâng cao</h5>
-
-                        </div>
-                        <div class="topic_content">
-                            <ul>
-                                <li>Giới thiệu</li>
-                                <li>Giới thiệu</li>
-                                <li>Giới thiệu</li>
-                            </ul>
-                        </div>
+                        <?php foreach ($data_lesson as $key => $value) {?>
+                                                    <div class="topic">
+                                                    <h5>+ <?php echo $value['topicName']  ?></h5>
+                        
+                                                </div>
+                                                <div class="topic_content">
+                                                    <ul>
+                                                        <?php 
+                                                            $id_lesson = $value['id_lesson_topics'];
+                                                            $lesson = getAll_lesson($id_lesson);
+                                                        ?>
+                                                        <?php    foreach ($lesson as $key => $value) { ?>
+                                                            <li> <?php echo $value['lessonName'] ?> </li>
+                                                        <?php }?>
+                                                    </ul>
+                                                </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
