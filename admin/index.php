@@ -540,6 +540,15 @@ header("location:index.php?action=banner");
   case "rating":
     require("./rating/list_rating.php");
     break;
+case "blog":
+    require("./blog/blog.php");
+    break;
+case "delete_blog":
+    $id_post = $_GET['id_post'];
+    delete_blog($id_post);
+    header("location:index.php?action=blog");
+    break;
+    
   case "request":
     require("./rating/request_rating.php");
     break;

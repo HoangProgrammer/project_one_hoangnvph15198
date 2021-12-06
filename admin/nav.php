@@ -28,6 +28,7 @@ require_once('../global.php');
 require_once('../dao/BannerDB.php');
 require_once('../dao/RatingDB.php');
 require_once('../dao/payments.php');
+require_once('../dao/forum_post.php');
 ?>
 
 
@@ -53,6 +54,7 @@ require_once('../dao/payments.php');
   <a href="index.php?action=account"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người dùng</a>
   <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
   <a href="index.php?action=shopping"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người mua</a>
+  <a href="index.php?action=blog"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Blog</a>
 
   <a href="index.php?action=rating"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;đánh giá</a>
 
