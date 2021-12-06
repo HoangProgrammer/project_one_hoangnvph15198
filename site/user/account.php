@@ -34,7 +34,7 @@
                }else{         
                foreach ($Select_MyFriend as $val){  ?>                 
                        <tr>
-                           <th><?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img  style="width:50px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></th>
+                           <th><a href="index.php?act=profile&id=<?=$val['id_user']?>"> <?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img  style="width:50px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></a></th>
                            <th><?= ucfirst($val['ten_user'])?></th>
                            <th><button class="btn btn-danger">xóa</button></th>
                        </tr>

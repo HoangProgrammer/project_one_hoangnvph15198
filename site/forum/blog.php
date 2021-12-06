@@ -63,7 +63,13 @@ foreach ($get_new_post as $value):
         <span class="_27Sfq">
             <span class="UI5NM">
                 <a href="image/<?=$value['image']?>" rel="nofollow">
-                <img alt="no image" class="_34uU0 _1hNyT" src="image/<?=$value['image']?>">
+                <?php if( $value['image'] ==''){ ?>
+                    <img alt="no image" class="_34uU0 _1hNyT" src="./image/user_defaul.png">
+
+                <?php } else { ?> 
+                            <img alt="no image" class="_34uU0 _1hNyT" src="./image/<?=$value['image']?>">
+                    <?php }  ?>
+        
                 </a>
             </span>
         </span>

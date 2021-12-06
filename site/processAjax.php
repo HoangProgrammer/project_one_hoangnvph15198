@@ -48,6 +48,11 @@ if(isset($_POST['action']) && $_POST['action']=='cancel_request'){
     delete_receiver($toID) ;
 }
 
+if(isset($_POST['action']) && $_POST['action']=='remove_friend'){
+    $toID = $_POST['toID'];
+    delete_Friend($toID) ;
+}
+
 
 
 

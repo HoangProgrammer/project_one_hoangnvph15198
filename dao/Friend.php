@@ -33,6 +33,14 @@ function delete_receiver($id)
     return true;
 }
 
+function delete_Friend($id)
+{
+    $con = connect();
+    $query = $con->prepare("DELETE FROM friends where id_user_one =:id or id_user_two=:id ");
+    $query->execute([":id" => $id]);
+    return true;
+}
+
 function update_fiend($id)
 {
     $con = connect();
@@ -78,9 +86,9 @@ where receiver=?");
 function Friends_request2($sender, $receiver)
 {
     $con = connect();
-    $notification = $con->prepare("SELECT status 
-    FROM friend_request where sender='".$sender."' AND 
-    receiver='".$receiver."' OR sender='".$receiver."' AND receiver='".$sender."' AND status =0");
+    $notification = $con->prepare("SELECT * 
+    FROM friend_request where sender=".$sender." AND 
+    receiver=".$receiver." OR sender=".$receiver." AND receiver=".$sender." AND status=0 ");
     $notification->execute();
     $rows = array();
     while ($row = $notification->fetch()) {
@@ -94,7 +102,7 @@ function sender($sender ,$id_user)
     $con = connect();
     $notification = $con->prepare("SELECT sender FROM friend_request where sender='".$sender."' and receiver='".$id_user."'  OR
     receiver='".$sender."' and sender='".$id_user."'
-    AND status =0;");
+    AND status=0;");
     $notification->execute();
     $rows = array();
     while ($row = $notification->fetch()) {
@@ -129,7 +137,7 @@ if($val['id_user_one']==$my_id){
 
 function Get_user_other($id){
     $conn=connect();
-        $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN($id) ");
+        $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN($id) and role < 1");
         $stmt->execute();
         $rows=array();
     while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
