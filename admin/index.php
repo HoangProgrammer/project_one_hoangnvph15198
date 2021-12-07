@@ -7,14 +7,12 @@ require_once('nav.php');
 ?>
 <?php
 
-if(!isset( $_SESSION["Admin"]))
+if(!isset( $_SESSION["admin"]))
 {
 
-header("Location:login.php");
+header("Location:../index.html");
 
 }else{
-
-
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
