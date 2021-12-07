@@ -31,18 +31,10 @@ return $rows;
 
 function Get_other_course($id){
 $conn=connect();
-    $stmt=$conn->prepare("SELECT * FROM course   WHERE id_caurse NOT IN(?)");
+    $stmt=$conn->prepare("SELECT * FROM course  WHERE id_caurse NOT IN($id) ");
     $stmt->execute();
-    $rows=array();
-      while(true){
-           $row=$stmt->fetchAll(\PDO::FETCH_ASSOC);
-          if($row==false){
-              break;
-          }        
-    $rows[]=$row;
-
+           $rows=$stmt->fetchAll(\PDO::FETCH_ASSOC);    
 return $rows;
-}
 }
 
 

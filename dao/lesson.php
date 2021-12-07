@@ -8,7 +8,6 @@ function getAll_lesson($id_lesson_topics){
        $rows[]=$row;
    }
    return $rows;
-
 }
 
 function insert_lesson($data){
@@ -20,7 +19,36 @@ function insert_lesson($data){
     return true;
     }
 
-    
+
+function insert_progress_lesson($id_lesson,$id_course){ 
+    $conn = connect();
+    $select =$conn ->prepare("SELECT * FROM progress_lesson WHERE id_lesson=$id_lesson");
+    $select->execute();
+if($select->rowCount()>0){
+}else{
+        $stmt=$conn->prepare("INSERT INTO progress_lesson (id_lesson,id_course )
+       VALUES(?,?) ");
+        $stmt->execute([$id_lesson,$id_course]);
+    return true;
+}
+    }
+
+    function getAll_progress_lesson($id){
+        $conn=connect();
+        $stmt= $conn->prepare("SELECT * FROM progress_lesson Where id_course= ? ");
+        $stmt->execute([$id]);
+      $rows=array();
+       while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+           $rows[]=$row;
+       }
+       return $rows;
+    }
+
+
+
+
+
+
 function delete_lesson($id){
   
     $conn=connect();

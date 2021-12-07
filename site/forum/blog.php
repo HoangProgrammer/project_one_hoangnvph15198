@@ -62,7 +62,7 @@ foreach ($get_new_post as $value):
     <div>
         <span class="_27Sfq">
             <span class="UI5NM">
-                <a href="image/<?=$value['image']?>" rel="nofollow">
+                <a href="index.html?act=profile&id=<?=$value['id_user']?>" rel="nofollow">
                 <?php if( $value['image'] ==''){ ?>
                     <img alt="no image" class="_34uU0 _1hNyT" src="./image/user_defaul.png">
 
@@ -85,7 +85,7 @@ foreach ($get_new_post as $value):
         </div>
         <div class="_2Nbkz">
             <h3>
-                <a class="_3ZcIW" href="index.php?act=detail_blog&id_post=<?= $value['id_post'] ?>"><?php echo $value['title_post'] ?></a>
+                <a class="_3ZcIW" href="forum/comment/<?= $value['id_post'] ?>"><?php echo $value['title_post'] ?></a>
             </h3>
             <div class="_2I7YD">
     
