@@ -189,19 +189,19 @@ if(isset($_GET['lesson'])){
                         <a title="thông báo" id="bell" class="dropdown-toggle " data-toggle="dropdown">
 
                             <i class="icon feather icon-bell"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right notification">
+                            <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Thông báo</h6>
                                 <div class="float-right">
-                                    <a href="javascript:" class="m-r-10">bài viết mới nhất</a>
-                                    <a href="javascript:">clear all</a>
+                                    <!-- <a href="javascript:" class="m-r-10">bài viết mới nhất</a> -->
+                                    <!-- <a href="javascript:">clear all</a> -->
                                 </div>
                             </div>
                             <ul class="noti-body">
                                 <li class="n-title">
                                     <p class="m-b-0">Mới</p>
                                 </li>
-                                <a style=" margin-left:29%; text-align: center"><?= $note ?></a>
+                                <a  style=" margin-left:29%; text-align: center"><?=$note?></a>
                                 <?php
 
                                 $notification = notification($id_user);
@@ -210,18 +210,18 @@ if(isset($_GET['lesson'])){
                                         <div class="media">
                                             <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
-                                                <div style="display:flex">
-                                                    <form action="" method="POST">
-                                                        <button type="submit" data-friend="<?= $val['sender'] ?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
-                                                        <span class="text-secondary" id="accept_friend<?= $val['sender'] ?>"></span>
-                                                    </form>
-                                                    <form type="submit" action="" method="POST">
-                                                        <button data-friend="<?= $val['sender'] ?>" class="delete_btn_request btn btn-danger "><i class='fas fa-window-close'> hủy</i></button>
-                                                        <span class="text-secondary" id="delete_friend<?= $val['sender'] ?>"></span>
-                                                    </form>
-                                                </div>
-                                                <span class="text-secondary span_notification"> </span>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i><?=get_time($val['time'])?></span></p>
+                                           <div style="display:flex">
+                                                   <form action="" method="POST">                                  
+                                                  <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
+                                                  <span class="text-secondary" id="accept_friend<?=$val['sender']?>"></span>  
+                                               </form>    
+                                               <form type="submit"  action="" method="POST">                                                                            
+                                                  <button data-friend="<?=$val['sender']?>" class="delete_btn_request btn btn-danger "><i class='fas fa-window-close'> hủy</i></button>  
+                                              <span class="text-secondary" id="delete_friend<?=$val['sender']?>" ></span>
+                                                </form>  
+                                           </div>                                           
+                                               <span class="text-secondary span_notification"> </span>
                                             </div>
                                         </div>
                                     </li>
@@ -249,10 +249,12 @@ if(isset($_GET['lesson'])){
                                     </div>
                                 </li> -->
                             </ul>
-                            <div class="noti-footer">
+                            <!-- <div class="noti-footer">
                                 <a href="javascript:">show all</a>
-                            </div>
+                            </div> -->
                         </div>
+
+
                     </div>
                 </li>
                 <!-- user -->
@@ -285,13 +287,13 @@ if(isset($_GET['lesson'])){
                             </div>
                             <ul class="pro-body">
                                 <?php if($role==1){?>
-    <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
+    <li><a href="account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
                                 <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
                                 <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
                                 <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
                                 <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
                                <?php }else{?>
-                                <li><a href="index.php?act=account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
+                                <li><a href="account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
                                 <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
                                 <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
                                 <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
@@ -580,7 +582,10 @@ if(isset($_GET['lesson'])){
     <script src="./assets/js/pcoded.min.js"></script>
     <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
     <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+  
+  <script>
         $(document).ready(function() {
 
             $('.accept_btn').on('click', function(e) {
@@ -700,8 +705,78 @@ if(isset($_GET['lesson'])){
     </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
 
+            $('#remove_friend').on('click', function(e) {
+                            e.preventDefault();
+                            var toID = $(this).data('remove')                     
+                            var action = "remove_friend";
+                            if (toID > 0) {
+                                $.ajax({
+                                    url: "site/processAjax.php",
+                                    method: "POST",
+                                    data: {
+                                        toID: toID,
+                                        action: action
+                                    },
+                                    beforeSend: function(){
+                                       return    $('#remove_friend').html('......');;
+                                    },
+                                    success: function(data) {
+
+                                         $('#remove_friend').html('xóa thành công');
+                                        $('#remove_friend').attr('disabled', 'disabled')
+                                       
+                                    }
+                                })
+                            }
+                        })
+
+
+         
+$('.accept_btn').on('click', function(e) {
+    e.preventDefault();
+  toID=$(this).data('friend')
+  var action="accept";
+//   alert(toID);
+  if(toID>0){
+         $.ajax({
+       url:"site/processAjax.php",
+       method:"POST",
+       data:{id_friends:toID,action:action},
+       success: function(data) {
+           $('#accept_friend'+toID).html('các bạn đã trở thành bạn');
+           $('.accept_btn').hide(); 
+        $('.delete_btn_request').hide();    
+       }
+   })
+  }
+})
+
+$('.delete_btn_request').on('click', function(e) {
+    e.preventDefault();
+  var toID=$(this).data('friend')
+  
+  var action="delete_request";
+  if(toID>0){
+       $.ajax({
+       url:"site/processAjax.php",
+       method:"POST",
+       data:{toID:toID,action:action},
+       success: function(data) {
+           $('#delete_friend'+toID).html('đã gỡ lời kết bạn');
+        $('.accept_btn').hide(); 
+        $('.delete_btn_request').hide(); 
+       }
+   })
+  }
+  
+
+})
+
+        })
+    </script>
 </body>
 
 </html>

@@ -3,8 +3,17 @@
     require_once('./models/pdo.php');
     // $id_user = $_SESSION['user']['id'];
     $data = Get_user_one($id_user);
-
+$profile="";
+$friend="";
+    if(isset($_GET['account'])){
+        $profile="nav__link--active";
+    }else if(isset($_GET['friend'])){
+        $friend="nav__link--active"; 
+    }else{
+        $profile="nav__link--active";  
+    }
 ?>
+
 
 <div class="pcoded-main-container">
 <div class="main-body">
@@ -16,13 +25,15 @@
             <div class="settings__menu">
                 <h1 class="settings__heading" data-cy="UserSettings__heading">Cài đặt</h1>
                 <div class="tab-menu__tabs" data-cy="MyProfile__menuTabs">
-                    <a class="nav__link  nav__link--active " id="account">Tài khoản</a>
-                    <a class="nav__link " id="friend">Bạn Bè</a>
+                    <a href="account" class="nav__link  <?= $profile?> " id="account">Tài khoản</a>
+                    <a class="nav__link  <?= $friend?>" href="index.php?act=account&friend" id="friend">Bạn Bè</a>
                     <!-- <a class="nav__link " data-qa-settings-languages="true">Ngôn ngữ</a>
                    <a class="nav__link " data-qa-settings-personal="true">Cài đặt cá nhân</a>
                     <a class="nav__link " data-qa-settings-subscription="true">Đăng ký</a>
                     <a class="nav__link " data-qa-settings-studyplan="true">Kế hoạch học tập</a></div>               -->
             </div>
+            <?php if(isset($_GET['friend'])){ ?>
+         
             <div class="settings__view-container" id="friends">
              
                <table cellspacing="10" cellpadding="10">
@@ -34,9 +45,9 @@
                }else{         
                foreach ($Select_MyFriend as $val){  ?>                 
                        <tr>
-                           <th><a href="index.php?act=profile&id=<?=$val['id_user']?>"> <?= $val['image']=($val['image']=="")?"<i class='fa fa-user'></i>": '<img  style="width:50px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></a></th>
+                           <th><a href="index.php?act=profile&id=<?=$val['id_user']?>"> <?= $val['image']=($val['image']=="")?'<img style="width:100px; height:100px; border-radius:50% ;" src="image/user_default.jpg" alt="">': '<img  style="width:80px; height=100px; border-radius:50% ;" src="image/'.$val['image'].'" alt="">'  ?></a></th>
                            <th><?= ucfirst($val['ten_user'])?></th>
-                           <th><button class="btn btn-danger">xóa</button></th>
+                           <th><button id="remove_friend" data-remove="<?=$val['id_user']?>"   class=" btn btn-danger">xóa</button></th>
                        </tr>
                <?php }} 
              foreach($data as $value){
@@ -52,7 +63,12 @@ if($image==''){
                    </thead>
 
                </table>
-            </div>
+            </div> 
+            
+            <?php }else{?>
+
+        
+
             <?php
             $error ="";
                 if(isset($_POST['button'])){
@@ -75,7 +91,7 @@ if($image==''){
                                     'id_user' => $id_user,
                                 ];
                                 update_khach_hang_no_img($data2);
-                                header("location:index.php?act=account");
+                                header("location:profile");
                             }
                             else{
                                 $data=[
@@ -87,7 +103,7 @@ if($image==''){
                                 ];
                                 move_uploaded_file($file,'./image/'.$file_name );
                                 update_khach_hang($data);
-                                header("location:index.php?act=account");
+                                header("location:profile");
                             }
                         }
                         else{
@@ -151,10 +167,13 @@ if($image==''){
                             
                             </form>
 
+ <?php   } ?>
+
                             </div>
                         </div>
                         
     </div>
+        </div>
         </div>
         </div>
         </div>
@@ -174,22 +193,22 @@ $('#image_change').hide();
        })
 
 
-           $('#friends').hide();
-              $('#account').click(function() {
-                  $('#friends').hide();
-                  $('#exchangeAcount').show();
-              })  
-              $('#friend').click(function() {
-                  $('#friends').show();
-                  $('#exchangeAcount').hide();
-              })  
+        //    $('#friends').hide();
+        //       $('#account').click(function() {
+        //           $('#friends').hide();
+        //           $('#exchangeAcount').show();
+        //       })  
+        //       $('#friend').click(function() {
+        //           $('#friends').show();
+        //           $('#exchangeAcount').hide();
+        //       })  
 
 
               
-$('a.nav__link').click(function() {
-    $('a.nav__link--active').removeClass('nav__link--active');
-    $(this).addClass('nav__link--active')
+// $('a.nav__link').click(function() {
+//     $('a.nav__link--active').removeClass('nav__link--active');
+//     $(this).addClass('nav__link--active')
 
-})
+// })
 
    </script>

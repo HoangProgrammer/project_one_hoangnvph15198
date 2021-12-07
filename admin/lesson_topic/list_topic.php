@@ -19,24 +19,22 @@
 <br>
 <br>
 <br>
-  <form action="index.php?action=deletes_pr" method="post" >
+  <form action="index.php?action=deleteAll" method="post" >
+    <input type="hidden" name="id_course" value="<?=$_GET['idCourse']?>">
     <h5 class="text-warning">
-     <?php  
-   
-   if(isset(  $_SESSION['error_checkbox'])){
-    echo  $_SESSION['error_checkbox']  ;
-    unset( $_SESSION['error_checkbox']);
-  }
-  
-   ?>
-
+    <?php if(isset($_SESSION['errAll'])){?>
+     
+     <span class="alert alert-warning"> <?=
+     $_SESSION['errAll'] ; 
+        unset($_SESSION['errAll']);
+     ?>  </span>   
+      <?php  } ?>
     </h5>
-    
 <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
    <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
    <input type="checkbox" hidden id="chose_all"> 
-   <button class=" btn btn-danger " name="btn-deletes">xóa tất cả lựa chọn</button>  
+   <button name="delete_btn_topic" class=" btn btn-danger " name="btn-deletes">xóa tất cả lựa chọn</button>  
  
 </div>
 
@@ -61,11 +59,11 @@
  foreach ($topic as $val) { extract($val);     $id_lesson_topics;?>
 
           <tr class="text-center">
-         <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
+         <th> <input type="checkbox" name="item_topic[]" value="<?= $id_lesson_topics?>" class="select_chose"></th> 
             <th name='ten'><?= $topicName ?></th>       
             <th>
-            <a class='btn btn-dark' href="index.php?action=detail_lesson&id_topic=<?=$id_lesson_topics ?>">xem bài học</a> 
-            <a class='btn btn-warning' href="index.php?action=update_lesson_topic&id_topic=<?=$id_lesson_topics ?> ">sửa</a> 
+            <a class='btn btn-dark' href="index.php?action=detail_lesson&id_course=<?=$_GET['idCourse']?>&id_topic=<?=$id_lesson_topics ?>">xem bài học</a> 
+            <a class='btn btn-warning' href="index.php?action=update_lesson_topic&id_course=<?=$_GET['idCourse']?>&id_topic=<?=$id_lesson_topics ?> ">sửa</a> 
             <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_topic&id=<?=$id_lesson_topics?>&idCourse=<?=$_GET["idCourse"] ?>">xóa</a></th>
           </tr>
    <?php  }?>

@@ -47,7 +47,7 @@ foreach($Get_Rating as $values){ extract($values)?>
     </td>
 
     <td>
-<a class="delete btn btn-danger" href="index.php?action=xoa_user&id_rating=<?= $id_rating?>">xóa</a>
+<a class="delete btn btn-danger" href="index.php?action=delete_rating&id_rating=<?= $id_rating?>">xóa</a>
  </td>
 
 </tr>

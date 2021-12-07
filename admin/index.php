@@ -7,14 +7,12 @@ require_once('nav.php');
 ?>
 <?php
 
-if(!isset( $_SESSION["Admin"]))
+if(!isset( $_SESSION["admin"]))
 {
 
-header("Location:login.php");
+header("Location:../index.html");
 
 }else{
-
-
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -119,6 +117,41 @@ if($insert==true){
                 header("location:index.php?action=product");
             }
             break;
+        case "deleteAll":
+            if (isset($_POST['delete_btn_all'])) {
+                if(!isset($_POST['item_course'])){
+                    $_SESSION['errAll']="bạn chưa chọn";
+                    header("location:index.php?action=product");
+                }else{
+                       $item_course = $_POST['item_course'];
+            $item=implode(',',$item_course);
+                // var_dump( $item);
+                deleteCourseALL( $item);
+                header("location:index.php?action=product");
+                }
+             
+            }else if(isset($_POST['delete_btn_topic'])){
+                $id_course=$_POST['id_course'];
+                if(!isset($_POST['item_topic'])){
+                    $_SESSION['errAll']="bạn chưa chọn";
+                    header("location:index.php?action=detail&idCourse=".$id_course."");
+                } else{
+                    $item_topic = $_POST['item_topic'];           
+         $item=implode(',',$item_topic);
+             // var_dump( $item);
+             delete_topicALL( $item);
+             header("location:index.php?action=detail&idCourse=".$id_course."");
+             }
+            }
+            break;
+
+
+
+
+
+
+
+
 
             // chủ đề
         case "detail":
@@ -143,7 +176,7 @@ if($insert==true){
                     ":id_course"=>$idCourse,    
                 ];
                 if( $err==false){
-                    header("Location:index.php?action=add_lesson_topic");       
+                    header("Location:index.php?action=add_lesson_topic&idCourse=". $idCourse."");       
                 }else{
                     $insert_topic= insert_topic( $data);
                     if($insert_topic==true){
@@ -178,7 +211,7 @@ if($insert==true){
                 ];
 
                 if( $err==false){
-                    header("Location:index.php?action=update_lesson_topic&id_topic=$id_lesson");       
+                    header("Location:index.php?action=update_lesson_topic&id_course=". $id_course."&id_topic=$id_lesson");       
                 }else{
                     $update_topic= update_topic( $data);
                     if($update_topic==true){
@@ -211,10 +244,10 @@ if($insert==true){
             // var_dump($_POST);die();
             if(isset($_POST['btn_course'])){
                 $lesson_name=$_POST['lesson_name']; 
-                $type=$_POST['type'];
                 $video_lesson=$_POST['video_lesson'];
                 $time=$_POST['time'];
-                $id_lesson_topic=$_POST['id_topic'];
+                $id_topic=$_POST['id_topic'];
+                $id_course=$_POST['id_course'];
                 $err=true;
                      if( $lesson_name==""){
                          $_SESSION['name']="không được để trống";
@@ -233,15 +266,14 @@ if($insert==true){
             ":lesson_name"=>$lesson_name, 
             ":video_lesson"=>$video_lesson,
              ":time"=>$time, 
-             ":type"=>$type, 
-             ":id"=>$id_lesson_topic,   
+             ":id"=>$id_topic,   
         ];
                      if( $err==false ){
-                         header("location:index.php?action=add_lesson&id_topic=$id_lesson_topic");
+                         header("location:index.php?action=add_lesson&id_course=".$id_course."&id_topic=$id_topic");
                      }else{         
                         $insert=insert_lesson($data);
         if($insert==true){
-            header("location:index.php?action=detail_lesson&id_topic= $id_lesson_topic");
+            header("location:index.php?action=detail_lesson&id_course=".$id_course."&id_topic=$id_topic");
         }
                      }   
               
@@ -260,11 +292,11 @@ if($insert==true){
             if(isset($_POST['btn_course'])){
 
                 $lesson_name=$_POST['lesson_name']; 
-                $type=$_POST['type'];
                 $video_lesson=$_POST['video_lesson'];
                 $time=$_POST['time'];
                 $id_lesson=$_POST['id_lesson'];
                 $id_topic=$_POST['id_topic'];
+                $id_course=$_POST['id_course'];
 
                 $err=true;
                      if( $lesson_name==""){
@@ -284,15 +316,14 @@ if($insert==true){
             ":lesson_name"=>$lesson_name, 
             ":video_lesson"=>$video_lesson,
              ":time"=>$time, 
-             ":type"=>$type, 
              ":id"=>$id_lesson,   
         ];
                      if( $err==false ){
-                         header("location:index.php?action=update_lesson&id_lesson=$id_lesson");
+                         header("location:index.php?action=update_lesson&id_lesson=$id_lesson&id_course=".$id_course."&id_topic=$id_topic");
                      }else{         
                         $update_lesson=update_lesson($data);
         if($update_lesson==true){
-            header("location:index.php?action=detail_lesson&id_topic=$id_topic");
+            header("location:index.php?action=detail_lesson&id_course=".$id_course."&id_topic=$id_topic");
         }
                      }   
               
@@ -303,9 +334,10 @@ if($insert==true){
             if (isset($_GET['id_lesson']) && isset($_GET['id_topic']) ) {
                 $id_lesson = $_GET['id_lesson'];
                 $idTopic = $_GET['id_topic'];
+                $id_course = $_GET['id_course'];
                 $delete=delete_lesson($id_lesson);  
                 if( $delete==true)     {
-                   header("Location:index.php?action=detail_lesson&id_topic=".$idTopic." ");     
+                   header("Location:index.php?action=detail_lesson&id_course=". $id_course."&id_topic=".$idTopic." ");     
                 }    
             }
             break;
@@ -327,6 +359,8 @@ if($insert==true){
                 $Selection3=$_POST['Selection3'];
                 $answer=$_POST['answer'];
                 $id_lesson=$_POST['id_lesson'];
+                $id_topic=$_POST['id_topic'];
+                $id_course=$_POST['id_course'];
                 $err=true;
                      if( $question==""){
                          $_SESSION['question']="không được để trống";
@@ -355,11 +389,11 @@ if($insert==true){
              ":id_lesson"=>$id_lesson,   
         ];
                      if( $err==false ){
-                         header("location:index.php?action=add_quiz&id_lesson=$id_lesson");
+                         header("location:index.php?action=add_quiz&id_lesson=$id_lesson&id_course=".$id_course."&id_topic=".$id_topic."");
                      }else{         
                         $insert=insert_quiz($data);
         if($insert==true){
-            header("location:index.php?action=quiz&id_lesson= $id_lesson");
+            header("location:index.php?action=quiz&id_lesson= $id_lesson&id_course=".  $id_course."&id_topic=".$id_topic."");
         }
                      }   
               
@@ -382,6 +416,8 @@ if($insert==true){
                 $answer=$_POST['answer'];
                 $id_quiz=$_POST['id_quiz'];
                 $id_lesson=$_POST['id_lesson'];
+                $id_topic=$_POST['id_topic'];
+                $id_course=$_POST['id_course'];
                 $err=true;
                      if( $question==""){
                          $_SESSION['question']="không được để trống";
@@ -410,11 +446,11 @@ if($insert==true){
              ":id"=>$id_quiz,   
         ];
                      if( $err==false ){
-                         header("location:index.php?action=update_quiz&id_quiz=$id_quiz");
+                         header("location:index.php?action=update_quiz&id_quiz=$id_quiz&id_lesson=$id_lesson&id_course=".  $id_course."&id_topic=".$id_topic."");
                      }else{         
         $update=update_quiz($data);
         if($update==true){
-            header("location:index.php?action=quiz&id_lesson=$id_lesson");
+            header("location:index.php?action=quiz&id_lesson=$id_lesson&id_course=".  $id_course."&id_topic=".$id_topic."");
         }
                      }           
                  }
@@ -426,7 +462,7 @@ if($insert==true){
                $delete= delete_quiz( $id_quiz);
 
                if( $delete==true){
-                  header("location:index.php?action=quiz&id_lesson=$id_lesson");   
+                  header("location:index.php?action=quiz&id_lesson=$id_lesson&id_course=".$_GET['id_course']."&id_topic=".$_GET['id_topic']."");   
                }      
             }
             break;
@@ -457,6 +493,10 @@ break;
                 update_user_admin($data);
                 header("location:index.php?action=account");
 break;
+case "xoa_user":
+    $id=$_GET['id'];
+    $deleteUser=deleteUser($id);
+header("location:index.php?action=account");
 case "banner":
     $banner=Get_Banner();
     require_once('./slide/list_slider.php');
@@ -534,14 +574,35 @@ header("location:index.php?action=banner");
   case "detail_cm":
     require("./comment/detail_comment.php");
     break;
+  case "xoa_cm":
+    delete_comment_one($_GET['id_comment']);
+    header("location:index.php?action=detail_cm&id=".$_GET['id']."");
+    break;
   case "dashboard":
     require("./dashboard.php");
     break;
   case "rating":
     require("./rating/list_rating.php");
     break;
+  case "delete_rating":
+    delete_rating($_GET['id_rating']);
+    header("location:index.php?action=rating");
+    break;
+case "blog":
+    require("./blog/blog.php");
+    break;
+case "delete_blog":
+    $id_post = $_GET['id_post'];
+    delete_blog($id_post);
+    header("location:index.php?action=blog");
+    break;
+    
   case "request":
     require("./rating/request_rating.php");
+    break;
+  case "log_out":
+  unset($_SESSION['Admin']);
+    header("Location:login.php");
     break;
         default:
     $course = Get_caurse();

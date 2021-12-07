@@ -96,13 +96,19 @@ if (isset($_POST['login'])) {
                     </div>
                     <h3 class="mb-4">Đăng Nhập</h3>
                     <div class="input-group mb-3">
-                        <input type="text" name="name_user" class="form-control" placeholder="Username">
+                        <input type="text" name="name_user" class="form-control " id="user_name" placeholder="Username">
+                      
                     </div>
+                      <p class="text-danger err_user"></p>
+                        
 
                     <div class="input-group mb-4">
-                        <input type="password" name="pass_user" class="form-control" placeholder="password">
+                        <input type="password" name="pass_user" class="form-control " id="password" placeholder="password">
+                     
                     </div>
+   <p class="text-danger err_pass">  </p>
 
+                      
                     <div class="form-group text-left">
                         <div class="checkbox checkbox-fill d-inline">
                             <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
@@ -114,16 +120,39 @@ if (isset($_POST['login'])) {
                         <?php if (isset($error)) echo "<p class='text-danger'> $error </p>"; ?>
                     </div>
                     <p class="mb-2 text-muted">Quên Mật khẩu? <a href="reset-password.php">Reset</a></p>
-                    <p class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="sign_up.php">Đăng ký</a></p>
+                    <p onblur="" class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="sign_up.php">Đăng ký</a></p>
                      </form>
             </div>
         </div>
     </div>
 
     <!-- Required Js -->
-    <script src="assets/js/vendor-all.min.js"></script>
+   
+    <script src="assets/js/vendor-all.min.js"></script> 
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
+    <script>
+
+        $(document).ready(function()
+        {
+            $('#user_name').blur( function() {
+                
+               if( $(this).val()==''){
+                   $('.err_user').html('không được để trống user');
+               }else{
+                $('.err_user').html('');
+               }
+            })
+            $('#password').blur( function() {
+               if( $(this).val()==''){
+                   $('.err_pass').html('không được để trống password');
+               }else{
+                $('.err_pass').html('');
+               }
+            })
+        })
+    </script>
 </body>
 
 </html>

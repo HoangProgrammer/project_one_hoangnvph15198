@@ -26,7 +26,7 @@
                               unset($_SESSION['name']);
                           } ?> </p>
 
-                      <input  type="hidden" name="id_topic" class="form-control" value="<?=$_GET['id_topic']?>" />
+                     
                               </div>
                             <div class="form-group">
                             <label class="form-label " for=""> <h6>video bài học   </h6>  </label>
@@ -45,26 +45,13 @@
                               echo $_SESSION['time'];
                               unset($_SESSION['time']);
                           } ?> </p>
-
-
-                              </div>
-                            <div class="form-group">
-                            <label class="form-label " for=""> <h6>loại bài học   </h6>  </label>
-                            <div class="form-group">
-                             thường   <input  type="radio" name="type" value="0"/>
-                             đặc biệt   <input  type="radio" name="type"  value="1"/>
-                             </div>
-                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['type'])){
-                              echo $_SESSION['type'];
-                              unset($_SESSION['type']);
-                          } ?> 
-                          </p>
-
-                              </div>
-             
+<input type="hidden" name="id_course" value=<?=$_GET['id_course']?> >
+ <input  type="hidden" name="id_topic" value="<?=$_GET['id_topic']?>" />
+                              </div>                    
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                 <button  name="btn_course" class="btn btn-primary" >Thêm</button>
+                                <a  name="btn_course" href="index.php?action=detail_lesson&id_course=<?=$_GET["id_course"]?>&id_topic= <?=$_GET["id_topic"]?>" class="btn btn-primary" >quay lại</a>
                             </div>
 
 

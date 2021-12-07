@@ -95,6 +95,8 @@ unset($_SESSION['nadescriptionme']);
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                 <button  name="update_course" class="btn btn-primary" >Sửa</button>
+                                <a href="index.php?action=product"name="btn_course" class="btn btn-primary" >quay lại</a>
+
                             </div>
 
 
