@@ -72,12 +72,14 @@ if($insert==true){
                 $id = $_GET['id'];
             }
             $stmt = Get_course_one($id);
+            $data_route=Get_caurse_route();
             require("./course/update_pr.php");
             break;
         case "updateFrom":
             if (isset($_POST['update_course'])) {
                 $course_name=$_POST['course_name']; 
                 $type=$_POST['type'];
+                $route=$_POST['route'];
                 $price_course=$_POST['price_course'];
                 $description=$_POST['description'];
                 $id=$_POST['id'];

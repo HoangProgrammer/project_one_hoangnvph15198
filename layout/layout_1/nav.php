@@ -218,7 +218,7 @@ if(empty($notification)) {
                                         <div class="media">
                                             <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i><?=get_time($val['time'])?></span></p>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i></span></p>
                                            <div style="display:flex">
                                                    <form action="" method="POST">                                  
                                                   <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>

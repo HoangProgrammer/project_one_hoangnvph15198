@@ -124,9 +124,11 @@
             </div>
         
         </div>
-        <div id="dc" class="coures" style="padding:0">
-            
-        </div>
+
+        <!-- lộ trình -->
+        <div id="dc" class="coures" style="padding:0"></div>
+        
+        <!-- body -->
         <div class="wrap-mid">
             <div class="mid">
                 <div class="mid_border"></div>
@@ -183,7 +185,7 @@
                                             <p><?php echo $data[$key]['description'] ?></p>
                                         </div>
                                         <div class="count_student">
-                                            <p><b>Học viên: 8398</b></p>
+                                            <b>Học viên: 8398</b>
                                         </div>
                                     </div>
                                     <div class="more">

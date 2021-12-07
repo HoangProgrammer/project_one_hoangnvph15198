@@ -6,7 +6,13 @@ function Get_caurse(){
     $result= get_all( $stmt); 
     return $result;
 }
-
+function Get_caurse_route(){
+    $conn=connect();
+    $stmt="SELECT route FROM course";
+    $result= get_all($stmt);
+    $lresult = array_unique($result, 0);
+    return $lresult;
+}
 function Get_course_one($id){
     $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM course where id_caurse=?");
@@ -16,6 +22,13 @@ function Get_course_one($id){
     $rows[]=$row;
     }
     return $rows;
+}
+function Get_course_by_route($id_route){
+    $conn=connect();
+    $stmt=$conn->prepare("SELECT * FROM course where id_caurse=?");
+    $stmt->execute([$id_route]);
+    $result= get_all( $stmt); 
+    return $result;
 }
 function Get_course_one_in($id){
 $conn=connect();
