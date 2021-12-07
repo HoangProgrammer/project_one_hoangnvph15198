@@ -38,10 +38,10 @@
 
                             $act = $_GET['act'];
                             switch ($act) {
-                                case "blog":
+                                case "forum":
                                     require_once "forum/blog.php";
                                     break;
-                                case "detail_blog":
+                                case "comment":
                                     require_once "forum/detail_blog.php";
                                     break;
                                 case "rep_forum":

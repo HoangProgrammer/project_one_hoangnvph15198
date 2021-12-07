@@ -63,7 +63,7 @@ if (isset($_GET['act'])) {
         $rating = "active";
     } else if ($_GET['act'] == "social") {
         $social = "active";
-    } else if ($_GET['act'] == "blog") {
+    } else if ($_GET['act'] == "forum") {
         $forum = "active";
     } else {
         // $home = "active";
@@ -98,11 +98,11 @@ if (isset($_GET['act'])) {
 
 
                         <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item <?= $home ?>">
-                            <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
+                            <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
                         </li>
 
                         <li class="nav-item  <?= $forum ?>">
-                            <a href="blog" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
+                            <a href="forum" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
                         </li>
 
                         <li class="nav-item  <?= $rating ?> ">
