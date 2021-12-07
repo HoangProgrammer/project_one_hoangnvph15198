@@ -55,14 +55,25 @@
    ?>
 
     </h5>
-    
+    <form action="index.php?action=deleteAll" method="post" >
+
+   
     <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >Chọn tất cả</label>  
    <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
    <input  type="checkbox" hidden id="chose_all"> 
-   <button class="btn btn-danger ">Xóa tất cả lựa chọn</button>  
-</div>
-<br>
+   <button name="delete_btn_all" class="btn btn-danger ">Xóa tất cả lựa chọn</button>  
+
+
+</div>  
+
+<br> <?php if(isset($_SESSION['errAll'])){?>
+     
+  <span class="alert alert-warning"> <?=
+  $_SESSION['errAll'] ; 
+     unset($_SESSION['errAll']);
+  ?>  </span>   
+   <?php  } ?>
 <table  class=" table-primary" >
    <thead>
      <tr>
@@ -80,7 +91,7 @@
 
 <?php foreach ($course as $val) { extract($val) ?>
        <tr class="text-center">
-      <td> <input type="checkbox" name="chose_deletes[]" value="<?=$id_caurse ?>" class="select_chose"></td> 
+      <td> <input type="checkbox" name="item_course[]" value="<?=$id_caurse ?>" class="select_chose"></td> 
          <td name='ten'><?= $NameCaurse ?></td>
          <td><img name="anh" width="150px"  src="../image/<?=$img?>"> </td>
          <td name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 
@@ -96,7 +107,7 @@
 
  </table>
 
-
+</form>
     <!--  -->
     <!-- <div class="border_checked">
      <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
@@ -111,7 +122,7 @@
 
                                
 </div> 
-
+ 
 <!-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <?php if ($page == 1) {
@@ -160,68 +171,4 @@
     </nav> -->
    
 
-      
     
-<div id="course_modal" class="modal">
-  
- <div class="modal-dialog" role="document">
-
-
-    <form  method="POST" enctype="multipart/form-data" id="form"> 
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Thêm Khóa học</h5>
-                            <a type="button" class="close btn" data-dismiss="modal" aria-label="Close">
-                                <span id="closes">&times;</span>
-                            </a>
-                        </div>
-                        <div class="modal-body">
-                      <!-- <a href="course/add_pr.php">ha</a> -->
-                            <div class="form-group">
-                            <label class="form-label " for=""> <h6>tên khóa học  </h6>  </label>
-                                <input  type="text" name="course_name" id="name_course" class="form-control" placeholder="Enter Your Name" />
-                          <p class="text-danger error_name"> </p>
-                              </div>
-                            <div class="form-group">
-                            <label class="form-label" for=""> <h6>  ảnh  </h6> </label>
-                                <input type="file" name="image_course" id="image_course"  class="form-control" placeholder="Enter Your image" />
-                                <p class="text-danger error_image"> </p>
-                              </div>
-                            <div class="form-group">
-                            <label class="form-label" for=""> <h6>loại   </h6> </label>
-                            <div class="form-group">
-                            <label class="form-label" for="" > miễn phí  </label>
-                           <input type="radio" name="radio" id="free" value="0" class="form-radio1"  />
-                           <label class="form-label" for="">  mất phí </label>
-                             <input type="radio" name="radio" id="charge"  value="1"  class="form-radio2"  />   
-                                         
-                            </div>
-                            </div>
-                            <div class="form-group" style="display:none;" id="price">
-                            <label class="form-label" for=""> <h6> Giá </h6>  </label>
-                            <input type="text" name="price_course" id="price"  class="form-control" placeholder="Enter Your price" />   
-                           
-                            </div>
-
-                            <div class="form-group">
-                            <label class="form-label" for=""> <h6> mô tả </h6>  </label>
-                                <textarea name="description" id="mo_ta" class="form-control" placeholder="Type Review Here"></textarea>
-                                <p class="text-danger error_mo_ta"> </p>
-                              </div>
-
-                            <div class="form-group text-center mt-4">
-                                <button type="button" name="add_course" id="add_course" class="btn btn-primary" >Thêm</button>
-                            </div>
-
-
-
-                        </div> 
-                      
-                    
-
-                    </div>
-             </form>  
-            
-            </div>
-            </div>
-

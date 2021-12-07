@@ -20,7 +20,23 @@
 <?php require_once("nav_login.php") ?>
 </div>
 
-
+<?php
+$Get_account=Get_account();
+$count_user=0;
+foreach ($Get_account as $value){
+	$count_user+=1;
+}
+$getAll_payments=getAll_payments();
+$count_payments=0;
+foreach ($getAll_payments as $value){
+	$count_payments+=1;
+}
+$getAll_comment_lesson=getAllLesson();
+$count_lesson=0;
+foreach ($getAll_comment_lesson as $value){
+	$count_lesson+=1;
+}
+?>
 
 	<div class="clearfix"></div>
 </div>
@@ -31,7 +47,7 @@
 <div class="block_center">
 
 <div class="parameter">
-<h4 class='text-danger'>14</h4>
+<h4 class='text-danger'><?=$count_user?></h4>
 </div>
 <div>
 	<i class="fa fa-eye"></i>
@@ -41,11 +57,11 @@
 	</div>
 	<div class="col-xl-3">
 <div class="body_web">
-	<h5 class="title">bình luận</h5>
+	<h5 class="title">bình luận bài học</h5>
 <div class="block_center">
 
 <div class="parameter">
-<h4 class='text-danger'>124</h4>
+<h4 class='text-danger'><?=$count_lesson?></h4>
 </div>
 <div>
 	<i class="fa fa-comment"></i>
@@ -59,7 +75,7 @@
 <div class="block_center">
 
 <div class="parameter">
-<h4 class='text-danger'>154</h4>
+<h4 class='text-danger'><?=$count_payments?></h4>
 </div>
 <div>
 <i class="fa fa-shopping-cart"></i>
@@ -67,7 +83,7 @@
 </div>
 </div>
 	</div>
-	<div class="col-xl-3">
+	<!-- <div class="col-xl-3">
 <div class="body_web">
 	<h5 class="title">dollar</h5>
 <div class="block_center">
@@ -80,7 +96,7 @@
 </div>
 </div>
 </div>
-	</div>
+	</div> -->
 </div>
 
 <br>

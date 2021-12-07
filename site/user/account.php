@@ -5,7 +5,7 @@
     $data = Get_user_one($id_user);
 $profile="";
 $friend="";
-    if(isset($_GET['profile'])){
+    if(isset($_GET['account'])){
         $profile="nav__link--active";
     }else if(isset($_GET['friend'])){
         $friend="nav__link--active"; 
@@ -25,8 +25,8 @@ $friend="";
             <div class="settings__menu">
                 <h1 class="settings__heading" data-cy="UserSettings__heading">Cài đặt</h1>
                 <div class="tab-menu__tabs" data-cy="MyProfile__menuTabs">
-                    <a href="profile" class="nav__link  <?= $profile?> " id="account">Tài khoản</a>
-                    <a class="nav__link  <?= $friend?>" href="index.php?act=profile&friend" id="friend">Bạn Bè</a>
+                    <a href="account" class="nav__link  <?= $profile?> " id="account">Tài khoản</a>
+                    <a class="nav__link  <?= $friend?>" href="index.php?act=account&friend" id="friend">Bạn Bè</a>
                     <!-- <a class="nav__link " data-qa-settings-languages="true">Ngôn ngữ</a>
                    <a class="nav__link " data-qa-settings-personal="true">Cài đặt cá nhân</a>
                     <a class="nav__link " data-qa-settings-subscription="true">Đăng ký</a>
@@ -173,6 +173,7 @@ if($image==''){
                         </div>
                         
     </div>
+        </div>
         </div>
         </div>
         </div>

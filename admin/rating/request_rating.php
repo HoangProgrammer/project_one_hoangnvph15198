@@ -48,7 +48,7 @@
                               unset($_SESSION['question']);
                           } ?> </p>
                       <input  type="hidden" name="id_admin" class="form-control" value="<?= $admin_id?>" />
-                      <input  type="text" name="id_rating" class="form-control" value="<?=$_GET['id_rating']?>" />
+                      <input  type="hidden" name="id_rating" class="form-control" value="<?=$_GET['id_rating']?>" />
                               </div>                                  
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->

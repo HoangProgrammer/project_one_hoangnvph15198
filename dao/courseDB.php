@@ -64,6 +64,13 @@ function deleteCourse($id){
 return true;
 }
 
+function deleteCourseALL($id){
+    $conn=connect();
+    $stmt=$conn->prepare("DELETE FROM course WHERE id_caurse IN($id) ");
+    $stmt->execute();
+return true;
+}
+
 
 
 function update_course($course_name,$image_course,$price_course,$description,$type,$id){

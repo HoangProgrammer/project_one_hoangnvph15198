@@ -240,7 +240,7 @@
                                 case "buyCourse":
                                     require_once "vnpay_php/index.php";
                                     break;
-                                case "profile":
+                                case "account":
                                     require_once "user/account.php";
                                     break;
                                 case "history":

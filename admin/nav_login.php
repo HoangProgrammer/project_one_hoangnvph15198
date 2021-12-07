@@ -14,10 +14,5 @@
 <p><i class="fa fa-cogs"></i>  <a  href="index.php?action=edit_account.php&id=<?php if (isset($admin_id)) echo $admin_id;?> "> &nbsp;&nbsp; cài đặt </a>  </p>                
 <p><i class="fa fa-power-off"></i> <a  href="index.php?action=log_out">&nbsp;&nbsp;đăng xuất</a> </p>
 </div>
-<?php  }else{ ?>
-    <div class="profile-div">        
-  <p><i class="fa fa-user"></i> <a  href="site/sign_up.php"> &nbsp;&nbsp; đăng ký</a> </p>
-  <p><i class="fa fa-cogs"></i><a  href="login.php"> &nbsp;&nbsp;đăng nhập</a>   </p>
-</div>
-<?php } ?>
+<?php  } ?>
 </div>

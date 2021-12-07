@@ -119,6 +119,41 @@ if($insert==true){
                 header("location:index.php?action=product");
             }
             break;
+        case "deleteAll":
+            if (isset($_POST['delete_btn_all'])) {
+                if(!isset($_POST['item_course'])){
+                    $_SESSION['errAll']="bạn chưa chọn";
+                    header("location:index.php?action=product");
+                }else{
+                       $item_course = $_POST['item_course'];
+            $item=implode(',',$item_course);
+                // var_dump( $item);
+                deleteCourseALL( $item);
+                header("location:index.php?action=product");
+                }
+             
+            }else if(isset($_POST['delete_btn_topic'])){
+                $id_course=$_POST['id_course'];
+                if(!isset($_POST['item_topic'])){
+                    $_SESSION['errAll']="bạn chưa chọn";
+                    header("location:index.php?action=detail&idCourse=".$id_course."");
+                } else{
+                    $item_topic = $_POST['item_topic'];           
+         $item=implode(',',$item_topic);
+             // var_dump( $item);
+             delete_topicALL( $item);
+             header("location:index.php?action=detail&idCourse=".$id_course."");
+             }
+            }
+            break;
+
+
+
+
+
+
+
+
 
             // chủ đề
         case "detail":
@@ -460,6 +495,10 @@ break;
                 update_user_admin($data);
                 header("location:index.php?action=account");
 break;
+case "xoa_user":
+    $id=$_GET['id'];
+    $deleteUser=deleteUser($id);
+header("location:index.php?action=account");
 case "banner":
     $banner=Get_Banner();
     require_once('./slide/list_slider.php');
@@ -537,11 +576,19 @@ header("location:index.php?action=banner");
   case "detail_cm":
     require("./comment/detail_comment.php");
     break;
+  case "xoa_cm":
+    delete_comment_one($_GET['id_comment']);
+    header("location:index.php?action=detail_cm&id=".$_GET['id']."");
+    break;
   case "dashboard":
     require("./dashboard.php");
     break;
   case "rating":
     require("./rating/list_rating.php");
+    break;
+  case "delete_rating":
+    delete_rating($_GET['id_rating']);
+    header("location:index.php?action=rating");
     break;
 case "blog":
     require("./blog/blog.php");
@@ -554,6 +601,10 @@ case "delete_blog":
     
   case "request":
     require("./rating/request_rating.php");
+    break;
+  case "log_out":
+  unset($_SESSION['Admin']);
+    header("Location:login.php");
     break;
         default:
     $course = Get_caurse();

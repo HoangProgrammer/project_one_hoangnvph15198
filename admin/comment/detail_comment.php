@@ -44,7 +44,7 @@ foreach($cm as $val){
 <td><?=$ten_user?></td>
 <td><?=$content?></td>
 <td><?=$time?></td>
- <td> <a class="delete btn btn-danger" href="index.php?action=xoa_cm&id=<?=$coment_id ?>&id_comment=<?=$id?>">xóa</a></td>
+ <td> <a class="delete btn btn-danger" href="index.php?action=xoa_cm&id=<?=$_GET['id'] ?>&id_comment=<?=$id_comment?>">xóa</a></td>
 </tr>
 
 <?php } ?>
