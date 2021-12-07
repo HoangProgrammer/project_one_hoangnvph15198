@@ -96,8 +96,11 @@
     top: 20px;
 }
 .wrap_detail .detail_right img{
-    width: 250px;
+    width: 300px;
     margin-bottom: 10px;
+}
+.btn{
+    background: linear-gradient(45deg, #116eee, #11ee92);
 }
 
 /* footer */

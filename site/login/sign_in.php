@@ -25,19 +25,32 @@ if (isset($_POST['login'])) {
                 ];
                 $_SESSION['user']=$dataUser;
                 header('Location:../processAjax.php');
-                header('Location:../../index.html');
-            } else {
+                if (isset($_GET['id_course'])) {
+                    header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
+                }
+                else {
+                    header('Location:../../index.html');
+                }
+             } 
+             else {
                 $dataAdmin=[
                     "id" => $row['id_user'],
                     "user_name" => $row['ten_user'],                 
                 ];
                 $_SESSION['admin'] = $dataAdmin;
                 header('Location:../processAjax.php');
-                header('Location:../../index.html');
+                if (isset($_GET['id_course'])) {
+                    header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
+                }
+                else {
+                    header('Location:../../index.html');
+                }
             }
+            
         }
-    } else {
-        $error = "Không được để trống";
+    } 
+    else {
+        $error = "**Có lỗi xảy ra khi đăng nhập**";
     }
 }
 

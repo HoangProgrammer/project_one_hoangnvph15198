@@ -1,4 +1,5 @@
-<?php
+<?php   
+    session_start();
     require_once './../models/pdo.php';
     function findById() {
         if (isset($_GET['gia'])) {
@@ -63,6 +64,7 @@
         return $data;
     }
     $courses = findById();
+    $_SESSION['seesion_course'] = $courses;
     
 ?>
 
