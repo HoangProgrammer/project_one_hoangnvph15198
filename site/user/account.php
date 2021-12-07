@@ -136,12 +136,12 @@ if($image==''){
                     <div class="settings__wrap-container">
                                 <div class="settings__row">
                                     <div class="form-group settings__column">
-                                    <label class="form__label" for="newPassword">Mật khẩu mới</label>
-                                    <input class="form__input" name="newPassword" type="password" id="newPassword" pattern="^.{6,}$" title="Mật khẩu của bạn phải có ít nhất 6 ký tự." value="" aria-autocomplete="list">
+                                    <label class="form__label" for="newPassword">Đổi mật khẩu</label>
+                                    <input class="form__input" name="newPassword" type="password" id="newPassword" pattern="^.{6,}$" title="Mật khẩu của bạn phải có ít nhất 6 ký tự." value="<?php echo $value['mat_khau'] ?>" aria-autocomplete="list">
                                 </div>
                                     <div class="form-group settings__column">
                                         <label class="form__label" for="confirmPassword">Xác nhận mật khẩu</label>
-                                        <input class="form__input" name="confirmPassword" type="password" id="confirmPassword" pattern="^.{6,}$" title="Mật khẩu của bạn phải có ít nhất 6 ký tự." value=""></div>
+                                        <input class="form__input" name="confirmPassword" type="password" id="confirmPassword" pattern="^.{6,}$" title="Mật khẩu của bạn phải có ít nhất 6 ký tự." value="<?php echo $value['mat_khau'] ?>"></div>
                                     </div>
                                 </div><div class="form-group settings__column">
                                 </div>

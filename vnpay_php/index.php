@@ -36,7 +36,7 @@
         ];
         insert_payments($data);
     }
-
+    $rows = Get_course_one($id_caurse);
 ?>
         <div class="container">
             <div class="header clearfix">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input class="form-control" id="amount" name="amount" type="number" value="10000"/>
+                        <input class="form-control" id="amount" name="amount" type="number" value="<?php echo $rows['price'] ?>"/>
                     </div>
                     <div class="form-group">
                         <label for="order_desc">Nội dung thanh toán</label>
