@@ -6,6 +6,7 @@ function Get_account(){
  return $result;
 }
 
+
 function login_user($email,$password){
     $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM user where email=? and mat_khau=?");
@@ -63,7 +64,7 @@ return true;
 
 function deleteUser($id){
 $conn=connect();
-    $stmt=$conn->prepare("DELETE FROM course WHERE id_caurse=?");
+    $stmt=$conn->prepare("DELETE FROM user WHERE id_user=?");
     $stmt->execute([$id]);
 return true;
 }

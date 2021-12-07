@@ -11,10 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- ajax -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="trangchu/style.css">
     <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.theme.default.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <script src="trangchu/owlcarousel/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,15 +40,15 @@
                             <div class="content">
                                 <div class="choose_language">
                                     <h3>Học Tiếng Anh 10 Phút Mỗi Ngày</h3>
-                                    <a href="#" class="btn_choose">
-                                        Bẳt đầu học <span class="choose"></span>
+                                    <a href="#" class="btn_choose choose">
+                                        Bẳt đầu học 
                                     </a>
                                     <br>
                                     <div class="want">
                                         <h3>Bạn muốn học</h3>
                                     </div>
                                     <ul>
-                                        <li data-text="Tiếng anh">
+                                        <li id="ta" data-text="Tiếng anh">
                                             <img src="trangchu/images/england-150397_960_720.png" alt="">
                                             <span>Tiếng anh</span>
                                         </li>
@@ -121,7 +124,9 @@
             </div>
         
         </div>
-
+        <div id="dc" class="coures" style="padding:0">
+            
+        </div>
         <div class="wrap-mid">
             <div class="mid">
                 <div class="mid_border"></div>
@@ -454,7 +459,16 @@
     
             </div>
         </div>
+    
 </div>
+
+<script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#ta").click(function(event){
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=12');
+                });
+             });
+    </script>
 
     <script>
         var btn = document.querySelector(".choose");

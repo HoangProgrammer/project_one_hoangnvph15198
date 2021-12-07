@@ -45,5 +45,11 @@ function insert_topic($data){
                     $stmt->execute([$id]);
                 return true;
                 }
+            function delete_topicALL($id){
+                $conn=connect();
+                    $stmt=$conn->prepare("DELETE FROM lesson_topics WHERE id_lesson_topics IN($id) ");
+                    $stmt->execute();
+                return true;
+                }
 
 ?>

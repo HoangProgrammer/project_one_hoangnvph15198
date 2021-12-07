@@ -31,6 +31,14 @@
                                 return $rows;    
                             }
 
+                            function getAllLesson(){
+                                $conn=connect();
+                                $stmt= $conn->prepare("SELECT * FROM comments  ");
+                                $stmt->execute();
+                                $rows = $stmt -> fetchAll();
+                                return $rows;    
+                            }
+
                             function delete_comment_lesson($id_comment,$list){
                                 $conn=connect();
                                     foreach ($list as $value){

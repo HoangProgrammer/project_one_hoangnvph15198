@@ -74,5 +74,12 @@ function update_parent( $status,$id){
     ]); 
     return true;
 }
+function delete_rating( $id){
+    $conn=connect();
+    $stmt=$conn->prepare("DELETE FROM rating  WHERE id_Rating =:id_Rating");
+    $stmt->execute([":id_Rating"=>$id, 
+    ]); 
+    return true;
+}
 
 ?>

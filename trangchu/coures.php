@@ -167,6 +167,7 @@
              });
     </script>
 
+            <!-- free -->
     <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#free").click(function(event){

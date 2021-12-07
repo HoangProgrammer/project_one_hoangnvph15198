@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('./../dao/courseDB.php');
     require_once('./../models/pdo.php');
     require_once './../dao/lesson_topicDB.php';
@@ -7,7 +8,8 @@
     $data = Get_course_one($id); 
     $data_lesson = getAll_topic($id);
     // echo "<pre>";
-    // var_dump($data_lesson);die;
+    // var_dump($data);die;
+    $id_course = $_GET['id_coures'];
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +78,11 @@
             <div class="container_detail">
                 <div class="detail_right">
                     <img src="./../image/<?php echo $data[0]['img'] ?>" alt="">
-                    <a href="./../site/login/sign_in.php" style="display:block" class="btn btn-primary">Đăng kí</a>
+                    <?php if ($data[0]['price'] == 0) { ?>
+                        <a href="./../site/login/sign_in.php?id_course=<?php echo $id_course ?>" style="display:block" class="btn btn-primary">Đăng kí</a>
+                    <?php } else { ?>
+                        <a href="./../site/login/sign_in.php?id_course=<?php echo $id_course ?>" style="display:block" class="btn btn-primary">Mua <?php echo $data[0]['price']  ?> vnđ</a>
+                    <?php } ?>
                 </div>
             </div>
         </div>

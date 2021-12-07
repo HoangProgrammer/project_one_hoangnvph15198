@@ -45,6 +45,8 @@ foreach($stmt as $row ){
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                 <button  name="btn_course" class="btn btn-primary" >sửa</button>
+                                <a  name="btn_course" href="index.php?action=detail&idCourse=<?=$_GET["id_course"]?>" class="btn btn-primary" >quay lại</a>
+
                             </div>
 
 

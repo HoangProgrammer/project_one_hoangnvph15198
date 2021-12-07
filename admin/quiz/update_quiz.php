@@ -46,8 +46,10 @@ foreach ($updateQuiz as $row) {
                                                                             unset($_SESSION['question']);
                                                                         } ?> </p>
 
-                                    <input type="hidden" name="id_quiz" class="form-control" value="<?= $id_quiz   ?>" />
-                                    <input type="hidden" name="id_lesson" class="form-control" value="<?=$id_lesson ?>" />
+                                    <input type="hidden" name="id_quiz"  value="<?= $id_quiz   ?>" />
+                                    <input type="hidden" name="id_lesson"  value="<?=$id_lesson ?>" />
+                                    <input type="hidden" name="id_course" value=<?=$_GET['id_course']?> >
+                                    <input  type="hidden" name="id_topic" value="<?=$_GET['id_topic']?>" />
                                 </div>
 
                                 <div class="form-group">
@@ -110,6 +112,8 @@ foreach ($updateQuiz as $row) {
                                 <div class="form-group text-center mt-4">
                                     <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                     <button name="btn_course" class="btn btn-primary">Sửa</button>
+                                    <a href="index.php?action=quiz&id_lesson=<?= $_GET['id_lesson'] ?>&id_course=<?= $_GET['id_course'] ?>&id_topic=<?= $_GET["id_topic"] ?>" class="btn btn-primary">quay lại</a>
+
                                 </div>
 
 
