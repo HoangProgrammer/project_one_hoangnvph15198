@@ -69,7 +69,7 @@ unset($_SESSION['image_course']);
                             </div>
                             </div>
 
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="route">
                                 <option selected>Lộ trình học</option>
                                 <?php foreach ($data_route as $key => $value) { ?>
                                     <option value="<?php echo $value['route']?>"><?php echo $value['route']?></option>

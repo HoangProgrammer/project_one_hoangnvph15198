@@ -44,6 +44,9 @@
                                 case "comment":
                                     require_once "forum/detail_blog.php";
                                     break;
+                                case 'route' :
+                                    require_once 'route/route.php';
+                                    break;
                                 case "rep_forum":
                                     if (isset($_POST['reply'])) {
                                         $id_post = $_POST['id_post'];

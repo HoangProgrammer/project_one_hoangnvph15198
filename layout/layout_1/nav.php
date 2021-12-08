@@ -113,6 +113,10 @@ if (isset($_GET['act'])) {
                             <a href="social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Cộng đồng</span></a>
                         </li>
 
+                        <li class="nav-item  <?= $route ?> ">
+                            <a href="route" class="nav-link "><span class="pcoded-micon"><i class="fas fa-route"></i></span><span class="pcoded-mtext">Lộ trình</span></a>
+                        </li>
+
                         <!-- <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                         <ul class="pcoded-submenu">

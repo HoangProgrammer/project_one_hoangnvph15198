@@ -10757,3 +10757,20 @@ a#bell {
         .pcoded-main-container.border-rating {
     margin-bottom: 15rem;
 }
+
+
+/* route */
+.container_route{
+  display: flex;
+  justify-content: left;
+  margin-top: 30px;
+
+}
+.container_route > .couress{
+  margin-right: 30px;
+}
+.container_route > .couress > .img{
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}

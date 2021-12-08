@@ -30,6 +30,7 @@ if (isset($_GET['action'])) {
         $type=$_POST['type'];
         $price_course=$_POST['price_course'];
         $description=$_POST['description'];
+        $route=$_POST['route'];
 
          $image_course=$_FILES['image_course']['name'];     
          $image_tmp=$_FILES['image_course']['tmp_name']; 
@@ -54,7 +55,9 @@ $data=[
      ":price"=>$price_course, 
      ":description"=>$description, 
      ":type"=>$type,   
+     ":route"=>$route,   
 ];
+// var_dump($data);die;
              if( $err==false ){
                  header("location:index.php?action=add");
              }else{         
@@ -100,7 +103,7 @@ if($insert==true){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
 
-                        $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id);
+                        $insert=update_course($course_name,$image_course,$price_course,$description,$route,$type,$id);
 
                             move_uploaded_file($image_tmp,"../image/".$image_course);
         if($insert==true){

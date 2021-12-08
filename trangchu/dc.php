@@ -2,7 +2,7 @@
     require_once './../dao/courseDB.php';
     require_once './../models/pdo.php';
     $id = $_GET['id'];
-    $data = Get_course_one($id);
+    $data = Get_course_by_route($id);
 ?>
 <h3 style="padding:20px">Lộ trình học</h3>
 <div class="container">
