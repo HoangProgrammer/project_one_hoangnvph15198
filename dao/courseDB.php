@@ -6,6 +6,12 @@ function Get_caurse(){
     $result= get_all( $stmt); 
     return $result;
 }
+function Get_caurse1(){
+    $conn=connect();
+    $stmt="SELECT * FROM course limit 6";
+    $result= get_all($stmt); 
+    return $result;
+}
 function Get_caurse_route(){
     $conn=connect();
     $stmt="SELECT route FROM course";
@@ -134,6 +140,34 @@ function Get_course_by_route($id_route){
             "description" => $rowData['description'],
             "type" => $rowData['type'],
             "route" => $rowData['route'],
+     
+        ];
+
+        array_push($data, $row);
+    }
+
+    return $data;
+}
+
+function Get_all_route(){
+    $conn=connect();
+
+    $sql = "SELECT * FROM routee";
+    $stm=$conn->prepare($sql);
+    $stm->execute([]);
+    $stm->setFetchMode(PDO::FETCH_ASSOC);
+    
+    $data=[];
+    while (true) {
+        $rowData = $stm->fetch();
+        if ($rowData === false) {
+            break;
+        }
+
+        $row = [
+            "id_route" => $rowData['id_route'],
+            "route" => $rowData['route'],
+            "img" => $rowData['img'],
      
         ];
 

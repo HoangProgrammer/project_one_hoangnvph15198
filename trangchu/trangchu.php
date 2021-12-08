@@ -1,7 +1,7 @@
 <?php
     require_once 'dao/courseDB.php';
     require_once 'models/pdo.php';
-    $data = Get_caurse();
+    $data = Get_caurse1();
 ?>
 
 <!DOCTYPE html>
