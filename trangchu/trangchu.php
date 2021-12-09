@@ -452,7 +452,7 @@
 <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#ta").click(function(event){
-                   $('#dc').load('/du_an_1/trangchu/dc.php?id=Ielts');
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=1');
                 });
              });
     </script>
@@ -460,7 +460,7 @@
 <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#ta1").click(function(event){
-                   $('#dc').load('/du_an_1/trangchu/dc.php?id=children');
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=2');
                 });
              });
     </script>
@@ -468,7 +468,7 @@
 <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#ta2").click(function(event){
-                   $('#dc').load('/du_an_1/trangchu/dc.php?id=Basic');
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=3');
                 });
              });
     </script>
@@ -476,7 +476,7 @@
 <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#ta3").click(function(event){
-                   $('#dc').load('/du_an_1/trangchu/dc.php?id=Traning');
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=4');
                 });
              });
     </script>

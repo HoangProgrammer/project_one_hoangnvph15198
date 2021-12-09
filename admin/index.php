@@ -86,6 +86,7 @@ if($insert==true){
                 $course_name=$_POST['course_name']; 
                 $type=$_POST['type'];
                 $route=$_POST['route'];
+                // var_dump($route);die;
                 $price_course=$_POST['price_course'];
                 $description=$_POST['description'];
                 $id=$_POST['id'];

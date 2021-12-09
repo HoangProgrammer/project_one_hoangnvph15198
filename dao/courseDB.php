@@ -132,7 +132,7 @@ function GetData_Thong_ke_user()
 function Get_course_by_route($id_route){
     $conn=connect();
 
-    $sql = "SELECT * FROM course where route = :id_route ";
+    $sql = "SELECT course.*, routee.route FROM course JOIN routee ON course.id_route = routee.id_route AND course.id_route = :id_route ";
     $stm=$conn->prepare($sql);
     $stm->execute(['id_route' => $id_route]);
     $stm->setFetchMode(PDO::FETCH_ASSOC);
@@ -152,6 +152,7 @@ function Get_course_by_route($id_route){
             "description" => $rowData['description'],
             "type" => $rowData['type'],
             "route" => $rowData['route'],
+            "id_route" => $rowData['id_route'],
      
         ];
 

@@ -52,8 +52,8 @@ if($select->rowCount()>0){
 
     function getAll_progress_lesson($id,$id_user){
         $conn=connect();
-        $stmt= $conn->prepare("SELECT * FROM progress_lesson Where id_course= ? and id_user=$id_user");
-        $stmt->execute([$id]);
+        $stmt= $conn->prepare("SELECT * FROM progress_lesson Where id_course= $id and id_user=$id_user");
+        $stmt->execute();
       $rows=array();
        while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
            $rows[]=$row;
