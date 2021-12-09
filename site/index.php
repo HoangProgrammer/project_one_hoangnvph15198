@@ -13,9 +13,6 @@
                             $role = 1;
                         }
 
-
-
-
                         if (isset($_GET['act'])) {
                             $act = $_GET['act'];
                             switch ($act) {

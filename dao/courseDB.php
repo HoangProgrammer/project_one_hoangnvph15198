@@ -31,7 +31,7 @@ return $rows;
 
 function Get_other_course($id){
 $conn=connect();
-    $stmt=$conn->prepare("SELECT * FROM course  WHERE id_caurse NOT IN($id) ");
+    $stmt=$conn->prepare("SELECT * FROM course  WHERE id_caurse NOT IN('$id') ");
     $stmt->execute();
            $rows=$stmt->fetchAll(\PDO::FETCH_ASSOC);    
 return $rows;
@@ -87,9 +87,10 @@ if(!empty($image_course)){
 function GetData_Thong_ke()
 {
    $db = connect();
-   $sql = "SELECT course.id_caurse as id_caurse,  course.NameCaurse as NameCourse, COUNT(lesson_topics.id_lesson_topics)as tong_topic FROM 
-   lesson_topics join course on lesson_topics.id_caurse=course.id_caurse
-        GROUP by course.id_caurse 
+   $sql = "SELECT course.id_caurse as id_caurse,  course.NameCaurse as NameCourse, COUNT(DISTINCT lesson_topics.id_lesson_topics)as tong_topic
+   , COUNT(lesson.id_lesson) as lesson
+   FROM  lesson_topics join course on lesson_topics.id_caurse=course.id_caurse
+        join lesson on lesson.id_lesson_topics=lesson_topics.id_lesson_topics   GROUP by course.id_caurse 
    ";
    $statement = $db->prepare($sql);
    $statement->execute();
@@ -102,6 +103,17 @@ function GetData_Thong_ke()
 
       $rows[] = $row;
    }
+   return  $rows;
+}
+function GetData_Thong_ke_user()
+{
+   $db = connect();
+   $sql = "SELECT course.id_caurse as sum_course ,course.NameCaurse as name,
+   COUNT(progress.id_user) as user FROM course JOIN progress on progress.id_causer=course.id_caurse GROUP BY course.id_caurse 
+   ";
+   $statement = $db->prepare($sql);
+   $statement->execute();
+      $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
    return  $rows;
 }
 

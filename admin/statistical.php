@@ -18,13 +18,14 @@
         <thead>
             <tr>
 
-        <th>mã danh mục </th>
-        <th>Tên danh mục</th>
-        <th>số lượng sản phẩm</th>
-        <th>giá thấp nhất</th>
+        <th>mã khóa học </th>
+        <th>Tên khóa học</th>
+        <th>số chủ đề</th>
+        <th>số bài học</th>
+        <!-- <th>giá thấp nhất</th>
     
         <th>giá cao nhất</th>  
-        <th>giá trung bình</th>  
+        <th>giá trung bình</th>   -->
     
          </tr>
         </thead>
@@ -37,14 +38,48 @@ foreach($data as $values){
     extract( $values)
     ?>
 <tr>
-<td><?=$maDM ?></td>
-<td><?= $nameDM?></td>
-<td><?=$countSp ?></td>
-<td><?= number_format( $minSp,0,",",",") ?> đ </td>
-<td><?= number_format( $maxSP,0,",",",") ?> đ</td>
-<td><?= number_format( $avgSP,0,",",",") ?> đ</td>
+<td><?=$id_caurse ?></td>
+<td><?= $NameCourse?></td>
+<td><?=$tong_topic ?></td>
+<td><?=$lesson ?></td>
 </tr>
 <?php } ?>
+
+        </tbody>
+       
+
+      
+    </table>
+    <br>
+        <br>
+        <br>
+        <br>
+<table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+
+        <th>mã khóa học </th>
+        <th>Tên khóa học</th>
+        <th>số người học</th>
+         </tr>
+        </thead>
+
+        <tbody>
+
+<?php
+$data= GetData_Thong_ke_user();
+$Get_course=Get_caurse();
+
+  
+foreach($data as $values){  extract( $values);?>
+  
+<tr>
+<td><?=$sum_course  ?></td>
+<td><?= $name?></td>
+<td><?=$user  ?></td>
+</tr>
+   
+<?php }  ?>
 
         </tbody>
        

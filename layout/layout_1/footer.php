@@ -104,15 +104,6 @@ autoplay:true,
 
        
 
-  $('#user').on( "click",function() {
-            $('.profile-notification').fadeToggle(500);
-            $('.notification').hide()
-        })
-  $('#bell').on( "click",function() {
-            $('.notification').fadeToggle(500);
-            $('.profile-notification').hide();
-        })
-        
 
  $("#rateYo").rateYo({
                 fullStar: true,

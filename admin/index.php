@@ -17,6 +17,9 @@ header("Location:../index.html");
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
+        case "statistical":
+            require("./statistical.php");
+            break;
         case "product":
             $course = Get_caurse();
             require("./course/product.php");

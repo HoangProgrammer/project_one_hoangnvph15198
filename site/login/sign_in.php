@@ -6,18 +6,33 @@ require_once "./../../models/pdo.php";
 $conn = connect();
 if (isset($_POST['login'])) {
     if ($_POST['name_user'] != "" && $_POST['pass_user'] != "") {
+       
         $name_user = $_POST['name_user'];
         $pass = $_POST['pass_user'];
-        $sql = "SELECT * FROM user WHERE ten_user = :name_user && mat_khau = :pass ";
+        if(isset($_POST['remember'])){
+            setcookie('username',$name_user,time() + (86400 * 30));
+            setcookie('password',$pass,time() + (86400 * 30));
+        }else{
+            setcookie('username');
+            setcookie('password');
+        }
+        $sql = "SELECT * FROM user WHERE user_name = :name_user && mat_khau = :pass ";
         $result = $conn->prepare($sql);
         $abc = [
             'name_user' => $name_user,
             'pass' => $pass
         ];
-        $result->execute($abc);
+        $result->execute($abc); 
+      
         $number_of_rows = $result->rowCount();
+
         if ($number_of_rows == 1) {
-            $row = $result->fetch();
+
+             $row = $result->fetch();
+if($row['status']==1){
+$_SESSION['err_account']="tài khoản của bạn đã bị khóa";
+}else{
+       
             if ($row['role'] == 0) {
                 $dataUser= [
                     "id" => $row['id_user'],
@@ -46,12 +61,19 @@ if (isset($_POST['login'])) {
                     header('Location:../../index.html');
                 }
             }
-            
-        }
-    } 
-    else {
+
+ }
+           
+        }else{
+            $_SESSION['err']='tài khoản hoặc mật khẩu không chính xác !';
+        
+    }
+
+
+    }  else {
         $error = "**Có lỗi xảy ra khi đăng nhập**";
     }
+   
 }
 
 ?>
@@ -94,16 +116,28 @@ if (isset($_POST['login'])) {
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>
+                    <span>
+                    <?php  
+                    if(isset( $_SESSION['err'])){
+                        echo "<h4 class='text-danger'>". $_SESSION['err']."</h4>";
+                        unset( $_SESSION['err'] );
+                    }else
+                    if(isset( $_SESSION['err_account'])){
+                        echo "<h4 class='text-danger'>". $_SESSION['err_account']."</h4>";
+                        unset($_SESSION['err_account']);
+                    }
+                    ?>
+                    </span>
                     <h3 class="mb-4">Đăng Nhập</h3>
                     <div class="input-group mb-3">
-                        <input type="text" name="name_user" class="form-control " id="user_name" placeholder="Username">
+                        <input type="text" name="name_user" class="form-control " id="user_name" placeholder="Username" value="<?php if(isset($_COOKIE['username'])){echo $_COOKIE['username'];} ?>">
                       
                     </div>
                       <p class="text-danger err_user"></p>
                         
 
                     <div class="input-group mb-4">
-                        <input type="password" name="pass_user" class="form-control " id="password" placeholder="password">
+                        <input type="password" name="pass_user" class="form-control " id="password" placeholder="password" value="<?php if(isset($_COOKIE['password'])){echo $_COOKIE['password'];} ?>">
                      
                     </div>
    <p class="text-danger err_pass">  </p>
@@ -111,15 +145,15 @@ if (isset($_POST['login'])) {
                       
                     <div class="form-group text-left">
                         <div class="checkbox checkbox-fill d-inline">
-                            <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                            <label for="checkbox-fill-a1" class="cr"> Nhớ</label>
+                            <input type="checkbox" name="remember" id="checkbox-fill-a1" >
+                            <label for="checkbox-fill-a1" class="cr" > Nhớ</label>
                         </div>
                     </div>
                     <button name="login" class="btn btn-primary shadow-2 mb-4">Đăng Nhập</button>
                     <div class="input-group mb-3">
                         <?php if (isset($error)) echo "<p class='text-danger'> $error </p>"; ?>
                     </div>
-                    <p class="mb-2 text-muted">Quên Mật khẩu? <a href="reset-password.php">Reset</a></p>
+                    <p class="mb-2 text-muted">Quên Mật khẩu? <a href="reset-password.php">Quên Mật Khẩu</a></p>
                     <p onblur="" class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="sign_up.php">Đăng ký</a></p>
                      </form>
             </div>
@@ -139,14 +173,14 @@ if (isset($_POST['login'])) {
             $('#user_name').blur( function() {
                 
                if( $(this).val()==''){
-                   $('.err_user').html('không được để trống user');
+                   $('.err_user').html('tên đăng nhập không được để trống');
                }else{
                 $('.err_user').html('');
                }
             })
             $('#password').blur( function() {
                if( $(this).val()==''){
-                   $('.err_pass').html('không được để trống password');
+                   $('.err_pass').html('không được để trống mật khẩu');
                }else{
                 $('.err_pass').html('');
                }

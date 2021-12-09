@@ -98,7 +98,7 @@ $conn=connect();
 function update_khach_hang($data){
     $conn=connect();
     
-        $stmt=$conn->prepare(" UPDATE user set ten_user=:ten_user,image=:image, email=:email, mat_khau=:mat_khau WHERE id_user=:id_user ");
+        $stmt=$conn->prepare(" UPDATE user set ten_user=:ten_user,user_name=:user_name, image=:image, email=:email, mat_khau=:mat_khau WHERE id_user=:id_user ");
         $stmt->execute($data);
      return true;
     
@@ -107,7 +107,7 @@ function update_khach_hang($data){
 function update_khach_hang_no_img($data){
     $conn=connect();
     
-        $stmt=$conn->prepare(" UPDATE user set ten_user=:ten_user, email=:email, mat_khau=:mat_khau WHERE id_user=:id_user ");
+        $stmt=$conn->prepare(" UPDATE user set ten_user=:ten_user,user_name=:user_name, email=:email, mat_khau=:mat_khau WHERE id_user=:id_user ");
         $stmt->execute($data);
         return true;
     

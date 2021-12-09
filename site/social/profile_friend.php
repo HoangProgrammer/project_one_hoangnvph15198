@@ -45,8 +45,10 @@
                                     </div>
                                 </div>
                                 <div class="profile__actions">
+                                    <?php  $date=date_create($start_time) ?>
 
                                     <div class="profile__languages">
+                                    <h5>đã tham gia :<?=date_format($date,'Y/m/d H:i:s') ?></h5>
                                         <div class="icon-text">
                                             <?php
 
@@ -71,6 +73,7 @@
                                             <?php } ?>
 
                                             <div class="profile__language">
+                                      
                                                 <?php
                                                 $Get_progress = Get_progress(); // xuat tu odercause                       
                                                 foreach ($Get_progress as $value) :
@@ -87,6 +90,7 @@
                                                                 </div>
 
                                                             </a>
+                                                          
 
 
                                                 <?php endforeach;

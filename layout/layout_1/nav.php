@@ -279,8 +279,7 @@ if($image==''){
 }
 ?>
                     <div class="dropdown drp-user">
-                        <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
-                            
+                        <a  class="dropdown-toggle " data-toggle="dropdown" id="user">                         
                             <img  src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
 
                         </a>
@@ -319,6 +318,18 @@ if($image==''){
 
     <script>
         $(document).ready(function() {
+
+
+            
+  $('#user').on( "click",function() {
+            $('.profile-notification').fadeToggle(500);
+            $('.notification').hide()
+        })
+  $('#bell').on( "click",function() {
+            $('.notification').fadeToggle(500);
+            $('.profile-notification').hide();
+        })
+        
 
             $('#remove_friend').on('click', function(e) {
                             e.preventDefault();

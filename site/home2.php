@@ -142,7 +142,7 @@ if (empty($get_course_in)) {
                                                 }
                                             }
                                             $lesson;
-                                            $getAll_progress_lesson = getAll_progress_lesson($id_caurse);
+                                            $getAll_progress_lesson = getAll_progress_lesson($id_caurse,$id_user);
                                             $progress = count($getAll_progress_lesson);
                                             $tong = 0;
                                             $tong += round(($progress / $lesson) * 100);
