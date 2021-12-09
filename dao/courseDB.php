@@ -78,7 +78,7 @@ return true;
 
 
 function update_course($course_name,$image_course,$price_course,$description,$type,$idRoute,$id){
-    var_dump($idRoute);die;
+    // var_dump($idRoute);die;
 
     $conn=connect();
 if($type=="0"){
