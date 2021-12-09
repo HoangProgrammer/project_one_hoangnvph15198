@@ -33,7 +33,7 @@ if (isset($_GET['action'])) {
         $type=$_POST['type'];
         $price_course=$_POST['price_course'];
         $description=$_POST['description'];
-        $route=$_POST['route'];
+        $id_route=$_POST['id_route'];
 
          $image_course=$_FILES['image_course']['name'];     
          $image_tmp=$_FILES['image_course']['tmp_name']; 
@@ -58,7 +58,7 @@ $data=[
      ":price"=>$price_course, 
      ":description"=>$description, 
      ":type"=>$type,   
-     ":route"=>$route,   
+     ":id_route"=>$id_route,   
 ];
 // var_dump($data);die;
              if( $err==false ){
@@ -79,14 +79,16 @@ if($insert==true){
             }
             $stmt = Get_course_one($id);
             $data_route=Get_caurse_route();
+            // echo "<pre>";
+            // var_dump($data_route); 
             require("./course/update_pr.php");
             break;
         case "updateFrom":
             if (isset($_POST['update_course'])) {
                 $course_name=$_POST['course_name']; 
                 $type=$_POST['type'];
-                $route=$_POST['route'];
-                // var_dump($route);die;
+                $id_route=$_POST['id_route'];
+                // var_dump($id_route);die;
                 $price_course=$_POST['price_course'];
                 $description=$_POST['description'];
                 $id=$_POST['id'];
@@ -106,14 +108,13 @@ if($insert==true){
                  if( $err==false ){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
-
-                        $insert=update_course($course_name,$image_course,$price_course,$description,$route,$type,$id);
-
+                // var_dump($id_route);die;
+                        $insert=update_course($course_name,$image_course,$id_route,$price_course,$description,$type,$id);
                             move_uploaded_file($image_tmp,"../image/".$image_course);
-        if($insert==true){
-            header("location:index.php?action=product");
-        }
-                     }   
+                if($insert==true){
+                    header("location:index.php?action=product");
+                }
+                            }   
 
               
             }

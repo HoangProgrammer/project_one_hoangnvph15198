@@ -10,8 +10,9 @@ foreach($stmt as $row ){
         $anh=$row['img'];
         $description=$row['description'];
         $type=$row['type'];  
-        $route=$row['route']; 
+        $id_route=$row['id_route']; 
 }
+// var_dump($stmt);
 
 
 ?>
@@ -69,9 +70,14 @@ unset($_SESSION['image_course']);
                             </div>
                             </div>
 
-                            <select class="form-select" aria-label="Default select example" name="route">
+                            <select class="form-select" aria-label="Default select example" name="id_route">
                                 <?php foreach ($data_route as $key => $value) { ?>
-                                    <option value="<?php echo $value['route']?>"><?php echo $value['route']?></option>
+                                    <option
+                                         value="<?php echo $value['id_route']?>"
+                                         <?php if ($value['id_route'] == $id_route) { ?>
+                                            selected="selected"
+                                         <?php } ?>
+                                         ><?php echo $value['route']?></option>
                                 <?php } ?>
                             </select>
 
