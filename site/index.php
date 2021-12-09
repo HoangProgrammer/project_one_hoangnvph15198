@@ -41,6 +41,16 @@
                                 case "comment":
                                     require_once "forum/detail_blog.php";
                                     break;
+                                case 'route' :
+                                    require_once 'route/route.php';
+                                    break;
+                                case 'routee':
+                                    if (isset($_GET['id_route'])) {
+                                        $id_route = $_GET['id_route'];
+                                        $data_route = Get_course_by_route($id_route);
+                                    }
+                                    require_once 'route/routee.php';
+                                    break;
                                 case "rep_forum":
                                     if (isset($_POST['reply'])) {
                                         $id_post = $_POST['id_post'];
@@ -193,19 +203,6 @@
                                 }
                                     header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
                                     break;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                                 case "Topic":
                                     if (isset($_GET['idCourse'])) {

@@ -185,10 +185,10 @@ dl, ol, ul {
     min-height: 2px;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0.3125 rem2.5rem;
     background-color: #fff;
     font-size: .875rem;
-    line-height: 1.7;
+    line-height: 30px;
+    height: 30px;
     padding: 0px 40px 0 290px;
     position: fixed;
     bottom: 0;

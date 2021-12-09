@@ -6,7 +6,19 @@ function Get_caurse(){
     $result= get_all( $stmt); 
     return $result;
 }
-
+function Get_caurse1(){
+    $conn=connect();
+    $stmt="SELECT * FROM course limit 6";
+    $result= get_all($stmt); 
+    return $result;
+}
+function Get_caurse_route(){
+    $conn=connect();
+    $stmt="SELECT route FROM course";
+    $result= get_all($stmt);
+    $lresult = array_unique($result, 0);
+    return $lresult;
+}
 function Get_course_one($id){
     $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM course where id_caurse=?");
@@ -41,8 +53,8 @@ return $rows;
 function insert_into($data){
  
     $conn=connect();
-    $stmt=$conn->prepare("INSERT INTO course(NameCaurse,img,price,description,type)
-   VALUES( :name , :img , :price , :description, :type) ");
+    $stmt=$conn->prepare("INSERT INTO course(NameCaurse,img,price,description,type,route)
+   VALUES( :name , :img , :price , :description, :type, :route) ");
     $stmt->execute($data);
 return true;
 }
@@ -65,19 +77,19 @@ return true;
 
 
 
-function update_course($course_name,$image_course,$price_course,$description,$type,$id){
+function update_course($course_name,$image_course,$price_course,$description,$type,$route,$id){
     $conn=connect();
 if($type=="0"){
     $price_course=0;
 }
 if(!empty($image_course)){
     
-    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":type"=>$type,":id"=>$id]);
+    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,route=:route,type=:type WHERE id_caurse=:id ");
+    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":route"=>$route,":type"=>$type,":id"=>$id]);
  return true;
 }else{
-     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":type"=>$type,":id"=>$id]);
+     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,route=:route,type=:type WHERE id_caurse=:id ");
+    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":route"=>$route,":type"=>$type,":id"=>$id]);
     return true;
 }
 
@@ -117,5 +129,64 @@ function GetData_Thong_ke_user()
    return  $rows;
 }
 
+function Get_course_by_route($id_route){
+    $conn=connect();
+
+    $sql = "SELECT * FROM course where route = :id_route ";
+    $stm=$conn->prepare($sql);
+    $stm->execute(['id_route' => $id_route]);
+    $stm->setFetchMode(PDO::FETCH_ASSOC);
+    
+    $data=[];
+    while (true) {
+        $rowData = $stm->fetch();
+        if ($rowData === false) {
+            break;
+        }
+
+        $row = [
+            "id_caurse" => $rowData['id_caurse'],
+            "NameCaurse" => $rowData['NameCaurse'],
+            "img" => $rowData['img'],
+            "price" => $rowData['price'],
+            "description" => $rowData['description'],
+            "type" => $rowData['type'],
+            "route" => $rowData['route'],
+     
+        ];
+
+        array_push($data, $row);
+    }
+
+    return $data;
+}
+
+function Get_all_route(){
+    $conn=connect();
+
+    $sql = "SELECT * FROM routee";
+    $stm=$conn->prepare($sql);
+    $stm->execute([]);
+    $stm->setFetchMode(PDO::FETCH_ASSOC);
+    
+    $data=[];
+    while (true) {
+        $rowData = $stm->fetch();
+        if ($rowData === false) {
+            break;
+        }
+
+        $row = [
+            "id_route" => $rowData['id_route'],
+            "route" => $rowData['route'],
+            "img" => $rowData['img'],
+     
+        ];
+
+        array_push($data, $row);
+    }
+
+    return $data;
+}
 
 ?>

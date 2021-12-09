@@ -9,9 +9,9 @@ foreach($stmt as $row ){
         $gia=$row['price'];
         $anh=$row['img'];
         $description=$row['description'];
-        $type=$row['type'];   
+        $type=$row['type'];  
+        $route=$row['route']; 
 }
-
 
 
 ?>
@@ -68,6 +68,15 @@ unset($_SESSION['image_course']);
                              <input type="radio" name="type"  value="1"  class="form-radio2"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
                             </div>
                             </div>
+
+                            <select class="form-select" aria-label="Default select example" name="route">
+                                <option selected>Lộ trình học</option>
+                                <?php foreach ($data_route as $key => $value) { ?>
+                                    <option value="<?php echo $value['route']?>"><?php echo $value['route']?></option>
+                                <?php } ?>
+                            </select>
+
+
                             <?php if($type=="1"){ ?> 
                                     <div class="form-group" style="display:block;" id="price">
                             <label class="form-label" for=""> <h6> Giá </h6>  </label>

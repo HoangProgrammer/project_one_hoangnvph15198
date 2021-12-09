@@ -1,7 +1,7 @@
 <?php
     require_once 'dao/courseDB.php';
     require_once 'models/pdo.php';
-    $data = Get_caurse();
+    $data = Get_caurse1();
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tiếng anh online Bussu</title>
     <!-- ajax -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="trangchu/style.css">
@@ -52,34 +52,19 @@
                                             <img src="trangchu/images/england-150397_960_720.png" alt="">
                                             <span>Tiếng anh</span>
                                         </li>
-                                        <li data-text="Tiếng anh cho người mới">
+                                        <li  id="ta1" data-text="Tiếng anh cho người mới">
                                             <img src="trangchu/images/france-1524418_960_720.png" alt="">
                                             <span>Tiếng anh</span>
                         
                                         </li>
-                                        <li data-text="Tiếng anh Ielts">
+                                        <li  id="ta2" data-text="Tiếng anh Ielts">
                                             <img src="trangchu/images/india-3115847_960_720.png" alt="">
                                             <span>India</span>
                         
                                         </li>
-                                        <li data-text="Germany">
+                                        <li  id="ta3" data-text="Germany">
                                             <img src="trangchu/images/germany-1524614_960_720.png" alt="">
                                             <span>Germany</span>
-                        
-                                        </li>
-                                        <li data-text="Germany1">
-                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
-                                            <span>Germany1</span>
-                        
-                                        </li>
-                                        <li data-text="Germany2">
-                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
-                                            <span>Germany2</span>
-                        
-                                        </li>
-                                        <li data-text="Germany3">
-                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
-                                            <span>Germany3</span>
                         
                                         </li>
                                     </ul>
@@ -124,9 +109,11 @@
             </div>
         
         </div>
-        <div id="dc" class="coures" style="padding:0">
-            
-        </div>
+
+        <!-- lộ trình -->
+        <div id="dc" class="coures" style="padding:0"></div>
+        
+        <!-- body -->
         <div class="wrap-mid">
             <div class="mid">
                 <div class="mid_border"></div>
@@ -183,7 +170,7 @@
                                             <p><?php echo $data[$key]['description'] ?></p>
                                         </div>
                                         <div class="count_student">
-                                            <p><b>Học viên: 8398</b></p>
+                                            <b>Học viên: 8398</b>
                                         </div>
                                     </div>
                                     <div class="more">
@@ -465,7 +452,31 @@
 <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#ta").click(function(event){
-                   $('#dc').load('/du_an_1/trangchu/dc.php?id=12');
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=Ielts');
+                });
+             });
+    </script>
+
+<script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#ta1").click(function(event){
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=children');
+                });
+             });
+    </script>
+
+<script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#ta2").click(function(event){
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=Basic');
+                });
+             });
+    </script>
+
+<script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#ta3").click(function(event){
+                   $('#dc').load('/du_an_1/trangchu/dc.php?id=Traning');
                 });
              });
     </script>

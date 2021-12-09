@@ -44,6 +44,14 @@ unset($_SESSION['image_course']);
                            <input type="radio" name="type" id="free" value="0" class="form-radio1"  />
                            <label class="form-label" for=""> Mất phí </label>
                              <input type="radio" name="type" id="charge"  value="1"  class="form-radio2"  />   
+
+                             <select class="form-select" aria-label="Default select example" name="route">
+                                <option selected>Lộ trình học</option>
+                                <option value="Ielts">Ielts</option>
+                                <option value="Children">Children</option>
+                                <option value="Basic">Basic</option>
+                                <option value="Training">Training</option>
+                            </select>
                                          
                             </div>
                             </div>

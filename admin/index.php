@@ -33,6 +33,7 @@ if (isset($_GET['action'])) {
         $type=$_POST['type'];
         $price_course=$_POST['price_course'];
         $description=$_POST['description'];
+        $route=$_POST['route'];
 
          $image_course=$_FILES['image_course']['name'];     
          $image_tmp=$_FILES['image_course']['tmp_name']; 
@@ -57,7 +58,9 @@ $data=[
      ":price"=>$price_course, 
      ":description"=>$description, 
      ":type"=>$type,   
+     ":route"=>$route,   
 ];
+// var_dump($data);die;
              if( $err==false ){
                  header("location:index.php?action=add");
              }else{         
@@ -75,12 +78,14 @@ if($insert==true){
                 $id = $_GET['id'];
             }
             $stmt = Get_course_one($id);
+            $data_route=Get_caurse_route();
             require("./course/update_pr.php");
             break;
         case "updateFrom":
             if (isset($_POST['update_course'])) {
                 $course_name=$_POST['course_name']; 
                 $type=$_POST['type'];
+                $route=$_POST['route'];
                 $price_course=$_POST['price_course'];
                 $description=$_POST['description'];
                 $id=$_POST['id'];
@@ -101,7 +106,7 @@ if($insert==true){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
 
-                        $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id);
+                        $insert=update_course($course_name,$image_course,$price_course,$description,$route,$type,$id);
 
                             move_uploaded_file($image_tmp,"../image/".$image_course);
         if($insert==true){

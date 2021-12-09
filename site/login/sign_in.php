@@ -37,8 +37,10 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
                 $dataUser= [
                     "id" => $row['id_user'],
                     "user_name" => $row['ten_user'],              
+                    "route" => $row['route'],              
                 ];
                 $_SESSION['user']=$dataUser;
+                // var_dump($_SESSION['user']);die;
                 header('Location:../processAjax.php');
                 if (isset($_GET['id_course'])) {
                     header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
@@ -50,6 +52,7 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
              else {
                 $dataAdmin=[
                     "id" => $row['id_user'],
+                    "route" => $row['route'],              
                     "user_name" => $row['ten_user'],                 
                 ];
                 $_SESSION['admin'] = $dataAdmin;
