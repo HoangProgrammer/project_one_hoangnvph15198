@@ -77,21 +77,19 @@ return true;
 
 
 
-function update_course($course_name,$image_course,$price_course,$description,$type,$idRoute,$id){
-    // var_dump($idRoute);die;
-
+function update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id){
     $conn=connect();
 if($type=="0"){
     $price_course=0;
 }
 if(!empty($image_course)){
     
-    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,id_route=:idRoute,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":idRoute"=>$id_route,":type"=>$type,":id"=>$id]);
+    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
+    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":id_route"=>$id_route,":type"=>$type,":id"=>$id]);
  return true;
 }else{
-     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,id_route=:idRoute,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":idRoute"=>$id_route,":type"=>$type,":id"=>$id]);
+     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
+    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":id_route"=>$id_route,":type"=>$type,":id"=>$id]);
     return true;
 }
 
