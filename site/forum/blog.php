@@ -56,6 +56,7 @@ foreach ($get_new_post as $value):
 <div id="likes">
 <?php
     $rows = get_post();
+
     foreach ($rows as $key => $value) {
         
 ?>

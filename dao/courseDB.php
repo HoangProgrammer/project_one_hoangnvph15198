@@ -53,8 +53,8 @@ return $rows;
 function insert_into($data){
  
     $conn=connect();
-    $stmt=$conn->prepare("INSERT INTO course(NameCaurse,img,price,description,type,route)
-   VALUES( :name , :img , :price , :description, :type, :route) ");
+    $stmt=$conn->prepare("INSERT INTO course(NameCaurse,img,price,description,type,id_route)
+   VALUES( :name , :img , :price , :description, :type, :id_route) ");
     $stmt->execute($data);
 return true;
 }
@@ -77,7 +77,7 @@ return true;
 
 
 
-function update_course($course_name,$image_course,$price_course,$description,$type,$route,$id){
+function update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id){
     $conn=connect();
 if($type==0){
     $price_course=0;
@@ -85,11 +85,11 @@ if($type==0){
 if(!empty($image_course)){
     
     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,type=:type,id_route=:route WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$route,":id"=>$id]);
+    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$id_route,":id"=>$id]);
  return true;
 }else{
      $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,type=:type,id_route=:route WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$route,":id"=>$id]);
+    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$id_route,":id"=>$id]);
     return true;
 }
 
@@ -132,7 +132,7 @@ function GetData_Thong_ke_user()
 function Get_course_by_route($id_route){
     $conn=connect();
 
-    $sql = "SELECT * FROM course where route = :id_route ";
+    $sql = "SELECT course.*, routee.route FROM course JOIN routee ON course.id_route = routee.id_route AND course.id_route = :id_route ";
     $stm=$conn->prepare($sql);
     $stm->execute(['id_route' => $id_route]);
     $stm->setFetchMode(PDO::FETCH_ASSOC);
@@ -152,6 +152,7 @@ function Get_course_by_route($id_route){
             "description" => $rowData['description'],
             "type" => $rowData['type'],
             "route" => $rowData['route'],
+            "id_route" => $rowData['id_route'],
      
         ];
 

@@ -12,6 +12,7 @@ foreach($stmt as $row ){
         $type=$row['type'];  
         $route=$row['id_route']; 
 }
+// var_dump($stmt);
 
 
 ?>
@@ -73,8 +74,7 @@ unset($_SESSION['image_course']);
                                
                                 <?php foreach ($data_route as $key => $value) { ?>
                                     <option value="<?php echo $value['id_route']?>"><?=$value['name'] ?></option>
-                                <?php } ?>
-                                
+                                <?php } ?>                              
                                 <?php foreach ($Get_all_route as $val){?>  
                                     <option value="<?php echo $val['id_route']?>"><?=$val['route'] ?></option>
                                     <?php  } ?>

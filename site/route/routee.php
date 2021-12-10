@@ -4,7 +4,7 @@
         <div class="pcoded-content">
                 <div class="container_route">
                     <?php
-                        echo "<h1>Lộ trình " . $_GET['id_route'] . "</h1>";
+                        echo "<h1>Lộ trình " . $_GET['route'] . "</h1>";
                         foreach ($data_route as $key => $value) {  ?>
                             <div class="couress">
                             <div class="img"><a href="#"><img src="image/<?php echo $value['img'] ?>" alt=""></a></div>
