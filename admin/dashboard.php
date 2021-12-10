@@ -50,7 +50,7 @@ foreach ($getAll_comment_lesson as $value){
 <h4 class='text-danger'><?=$count_user?></h4>
 </div>
 <div>
-	<i class="fa fa-eye"></i>
+	<i class="fa fa-eye" style="font-size:x-large; color:#116eee"></i>
 </div>
 </div>
 </div>
@@ -64,7 +64,7 @@ foreach ($getAll_comment_lesson as $value){
 <h4 class='text-danger'><?=$count_lesson?></h4>
 </div>
 <div>
-	<i class="fa fa-comment"></i>
+	<i class="fa fa-comment" style="font-size:x-large; color:#3ea75c"></i>
 </div>
 </div>
 </div>
@@ -78,7 +78,7 @@ foreach ($getAll_comment_lesson as $value){
 <h4 class='text-danger'><?=$count_payments?></h4>
 </div>
 <div>
-<i class="fa fa-shopping-cart"></i>
+<i class="fa fa-shopping-cart" style="font-size:x-large; color:#dd5e46"></i>
 </div>
 </div>
 </div>

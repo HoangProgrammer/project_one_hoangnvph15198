@@ -55,7 +55,7 @@ $Get_user_one=Get_user_one($admin);
   <a href="index.php?action=dashboard" class="icon-a "><i class="fa fa-dashboard icons "></i> &nbsp;&nbsp;Dashboard</a>
   <a href="index.php?action=product"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Khóa học</a>
   <a href="index.php?action=statistical"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Thống kê</a>
-  <a href="index.php?action=banner"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Banner</a>
+  <a href="index.php?action=banner"class="icon-a"><i class="fa fa-file icons"></i></i> &nbsp;&nbsp;Banner</a>
   <a href="index.php?action=account"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người dùng</a>
   <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
   <a href="index.php?action=shopping"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người mua</a>

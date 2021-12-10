@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
-
+:root{
+  --bg-color: #efeff5;
+}
 body{
 	margin:0px;
 	padding: 0px;
-	background-color:#efeff5;
+	background-color:var(--bg-color);
   font-family: 'Montserrat', sans-serif;
 
 }
+
 
 .border_checked {
   display: flex;
@@ -16,10 +19,17 @@ body{
 }
 .body_web {
   padding: 22px;
-  background: aliceblue;
+  background: #fff;
   margin-top: 15px;
   border-radius: 12px;
-  box-shadow: 0px 1px 0px 0px grey;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
 }
 
 .block_center {
@@ -49,7 +59,8 @@ body{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #000000;
+  backdrop-filter: blur(3px);
+  background-color:#000;
   overflow-y: scroll;
   padding-top: 30px;
   transition: ease-in-out 0.3s;
@@ -104,17 +115,20 @@ body{
   display: none;
 }
 .sidenav a {
-  padding: 15px 27px 45px 35px;
+  padding: 12px 27px 12px 35px;
   text-decoration: none;
   font-size: 20px;
-  color: #d8d8d8;
+  color: #fff;
   display: block;
   justify-content: center;
   align-items: center;
+  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .sidenav a:hover {
   color: #f1f1f1;
-  background-color: #0c056a;
+  background-color: #116eee;
+  transform: scale(1.1);
+  padding-left: 60px;
 }
 
 .sidenav{
