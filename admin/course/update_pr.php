@@ -10,7 +10,7 @@ foreach($stmt as $row ){
         $anh=$row['img'];
         $description=$row['description'];
         $type=$row['type'];  
-        $route=$row['id_route']; 
+        $id_route=$row['id_route']; 
 }
 // var_dump($stmt);
 
@@ -64,7 +64,7 @@ foreach($stmt as $row ){
                                         <?php if ($value['id_route'] == $id_route) { ?>
                                             checked
                                          <?php } ?>
-                                    ><?php echo $value['route']?><br> 
+                                    ><?php echo $value['id_route']?><br> 
                                 <?php } ?>
                             </div>
 
@@ -79,18 +79,6 @@ foreach($stmt as $row ){
                              <input type="radio" name="type"  value="1"  class="form-radio2"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
                             </div>
                             </div>
-<?php $Get_all_route=Get_all_route() ?>
-                            <select class="form-select" aria-label="Default select example" name="route">
-                               
-                                <?php foreach ($data_route as $key => $value) { ?>
-                                    <option value="<?php echo $value['id_route']?>"><?=$value['name'] ?></option>
-                                <?php } ?>                              
-                                <?php foreach ($Get_all_route as $val){?>  
-                                    <option value="<?php echo $val['id_route']?>"><?=$val['route'] ?></option>
-                                    <?php  } ?>
-                            </select>
-
-
                             <?php if($type=="1"){ ?> 
                                     <div class="form-group" style="display:block;" id="price">
                             <label class="form-label" for=""> <h6> Giá </h6>  </label>

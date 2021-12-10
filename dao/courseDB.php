@@ -6,6 +6,8 @@ function Get_caurse(){
     $result= get_all( $stmt); 
     return $result;
 }
+
+// lấy course lộ trình ngaoif trang chủ
 function Get_caurse1(){
     $conn=connect();
     $stmt="SELECT * FROM course limit 6";
@@ -89,17 +91,6 @@ if(empty($image_course)){
 }else{
     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
         $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":id_route"=>$id_route,":type"=>$type,":id"=>$id]);
-if($type==0){
-    $price_course=0;
-}
-if(!empty($image_course)){
-    
-    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,type=:type,id_route=:route WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$id_route,":id"=>$id]);
- return true;
-}else{
-     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,type=:type,id_route=:route WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$id_route,":id"=>$id]);
     return true;
 }
 
@@ -186,7 +177,7 @@ function Get_all_route(){
         if ($rowData === false) {
             break;
         }
-        $row = [
+                $row = [
             "id_route" => $rowData['id_route'],
             "route" => $rowData['route'],
             "img" => $rowData['img'],
@@ -197,50 +188,6 @@ function Get_all_route(){
     }
 
     return $data;
-}
-
-function updateCourse (){
-    $conn=connect();
-    $hinh=$_FILES['hinh'];
-    if($hinh["size"] == 0){
-        $url = $_POST['old_img'];
-    }
-    else{
-        $ava = $_FILES['hinh'];
-        // var_dump($ava);die;
-        
-        $check = strpos($ava['type'], 'image');
-        if ($check === false) {
-            $_SESSION['error'] = 'File is not a image';
-            header('location: /du_an_mau/form_update.php');
-            die;
-        }
-    
-        if ($ava['size'] >= 5000000) {
-            $_SESSION['error'] = 'Image is too large';
-            header('location: /du_an_mau/form_update.php');
-            die;
-        }
-    
-        $foderImg = './../images_db/';
-        $anhLuu = $foderImg . $ava["name"];
-        move_uploaded_file($ava['tmp_name'], $anhLuu);
-        
-        $url ='/du_an_mau/images_db/' . $ava["name"];
-        // var_dump($url);die;
-
-    }
-    $data = [
-        'ma_kh' => $_POST['ma_kh'],
-        'ho_ten' => $_POST['ho_ten'],
-        'email' => $_POST['email'],
-        'kich_hoat' => $_POST['kich_hoat'],
-        'hinh' => $url,
-        'vai_tro' =>$_POST['vai_tro'],
-        'mat_khau' => $_POST['mat_khau'],
-    ];
-    // var_dump($data);die;
-    update_pass($data);
 }
 
 

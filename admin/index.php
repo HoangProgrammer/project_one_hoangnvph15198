@@ -77,10 +77,8 @@ if($insert==true){
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
             }
-            // $stmt = find_coures_by_id($id);
             $stmt = Get_course_one($id);
-            $data_route=Get_caurse_route(); 
-            $data_route=Get_caurse_route(  $id);
+            $data_route=Get_all_route();
             require("./course/update_pr.php");
             break;
         case "updateFrom":
