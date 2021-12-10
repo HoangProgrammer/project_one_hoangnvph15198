@@ -507,7 +507,7 @@ if(isset($_GET['lesson'])){
             insert_point($id_user, $id_lesson, $mark);
         }
         ?>
-        <div class="pcoded-main-container ">
+        <div class="pcoded-main-container " style="margin-bottom: 15rem;">
             <div class="container-exercise">
                 <header class="header-exercise">
                     <img class="header-exercise-logo" src="assets/images/logo-thumb.png" alt="">

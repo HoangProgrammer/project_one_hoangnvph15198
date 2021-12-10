@@ -12,7 +12,7 @@
                                 <div class="name">
                                     <h5><?php echo $value['NameCaurse'] ?></h5>
                                     <p><?php echo $value['description'] ?></p>
-                                    <a href="index.php?act=detail_course&id_course=<?php echo $value['id_caurse'] ?>" class="btn btn-primary">Chi tiết khóa học</a>
+                                    <a href="index.php?act=detail_course&idCourse=<?php echo $value['id_caurse'] ?>" class="btn btn-primary">Chi tiết khóa học</a>
                                 </div>
                             </div>
                         </div>

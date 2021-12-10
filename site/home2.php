@@ -132,7 +132,7 @@ if (empty($get_course_in)) {
                                         // $Get_order_course= Get_oderCourse();
                                         foreach ($Get_course_one as $val) : extract($val); ?>
                                        
-                                            <a title="" href="learning/Topic/<?= $val['id_caurse'] ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $val['id_caurse'] ?>">
+                                            <a title="" href="Tap/Topic/<?= $val['id_caurse'] ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $val['id_caurse'] ?>">
                                                 <div class="card daily-sales course-english">
                                                     <img class="course-english-img" src="image/<?= $img ?>" alt="">
                                                 </div>
@@ -177,7 +177,7 @@ if (empty($get_course_in)) {
             $stmt= Get_other_course($bien);
 
             foreach ($stmt as $value) : extract($value); ?>
-                <a href="index.php?act=detail_course&id_course=<?= $id_caurse ?>" class="col-md-6 col-xl-4">
+                <a href="Tap/detail_course/<?= $id_caurse ?>" class="col-md-6 col-xl-4">
                     <div class="card daily-sales course-english">
                         <img class="course-english-img" src="image/<?= $img ?>" alt="">
                     </div>

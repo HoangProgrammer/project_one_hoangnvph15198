@@ -137,7 +137,7 @@ if($val['id_user_one']==$my_id){
 
 function Get_user_other($id){
     $conn=connect();
-        $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN($id) and role < 1");
+        $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN($id) and role < 1  order by RAND()  ");
         $stmt->execute();
         $rows=array();
     while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
