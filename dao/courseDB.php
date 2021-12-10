@@ -79,17 +79,16 @@ return true;
 
 function update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id){
     $conn=connect();
-if($type=="0"){
-    $price_course=0;
-}
-if(!empty($image_course)){
-    
-    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":id_route"=>$id_route,":type"=>$type,":id"=>$id]);
- return true;
-}else{
-     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
+// if($type=="0"){
+//     $price_course=0;
+// }
+if(empty($image_course)){
+    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
     $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":id_route"=>$id_route,":type"=>$type,":id"=>$id]);
+   return true;
+}else{
+    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,id_route=:id_route,type=:type WHERE id_caurse=:id ");
+        $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":id_route"=>$id_route,":type"=>$type,":id"=>$id]);
     return true;
 }
 
@@ -190,4 +189,86 @@ function Get_all_route(){
     return $data;
 }
 
+function updateCourse (){
+    $conn=connect();
+    $hinh=$_FILES['hinh'];
+    if($hinh["size"] == 0){
+        $url = $_POST['old_img'];
+    }
+    else{
+        $ava = $_FILES['hinh'];
+        // var_dump($ava);die;
+        
+        $check = strpos($ava['type'], 'image');
+        if ($check === false) {
+            $_SESSION['error'] = 'File is not a image';
+            header('location: /du_an_mau/form_update.php');
+            die;
+        }
+    
+        if ($ava['size'] >= 5000000) {
+            $_SESSION['error'] = 'Image is too large';
+            header('location: /du_an_mau/form_update.php');
+            die;
+        }
+    
+        $foderImg = './../images_db/';
+        $anhLuu = $foderImg . $ava["name"];
+        move_uploaded_file($ava['tmp_name'], $anhLuu);
+        
+        $url ='/du_an_mau/images_db/' . $ava["name"];
+        // var_dump($url);die;
+
+    }
+    $data = [
+        'ma_kh' => $_POST['ma_kh'],
+        'ho_ten' => $_POST['ho_ten'],
+        'email' => $_POST['email'],
+        'kich_hoat' => $_POST['kich_hoat'],
+        'hinh' => $url,
+        'vai_tro' =>$_POST['vai_tro'],
+        'mat_khau' => $_POST['mat_khau'],
+    ];
+    // var_dump($data);die;
+    update_pass($data);
+}
+
+
+function find_coures_by_id($id) {
+    $conn = connect();
+    $sql = "SELECT * FROM course WHERE id_caurse = :id";
+    $statement = $conn->prepare($sql);
+    $params = [
+        'id' => $id,
+    ];
+
+    $statement->execute($params);
+    $rowData = $statement->fetch();
+    $data = [];
+    if ($rowData != false) {
+        $data = [
+            "id_caurse" => $rowData['id_caurse'],
+            "NameCaurse" => $rowData['NameCaurse'],
+            "img" => $rowData['img'],
+            "price" => $rowData['price'],
+            "description" => $rowData['description'],
+            "type" => $rowData['type'],
+            "id_route" => $rowData['id_route']
+        ];
+    }
+    return $data;
+}
+
+
+// function update_pass($data) {
+//     $conn = conn();
+
+//     $sql = "UPDATE course SET ho_ten = :ho_ten, mat_khau = :mat_khau,".
+//     " hinh = :hinh, kich_hoat= :kich_hoat, email= :email, vai_tro = :vai_tro ".
+//     " WHERE ma_kh = :ma_kh ";
+
+//     $statement = $conn->prepare($sql);
+
+//     $statement->execute($data);
+// }
 ?>

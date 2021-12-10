@@ -77,17 +77,17 @@ if($insert==true){
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
             }
+            // $stmt = find_coures_by_id($id);
             $stmt = Get_course_one($id);
-            $data_route=Get_caurse_route();
-            // echo "<pre>";
-            // var_dump($data_route); 
+            $data_route=Get_caurse_route(); 
             require("./course/update_pr.php");
             break;
         case "updateFrom":
             if (isset($_POST['update_course'])) {
                 $course_name=$_POST['course_name']; 
                 $type=$_POST['type'];
-                $id_route=$_POST['id_route'];
+                $id_route=$_POST['route'];
+                $_SESSION['id_route'] = $id_route;
                 // var_dump($id_route);die;
                 $price_course=$_POST['price_course'];
                 $description=$_POST['description'];
@@ -108,8 +108,7 @@ if($insert==true){
                  if( $err==false ){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
-                // var_dump($id_route);die;
-                        $insert=update_course($course_name,$image_course,$id_route,$price_course,$description,$type,$id);
+                        $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id);
                             move_uploaded_file($image_tmp,"../image/".$image_course);
                 if($insert==true){
                     header("location:index.php?action=product");

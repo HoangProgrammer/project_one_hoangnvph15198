@@ -43,22 +43,24 @@ unset($_SESSION['image_course']);
                             <label class="form-label" for="" > Miễn phí  </label>
                            <input type="radio" name="type" id="free" value="0" class="form-radio1"  />
                            <label class="form-label" for=""> Mất phí </label>
-                             <input type="radio" name="type" id="charge"  value="1"  class="form-radio2"  />   
-
-                             <select class="form-select" aria-label="Default select example" name="id_route">
-                                <option selected>Lộ trình học</option>
-                                <option value="4">Ielts</option>
-                                <option value="2">Children</option>
-                                <option value="3">Basic</option>
-                                <option value="1">Training</option>
-                            </select>
-                                         
+                             <input type="radio" name="type" id="charge"  value="1"  class="form-radio2"  />                                            
                             </div>
                             </div>
                             <div class="form-group" style="display:none;" id="price">
                             <label class="form-label" for=""> <h6> Giá </h6>  </label>
                             <input type="text" name="price_course" id="price"  class="form-control" placeholder="Enter Your price" />   
                            
+                            </div>
+    
+                            <div class="form-group">
+                            <label class="form-label" for=""> <h6>Lộ trình</h6> </label>
+                            <select class="form-select select" aria-label="Default select example" name="id_route">
+                                <option selected value="0">--</option>
+                                <option value="4">Ielts</option>
+                                <option value="2">Children</option>
+                                <option value="3">Basic</option>
+                                <option value="1">Training</option>
+                            </select>
                             </div>
 
                             <div class="form-group">
@@ -98,6 +100,7 @@ unset($_SESSION['nadescriptionme']);
 
     </div>
 </div>
+
 
 
 
