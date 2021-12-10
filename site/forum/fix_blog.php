@@ -1,4 +1,20 @@
-<div class="pcoded-main-container">
+<style>
+ .cke_contents{
+    display: block;
+    overflow: hidden;
+    height: 1000px !important;
+}
+.modal-dialog {
+
+    max-width: 1000px;
+ 
+    margin-bottom: 15rem !important;
+}
+
+</style>
+
+
+<div class="pcoded-main-container" >
         <div class="pcoded-module">
 <div id="blog_modal" class="" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
@@ -18,7 +34,7 @@
                                     'id_post' => $id_post,
                                 ];
                                 fix_post($data);
-                                header('Location:index.php?act=my_blog');
+                                header('Location:MyBlog');
                             }
 
                             $row = get_one_post($id_post);

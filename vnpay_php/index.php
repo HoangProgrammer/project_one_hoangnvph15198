@@ -41,6 +41,9 @@
         header( "refresh:5;url=index.php");
     }
     $row = Get_course_one($id_caurse);
+    foreach($row as $va){
+       $price=$va['price'];
+    }
 ?>
         <div class="container">
             <div class="header clearfix">
@@ -65,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input class="form-control" id="amount" name="amount" type="number" value="<?php echo $rows[0]['price'] ?>"/>
+                        <input disabled class="form-control" id="amount" name="amount" type="number" value="<?= $price ?>"/>
                     </div>
                     <div class="form-group">
                         <label for="order_desc">Nội dung thanh toán</label>
