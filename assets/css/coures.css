@@ -79,7 +79,7 @@
     margin: 20px 0;
 }
 .fillter ul{
-    width: 70%;
+    width: 100%;
     /* box-shadow: 0 0 5px black; */
     padding: 10px;
     position: sticky;
@@ -103,7 +103,7 @@
 }
 .coures .container_coures .coures1{
     width: 300px;    
-    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 30%);
+    box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%), 0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%), 0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
     margin: 20px 20px;
     position: relative;
     transition: .5s cubic-bezier(0.39, 0.575, 0.565, 1);

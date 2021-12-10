@@ -1,7 +1,10 @@
 <?php
     require_once 'dao/courseDB.php';
+    require_once 'dao/RatingDB.php';
     require_once 'models/pdo.php';
     $data = Get_caurse1();
+    $data_course = Get_caurse();
+    $rating_list = get_rating_groupby_user();
 ?>
 
 <!DOCTYPE html>
@@ -252,82 +255,19 @@
             </script>
 
             <div class="owl-carousel">
-                <div class="hv1"> 
-                    <img src="trangchu/images/56218190_826137094407022_142991049105604608_n.jpg" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh Quân</h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
+                <?php foreach ($rating_list as $key => $value) { ?>
+                    <div class="hv1"> 
+                        <img src="image/<?php echo $value['image'] ?>" alt="">
+                        <div class="content">
+                            <h6>Học viên:
+                                <?php echo $value['ten_user'] ?>
+                            </h6>
+                            <span>
+                                <?php echo $value['content'] ?>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="hv1"> 
-                    <img src="trangchu/images/private-class-man.png" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh </h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
-                    </div>
-                </div>
-
-                <div class="hv1"> 
-                    <img src="trangchu/images/private-class-man.png" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh</h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
-                    </div>
-                </div>
-
-                <div class="hv1"> 
-                    <img src="trangchu/images/private-class-man.png" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh</h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
-                    </div>
-                </div>
-
-                <div class="hv1"> 
-                    <img src="trangchu/images/private-class-man.png" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh</h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
-                    </div>
-                </div>
-
-                <div class="hv1"> 
-                    <img src="trangchu/images/private-class-man.png" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh</h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
-                    </div>
-                </div>
-
-                <div class="hv1"> 
-                    <img src="trangchu/images/private-class-man.png" alt="">
-                    <div class="content">
-                        <h6>Học viên:Mạnh</h6>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                            Mollitia provident enim commodi blanditiis, distinctio facere 
-                            eos necessitatibus.
-                        </span>
-                    </div>
-                </div>
-
+                <?php } ?>
             </div>
         </div>
 
@@ -353,11 +293,10 @@
                     </div>
                     <div class="input">
                         <label for="">Khóa học</label> <br>
-                        <select name="" id="">
-                            <option value="">Tiếng anh</option>
-                            <option value="">Tiếng anh</option>
-                            <option value="">Tiếng anh</option>
-                            <option value="">Tiếng anh</option>
+                        <select name="course" id="">
+                            <?php foreach ($data_course as $key => $value) { ?>
+                                <option value="<?php echo $value['id_caurse '] ?>"><?php echo $value['NameCaurse'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <button class="btn btn-primary" type="submit">Submit</button>
