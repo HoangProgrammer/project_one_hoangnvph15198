@@ -10,7 +10,7 @@ foreach($stmt as $row ){
         $anh=$row['img'];
         $description=$row['description'];
         $type=$row['type'];  
-        $route=$row['route']; 
+        $route=$row['id_route']; 
 }
 
 
@@ -68,12 +68,16 @@ unset($_SESSION['image_course']);
                              <input type="radio" name="type"  value="1"  class="form-radio2"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
                             </div>
                             </div>
-
+<?php $Get_all_route=Get_all_route() ?>
                             <select class="form-select" aria-label="Default select example" name="route">
-                                <option selected>Lộ trình học</option>
+                               
                                 <?php foreach ($data_route as $key => $value) { ?>
-                                    <option value="<?php echo $value['route']?>"><?php echo $value['route']?></option>
+                                    <option value="<?php echo $value['id_route']?>"><?=$value['name'] ?></option>
                                 <?php } ?>
+                                
+                                <?php foreach ($Get_all_route as $val){?>  
+                                    <option value="<?php echo $val['id_route']?>"><?=$val['route'] ?></option>
+                                    <?php  } ?>
                             </select>
 
 

@@ -78,7 +78,7 @@ if($insert==true){
                 $id = $_GET['id'];
             }
             $stmt = Get_course_one($id);
-            $data_route=Get_caurse_route();
+            $data_route=Get_caurse_route(  $id);
             require("./course/update_pr.php");
             break;
         case "updateFrom":
@@ -106,7 +106,7 @@ if($insert==true){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
 
-                        $insert=update_course($course_name,$image_course,$price_course,$description,$route,$type,$id);
+                        $insert=update_course($course_name,$image_course,$price_course,$description,$type,$route,$id);
 
                             move_uploaded_file($image_tmp,"../image/".$image_course);
         if($insert==true){

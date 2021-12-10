@@ -12,9 +12,9 @@ function Get_caurse1(){
     $result= get_all($stmt); 
     return $result;
 }
-function Get_caurse_route(){
+function Get_caurse_route($id){
     $conn=connect();
-    $stmt="SELECT route FROM course";
+    $stmt="SELECT course.id_route as  id_route ,routee.route as name FROM course join routee on course.id_route=routee.id_route Where course.id_caurse=$id";
     $result= get_all($stmt);
     $lresult = array_unique($result, 0);
     return $lresult;
@@ -79,17 +79,17 @@ return true;
 
 function update_course($course_name,$image_course,$price_course,$description,$type,$route,$id){
     $conn=connect();
-if($type=="0"){
+if($type==0){
     $price_course=0;
 }
 if(!empty($image_course)){
     
-    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,route=:route,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":route"=>$route,":type"=>$type,":id"=>$id]);
+    $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse,img=:img, price=:price,description=:description,type=:type,id_route=:route WHERE id_caurse=:id ");
+    $stmt->execute([":NameCaurse"=>$course_name,":img"=>$image_course,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$route,":id"=>$id]);
  return true;
 }else{
-     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,route=:route,type=:type WHERE id_caurse=:id ");
-    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":route"=>$route,":type"=>$type,":id"=>$id]);
+     $stmt=$conn->prepare(" UPDATE course set NameCaurse=:NameCaurse, price=:price,description=:description,type=:type,id_route=:route WHERE id_caurse=:id ");
+    $stmt->execute([":NameCaurse"=>$course_name,":price"=>$price_course,":description"=>$description,":type"=>$type,":route"=>$route,":id"=>$id]);
     return true;
 }
 
@@ -175,7 +175,6 @@ function Get_all_route(){
         if ($rowData === false) {
             break;
         }
-
         $row = [
             "id_route" => $rowData['id_route'],
             "route" => $rowData['route'],

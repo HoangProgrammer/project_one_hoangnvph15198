@@ -57,6 +57,7 @@ $home = "";
 $forum = "";
 $rating = "";
 $social = "";
+$route = "";
 
 if (isset($_GET['act'])) {
     if ($_GET['act'] == "RaTing") {
@@ -65,7 +66,9 @@ if (isset($_GET['act'])) {
         $social = "active";
     } else if ($_GET['act'] == "forum") {
         $forum = "active";
-    } else {
+    }  if ($_GET['act'] == "route") {
+        $route = "active";
+    }else {
         // $home = "active";
     }
 } else {

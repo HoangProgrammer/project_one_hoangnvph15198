@@ -24,9 +24,7 @@ function connect() {
 
 function get_all($sql){
  $conn= connect();
-
  $stmt= $conn->prepare($sql);
-
 $stmt->execute();
 $rows=array();
 while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){

@@ -65,7 +65,7 @@
                                             'time' => $time,
                                         ];
                                         insert_comment_post($data);
-                                        header('Location:index.php?act=detail_blog&id_post=' . $id_post . '');
+                                        header('Location:forum/comment/' . $id_post . '');
                                     }
                                     break;
                                 case "delete_cm_forum":
@@ -75,7 +75,7 @@
                                         $list=getAll_comment_post($id_post);
                                         delete_comment_child($id_comment,$list);
                                         delete_comment_parent($_GET['id_comment']);
-                                        header('Location:index.php?act=detail_blog&id_post='.$id_post);
+                                        header('Location:forum/comment/'.$id_post);
                                     }
                                     break;
                                 case "comment_post":
@@ -92,7 +92,7 @@
                                             'time' => $time,
                                         ];
                                         insert_comment_post($data);
-                                        header('Location:index.php?act=detail_blog&id_post=' . $id_post . '');
+                                        header('forum/comment/' . $id_post . '');
                                     }
                                     break;
                                 case "add_post":
@@ -111,7 +111,7 @@
                                         ];
                                         insert_post($data);
                                     }
-                                    header('Location: index.php?act=blog');
+                                    header('Location:forum');
                                     break;
                                 case "edit_post":
                                     if (isset($_POST['edit'])) {
@@ -121,7 +121,7 @@
                                         $time = date("Y-m-d H:i:s");
                                         update_comment_post( $content, $time ,$id_comment);
                                     }
-                                    header('Location:index.php?act=detail_blog&id_post=' . $id_post . '');
+                                    header('Location:forum/comment/' . $id_post . '');
                                     break;
 
 
