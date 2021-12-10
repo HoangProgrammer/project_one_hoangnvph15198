@@ -30,15 +30,18 @@
       <td><?php echo $value['note'] ?></td>
       <td>
         <!-- <button type="button" class="btn btn-dark"><a href="">Xác nhận</a></button> -->
-        
-        
-        <a href="index.php?action=oder_shopping&id_user=<?= $value['id_user'] ?>&id_caurse=<?= $value['id_caurse'] ?>&time=<?= $value['time'] ?>">xác nhận</a>
-        <a href=""></a>
+        <?php if($value['trang_thai'] == "Đã xác nhận"){ ?>
+          <button type="button" class="btn btn-primary" disabled>Đã xác nhận</button>
+        <?php }else{ ?>
+          <button class="btn btn-warning"><a href="index.php?action=oder_shopping&id_user=<?= $value['id_user'] ?>&id_caurse=<?= $value['id_caurse'] ?>&time=<?= $value['time'] ?>&id_payments=<?= $value['id_payments'] ?>">xác nhận</a></button>
+          
+        <?php } ?>
       </td>  
     </tr>
 <?php } ?>
 
   </tbody>
 </table>
+
             </div>
 

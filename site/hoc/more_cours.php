@@ -103,6 +103,12 @@ foreach(  $course as $val) { ;
    $price=$val['price'];
    $type=$val['type'];
     $id_course=$val['id_caurse'];
+    $data = [
+        'id_caurse' => $id_course,
+        'id_user' => $id_user,
+    ];
+    $number_rows_thanh_toan = number_rows_thanh_toan($data);
+    var_dump($number_rows_thanh_toan);
 }
 ?>
             <div class="pcoded-module-right">
@@ -126,8 +132,11 @@ foreach(  $course as $val) { ;
                     <h3><?=  $price=( $price==0)?'Miễn Phí':"<h4 class='text-danger'>".number_format($price)." vnd</h4> "?></h3>
                 </div> 
                 <form class="pcoded-module-right-add" action="">    
-        <?php if( $type==1){?>
-            <a class="btn btn-danger text-light" href="index.php?act=buyCourse&id=<?= $id_course ?>">  Mua Ngay </a>
+        <?php if($number_rows_thanh_toan == 1 ){?>
+            <button type="button" class="btn btn-secondary btn-lg text-light" disabled>Chờ xử lý</button>
+            <!-- <a class="btn btn-danger text-light" disabled href="">  Chờ xử lý </a> -->
+        <?php }elseif($type==1){ ?>
+            <a class="btn btn-danger text-light" href="index.php?act=buyCourse&id=<?= $id_course ?>">  Mua ngay </a>
        <?php }else{?>
    <a class="btn btn-primary text-light" href="index.php?act=Topic&idCourse=<?=$_GET['idCourse'] ?>">  học ngay </a>     
    <?php } ?>

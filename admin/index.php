@@ -78,7 +78,7 @@ if($insert==true){
                 $id = $_GET['id'];
             }
             $stmt = Get_course_one($id);
-            $data_route=Get_caurse_route(  $id);
+            $data_route=Get_all_route();
             require("./course/update_pr.php");
             break;
         case "updateFrom":
@@ -86,6 +86,7 @@ if($insert==true){
                 $course_name=$_POST['course_name']; 
                 $type=$_POST['type'];
                 $id_route=$_POST['route'];
+                $_SESSION['id_route'] = $id_route;
                 // var_dump($id_route);die;
                 $price_course=$_POST['price_course'];
                 $description=$_POST['description'];
@@ -106,6 +107,7 @@ if($insert==true){
                  if( $err==false ){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
+                        $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id);
 
                         $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id);
 
@@ -540,6 +542,7 @@ case "shopping" :
         break;
 case "oder_shopping" :
     $payments ="quỵt";
+    $id_payments = $_GET['id_payments'];
     $data=[
         'id_user' => $_GET['id_user'],
         'id_caurse' => $_GET['id_caurse'],
@@ -551,8 +554,14 @@ case "oder_shopping" :
       'id_user' => $_GET['id_user'],
     ];
     $number_of_rows = number_rows_ordercaurse($dem_dong);
+    $number_rows_thanh_toan = number_rows_thanh_toan($dem_dong);
     if($number_of_rows == 0){
       insert_ordercaurse($data);
+      $data_2 = [
+          'trang_thai' => "Đã xác nhận",
+          'id_payments' => $id_payments,
+      ];
+      update_payments($data_2);
     //   delete_ordercaurse($value['id_payments']);
       // header('Location: index.php?action=shopping');
     }
