@@ -131,30 +131,8 @@ if (empty($get_course_in)) {
                                         $Get_course_one = Get_course_one($value['id_causer']);
                                         // $Get_order_course= Get_oderCourse();
                                         foreach ($Get_course_one as $val) : extract($val); ?>
-<<<<<<< HEAD
                                        
                                             <a title="" href="learning/Topic/<?= $val['id_caurse'] ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $val['id_caurse'] ?>">
-=======
-                                        <!--  -->
-                                            <?php
-                                            $getAll_topic = getAll_topic($id_caurse);
-                                            $lesson = 0;
-                                            foreach ($getAll_topic as $topic) {
-                                                $getAll_lesson = getAll_lesson($topic['id_lesson_topics']);
-                                                foreach ($getAll_lesson as $lessons) {
-                                                    $lesson += 1;
-                                                }
-                                            }
-                                            $lesson;
-                                            $getAll_progress_lesson = getAll_progress_lesson($id_caurse,$id_user);
-                                            // var_dump($getAll_progress_lesson);die;
-                                            $progress = count($getAll_progress_lesson);
-                                            $tong = 0;
-                                            $tong += round(($progress / $lesson) * 100);
-                                            ?>
-                                        <!--  -->
-                                            <a title="<?= $tong ?> %" href="learning/Topic/<?= $id_caurse ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $id_caurse ?>">
->>>>>>> 3ca90767010b4c194d40ac6c19c6c00bc0873d0d
                                                 <div class="card daily-sales course-english">
                                                     <img class="course-english-img" src="image/<?= $img ?>" alt="">
                                                 </div>
