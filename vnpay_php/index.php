@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input class="form-control" id="amount" name="amount" type="number" value="<?php echo $row[0]['price'] ?>"/>
+                        <input class="form-control" id="amount" name="amount" type="number" value="<?php echo $rows[0]['price'] ?>"/>
                     </div>
                     <div class="form-group">
                         <label for="order_desc">Nội dung thanh toán</label>

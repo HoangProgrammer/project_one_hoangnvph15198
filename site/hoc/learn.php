@@ -2,6 +2,7 @@
 if(isset($_GET['lesson'])){
     $times=date('Y-m-d H:i:s');
     insert_history($id_user,$times,$_GET['lesson']);
+    insert_progress_lesson($_GET['lesson'],$_GET['idCourse'],$id_user);
 }
 
 ?>
@@ -22,9 +23,10 @@ if(isset($_GET['lesson'])){
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    
     <link rel="stylesheet" href="site/hoc/cours.css">
     <link rel="stylesheet" href="assets/css/style_user.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <html>
 
@@ -63,22 +65,48 @@ if(isset($_GET['lesson'])){
                                     </span>
                                     <span class="pcoded-mtext"><?= $topicName ?></span>
                                 </a>
-                                <?php
-                                $getAll_lesson = getAll_lesson($id_lesson_topics); // lấy ra khóa học học của chủ đề
-                                foreach ($getAll_lesson as $val) : extract($val); ?>
-                                    <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1 li_lesson">
-                                        <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                            <a href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>" class="nav-link ">
 
+
+
+                                <!-- note -->
+
+                                <?php  
+                              
+                                $getAll_lesson = getAll_lesson($id_lesson_topics);
+                                
+                                 // lấy ra khóa học học của chủ đề
+                                foreach ($getAll_lesson as $val) : extract($val); 
+                                
+              
+                       
+                                  
+                    
+                   
+                    
+                          
+                                 
+                                ?>
+
+                                      <!-- note -->
+                                                 
+                                       
+                                    <ul  style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1 li_lesson">
+                                   
+
+                                    
+                                        <li   data-username="Table bootstrap datatable footable" class="nav-item "> 
+                                                                            
+                                            <a  href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>" class="nav-link " >
+                                         
                                                 <span style="color: black;" class="pcoded-mtext"><?= $lessonName ?> </span>
                                             </a>
                                         </li>
                                     </ul>
+
                                     <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
-                                        <li data-username="Table bootstrap datatable footable" class="nav-item ">
-                                            <a href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>&quiz" class="nav-link ">
-
-
+                                        <li    data-username="Table bootstrap datatable footable" class="nav-item ">
+                                            <a  href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>&quiz" class="nav-link ">
+                                          
                                                 <span style="color: white; " class="pcoded-mtext"> quiz </span>
                                                 <?php $getAll_point_user = getAll_point_user($id_user, $id_lesson);
                                                 foreach ($getAll_point_user as $val) {
@@ -90,22 +118,9 @@ if(isset($_GET['lesson'])){
                                                         <span class="pcoded-micon">
                                                             <i class="fas fa-check text-light"></i>
                                                         </span>
-                                                <?php    }
-                                                } ?>
-                                                <!-- <span style="margin-left: 20%; "> -->
-
-                                                <?php
-                                                // foreach ($getAll_point_user as $val) {
-                                                //     $pont='';
-                                                //                                 if($val['point_total']==''){
-                                                //                                   echo  $pont='0';
-                                                //                                 } else{
-                                                //                                     echo  $pont=$val['point_total'];
-                                                //                                 }
-
-                                                //                                     }
-                                                ?>
-                                                <!-- / 10</span> -->
+                                                <?php    } } ?>
+                                               
+                                          
                                             </a>
                                         </li>
                                     </ul>
@@ -481,7 +496,7 @@ if(isset($_GET['lesson'])){
                     $final_test = final_test($key);
                     foreach ($final_test as $key => $value) {
                         if ($val == $value['answer']) {
-                            $mark += 2;
+                            $mark += 1;
                             $check = 'checked';
                         } else {
                             $check = 'checked';
@@ -707,6 +722,18 @@ if(isset($_GET['lesson'])){
 
     <script>
         $(document).ready(function() {
+
+
+            
+  $('#user').on( "click",function() {
+            $('.profile-notification').fadeToggle(500);
+            $('.notification').hide()
+        })
+  $('#bell').on( "click",function() {
+            $('.notification').fadeToggle(500);
+            $('.profile-notification').hide();
+        })
+        
 
             $('#remove_friend').on('click', function(e) {
                             e.preventDefault();

@@ -57,20 +57,18 @@ $home = "";
 $forum = "";
 $rating = "";
 $social = "";
+$route = "";
 
 if (isset($_GET['act'])) {
     if ($_GET['act'] == "RaTing") {
         $rating = "active";
     } else if ($_GET['act'] == "social") {
         $social = "active";
-    } else if ($_GET['act'] == "blog") {
+    } else if ($_GET['act'] == "forum") {
         $forum = "active";
-    }
-    else if ($_GET['act'] == "add_course") {
-        $add_course = "active";
-    }
-    
-    else {
+    }  if ($_GET['act'] == "route") {
+        $route = "active";
+    }else {
         // $home = "active";
     }
 } else {
@@ -103,11 +101,11 @@ if (isset($_GET['act'])) {
 
 
                         <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item <?= $home ?>">
-                            <a href="index.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
+                            <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Home</span></a>
                         </li>
 
                         <li class="nav-item  <?= $forum ?>">
-                            <a href="blog" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
+                            <a href="forum" class="nav-link "><span class="pcoded-micon"><i class="far fa-comment"></i></span><span class="pcoded-mtext">Thảo Luận</span></a>
                         </li>
 
                         <li class="nav-item  <?= $rating ?> ">
@@ -118,9 +116,14 @@ if (isset($_GET['act'])) {
                             <a href="social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Cộng đồng</span></a>
                         </li>
 
+<<<<<<< HEAD
 
                         <li class="nav-item  <?= $add_course ?> ">
                             <a href="index.php?act=add_course" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Mua khóa học</span></a>
+=======
+                        <li class="nav-item  <?= $route ?> ">
+                            <a href="route" class="nav-link "><span class="pcoded-micon"><i class="fas fa-route"></i></span><span class="pcoded-mtext">Lộ trình</span></a>
+>>>>>>> c07b646af753517e2bf3fbbc4817ca0fc8f8b86b
                         </li>
 
                         <!-- <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
@@ -289,8 +292,7 @@ if($image==''){
 }
 ?>
                     <div class="dropdown drp-user">
-                        <a href="javascript:" class="dropdown-toggle " data-toggle="dropdown" id="user">
-                            
+                        <a  class="dropdown-toggle " data-toggle="dropdown" id="user">                         
                             <img  src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
 
                         </a>
@@ -329,6 +331,18 @@ if($image==''){
 
     <script>
         $(document).ready(function() {
+
+
+            
+  $('#user').on( "click",function() {
+            $('.profile-notification').fadeToggle(500);
+            $('.notification').hide()
+        })
+  $('#bell').on( "click",function() {
+            $('.notification').fadeToggle(500);
+            $('.profile-notification').hide();
+        })
+        
 
             $('#remove_friend').on('click', function(e) {
                             e.preventDefault();

@@ -10757,3 +10757,40 @@ a#bell {
         .pcoded-main-container.border-rating {
     margin-bottom: 15rem;
 }
+
+
+/* route */
+.container_route{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  margin-top: 30px;
+
+}
+.container_route > .couress{
+  margin: 30px;
+  padding: 10px 20px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  transition: .3s;
+}
+.container_route:last-child{
+  margin-bottom: 50px;
+}
+.container_route > .couress:hover{
+  box-shadow: 0 0 10px #ccc;
+}
+.container_route > .couress  .img img{
+  width: 300px;
+  height: 180px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.container_route > .couress > .info h5{
+  font-weight: bold;
+}
+.btn{
+  border-radius: 25px !important;
+}

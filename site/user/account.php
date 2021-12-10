@@ -72,7 +72,9 @@ if($image==''){
             <?php
             $error ="";
                 if(isset($_POST['button'])){
+                         $full_name = $_POST['full_name'];
                     $name = $_POST['name'];
+               
                     $email = $_POST['email'];
                     $newPassword = $_POST['newPassword'];
                     $confirmPassword = $_POST['confirmPassword'];
@@ -81,21 +83,23 @@ if($image==''){
                     
                     
                     $number_of_rows = number_rows_user($name);
-                    if($number_of_rows == 0 || $name = $data[0]['ten_user'] ){
+                    if($number_of_rows == 0 || $name = $data[0]['user_name'] ){
                         if($newPassword == $confirmPassword){
                             if($file_name == ""){
                                 $data2=[
-                                    'ten_user' => $name,
+                                    'ten_user' => $full_name,
+                                    'user_name' => $name,
                                     'email' => $email,
                                     'mat_khau' => $newPassword,
                                     'id_user' => $id_user,
                                 ];
                                 update_khach_hang_no_img($data2);
-                                header("location:profile");
+                                header("location:account");
                             }
                             else{
                                 $data=[
-                                    'ten_user' => $name,
+                                    'ten_user' => $full_name,
+                                    'user_name' => $name,
                                     'image' => $file_name,
                                     'email' => $email,
                                     'mat_khau' => $newPassword,
@@ -103,7 +107,7 @@ if($image==''){
                                 ];
                                 move_uploaded_file($file,'./image/'.$file_name );
                                 update_khach_hang($data);
-                                header("location:profile");
+                                header("location:account");
                             }
                         }
                         else{
@@ -142,8 +146,11 @@ if($image==''){
                             </div>
                         <div class="settings-account__form">
                             <div class="form-group settings__column">
+                            <label class="form__label" for="name">Tên </label>
+                            <input class="form__input" name="full_name" id="name" placeholder="Họ tên" type="text" required="" value="<?php echo $data[0]['ten_user'] ?>"></div>
+    
                             <label class="form__label" for="name">Tên đăng nhập</label>
-                            <input class="form__input" name="name" id="name" placeholder="Họ tên" type="text" required="" value="<?php echo $data[0]['ten_user'] ?>"></div>
+                            <input class="form__input" name="name" id="name" placeholder="tên đăng nhập" type="text" required="" value="<?php echo $data[0]['user_name'] ?>"></div>
                             <div class="form-group settings__column">
                                 <label class="form__label" for="email">Email</label>
                                 <input class="form__input" name="email" id="email" placeholder="Email" type="email" value="<?php echo $data[0]['email'] ?>">

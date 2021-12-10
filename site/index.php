@@ -13,9 +13,6 @@
                             $role = 1;
                         }
 
-
-
-
                         if (isset($_GET['act'])) {
                             $act = $_GET['act'];
                             switch ($act) {
@@ -38,11 +35,21 @@
 
                             $act = $_GET['act'];
                             switch ($act) {
-                                case "blog":
+                                case "forum":
                                     require_once "forum/blog.php";
                                     break;
-                                case "detail_blog":
+                                case "comment":
                                     require_once "forum/detail_blog.php";
+                                    break;
+                                case 'route' :
+                                    require_once 'route/route.php';
+                                    break;
+                                case 'routee':
+                                    if (isset($_GET['id_route'])) {
+                                        $id_route = $_GET['id_route'];
+                                        $data_route = Get_course_by_route($id_route);
+                                    }
+                                    require_once 'route/routee.php';
                                     break;
                                 case "rep_forum":
                                     if (isset($_POST['reply'])) {
@@ -58,7 +65,7 @@
                                             'time' => $time,
                                         ];
                                         insert_comment_post($data);
-                                        header('Location:index.php?act=detail_blog&id_post=' . $id_post . '');
+                                        header('Location:forum/comment/' . $id_post . '');
                                     }
                                     break;
                                 case "delete_cm_forum":
@@ -68,7 +75,7 @@
                                         $list=getAll_comment_post($id_post);
                                         delete_comment_child($id_comment,$list);
                                         delete_comment_parent($_GET['id_comment']);
-                                        header('Location:index.php?act=detail_blog&id_post='.$id_post);
+                                        header('Location:forum/comment/'.$id_post);
                                     }
                                     break;
                                 case "comment_post":
@@ -85,7 +92,7 @@
                                             'time' => $time,
                                         ];
                                         insert_comment_post($data);
-                                        header('Location:index.php?act=detail_blog&id_post=' . $id_post . '');
+                                        header('forum/comment/' . $id_post . '');
                                     }
                                     break;
                                 case "add_post":
@@ -104,7 +111,7 @@
                                         ];
                                         insert_post($data);
                                     }
-                                    header('Location: index.php?act=blog');
+                                    header('Location:forum');
                                     break;
                                 case "edit_post":
                                     if (isset($_POST['edit'])) {
@@ -114,7 +121,7 @@
                                         $time = date("Y-m-d H:i:s");
                                         update_comment_post( $content, $time ,$id_comment);
                                     }
-                                    header('Location:index.php?act=detail_blog&id_post=' . $id_post . '');
+                                    header('Location:forum/comment/' . $id_post . '');
                                     break;
 
 
@@ -196,19 +203,6 @@
                                 }
                                     header('Location:index.php?act=learn&idCourse='. $id_course.'&Topic='.$Topic.'&lesson='. $id_lesson);
                                     break;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                                 case "Topic":
                                     if (isset($_GET['idCourse'])) {

@@ -5,7 +5,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule "index.html" "index.php"
+
+RewriteRule ^forum/(.*)/(.*)$  index.php?act=$1&id_post=$2 
+
+RewriteRule ^learning/(.*)/([a-zA-Z0-9]+)$  index.php?act=$1&idCourse=$2
+
 RewriteRule ^([a-zA-Z]+)$  index.php?act=$1 
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)$  index.php?act=$1&tap=$2
+
+
+
+
+
 
 # RewriteRule ^([a-zA-Z])$ index.php?act=$1 
 

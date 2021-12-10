@@ -41,7 +41,8 @@ $Get_user_one=Get_user_one($admin);
 	<title>Quản trị web</title>
 	<link rel="stylesheet" href="sweetalert2.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="css/styles_one.css">
 </head>
 
@@ -53,12 +54,12 @@ $Get_user_one=Get_user_one($admin);
 	<p class="logo1"> <span class="menu1">&#9776;</span></p>
   <a href="index.php?action=dashboard" class="icon-a "><i class="fa fa-dashboard icons "></i> &nbsp;&nbsp;Dashboard</a>
   <a href="index.php?action=product"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Khóa học</a>
+  <a href="index.php?action=statistical"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Thống kê</a>
   <a href="index.php?action=banner"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Banner</a>
   <a href="index.php?action=account"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người dùng</a>
   <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
   <a href="index.php?action=shopping"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người mua</a>
   <a href="index.php?action=blog"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Blog</a>
-
   <a href="index.php?action=rating"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;đánh giá</a>
 
   <!-- <a href="index.php?action=lesson_topic"class="icon-a"><i class="fa fa-sliders icons"></i> &nbsp;&nbsp;chủ đề bài học</a> -->

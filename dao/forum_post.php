@@ -17,6 +17,17 @@ function get_post(){
     }
     return $rows;
 }
+function get_post_other($id){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT forum_post.id_post as id_post ,forum_post.title_post as title_post , COUNT( DISTINCT comments_post.id_comment_post)as comment  FROM 
+    forum_post join comments_post on comments_post.id_post=forum_post.id_post WHERE  forum_post.id_post<>$id  GROUP by forum_post.id_post");
+    $stmt->execute();
+    $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+    }
+    return $rows;
+}
 
 function get_post_user($id_user){
     $conn=connect();

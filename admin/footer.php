@@ -201,7 +201,7 @@ if (isset($success)) { ?>
       foreach ($thong_ke as $val) {
         if ($i == $sumCategory) $Phay = "";
         else $Phay = ",";
-        echo "['" . $val['NameCourse'] . "'," . $val['tong_topic'] . "]" . $Phay;
+        echo "['" . $val['NameCourse'] . "'," . $val['lesson'] . "]" . $Phay;
         $i += 1;
       }
       ?>
