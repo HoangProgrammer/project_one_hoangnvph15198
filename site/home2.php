@@ -131,25 +131,8 @@ if (empty($get_course_in)) {
                                         $Get_course_one = Get_course_one($value['id_causer']);
                                         // $Get_order_course= Get_oderCourse();
                                         foreach ($Get_course_one as $val) : extract($val); ?>
-                                        <!--  -->
-                                            <?php
-                                            $getAll_topic = getAll_topic($id_caurse);
-                                            $lesson = 0;
-                                            foreach ($getAll_topic as $topic) {
-                                                $getAll_lesson = getAll_lesson($topic['id_lesson_topics']);
-                                                foreach ($getAll_lesson as $lessons) {
-                                                    $lesson += 1;
-                                                }
-                                            }
-                                            $lesson;
-                                            $getAll_progress_lesson = getAll_progress_lesson($id_caurse,$id_user);
-                                            // var_dump($getAll_progress_lesson);die;
-                                            $progress = count($getAll_progress_lesson);
-                                            $tong = 0;
-                                            $tong += round(($progress / $lesson) * 100);
-                                            ?>
-                                        <!--  -->
-                                            <a title="<?= $tong ?> %" href="learning/Topic/<?= $id_caurse ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $id_caurse ?>">
+                                       
+                                            <a title="" href="learning/Topic/<?= $val['id_caurse'] ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $val['id_caurse'] ?>">
                                                 <div class="card daily-sales course-english">
                                                     <img class="course-english-img" src="image/<?= $img ?>" alt="">
                                                 </div>
@@ -158,10 +141,7 @@ if (empty($get_course_in)) {
                                                 </span>
                                                 <?php
                                                 array_push($arr_progress, $value['id_causer']); ?>
-                                                <!-- progress -->
-                                                <div class="progress pro" title="<?= $tong ?> %">
-                                                    <div class="progress-bar bg-primary " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star"></div>
-                                                </div>
+                                                                                                                                      
                                             </a>
 
                                 <?php endforeach;
@@ -178,12 +158,10 @@ if (empty($get_course_in)) {
 
     </div>
 
-<?php }?>
+<?php } ?>
 
 
 <?php $merge = array_merge($arr, $arr_progress);?>
-
-
 <div class="pcoded-main-container">
 
 
@@ -217,10 +195,3 @@ if (empty($get_course_in)) {
     </div>
 </div>
 
-<script>
-    $('#five_star').css('width', (<?= $progress  /  $lesson ?>) * 100 + "%")
-    $('#hover').hover(function() {
-        $(this).tooltip();
-        $('.pro').tooltip();
-    })
-</script>

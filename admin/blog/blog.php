@@ -36,7 +36,7 @@ foreach($cm as $key => $val){
 <td><?=$val['time'] ?></td>
 
 <td>
-    <a class="btn btn-primary" href="/du_an_1/index.php?act=detail_blog&id_post=<?= $val['id_post'] ?>">xem chi tiết</a>  
+    <a class="btn btn-primary" href="/du_an_1/forum/comment/<?= $val['id_post'] ?>">xem chi tiết</a>  
     <a class="btn btn-primary" href="index.php?action=delete_blog&id_post=<?= $val['id_post'] ?>">Xóa</a>
 </td>  
 

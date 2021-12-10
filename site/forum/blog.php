@@ -1,4 +1,4 @@
-<div class="pcoded-main-container">
+<div class="pcoded-main-container" style="margin-bottom: 15rem;">
 <div class="main-body">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">

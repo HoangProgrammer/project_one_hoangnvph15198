@@ -232,13 +232,18 @@ if (isset($_GET['id_post'])) {
 
                             </div>
                             <div class="_2VdVL">
-                                <h2 class="_2q02F">Bài Viết Ấn Tượng</h2>
+                                <h4 class="_2q02F">Bài Viết Ấn Tượng</h3>
                                 <ul>
-                                    <li class="_5DXbf">
-                                        <h3> <a class="_1y1Vb" href="/comment/52684660">|Góc_trợ_giúp| Người điều phối diễn đàn là ai?</a>
+                                    <?php $get_post_other=get_post_other($_GET['id_post']);
+                                    foreach($get_post_other as $value){ extract($value)?>
+  <li class="_5DXbf">
+                                        <h3> <a class="_1y1Vb" href="forum/comment/<?=$id_post?>"><?=$title_post?></a>
                                         </h3>
-                                        <div class="_34sSH">14 Nhận xét</div>
+                                        <div class="_34sSH"><?=$comment?> Nhận xét</div>
                                     </li>
+                                   <?php }?>
+                                    
+                                  
                                 </ul>
                             </div>
                         </section>

@@ -25,18 +25,20 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
             $number_of_rows = $result->fetchColumn(); 
             if($number_of_rows == 0){
                 if($pass == $check_pass){
+                    
                     $sql = "INSERT INTO user (ten_user,user_name,image,email,mat_khau,start_time) VALUES ('$full_name','$user_name' ,'$img','$email','$pass','$time')";
                     pdo_execute($sql);
                     $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 2s)";
                     header( "refresh:2;url=sign_in.php");
-                }
-                else{
+                } else{
                     $error="mật khẩu không trùng nhau";
                 }
-            }
-            else{
+
+                
+            }else{
                 $error="tên đăng nhập đã tồn tại";
             }
+         
             
         }
         else{
@@ -104,7 +106,14 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                     <div class="input-group mb-4">
                         <input type="password" name="pass_user" id="password" class="form-control" placeholder="mật khẩu" value="<?php if(isset(  $pass ) ){echo  $pass ;}?>">
                     </div>
-                    <p class="text-danger errPass"></p>
+                    <p class="text-danger errPass">
+<?php if(isset($_SESSION['err_pass'])){ 
+    echo $_SESSION['err_pass'] ;
+    //  unset($_SESSION['err_pass']);
+    }
+      ?>
+
+                    </p>
                     <div class="input-group mb-4">
                         <input type="password" name="check_pass_user" id="enterPassword" class="form-control" placeholder="nhập lại mật khẩu"value="<?php if(isset( $check_pass ) ){echo $check_pass ;}?>" >
                     </div>
@@ -123,7 +132,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                     </div> -->
                     <button name="sign_up" class="btn btn-primary shadow-2 mb-4">Đăng ký</button>
                     <div class="input-group mb-4">
-                        <?php if(isset($error)) echo $error; ?>
+                        <?php if(isset($error)) echo "<h3 class='text-danger'>".$error."</h3>"; ?>
                         <?php if(isset($error2)) echo "<h3 class='text-success'>".$error2."</h3>"  ?>
                     </div>
                     <p class="mb-0 text-muted">Bạn đã có tài khoản ? <a href="sign_in.php"> Log in</a></p>
@@ -174,7 +183,10 @@ $('.errEmail').html('vui lòng nhập đầy đủ')
 
     $("#password").blur(function(){
         if( $(this).val()==''){
-$('.errPass').html('vui lòng nhập đầy đủ')
+$('.errPass').html('vui lòng nhập mật khẩu')
+        }else 
+        if($(this).val().length < 8){
+            $('.errPass').html('mật khẩu phải trên 8 ký tự')
         }else{
             $('.errPass').html('')   
         }
@@ -184,10 +196,13 @@ $('.errPass').html('vui lòng nhập đầy đủ')
     $("#enterPassword").blur(function(){
         if($(this).val()==''){
 $('.errEnterPass').html('vui lòng nhập đầy đủ')
+        }else if($(this).val()!=$("#password").val()){
+            $('.errEnterPass').html('mật khẩu không khớp') 
         }else{
             $('.errEnterPass').html('')   
         }
     })
+
      
      
      

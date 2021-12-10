@@ -80,6 +80,7 @@ if($insert==true){
             // $stmt = find_coures_by_id($id);
             $stmt = Get_course_one($id);
             $data_route=Get_caurse_route(); 
+            $data_route=Get_caurse_route(  $id);
             require("./course/update_pr.php");
             break;
         case "updateFrom":
@@ -109,6 +110,9 @@ if($insert==true){
                          header("location:index.php?action=updateCourse&id=$id");
                      }else{        
                         $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id);
+
+                        $insert=update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id);
+
                             move_uploaded_file($image_tmp,"../image/".$image_course);
                 if($insert==true){
                     header("location:index.php?action=product");

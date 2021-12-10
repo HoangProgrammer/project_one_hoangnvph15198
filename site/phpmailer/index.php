@@ -35,13 +35,11 @@ try {
     // //Attachments
     // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
     // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = $title;
     $mail->Body    = $content;
     // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
     $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
