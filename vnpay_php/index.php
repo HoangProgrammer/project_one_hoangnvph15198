@@ -23,6 +23,7 @@
         $money = $_POST['amount'];
         $note = $_POST['order_desc'];
         $bank = $_POST['bank_code'];
+        $trang_thai = "Chờ xác nhận";
         $id_user = $id_user;
         $time = date("Y-m-d H:i:s");
         $data = [
@@ -33,16 +34,22 @@
             'id_user' => $id_user,
             'time' => $time,
             'id_caurse' => $id_caurse,
+            'trang_thai' => $trang_thai,
         ];
         insert_payments($data);
+        $thongbao = "mua hàng thành công, vui lòng đợi admin xác nhận, chuyển hướng sau 3s";
+        header( "refresh:5;url=index.php");
     }
-    $rows = Get_course_one($id_caurse);
+    $row = Get_course_one($id_caurse);
 ?>
         <div class="container">
             <div class="header clearfix">
-                <h3 class="text-muted">VNPAY DEMO</h3>
+                <h3 class="text-muted">Thanh Toán Khóa Học</h3>
             </div>
             <h3>Tạo mới đơn hàng</h3>
+            <div class="header clearfix">
+                <span><?php if(isset($thongbao)){ echo $thongbao;} ?></span>
+            </div>
             <div class="table-responsive">
                 <form action="" id="create_form" method="post">       
 
@@ -58,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="amount">Số tiền</label>
-                        <input class="form-control" id="amount" name="amount" type="number" value="<?php echo $rows['price'] ?>"/>
+                        <input class="form-control" id="amount" name="amount" type="number" value="<?php echo $row[0]['price'] ?>"/>
                     </div>
                     <div class="form-group">
                         <label for="order_desc">Nội dung thanh toán</label>

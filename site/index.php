@@ -255,6 +255,20 @@
                                 case "profile":
                                     require_once "social/profile_friend.php";
                                     break;
+                                case "add_course":
+                                    require_once "hoc/add_course.php";
+                                    break;
+                                case "my_blog":
+                                    require_once "forum/my_blog.php";
+                                    break;
+                                case "fix_blog":
+                                    require_once "forum/fix_blog.php";
+                                    break;    
+                                case "delete_blog":
+                                    $id_post = $_GET['id_post'];
+                                    delete_blog($id_post);
+                                    header("location:index.php?act=my_blog");
+                                    break;     
                                 case "logout":
                                     if (isset($_SESSION['user'])) {
                                         unset($_SESSION['user']);

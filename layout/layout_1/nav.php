@@ -65,7 +65,12 @@ if (isset($_GET['act'])) {
         $social = "active";
     } else if ($_GET['act'] == "blog") {
         $forum = "active";
-    } else {
+    }
+    else if ($_GET['act'] == "add_course") {
+        $add_course = "active";
+    }
+    
+    else {
         // $home = "active";
     }
 } else {
@@ -111,6 +116,11 @@ if (isset($_GET['act'])) {
 
                         <li class="nav-item  <?= $social ?> ">
                             <a href="social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Cộng đồng</span></a>
+                        </li>
+
+
+                        <li class="nav-item  <?= $add_course ?> ">
+                            <a href="index.php?act=add_course" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Mua khóa học</span></a>
                         </li>
 
                         <!-- <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
@@ -218,7 +228,7 @@ if(empty($notification)) {
                                         <div class="media">
                                             <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i><?=get_time($val['time'])?></span></p>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i></span></p>
                                            <div style="display:flex">
                                                    <form action="" method="POST">                                  
                                                   <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
