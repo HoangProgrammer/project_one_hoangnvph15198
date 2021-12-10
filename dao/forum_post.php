@@ -29,6 +29,32 @@ function get_post_other($id){
     return $rows;
 }
 
+function get_post_user($id_user){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM forum_post join user on forum_post.id_user=user.id_user where forum_post.id_user = :id_user");
+    $stmt->execute(['id_user' => $id_user]);
+    $rows=array();
+    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
+       $rows[]=$row;
+    }
+    return $rows;
+}
+
+function number_post_user($id_user){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT * FROM forum_post WHERE id_user = :id_user ");
+    $stmt->execute(['id_user' => $id_user]);
+    $rows = $stmt -> rowCount();
+    return $rows;
+}
+
+function fix_post($data){
+    $conn=connect();
+    $stmt= $conn->prepare("UPDATE forum_post SET content = :content , title_post = :title_post WHERE id_post = :id_post ");
+    $stmt->execute($data);
+    
+}
+
 function get_new_post(){
     $conn=connect();
     $stmt= $conn->prepare("SELECT * FROM forum_post join user on forum_post.id_user=user.id_user where 1 order by id_post desc limit 5");

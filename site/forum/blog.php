@@ -6,6 +6,7 @@
         <div>
                 <span class="_2mNT6">
             <button class="_2pnz9 _2NzLI QHkFc btn_blog" style="background: rgb(17 110 238); border-color: rgb(17 110 238); color: rgb(255, 255, 253);">Bài đăng mới</button>
+            <button class="_2pnz9 _2NzLI QHkFc " style="background: rgb(17 110 238); border-color: rgb(17 110 238); color: rgb(255, 255, 253);"><a style="color:white" href="index.php?act=my_blog">Bài đăng của tôi</a></button>
         </span>     
     </div>
 

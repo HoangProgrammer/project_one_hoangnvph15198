@@ -542,6 +542,7 @@ case "shopping" :
         break;
 case "oder_shopping" :
     $payments ="quỵt";
+    $id_payments = $_GET['id_payments'];
     $data=[
         'id_user' => $_GET['id_user'],
         'id_caurse' => $_GET['id_caurse'],
@@ -553,8 +554,14 @@ case "oder_shopping" :
       'id_user' => $_GET['id_user'],
     ];
     $number_of_rows = number_rows_ordercaurse($dem_dong);
+    $number_rows_thanh_toan = number_rows_thanh_toan($dem_dong);
     if($number_of_rows == 0){
       insert_ordercaurse($data);
+      $data_2 = [
+          'trang_thai' => "Đã xác nhận",
+          'id_payments' => $id_payments,
+      ];
+      update_payments($data_2);
     //   delete_ordercaurse($value['id_payments']);
       // header('Location: index.php?action=shopping');
     }
