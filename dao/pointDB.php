@@ -24,10 +24,19 @@
         
 function insert_point($id_user,$id_lesson,$mark){
     $conn=connect();
-        $stmt=$conn->prepare("INSERT INTO point(id_user ,id_lesson ,point_total)
+    $stmt= $conn->prepare("SELECT point.point_total as point FROM point WHERE id_user=$id_user and id_lesson =$id_lesson");
+    $stmt->execute();
+if($stmt->rowCount() >0){
+            $stmt=$conn->prepare(" UPDATE point set point_total=$mark WHERE id_user=$id_user and id_lesson =$id_lesson");       
+            $stmt->execute();
+         return true;
+}else{
+      $stmt=$conn->prepare("INSERT INTO point(id_user ,id_lesson ,point_total)
          VALUES(:id_user,:id_lesson,:point_total)");
         $stmt->execute([":id_user"=>$id_user,":id_lesson"=>$id_lesson,":point_total"=>$mark]);
-    return true;
+    return true; 
+}
+     
     }
 
 

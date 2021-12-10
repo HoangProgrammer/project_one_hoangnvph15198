@@ -19,6 +19,18 @@ function getAll_lesson_in($id_lesson,$id_course){
  $row=$stmt->fetchAll(\PDO::FETCH_ASSOC);
    return $row;
 }
+
+function getAll_lesson_video($id_cause){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT  lesson.video as video FROM lesson JOIN
+    lesson_topics on lesson_topics.id_lesson_topics=lesson.id_lesson_topics JOIN course on course.id_caurse=lesson_topics.id_caurse
+    WHERE course.id_caurse=$id_cause ORDER by id_lesson ASC LIMIT 1");
+    $stmt->execute();
+ $row=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+   return $row;
+}
+
+
 function update_lesson_in($id_lesson){
     $conn=connect();
     $stmt= $conn->prepare("UPDATE lesson set type=1 WHERE id_lesson =$id_lesson");

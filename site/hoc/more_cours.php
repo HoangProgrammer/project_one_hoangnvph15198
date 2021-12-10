@@ -98,7 +98,7 @@
             </div>
 
             <!-- right -->
-<?php $course=Get_course_one($_GET['id_course']);
+<?php $course=Get_course_one($_GET['idCourse']);
 foreach(  $course as $val) { ;
    $price=$val['price'];
    $type=$val['type'];
@@ -113,7 +113,19 @@ foreach(  $course as $val) { ;
 ?>
             <div class="pcoded-module-right">
                 <div class="pcoded-module-right-video">
-                    <iframe class="pcoded-module-right-video-english" src="https://www.youtube.com/embed/gvtKHz7MWpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <?php    
+               
+                          $getAll_lesson_video=getAll_lesson_video($_GET['idCourse']); 
+                          foreach ($getAll_lesson_video as $va) { ?>
+<?php if($va['video']=='ko'){ ?>
+    <img width="100%" src="image/erro.png" alt="">
+ <?php } else{ ?>
+<iframe class="pcoded-module-right-video-english" src="<?=$va['video']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ <?php } ?>
+
+                          
+               <?php      }?> 
+               
 
                 </div>
                 <div class="pcoded-module-right-money">
@@ -126,7 +138,7 @@ foreach(  $course as $val) { ;
         <?php }elseif($type==1){ ?>
             <a class="btn btn-danger text-light" href="index.php?act=buyCourse&id=<?= $id_course ?>">  Mua ngay </a>
        <?php }else{?>
-   <a class="btn btn-primary text-light" href="index.php?act=Topic&idCourse=<?=$_GET['id_course'] ?>">  học ngay </a>     
+   <a class="btn btn-primary text-light" href="index.php?act=Topic&idCourse=<?=$_GET['idCourse'] ?>">  học ngay </a>     
    <?php } ?>
         
 

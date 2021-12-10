@@ -92,8 +92,10 @@
                                             'time' => $time,
                                         ];
                                         insert_comment_post($data);
-                                        header('forum/comment/' . $id_post . '');
+                                        
+
                                     }
+                                    header('Location:forum/comment/' . rtrim($id_post ,">"). '');
                                     break;
                                 case "add_post":
                                     if (isset($_POST['button'])) {
@@ -216,8 +218,8 @@
                                     require_once "hoc/learn.php";
                                     break;
                                 case "detail_course":
-                                    if (isset($_GET['id_course'])) {
-                                        $id_course = $_GET['id_course'];
+                                    if (isset($_GET['idCourse'])) {
+                                        $id_course = $_GET['idCourse'];
                                         $getAll_topic = getAll_topic($id_course);
                                     }
                                     require_once "hoc/more_cours.php";
@@ -252,16 +254,17 @@
                                 case "add_course":
                                     require_once "hoc/add_course.php";
                                     break;
-                                case "my_blog":
+                                case "MyBlog":
                                     require_once "forum/my_blog.php";
                                     break;
-                                case "fix_blog":
+                                case "FixBlog":
                                     require_once "forum/fix_blog.php";
                                     break;    
                                 case "delete_blog":
                                     $id_post = $_GET['id_post'];
+                                    delete_comment_all(  $id_post);
                                     delete_blog($id_post);
-                                    header("location:index.php?act=my_blog");
+                                    header("location:MyBlog");
                                     break;     
                                 case "logout":
                                     if (isset($_SESSION['user'])) {

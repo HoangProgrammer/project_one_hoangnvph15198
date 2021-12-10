@@ -9,10 +9,11 @@
 <div id="main">
 	<div class="head">
 		<div class="col-div-6">
-<p class="nav"> Bài Post Blog của tôi</p>
+<h2 class="nav"> Bài Viết của tôi của tôi</h2>
 
 </div>
-	
+	<br>
+	<br>
 
 <table class="table table-striped table-bordered">
         <thead>
@@ -39,10 +40,10 @@ foreach($cm as $key => $val){
 <td><?=$val['time'] ?></td>
 
 <td>
-    <a class="btn btn-primary" href="/du_an_1/index.php?act=detail_blog&id_post=<?= $val['id_post'] ?>">xem chi tiết</a>  
-    <a class="btn btn-primary" href="index.php?act=delete_blog&id_post=<?= $val['id_post'] ?>">Xóa</a>
+    <a class="btn  btn-primary " href="forum/comment/<?= $val['id_post'] ?>">xem chi tiết</a>  
+    <a class="btn  btn-danger" href="index.php?act=delete_blog&id_post=<?= $val['id_post'] ?>">Xóa</a>
     
-    <a class="btn btn-primary btn_blog" href="index.php?act=fix_blog&id_post=<?= $val['id_post'] ?>" style="background: rgb(17 110 238); border-color: rgb(17 110 238); color: rgb(255, 255, 253);">Sửa</a>
+    <a class="btn  btn-warning btn_blog" href="forum/FixBlog/<?= $val['id_post'] ?>" style=" color: rgb(255, 255, 253);">Sửa</a>
             
      
 </td>  

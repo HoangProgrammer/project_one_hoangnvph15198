@@ -50,8 +50,22 @@ $get_history = get_history($id_user);
                     <div class="wrap_social">
 
                         <div class="user_info">
+                        <?php   
+                        foreach($get_point as $va): 
+                           $selects= get_history_course($value['id_lesson']) ;
+                           
+                foreach( $selects as $select):
+                       if($va['point_total']==10){ ?>
+                        
+                      <?php  }else{   
+                          
+                          ?>                                                                                                                                 
+                    
+                         <?php   } endforeach; endforeach; ?> 
+                          
                             <input type="checkbox" name="chose_all[]" value='<?=$value['id_history']?>' class="select_chose">
-                            <h5 style="margin:10px"> <a href=""><?= $value['lessonName'] ?></a></h5> <span><?=get_time($value['timeHistory']); ?> </span>
+                            <h5 style="margin:10px"> <a href=""><?= $value['lessonName'] ?></a></h5> 
+                            <span><?=get_time($value['timeHistory']); ?> </span>
 
                        <?php   
                         foreach($get_point as $va): 

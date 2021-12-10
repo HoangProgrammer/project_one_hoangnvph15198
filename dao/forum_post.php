@@ -181,12 +181,20 @@ function count_comment_post($id_post){
     return $rows;
 }
 
+
 function delete_blog($id_post){
     $conn=connect();
     $stmt= $conn->prepare("DELETE FROM forum_post WHERE id_post = :id_post ");
     $stmt->execute(['id_post' => $id_post]);
     return true;
 }
+function delete_comment_all($id_post){
+    $conn=connect();
+    $stmt= $conn->prepare("DELETE FROM comments_post WHERE id_post =$id_post ");
+    $stmt->execute();
+    return true;
+}
+
 function delete_comment_child($id_comment,$list){
 $conn=connect();
     foreach ($list as $value){
