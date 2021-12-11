@@ -383,10 +383,9 @@
 }
 .hoc_vien .hv1{
     border-radius: 10px;
-    /* border: 1px solid #11ee92; */
+    border: 1px solid #ccc;
     padding: 10px;
     position: relative;
-    box-shadow: 0 5px 5px 2px #ccc;
     min-height: 180px;
     
 }

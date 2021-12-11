@@ -1,3 +1,8 @@
+<style>
+    *{
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
 <?php
 
 require_once('nav.php');
@@ -19,9 +24,18 @@ if (isset($_GET['action'])) {
     switch ($action) {
         // contact
         case 'contact':
+            $sql = "SELECT * FROM contact";
+            $data_contact = get_all($sql);
             require_once("./contact/contact.php");
             break;
-
+        case 'del_contact':
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+            }
+            $sql = "DELETE FROM contact WHERE id_contact = $id";
+            pdo_execute($sql);
+            header('location: index.php?action=contact');
+            break;
         case "statistical":
             require("./statistical.php");
             break;
