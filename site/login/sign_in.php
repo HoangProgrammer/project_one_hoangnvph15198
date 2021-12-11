@@ -43,7 +43,7 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
                 // var_dump($_SESSION['user']);die;
                 header('Location:../processAjax.php');
                 if (isset($_GET['id_course'])) {
-                    header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
+                    header('Location:../../index.html?act=detail_course&idCourse=' . $_GET['id_course'] );
                 }
                 else {
                     header('Location:../../index.html');
@@ -58,7 +58,7 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
                 $_SESSION['admin'] = $dataAdmin;
                 header('Location:../processAjax.php');
                 if (isset($_GET['id_course'])) {
-                    header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
+                    header('Location:../../index.html?act=detail_course&idCourse=' . $_GET['id_course'] );
                 }
                 else {
                     header('Location:../../index.html');

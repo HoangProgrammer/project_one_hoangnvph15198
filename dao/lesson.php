@@ -19,6 +19,15 @@ function getAll_lesson_in($id_lesson,$id_course){
  $row=$stmt->fetchAll(\PDO::FETCH_ASSOC);
    return $row;
 }
+function getAll_lesson_sum($id_course){
+    $conn=connect();
+    $stmt= $conn->prepare("SELECT COUNT(lesson.id_lesson) as tong  FROM course JOIN lesson_topics on
+     lesson_topics.id_caurse =course.id_caurse JOIN 
+     lesson ON lesson.id_lesson_topics=lesson_topics.id_lesson_topics WHERE course.id_caurse=$id_course");
+    $stmt->execute();
+ $row=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+   return $row;
+}
 
 function getAll_lesson_video($id_cause){
     $conn=connect();
@@ -83,6 +92,14 @@ function delete_lesson($id){
     $conn=connect();
         $stmt=$conn->prepare("DELETE FROM lesson WHERE id_lesson=?");
         $stmt->execute([$id]);
+    return true;
+    }
+
+    
+function delete_lesson_topic($id_topic){
+    $conn=connect();
+        $stmt=$conn->prepare("DELETE FROM lesson WHERE id_lesson_topics=$id_topic");
+        $stmt->execute();
     return true;
     }
 

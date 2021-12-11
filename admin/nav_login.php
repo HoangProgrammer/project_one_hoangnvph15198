@@ -10,8 +10,8 @@
 
     <?php if(isset($name_admin)) {?>
 <div class="profile-div">
-<p><i class="fa fa-user"></i><a href="index.php?action=edit_pass.php&id=<?php if (isset($admin_id)) echo $admin_id;?>">   &nbsp;&nbsp; đổi mật khẩu  </a> </p>
-<p><i class="fa fa-cogs"></i>  <a  href="index.php?action=edit_account.php&id=<?php if (isset($admin_id)) echo $admin_id;?> "> &nbsp;&nbsp; cài đặt </a>  </p>                
+<!-- <p><i class="fa fa-user"></i><a href="index.php?action=edit_pass.php&id=<?php if (isset($admin_id)) echo $admin_id;?>">   &nbsp;&nbsp; đổi mật khẩu  </a> </p> -->
+<p><i class="fa fa-cogs"></i>  <a  href="index.php?action=edit_account&id=<?php if (isset($admin_id)) echo $admin_id;?> "> &nbsp;&nbsp; cài đặt </a>  </p>                
 <p><i class="fa fa-power-off"></i> <a  href="index.php?action=log_out">&nbsp;&nbsp;đăng xuất</a> </p>
 </div>
 <?php  } ?>

@@ -45,7 +45,12 @@ foreach ($get_new_post as $value):
 ?>
 <div>
     <span class="_27Sfq"><span class="UI5NM"><a href="image/<?=$value['image']?>" rel="nofollow">
-    <img alt="" class="_34uU0 _1hNyT" src="image/<?=$value['image']?>">
+    <?php if( $value['image'] ==''){ ?>
+                    <img alt="no image" class="_34uU0 _1hNyT" src="./image/user_defaul.png">
+
+                <?php } else { ?> 
+                            <img alt="no image" class="_34uU0 _1hNyT" src="./image/<?=$value['image']?>">
+                    <?php }  ?>
 </a></span></span>
 
     <div class="_1a3Pv">
@@ -55,7 +60,7 @@ foreach ($get_new_post as $value):
         <div class="_2Nbkz"><h3><a class="_3ZcIW" href="index.php?act=detail_blog&id_post=<?= $value['id_post']?>"><?=$value['title_post']?></a>
     </h3><div class="_2I7YD">
       
-            <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021"><?=$value['time']?></span>
+            <span class="_1xBLK" itemprop="dateCreated" title="14:23, 15 tháng 11, 2021"><?=get_time($value['time'])?></span>
             <span class="_2D8L4"><span>từ 
                 <a href="https://www.duolingo.com/profile/phngkhnh704644"><?=$value['ten_user']?></a></span>
         </span>
