@@ -216,16 +216,4 @@ function find_coures_by_id($id) {
     return $data;
 }
 
-
-// function update_pass($data) {
-//     $conn = conn();
-
-//     $sql = "UPDATE course SET ho_ten = :ho_ten, mat_khau = :mat_khau,".
-//     " hinh = :hinh, kich_hoat= :kich_hoat, email= :email, vai_tro = :vai_tro ".
-//     " WHERE ma_kh = :ma_kh ";
-
-//     $statement = $conn->prepare($sql);
-
-//     $statement->execute($data);
-// }
 ?>
