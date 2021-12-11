@@ -22,6 +22,9 @@ header("Location:../index.html");
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
+        case 'route':
+            require_once './route/route.php';
+            break;
         // contact
         case 'contact':
             $sql = "SELECT * FROM contact";
