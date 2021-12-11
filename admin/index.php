@@ -17,6 +17,11 @@ header("Location:../index.html");
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
+        // contact
+        case 'contact':
+            require_once("./contact/contact.php");
+            break;
+
         case "statistical":
             require("./statistical.php");
             break;

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="trangchu/owlcarousel/assets/owl.theme.default.min.css">
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="trangchu/owlcarousel/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -280,26 +280,26 @@
                 <form action="">
                     <div class="input">
                         <label for="">Họ tên</label> <br>
-                        <input type="text">
+                        <input type="text" id="name">
                     </div>
     
                     <div class="input">
                         <label for="">Email</label> <br>
-                        <input type="email">
+                        <input type="email" id="email">
                     </div>
                     <div class="input">
                         <label for="">Số điện thoại</label> <br>
-                        <input type="number">
+                        <input type="number" id="number">
                     </div>
                     <div class="input">
                         <label for="">Khóa học</label> <br>
-                        <select name="course" id="">
+                        <select name="course" id="course">
                             <?php foreach ($data_course as $key => $value) { ?>
-                                <option value="<?php echo $value['id_caurse '] ?>"><?php echo $value['NameCaurse'] ?></option>
+                                <option value="<?php echo $value['NameCaurse'] ?>"><?php echo $value['NameCaurse'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <input class="btn btn-primary" type="submit" value="Submit" id="btn-submit" />
                 </form>
             </div>
     </div>
@@ -412,10 +412,40 @@
              });
     </script>
 
-<script type="text/javascript" language="javascript">
+    <script type="text/javascript" language="javascript">
              $(document).ready(function() {
                 $("#ta3").click(function(event){
                    $('#dc').load('/du_an_1/trangchu/dc.php?id=4');
+                });
+             });
+    </script>
+
+    <!-- insert form tư vấn -->
+    <script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#btn-submit").click(function(event){
+                    var name = $("#name").val();
+                    var email = $("#email").val();
+                    var number = $("#number").val();
+                    var course = $("#course").val();
+
+                    var dataString = 'name='+ name + '&email='+ email + '&number='+ number + '&course='+ course;
+
+                    if (name == "" || email == "" || number == "" || course == "") {
+                        alert("Vui lòng nhập đầy đủ thông tin để chúng tôi có thể liên hệ cho bạn sớm nhất");
+                    }
+                    else{
+                        $.ajax({
+                        type: "POST",
+                        url: "/du_an_1/trangchu/insert_form_tu_van.php",
+                        data: dataString,
+                        cache: false,
+                        success: function(result){
+                        alert(result);
+                        }
+                    });
+                    }
+                    return false;
                 });
              });
     </script>
@@ -425,7 +455,6 @@
         var data = document.querySelectorAll("ul li");
         for (let index = 0; index < data.length; index++) {
             var attr = data[index].getAttribute('data-text');
-            console.log(attr)
             data[index].onmousemove = function(){
                 btn.innerHTML = data[index].getAttribute('data-text');
             }            
