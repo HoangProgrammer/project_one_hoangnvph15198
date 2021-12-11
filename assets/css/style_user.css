@@ -270,7 +270,6 @@ dl, ol, ul {
     text-decoration: none;
 }
 ._27Sfq {
-    float: left;
     margin-top: 20px
 
 }
@@ -278,7 +277,6 @@ dl, ol, ul {
     display: inline-block;
 }
 ._1a3Pv {
-    float: right;
     margin: 20px 0 0 20px
 ;
 }
@@ -288,22 +286,21 @@ dl, ol, ul {
 }
 .mvAh1 {
     color: #afafaf;
-    float: right;
     font-weight: 700;
     padding-top: 4px;
     text-align: right;
 }
-
+.wrap_content{
+  width: 500px;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 20px;
+}
 ._1CjUZ {
     display: inline-block;
-    float: right;
     height: 30px;
-    padding-right: 5px;
-}
-._2Nbkz {
-    border-bottom: 2px
- solid #e5e5e5;
-    padding: 25px 0 25px 80px;
+    padding-left: 15px;
 }
 ._3ZcIW {
     color: #4b4b4b;
@@ -320,8 +317,8 @@ dl, ol, ul {
     margin: 0 5px;
 }
 ._2Nbkz {
-    border-bottom: 2px solid #e5e5e5;
-        padding: 25px 0 25px 80px;
+    display: flex;
+    justify-content: space-between;    
 }
 ._34uU0 {
     border: 2px

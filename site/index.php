@@ -278,11 +278,14 @@
                                     break;
 
                                 default:
+                                    $sql = "SELECT * FROM forum_post LIMIT 3";
+                                    $data_post = get_all($sql);
                                     require_once "home2.php";
                                     break;
                             }
                         } else {
-
+                            $sql = "SELECT * FROM forum_post LIMIT 3";
+                            $data_post = get_all($sql);
                             require_once "home2.php";
                         }
 

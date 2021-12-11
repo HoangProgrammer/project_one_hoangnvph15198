@@ -14,7 +14,7 @@
 </style>
 
 
-<div class="pcoded-main-container" style="margin-bottom: 15rem;">
+<div class="pcoded-main-container" style="margin-bottom: 30px;">
 <div class="main-body">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
@@ -90,42 +90,40 @@ foreach ($get_new_post as $value):
         
                 </a>
             </span>
-        </span>
-        <?php $get_comment_post=get_comment_post($value['id_post']);
-        
-     $count=   count($get_comment_post);
-        ?>
-        
-        <div class="_1a3Pv">
-            <div class="_24xio"><span class="mvAh1"><?= $count?></span>
-                <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg">
-            </div>
-        </div>
-        <div class="_2Nbkz">
-            <h3>
-                <a class="_3ZcIW" href="forum/comment/<?= $value['id_post'] ?>"><?php echo $value['title_post'] ?></a>
-            </h3>
-            <div class="_2I7YD">
-    
-                <span class="_1xBLK" itemprop="dateCreated" ><?=get_time($value['time'])?></span>
-                <span class="_2D8L4">
+            <span class="_2D8L4">
                     <span>
-                    từ 
-                    <a class="text-primary"><?=$value['ten_user']?></a>
+                    <a class="text-primary" style="text-transform: uppercase;color:black !important;font-weight:bold;"><?=$value['ten_user']?></a>
                     </span>
                 </span>
+        </span>
+
+     <?php $get_comment_post=get_comment_post($value['id_post']);  
+     $count=   count($get_comment_post);
+        ?>
+
+        <div class="_2Nbkz">
+            <div class="tiltle_post">
+                <h3>
+                    <a class="_3ZcIW" href="forum/comment/<?= $value['id_post'] ?>"><?php echo $value['title_post'] ?></a>
+                </h3>
+                <div class="wrap_content">
+                    <p><?php echo $value['content'] ?></p>
+                </div>
             </div>
+            <a class="_3ZcIW" href="forum/comment/<?= $value['id_post'] ?>"><img style="width:350px; border-radius: 10px" src="image/<?php echo $value['img'] ?>" alt=""></a>
         </div>
+        <!-- time và ng đăng -->
+    <div class="" style="border-bottom:2px solid #ccc; padding-bottom:10px">
+        <span class="_1xBLK" itemprop="dateCreated" ><?=get_time($value['time'])?></span>
+        <img class="_1CjUZ" src="//duolingo-forum-web.duolingo.com/images/comments.svg">
+        <span class="mvAh1"><?= $count?></span>
+    </div>
+
 
     </div>
 <?php } ?>
 
     </div>
-
-
-
-
-
     </div>
         </div>
 

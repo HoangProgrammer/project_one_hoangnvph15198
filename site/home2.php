@@ -195,3 +195,27 @@ if (empty($get_course_in)) {
     </div>
 </div>
 
+<!-- bài viết -->
+<div class="pcoded-main-container">
+    <div class="pcoded-content">
+        <h3 class="pcoded-content-name">Bài viết nổi bật</h3>
+        <div class="row">
+
+<?php
+// echo "<pre>";
+// var_dump($data_post);die;
+foreach ($data_post as $value){ ?>
+    <a href="forum/comment/<?php echo $value['id_post'] ?>" class="col-md-6 col-xl-4">
+        <div class="card daily-sales course-english">
+            <img class="course-english-img" src="image/<?php echo $value['img'] ?>" alt="">
+        </div>
+        <span class="course-english-tile">
+        <?php echo $value['title_post'] ?>
+        </span>
+
+<?php } ?>
+
+</div>
+    </div>
+</div>
+
