@@ -140,7 +140,7 @@ function get_one_by_user($id_post){
 
 function insert_post($data){
     $conn=connect();
-        $stmt=$conn->prepare("INSERT INTO forum_post(id_user,content,time,interactions,title_post)  VALUES( :id_user, :content, :time, :interactions, :title_post) ");   
+        $stmt=$conn->prepare("INSERT INTO forum_post(id_user,content,time,interactions,img,title_post)  VALUES( :id_user, :content, :time, :interactions, :img, :title_post) ");   
         $stmt->execute($data);
     return true;
 }

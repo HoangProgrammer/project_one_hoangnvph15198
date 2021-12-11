@@ -101,6 +101,9 @@
                                     if (isset($_POST['button'])) {
                                         $title = $_POST['title'];
                                         $content = $_POST['editor1'];
+                                        if (isset($_POST['img'])) {
+                                            $img=$_POST['img'];
+                                        }
                                         $time = date("Y-m-d H:i:s");
                                         $interactions = 1;
 
@@ -108,6 +111,7 @@
                                             'id_user' => $id_user,
                                             'content' => $content,
                                             'time' => $time,
+                                            'img' => $img,
                                             'interactions' => $interactions,
                                             'title_post' => $title,
                                         ];
