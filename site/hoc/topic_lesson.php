@@ -11,7 +11,7 @@ if(isset($_GET['new'])){
 
    insert_progress($id_user,$_GET['idCourse']) ; 
 ?>
-     <div class="pcoded-main-container">
+     <div class="pcoded-main-container" style="margin-bottom: 15rem;">
             <div class="pcoded-wrapper">
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">  
@@ -41,11 +41,11 @@ if(isset($_GET['new'])){
 
                             <i class="fas fa-plus"></i>
                            
-                            <div class="pcoded-module-left-noidung-item-name">
+                            <div data-topic="<?=$id_lesson_topics?>" class="topic pcoded-module-left-noidung-item-name">
                                 <span><?=$topicName ?></span>
                             </div>
 
-                            <div>
+                            <div >
                                 <span><?=  $sumLesson ?> bài học</span>
                             </div>
 
@@ -53,7 +53,7 @@ if(isset($_GET['new'])){
                         
                        
                        <?php foreach( $get_lesson as $val): extract($val);  ?>
-                        <div class="course-lesson__body" >
+                        <div class="course-lesson__body lesson<?=$id_lesson_topics?>" >
                             <div class="course-lesson__body-item">
                                 <a  class="course-lesson__body-item-title">
                                     <i class="fas fa-play-circle text-primary"></i>
@@ -113,29 +113,45 @@ if(isset($_GET['new'])){
             </div>
         </div>
     </footer> -->
-<script>
 
-    $('.course-lesson__body').slideDown();
- 
-    var pcoded = document.querySelectorAll('.pcoded-module-left-noidung-item');
-    var course = document.querySelectorAll('.course-lesson__body');
+
+
+<script>
     var dem = 0;
 
+$('.topic').on('click', function(e) {
+ 
+   var main= $(this).data('topic')
+$('.lesson'+main).slideToggle(1)
 
-    for(let i=0; i <= pcoded.length; i++){ 
-        pcoded[i].onclick = function(e){ 
-            dem++;
-             for(let i=0; i < course.length; i++) {
-            if(dem % 2 ==0){           
-  course[i].style.display = "block";         
-            } else{
-                course[i].style.display = "none";
+})
+
+
+
+
+    $('.course-lesson__body').show();
+ 
+    // var pcoded = document.querySelectorAll('.pcoded-module-left-noidung-item');
+    // var course = document.querySelectorAll('.course-lesson__body');
+    // var dem = 0;
+
+
+//     for(let i=0; i <= pcoded.length; i++){ 
+//         var data= pcoded[i].attributes('data-topic')
+//         alert(data);
+//         pcoded[i].onclick = function(e){ 
+//             dem++;
+//              for(let i=0; i < course.length; i++) {
+//             if(dem % 2 ==0){           
+//   course[i].style.display = "block";         
+//             } else{
+//                 course[i].style.display = "none";
               
-            }
+//             }
            
-        }
-        }
-    }
+//         }
+//         }
+//     }
 </script>
 
 

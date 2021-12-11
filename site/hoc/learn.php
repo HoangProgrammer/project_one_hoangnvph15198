@@ -49,8 +49,8 @@ if(isset($_GET['lesson'])){
             </div>
 
 
-            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: calc(100vh - 70px);">
-                <div class="navbar-content scroll-div" style="overflow: hidden; width: 100%; height: calc(100vh - 70px);">
+            <div class="slimScrollDiv" style="position: relative; overflow: scroll; width: 100%; height: calc(100vh - 70px);">
+                <div class="navbar-content scroll-div" style="overflow: scroll; width: 100%; height: calc(100vh - 70px);">
                     <ul class="nav pcoded-inner-navbar">
                         <?php
                         if (isset($_GET['idCourse'])) {
@@ -58,39 +58,23 @@ if(isset($_GET['lesson'])){
                             $getAll_topic = getAll_topic($id); // lấy ra chủ dề của khóa học đó
                         }
                         foreach ($getAll_topic as $val) : extract($val); ?>
-                            <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item menu_item active">
+                            <li id="" data-li="<?=$id_lesson_topics?>" data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="main-li nav-item menu_item active">
                                 <a  class="nav-link ">
                                     <span class="pcoded-micon">
                                         <i class="fas fa-circle " style="color:blue"></i>
                                     </span>
                                     <span class="pcoded-mtext"><?= $topicName ?></span>
                                 </a>
-
-
-
                                 <!-- note -->
-
-                                <?php  
-                              
-                                $getAll_lesson = getAll_lesson($id_lesson_topics);
-                                
+                                <?php                           
+                                $getAll_lesson = getAll_lesson($id_lesson_topics);                             
                                  // lấy ra khóa học học của chủ đề
                                 foreach ($getAll_lesson as $val) : extract($val); 
-                                
-              
-                       
-                                  
-                    
-                   
-                    
-                          
-                                 
+                     
                                 ?>
 
-                                      <!-- note -->
-                                                 
-                                       
-                                    <ul  style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1 li_lesson">
+                                      <!-- note -->                                                                     
+                                    <ul id="" data-lesson="<?=$id_lesson_topics?>" style="padding-left: 0px;" class="lesson<?=$id_lesson_topics?> nav pcoded-inner-navbar baitap1 li_lesson">
                                    
 
                                     
@@ -103,7 +87,7 @@ if(isset($_GET['lesson'])){
                                         </li>
                                     </ul>
 
-                                    <ul style="padding-left: 0px;" class="nav pcoded-inner-navbar baitap1">
+                                    <ul id="" data-quiz="<?=$id_lesson_topics?>" style="padding-left: 0px;" class="quiz<?=$id_lesson_topics?> nav pcoded-inner-navbar baitap1">
                                         <li    data-username="Table bootstrap datatable footable" class="nav-item ">
                                             <a  href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>&quiz" class="nav-link ">
                                           
@@ -344,7 +328,7 @@ if(isset($_GET['lesson'])){
 
                             $get_lesson = Get_lesson_one($_GET['lesson']);
                             foreach ($get_lesson as $value) : ?>
-                                <iframe width="100%" height="100%" src="<?php if ($value['video'] == "chưa có") {
+                                <iframe width="100%" height="100%" src="<?php if ($value['video'] == "ko") {
                                                                         } else {
                                                                             echo $value['video'];
                                                                         } ?>" title="YouTube video player"></iframe>
@@ -485,24 +469,36 @@ if(isset($_GET['lesson'])){
 
         <?php  // phần tính điểm
         if (isset($_POST['final'])) {
-            $arr = $_POST;
+            $arr = $_POST;       
+         
             $id_lesson = $_POST['id_lesson'];
             $id_user = $_POST['id_user'];
-            delete_point($id_lesson, $id_user);
+            // delete_point($id_lesson, $id_user);
             $mark = 0;
-            $check = 'checked';
-            foreach ($arr as $key => $val) {
-                if (is_numeric($key)) {
-                    $final_test = final_test($key);
+           $array = array();
+           $array2 = array();
+            foreach ($arr as $keys => $val) {
+                if (is_numeric($keys)) {
+                    $final_test = final_test($keys);
                     foreach ($final_test as $key => $value) {
+                        
+                // var_dump($va);
+
+            
                         if ($val == $value['answer']) {
                             $mark += 1;
-                            $check = 'checked';
-                        } else {
-                            $check = 'checked';
-                        }
+                            array_push(  $array2 ,$keys);
+                      
+                        } else { 
+                           array_push(  $array ,$keys);
+                        
                     }
                 }
+            }
+            }
+            var_dump(intval($array));
+            if($mark==10){
+                $_SESSION['success'] ="chúc mừng bạn đã hoàn thành bài học";
             }
             insert_point($id_user, $id_lesson, $mark);
         }
@@ -529,7 +525,7 @@ if(isset($_GET['lesson'])){
                                     echo "0";
                                 } else {
                                     echo  $value['point_total'];
-                                } ?> points (graded)</span>
+                                } ?> / 10 (graded)</span>
                     </div>
                     <?php
                     $count = 0;
@@ -540,33 +536,81 @@ if(isset($_GET['lesson'])){
                     $quiz = getAll_quiz($id_learn);
                     foreach ($quiz as $val) : extract($val); ?>
 
+ 
                         <div class="container-exercise-question">
-                            <div class="container-exercise-question-name">
+                            <div  class="container-exercise-question-name ">
                                 <span>Câu <?= $count += 1 ?>:</span>
+                                <input type="hidden" name="question[]" value="<?= $count?>">
                             </div>
-                            <div class="container-exercise-question-problem">
+                            <div class="container-exercise-question-problem  <?php if($va==$id_quiz){echo "btn-danger";} ?> " >
                                 <span><?= $question ?></span>
                             </div>
-                            <label class="container-exercise-question-answer  ">
-                                <input name="<?= $id_quiz ?>" class="a<?= $id_quiz ?>" value="a" type="radio">
+                            <label  class="container-exercise-question-answer  ">
+                                <input name="<?= $id_quiz ?>" value="a" type="radio">
                                 <span><?= $Selection1 ?></span>
                             </label>
                             <label class="container-exercise-question-answer ">
-                                <input name="<?= $id_quiz ?>" class="b<?= $id_quiz ?>" value="b" type="radio">
+                                <input name="<?= $id_quiz ?>" value="b" type="radio">
                                 <span><?= $Selection2 ?></span>
                             </label>
                             <label class="container-exercise-question-answer ">
-                                <input name="<?= $id_quiz ?>" class="c<?= $id_quiz ?>" value="c" type="radio">
+                                <input name="<?= $id_quiz ?>" value="c" type="radio">
                                 <span><?= $Selection3 ?></span>
                             </label>
 
                         </div>
+                      
                     <?php endforeach; ?>
 
                     <button name="final" class="final-test btn btn-primary">Nộp bài</button>
                 </form>
             </div>
         </div>
+
+        <div class="pcoded-main-container " style="margin-bottom: 15rem;">
+        
+            <div class="container-exercise">
+          
+         <?php if(isset($array) && !empty($array)){ 
+           echo  "<h4 class='text-danger'>Các Câu Sai</h4>";
+        
+              foreach ($array as $vals) :
+                     
+               foreach ($quiz as $val) : extract($val); 
+               if( intval($vals)== $id_quiz){  ?>
+                                                     
+                <div class="container-exercise-question">       
+                            <div class="container-exercise-question-problem  btn-danger " >
+                                <span><?= $question ?></span>
+                            </div>                 
+                        </div>       
+
+  <?php }  endforeach; endforeach; }else{ ?> 
+    
+    <?php  }?>
+   </div>
+            <div class="container-exercise">
+          
+         <?php if(isset($array2) && !empty($array2)){ 
+           echo  "<h4 class='text-danger'>Các Câu Đúng</h4>";
+        
+              foreach ($array2 as $vals) :
+                     
+               foreach ($quiz as $val) : extract($val); 
+               if( intval($vals)== $id_quiz){  ?>
+                                                     
+                <div class="container-exercise-question">       
+                            <div class="container-exercise-question-problem  btn-success " >
+                                <span><?= $question ?></span>
+                            </div>                 
+                        </div>       
+
+  <?php }  endforeach; endforeach; }else{ ?> 
+    
+    <?php  }?>
+   </div>
+            </div>
+
 
     <?php } ?>
 
@@ -591,17 +635,50 @@ if(isset($_GET['lesson'])){
     </footer> -->
 
 
-
+   
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/vendor-all.min.js"></script>
     <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/js/pcoded.min.js"></script>
     <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
     <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  
+   
+    <?php  
+    if (isset(  $_SESSION['success'] )) { ?>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: '<?php echo  $_SESSION['success']  ?>',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  </script>
+
+<?php unset(  $_SESSION['success'] );  }  ?>
+
+
   
   <script>
+
+
+
         $(document).ready(function() {
+
+//             id="main" data-li
+// id="lesson" data-lesson
+// id="quiz" data-quiz
+
+$('.main-li').on('click', function(e) {
+
+   var main= $(this).data('li')
+$('.lesson'+main).slideToggle(1)
+$('.quiz'+main).slideToggle(1)
+
+})
+
+
+
 
             $('.accept_btn').on('click', function(e) {
                 e.preventDefault();
@@ -664,44 +741,47 @@ if(isset($_GET['lesson'])){
             })
 
         })
-        var menu = document.querySelector('.mobile-menu');
-        var baitap = document.querySelectorAll('.baitap1');
-        var dem = 0;
-        menu.onclick = function(e) {
-            dem++;
-            for (let i = 0; i < baitap.length; i++) {
 
-                if (dem % 2 == 0) {
-                    baitap[i].style.display = "block";
-                    // baitap[i].classList.add('baitap');
+        // var menu = document.querySelector('.mobile-menu');
+        // var baitap = document.querySelectorAll('.baitap1');
+        // var dem = 0;
+        // menu.onclick = function(e) {
+        //     dem++;
+        //     for (let i = 0; i < baitap.length; i++) {
 
-                } else {
-                    baitap[i].style.display = "none";
+        //         if (dem % 2 == 0) {
+        //             baitap[i].style.display = "block";
+        //             // baitap[i].classList.add('baitap');
 
-                }
-            }
-        }
+        //         } else {
+        //             baitap[i].style.display = "none";
 
-
-        var inner = document.querySelectorAll('.menu_item');
-        var baitap = document.querySelectorAll('.baitap1');
+        //         }
+        //     }
+        // }
 
 
-        var dem = 0;
+        // var inner = document.querySelectorAll('.menu_item');
+        // var baitap = document.querySelectorAll('.baitap1');
 
-        for (let i = 0; i < inner.length; i++) {
-            inner[i].onclick = function(e) {
-                if (dem % 2 == 0) {
-                    // baitap[i].classList.add('baitap');
-                    baitap[i].style.display = "block";
 
-                    dem++;
-                } else {
-                    baitap[i].style.display = "none";
-                    dem++;
-                }
-            }
-        }
+        // var dem = 0;
+
+        // for (let i = 0; i < inner.length; i++) {
+        //     inner[i].onclick = function(e) {
+        //         if (dem % 2 == 0) {
+        //             // baitap[i].classList.add('baitap');
+        //             baitap[i].style.display = "block";
+
+        //             dem++;
+        //         } else {
+        //             baitap[i].style.display = "none";
+        //             dem++;
+        //         }
+        //     }
+        // }
+
+
         $(document).ready(function() {
             $('a.rep_a').click(function() {
 

@@ -33,7 +33,7 @@ foreach($cm as $key => $val){
 <td><?=$val['ten_user'] ?></td>
 <td><?=$val['title_post']  ?></td>
 <td><?php echo $count_comment_post['so_luong'] ?></td>
-<td><?=$val['time'] ?></td>
+<td><?=get_time($val['time']) ?></td>
 
 <td>
     <a class="btn btn-primary" href="/du_an_1/forum/comment/<?= $val['id_post'] ?>">xem chi tiết</a>  

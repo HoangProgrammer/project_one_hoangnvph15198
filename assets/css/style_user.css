@@ -335,21 +335,21 @@ dl, ol, ul {
 }
 
 ._2mNT6 {
-    bottom: auto;
+
     box-shadow: none;
     display: inline-block;
     float: right;
-    position: relative;
+    position: absolute;
     right: auto;
 }
 
 ._2mNT6 {
     border-radius: 100px;
-    bottom: 115px;
+    top:0;
     box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
     color: #fff;
     font-size: 30px;
-    position: fixed;
+    position: absolute;
     right: 25px;
     z-index: 2;
 }
@@ -380,16 +380,7 @@ dl, ol, ul {
     user-select: none;
     vertical-align: middle;
 }
-._2mNT6 {
-    border-radius: 100px;
-    bottom: 115px;
-    box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
-    color: #fff;
-    font-size: 30px;
-    position: fixed;
-    right: 25px;
-    z-index: 2;
-}
+/*  */
 .waRHZ {
     display: inline-block;
     margin: 0 0 50px;

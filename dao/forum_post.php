@@ -17,6 +17,8 @@ function get_post(){
     }
     return $rows;
 }
+
+
 function get_post_other($id){
     $conn=connect();
     $stmt= $conn->prepare("SELECT forum_post.id_post as id_post ,forum_post.title_post as title_post , COUNT( DISTINCT comments_post.id_comment_post)as comment  FROM 

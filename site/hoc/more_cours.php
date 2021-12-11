@@ -108,7 +108,7 @@ foreach(  $course as $val) { ;
         'id_user' => $id_user,
     ];
     $number_rows_thanh_toan = number_rows_thanh_toan($data);
-    var_dump($number_rows_thanh_toan);
+    // var_dump($number_rows_thanh_toan);
 }
 ?>
             <div class="pcoded-module-right">
@@ -145,7 +145,7 @@ foreach(  $course as $val) { ;
  
         <!-- <a class="btn btn-danger text-light" href="index.php?act=buyCourse "> Mua ngay </a> -->
        
-
+<?php $getAll_lesson_sum=getAll_lesson_sum($_GET['idCourse']) ?>
                 </form>
                 <div class="pcoded-module-right-parameter">
                     <ul class="pcoded-module-right-parameter-item">
@@ -155,12 +155,12 @@ foreach(  $course as $val) { ;
                         </li>
                         <li>
                             <i class="fas fa-film"></i>
-                            <span>Tổng số 8 bài học</span>
+                            <span>Tổng số <?=$getAll_lesson_sum[0]['tong']?> bài học</span>
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="fas fa-clock"></i>
                             <span>Thời lượng 02 giờ 15 phút</span>
-                        </li>
+                        </li> -->
                         <li>
                             <i class="fab fa-pied-piper"></i>
                             <span>Học mọi lúc, mọi nơi</span>

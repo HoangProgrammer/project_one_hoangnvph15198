@@ -169,6 +169,7 @@ if($insert==true){
                     $item_topic = $_POST['item_topic'];           
          $item=implode(',',$item_topic);
              // var_dump( $item);
+             delete_lesson_topic( $item);
              delete_topicALL( $item);
              header("location:index.php?action=detail&idCourse=".$id_course."");
              }
@@ -254,7 +255,8 @@ if($insert==true){
             if (isset($_GET['id'])&& isset($_GET['idCourse'])) {
                 $id = $_GET['id']; 
                 $idCourse = $_GET['idCourse']; 
-  $delete= delete_topic( $id);      
+                delete_lesson_topic( $id );
+                $delete= delete_topic($id);      
               if( $delete)     {
                  header("Location:index.php?action=detail&idCourse=". $idCourse." ");     
               }                     
@@ -636,6 +638,9 @@ case "delete_blog":
     
   case "request":
     require("./rating/request_rating.php");
+    break;
+  case "edit_account":
+require("changer_pass.php");
     break;
   case "log_out":
   unset($_SESSION['Admin']);

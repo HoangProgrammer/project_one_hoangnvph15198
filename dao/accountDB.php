@@ -1,7 +1,7 @@
 <?php  
 
 function Get_account(){
-    $stmt="SELECT * FROM user";
+    $stmt="SELECT * FROM user Where role=0";
    $result= get_all( $stmt); 
  return $result;
 }
