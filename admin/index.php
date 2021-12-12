@@ -6,6 +6,7 @@
 <?php
 
 require_once('nav.php');
+require_once('./../dao/route.php');
 
 
 
@@ -22,9 +23,93 @@ header("Location:../index.html");
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
     switch ($action) {
+        case 'add_route_form':
+            require_once './route/add_route_form.php';
+            break;
+        case 'add_route':
+            if (isset($_POST['submit'])) {
+                $ava = $_FILES['img'];
+                $check = strpos($ava['type'], 'image');
+                    if ($check === false) {
+                        $_SESSION['error_update'] = 'File is not a image';
+                        // header('location: /du_an_mau/form_update.php');
+                        die;
+                    }
+                
+                    if ($ava['size'] >= 5000000) {
+                        $_SESSION['error_update'] = 'Image is too large';
+                        // header('location: /du_an_mau/form_update.php');
+                        die;
+                    }
+                
+                    $foderImg = './../image/';
+                    $anhLuu = $foderImg . $ava["name"];
+                    move_uploaded_file($ava['tmp_name'], $anhLuu);
+                    $url =$ava["name"];  
+
+                    $data = [
+                        "id_route" => $_POST['id_route'],
+                        "route" => $_POST['route'],
+                        "img" => $url,
+                    ];
+                    add($data);
+                    header('location: index.php?action=route');
+            }
+            break;
         case 'route':
+            $sql = "SELECT * FROM routee";
+            $data_route = get_all($sql);
             require_once './route/route.php';
             break;
+        case 'update_route_form':
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $data_route_update = findById($id);
+            }
+            require_once './route/update_route.php';
+            break;
+        case 'update_route':
+            if (isset($_POST['submit'])) {
+                $anh = $_FILES['new_img'];
+                if ($anh['size'] == 0) {
+                    $url = $_POST['old_img'];
+                }
+                else {
+                    $ava = $_FILES['new_img'];
+                    $check = strpos($ava['type'], 'image');
+                    if ($check === false) {
+                        $_SESSION['error_update'] = 'File is not a image';
+                        header('location: /du_an_mau/form_update.php');
+                        die;
+                    }
+                
+                    if ($ava['size'] >= 5000000) {
+                        $_SESSION['error_update'] = 'Image is too large';
+                        header('location: /du_an_mau/form_update.php');
+                        die;
+                    }
+                
+                    $foderImg = './../image/';
+                    $anhLuu = $foderImg . $ava["name"];
+                    move_uploaded_file($ava['tmp_name'], $anhLuu);
+                    $url =$ava["name"];  
+
+                }
+                $data = [
+                    "id_route" => $_POST['id_route'],
+                    "route" => $_POST['route'],
+                    "img" => $url,
+                ];
+                update($data);
+            }
+            break;
+
+            case 'delete_route':
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
+                    delete($id);
+                }
+                break;
         // contact
         case 'contact':
             $sql = "SELECT * FROM contact";

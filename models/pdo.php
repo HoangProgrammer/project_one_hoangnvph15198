@@ -105,6 +105,8 @@ function pdo_query($sql){
  */
 function pdo_query_one($sql){
     $sql_args = array_slice(func_get_args(), 1);
+    var_dump($sql_args);die;
+
     try{
         $conn = connect();
         $stmt = $conn->prepare($sql);
@@ -238,18 +240,6 @@ function getAllKh(){
 
     return $data;
 }
-function update_pass($data) {
-    $conn = connect();
-
-    $sql = "UPDATE khach_hang SET ho_ten = :ho_ten, mat_khau = :mat_khau,".
-    " hinh = :hinh, kich_hoat= :kich_hoat, email= :email, vai_tro = :vai_tro ".
-    " WHERE ma_kh = :ma_kh ";
-
-    $statement = $conn->prepare($sql);
-
-    $statement->execute($data);
-}
-
 
 
 ?>
