@@ -52,7 +52,7 @@ if (isset($_GET['action'])) {
                         "route" => $_POST['route'],
                         "img" => $url,
                     ];
-                    add($data);
+                    add_route($data);
                     header('location: index.php?action=route');
             }
             break;
@@ -100,14 +100,14 @@ if (isset($_GET['action'])) {
                     "route" => $_POST['route'],
                     "img" => $url,
                 ];
-                update($data);
+                update_route($data);
             }
             break;
 
             case 'delete_route':
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
-                    delete($id);
+                    delete_route($id);
                 }
                 break;
         // contact

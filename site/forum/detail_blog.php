@@ -107,7 +107,7 @@ if (isset($_GET['id_post'])) {
                                                 <div>
                                                     <button name="button" class="_1qPrY _2pnz9 _2NzLI QHkFc" style="background: rgb(28, 176, 246); border-color: rgb(24, 153, 214); color: rgb(255, 255, 253);">Đăng</button>
                                                     <span class="_3cCqs">
-                                                        <button type="reset" name="cancel" class="_3kaGF _1O1Bz _2NzLI QHkFc" style="background: rgb(255, 255, 253); border-color: rgb(229, 229, 229); color: rgb(175, 175, 175);">Hủy</button>
+                                                        <button type="reset" name="cancel" class="_3kaGF _1O1Bz _2NzLI QHkFc" style="background: rgb(255, 255, 253); border-color: rgb(229, 229, 229); color: rgb(175, 175, 175);padding:10px">Hủy</button>
                                                     </span>
                                                 </div>
                                             </div>

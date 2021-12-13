@@ -23,7 +23,7 @@
         return $data;
     }
 
-    function update($data) {
+    function update_route($data) {
         $conn = connect();
     
         $sql = "UPDATE routee SET route = :route, img=:img ".
@@ -36,7 +36,7 @@
         header('location: index.php?action=route');
     }
 
-    function delete($id){
+    function delete_route($id){
         $con = connect();
         $sql = "delete from routee where id_route=:id";
         $stm = $con->prepare($sql);
@@ -45,7 +45,7 @@
 
     }
 
-    function add($param){
+    function add_route($param){
         $con = connect();
 
         $sql = "INSERT INTO routee(id_route, route, img) " .
