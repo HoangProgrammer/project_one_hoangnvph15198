@@ -99,23 +99,41 @@
                                     break;
                                 case "add_post":
                                     if (isset($_POST['button'])) {
-                                        $title = $_POST['title'];
-                                        $content = $_POST['editor1'];
-                                        if (isset($_POST['img'])) {
-                                            $img=$_POST['img'];
-                                        }
-                                        $time = date("Y-m-d H:i:s");
-                                        $interactions = 1;
+                                        if (isset($_FILES['img'])) {
+                                            $ava=$_FILES['img'];
 
-                                        $data = [
-                                            'id_user' => $id_user,
-                                            'content' => $content,
-                                            'time' => $time,
-                                            'img' => $img,
-                                            'interactions' => $interactions,
-                                            'title_post' => $title,
-                                        ];
-                                        insert_post($data);
+                                            $check = strpos($ava['type'], 'image');
+                                            if ($check === false) {
+                                                $_SESSION['error_update'] = 'File is not a image';
+                                                // header('location: /du_an_mau/form_update.php');
+                                                die;
+                                            }
+                                        
+                                            if ($ava['size'] >= 5000000) {
+                                                $_SESSION['error_update'] = 'Image is too large';
+                                                // header('location: /du_an_mau/form_update.php');
+                                                die;
+                                            }
+                                        
+                                            $foderImg = 'image/';
+                                            $anhLuu = $foderImg . $ava["name"];
+                                            move_uploaded_file($ava['tmp_name'], $anhLuu);
+
+                                            $img = $ava['name'];
+                                            $time = date("Y-m-d H:i:s");
+                                            $interactions = 1;
+    
+                                            $data = [
+                                                'id_user' => $id_user,
+                                                'content' => $_POST['editor1'],
+                                                'time' => $time,
+                                                'img' => $img,
+                                                'interactions' => $interactions,
+                                                'title_post' => $_POST['title'],
+                                            ];
+                                            // var_dump($data);die;
+                                            insert_post($data);
+                                        }
                                     }
                                     header('Location:forum');
                                     break;

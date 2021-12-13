@@ -150,7 +150,7 @@ foreach ($get_new_post as $value):
                         </div>
                         
                         <!-- heading -->
-                        <form action="index.php?act=add_post" method="POST" class="modal-body">
+                        <form action="index.php?act=add_post" method="POST" class="modal-body"  enctype="multipart/form-data">
                             <div class="form-group">
                                 <input type="text" name="title" id="user_name" class="form-control" placeholder="Tiêu Đề" />
                             </div>
