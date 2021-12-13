@@ -56,41 +56,11 @@ if (isset($_GET['id_post'])) {
                                 <div class="_2povu" itemprop="text">
                                     <?php echo $rows['content'] ?>
                                 </div>
-                                <!-- <div class="_2povu" itemprop="text"><p>Hi!</p>
-    <p>Bạn đã chán những kiểu viết thông thường trên Duolingo? Bạn muốn làm cho bài đăng, phần bình luận của mình thêm sinh động với những kiểu chữ khác nhau? Bài viết này sẽ giúp bạn thực hiện được điều đó.</p>
-    <p>1) Để tạo khoảng cách giữa hai đoạn văn:</p>
-    <p>Sau khi nhập xong đoạn văn thứ nhất, các bạn nhấn phím Enter 2 lần, sau đó nhập tiếp đoạn văn thứ hai. Tiếp tục làm như vậy cho các đoạn văn tiếp theo cho đến khi nhập hết bài.</p>
-    <p>2) Để in nghiêng chữ:</p>
-    <p>Các bạn nhập 1 dấu * hoặc _ trước và sau nội dung muốn in nghiêng.</p>
-    <p>bạn sẽ được <em>nội dung</em></p>
-    <p>III) Để in đậm chữ:</p>
-    <p>Các bạn nhập 2 dấu * trước và sau nội dung muốn in đậm. bạn sẽ được <strong>nội dung</strong></p>
-    <p>3) <code>Để highlight chữ</code>: Các bạn thêm ` trước và sau đoạn muốn highlight.</p>
-    <p>. Bạn sẽ đc <code>nội dung</code></p>
-    <p>V) Để phóng to chữ:</p>
-    <p>Kiểu 1: Gõ hai dấu ##  trước nội dung muốn hiển thị</p>
-    <p>bạn sẽ được:</p>
-    <h2>Nội dung</h2>
-    <p>Kiểu 2:Gõ ba dấu ###  trước nội dung muốn hiển thị</p>
-    <p>bạn sẽ được:</p>
-    <h3>nội dung</h3>
-    <p>4) In mờ:Gõ sáu dấu ######  trước nội dung muốn hiển thị</p>
-    <p>bạn sẽ được:</p>
-    <h6>nội dung</h6>
-    <p>5) Để tạo cột trích dẫn: Nhập &gt; trước câu muốn tạo trích dẫn</p>
-    <p>Riêng phần bình luận, sau khi đã nhập nội dung phần bình luận, chọn mục Sửa và thêm &gt; phía trước các câu muốn tạo trích dẫn. Tùy vào bạn muốn tạo mục trích dẫn có bao nhiêu vạch phía trước, thì thêm bấy nhiêu dấu &gt;</p>
-    <p>bạn sẽ được:</p>
-    <blockquote>
-    <p>nội dung</p>
-    </blockquote>
-    <p>6) Để tạo link trích dẫn, dẫn nguồn: 
-    Các bạn nhập:[ tên muốn hiển thị ] (link bài đăng)</p>
-    <p>7) Để đăng hình ảnh: </p>
-    <p>Các bạn nhập: ![](link ảnh)</p>
-    <p>8) Để tạo vạch ngăn cách giữa các đoạn văn: Nhập 3 hoặc 4 dấu gạch ngang ____</p>
-</div> -->
 
                             </div>
+
+
+
                             <div class="_1DQz6">
                                 <div>
                                     <?php
@@ -211,14 +181,13 @@ if (isset($_GET['id_post'])) {
 
                 get_comments_post_fuc($datas, $parent = 0,$user=$id_user);
               
-                function delete($data,$id_post){
-                    foreach($data as $val){
-                        if($val['id_comment_post']==$id_post){
+                // function delete($data,$id_post){
+                //     foreach($data as $val){
+                //         if($val['id_comment_post']==$id_post){
                             
-                        }
-                    }
-                    
-                }
+                //         }
+                //     }            
+                // }
                 ?>
                 
 
@@ -259,14 +228,14 @@ if (isset($_GET['id_post'])) {
 
                           var parent=$(this).data('id');
                           
-                          $('#form'+parent).slideToggle()
+                          $('#form'+parent).slideToggle(1)
                         })     
                         
                         $('a.edit_a').click(function() {
 
                           var parent=$(this).data('edit');
                           
-                          $('#form_edit'+parent).slideToggle()
+                          $('#form_edit'+parent).slideToggle(1)
                         })     
                     })
                 </script>

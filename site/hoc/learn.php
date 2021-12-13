@@ -1,8 +1,8 @@
 <?php
-if(isset($_GET['lesson'])){
-    $times=date('Y-m-d H:i:s');
-    insert_history($id_user,$times,$_GET['lesson']);
-    insert_progress_lesson($_GET['lesson'],$_GET['idCourse'],$id_user);
+if (isset($_GET['lesson'])) {
+    $times = date('Y-m-d H:i:s');
+    insert_history($id_user, $times, $_GET['lesson']);
+    insert_progress_lesson($_GET['lesson'], $_GET['idCourse'], $id_user);
 }
 
 ?>
@@ -23,10 +23,14 @@ if(isset($_GET['lesson'])){
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    
+
     <link rel="stylesheet" href="site/hoc/cours.css">
     <link rel="stylesheet" href="assets/css/style_user.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+
+
+
 </head>
 <html>
 
@@ -58,39 +62,39 @@ if(isset($_GET['lesson'])){
                             $getAll_topic = getAll_topic($id); // lấy ra chủ dề của khóa học đó
                         }
                         foreach ($getAll_topic as $val) : extract($val); ?>
-                            <li id="" data-li="<?=$id_lesson_topics?>" data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="main-li nav-item menu_item active">
-                                <a  class="nav-link ">
+                            <li id="" data-li="<?= $id_lesson_topics ?>" data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="main-li nav-item menu_item active">
+                                <a class="nav-link ">
                                     <span class="pcoded-micon">
                                         <i class="fas fa-circle " style="color:blue"></i>
                                     </span>
                                     <span class="pcoded-mtext"><?= $topicName ?></span>
                                 </a>
                                 <!-- note -->
-                                <?php                           
-                                $getAll_lesson = getAll_lesson($id_lesson_topics);                             
-                                 // lấy ra khóa học học của chủ đề
-                                foreach ($getAll_lesson as $val) : extract($val); 
-                     
+                                <?php
+                                $getAll_lesson = getAll_lesson($id_lesson_topics);
+                                // lấy ra khóa học học của chủ đề
+                                foreach ($getAll_lesson as $val) : extract($val);
+
                                 ?>
 
-                                      <!-- note -->                                                                     
-                                    <ul id="" data-lesson="<?=$id_lesson_topics?>" style="padding-left: 0px;" class="lesson<?=$id_lesson_topics?> nav pcoded-inner-navbar baitap1 li_lesson">
-                                   
+                                    <!-- note -->
+                                    <ul data-lesson="<?= $id_lesson_topics ?>" style="padding-left: 0px;" class="lesson<?= $id_lesson_topics ?> nav pcoded-inner-navbar baitap1 li_lesson">
 
-                                    
-                                        <li   data-username="Table bootstrap datatable footable" class="nav-item "> 
-                                                                            
-                                            <a  href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>" class="nav-link " >
-                                         
+
+
+                                        <li data-username="Table bootstrap datatable footable" class="nav-item ">
+
+                                            <a href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>" class="nav-link ">
+
                                                 <span style="color: black;" class="pcoded-mtext"><?= $lessonName ?> </span>
                                             </a>
                                         </li>
                                     </ul>
 
-                                    <ul id="" data-quiz="<?=$id_lesson_topics?>" style="padding-left: 0px;" class="quiz<?=$id_lesson_topics?> nav pcoded-inner-navbar baitap1">
-                                        <li    data-username="Table bootstrap datatable footable" class="nav-item ">
-                                            <a  href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>&quiz" class="nav-link ">
-                                          
+                                    <ul data-quiz="<?= $id_lesson_topics ?>" style="padding-left: 0px;" class="quiz<?= $id_lesson_topics ?> nav pcoded-inner-navbar baitap1">
+                                        <li data-username="Table bootstrap datatable footable" class="nav-item ">
+                                            <a href=" index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&Topic=<?= $_GET['Topic'] ?>&lesson=<?= $id_lesson ?>&quiz" class="nav-link quiz-tap" data-tap="<?= $id_lesson ?>">
+
                                                 <span style="color: white; " class="pcoded-mtext"> quiz </span>
                                                 <?php $getAll_point_user = getAll_point_user($id_user, $id_lesson);
                                                 foreach ($getAll_point_user as $val) {
@@ -102,9 +106,10 @@ if(isset($_GET['lesson'])){
                                                         <span class="pcoded-micon">
                                                             <i class="fas fa-check text-light"></i>
                                                         </span>
-                                                <?php    } } ?>
-                                               
-                                          
+                                                <?php    }
+                                                } ?>
+
+
                                             </a>
                                         </li>
                                     </ul>
@@ -118,6 +123,13 @@ if(isset($_GET['lesson'])){
             </div>
         </div>
     </nav>
+
+
+
+
+
+
+
 
     <!-- header -->
 
@@ -188,7 +200,7 @@ if(isset($_GET['lesson'])){
                         <a title="thông báo" id="bell" class="dropdown-toggle " data-toggle="dropdown">
 
                             <i class="icon feather icon-bell"></i></a>
-                            <div class="dropdown-menu dropdown-menu-right notification">
+                        <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Thông báo</h6>
                                 <div class="float-right">
@@ -200,7 +212,7 @@ if(isset($_GET['lesson'])){
                                 <li class="n-title">
                                     <p class="m-b-0">Mới</p>
                                 </li>
-                                <a  style=" margin-left:29%; text-align: center"><?=$note?></a>
+                                <a style=" margin-left:29%; text-align: center"><?= $note ?></a>
                                 <?php
 
                                 $notification = notification($id_user);
@@ -209,18 +221,18 @@ if(isset($_GET['lesson'])){
                                         <div class="media">
                                             <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i><?=get_time($val['time'])?></span></p>
-                                           <div style="display:flex">
-                                                   <form action="" method="POST">                                  
-                                                  <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
-                                                  <span class="text-secondary" id="accept_friend<?=$val['sender']?>"></span>  
-                                               </form>    
-                                               <form type="submit"  action="" method="POST">                                                                            
-                                                  <button data-friend="<?=$val['sender']?>" class="delete_btn_request btn btn-danger "><i class='fas fa-window-close'> hủy</i></button>  
-                                              <span class="text-secondary" id="delete_friend<?=$val['sender']?>" ></span>
-                                                </form>  
-                                           </div>                                           
-                                               <span class="text-secondary span_notification"> </span>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i><?= get_time($val['time']) ?></span></p>
+                                                <div style="display:flex">
+                                                    <form action="" method="POST">
+                                                        <button type="submit" data-friend="<?= $val['sender'] ?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
+                                                        <span class="text-secondary" id="accept_friend<?= $val['sender'] ?>"></span>
+                                                    </form>
+                                                    <form type="submit" action="" method="POST">
+                                                        <button data-friend="<?= $val['sender'] ?>" class="delete_btn_request btn btn-danger "><i class='fas fa-window-close'> hủy</i></button>
+                                                        <span class="text-secondary" id="delete_friend<?= $val['sender'] ?>"></span>
+                                                    </form>
+                                                </div>
+                                                <span class="text-secondary span_notification"> </span>
                                             </div>
                                         </div>
                                     </li>
@@ -285,20 +297,20 @@ if(isset($_GET['lesson'])){
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <?php if($role==1){?>
-    <li><a href="account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
-                                <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
-                                <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
-                                <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
-                                <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
-                               <?php }else{?>
-                                <li><a href="account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
-                                <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
-                                <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
-                                <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
-                                <!-- <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quan tri</a></li> -->
-                           <?php    } ?>
-                                
+                                <?php if ($role == 1) { ?>
+                                    <li><a href="account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
+                                    <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
+                                    <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
+                                    <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
+                                    <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
+                                <?php } else { ?>
+                                    <li><a href="account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
+                                    <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
+                                    <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
+                                    <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
+                                    <!-- <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quan tri</a></li> -->
+                                <?php    } ?>
+
                             </ul>
                         </div>
                     </div>
@@ -316,7 +328,7 @@ if(isset($_GET['lesson'])){
     <?php if (!isset($_GET['quiz'])) {  // kiểm tra có url  thì show ra quiz
     ?>
 
-        <div class="pcoded-main-container ">
+        <div class="pcoded-main-container lesson_tab" i>
 
             <div class="pcoded-wrapper">
                 <div class="pcoded-content">
@@ -389,8 +401,8 @@ if(isset($_GET['lesson'])){
                                             }
                                             if ($val['child'] == $parent) {
                                                 if ($val['id_user'] == $user) {
-                                                    $display = '<a onclick=" return confirm("bạn có chắc chắn muốn xóa không !") " class="text-danger" href="index.php?act=delete_cm_lesson&id_comment=' . $val['id_comment'] . '&id_lesson='. $_GET['lesson'] .'&id_topic='.$_GET['Topic'] .'&id_course='. $_GET['idCourse'] .'">xóa</a>';
-                                                    $display_edit=' <a data-edit=' . $id_comment . '  class="edit_a text-primary "style="cursor: pointer;">sửa</a> ';
+                                                    $display = '<a onclick=" return confirm("bạn có chắc chắn muốn xóa không !") " class="text-danger" href="index.php?act=delete_cm_lesson&id_comment=' . $val['id_comment'] . '&id_lesson=' . $_GET['lesson'] . '&id_topic=' . $_GET['Topic'] . '&id_course=' . $_GET['idCourse'] . '">xóa</a>';
+                                                    $display_edit = ' <a data-edit=' . $id_comment . '  class="edit_a text-primary "style="cursor: pointer;">sửa</a> ';
                                                 }
                                                 echo '<li>
                                                                      <div class="c-comment-box c-forum">   
@@ -402,7 +414,7 @@ if(isset($_GET['lesson'])){
                                                                              <div class="c-comment-status">
                                                                              <div class="c-comment-rep-p">  
                                                                                        <a data-id=' . $id_comment . '  class="rep_a text-primary "style="cursor: pointer;">Trả lời</a>                                              
-                                                                                         '. $display_edit.'                                          
+                                                                                         ' . $display_edit . '                                          
                                                                              ' . $display . '                                                      
                                                                               </div>   
                                                                                                                                               
@@ -469,41 +481,39 @@ if(isset($_GET['lesson'])){
 
         <?php  // phần tính điểm
         if (isset($_POST['final'])) {
-            $arr = $_POST;       
-         
+            $arr = $_POST;
+
             $id_lesson = $_POST['id_lesson'];
             $id_user = $_POST['id_user'];
             // delete_point($id_lesson, $id_user);
             $mark = 0;
-           $array = array();
-           $array2 = array();
+            $array = array();
+            $array2 = array();
             foreach ($arr as $keys => $val) {
                 if (is_numeric($keys)) {
                     $final_test = final_test($keys);
                     foreach ($final_test as $key => $value) {
-                        
-                // var_dump($va);
 
-            
+                        // var_dump($va);
+
+
                         if ($val == $value['answer']) {
                             $mark += 1;
-                            array_push(  $array2 ,$keys);
-                      
-                        } else { 
-                           array_push(  $array ,$keys);
-                        
+                            array_push($array2, $keys);
+                        } else {
+                            array_push($array, $keys);
+                        }
                     }
                 }
             }
-            }
             var_dump(intval($array));
-            if($mark==10){
-                $_SESSION['success'] ="chúc mừng bạn đã hoàn thành bài học";
+            if ($mark == 10) {
+                $_SESSION['success'] = "chúc mừng bạn đã hoàn thành bài học";
             }
             insert_point($id_user, $id_lesson, $mark);
         }
         ?>
-        <div class="pcoded-main-container " style="margin-bottom: 15rem;">
+        <div class="pcoded-main-container quiz_tab" style="margin-bottom: 15rem;">
             <div class="container-exercise">
                 <header class="header-exercise">
                     <img class="header-exercise-logo" src="assets/images/logo-thumb.png" alt="">
@@ -521,95 +531,78 @@ if(isset($_GET['lesson'])){
                         foreach ($getAll_point_user as $value)
                             $value['point_total'];
                         ?>
-                        <span> <?php if (isset($value['point_total']) == '') {
-                                    echo "0";
-                                } else {
-                                    echo  $value['point_total'];
-                                } ?> / 10 (graded)</span>
+                        <span class="mark"> <?php if (isset($value['point_total']) == '') {
+                                                echo "0";
+                                            } else {
+                                                echo  $value['point_total'];
+                                            } ?> </span><span> / 10 (graded)</sp>
                     </div>
                     <?php
-                    $count = 0;
+                    // $count = 0;
+                    // if (isset($_GET['lesson'])) {
+                    //     $id_learn = $_GET['lesson'];
+                    // }
+                    // $quiz = getAll_quiz($id_learn);
+                    // foreach ($quiz as $val) : extract($val); 
+                    ?>
 
-                    if (isset($_GET['lesson'])) {
-                        $id_learn = $_GET['lesson'];
-                    }
-                    $quiz = getAll_quiz($id_learn);
-                    foreach ($quiz as $val) : extract($val); ?>
 
- 
-                        <div class="container-exercise-question">
-                            <div  class="container-exercise-question-name ">
+                    <div class="container-exercise-question">
+                        <button data-lesson="<?= $_GET['lesson'] ?>" class="btn btn-primary start"> Bắt Đầu Làm Bài</button>
+                        <!-- <div class="container-exercise-question-name ">
                                 <span>Câu <?= $count += 1 ?>:</span>
-                                <input type="hidden" name="question[]" value="<?= $count?>">
+                                <input type="hidden" name="question[]" value="<?= $count ?>">
                             </div>
-                            <div class="container-exercise-question-problem  <?php if($va==$id_quiz){echo "btn-danger";} ?> " >
-                                <span><?= $question ?></span>
-                            </div>
-                            <label  class="container-exercise-question-answer  ">
-                                <input name="<?= $id_quiz ?>" value="a" type="radio">
-                                <span><?= $Selection1 ?></span>
-                            </label>
-                            <label class="container-exercise-question-answer ">
-                                <input name="<?= $id_quiz ?>" value="b" type="radio">
-                                <span><?= $Selection2 ?></span>
-                            </label>
-                            <label class="container-exercise-question-answer ">
-                                <input name="<?= $id_quiz ?>" value="c" type="radio">
-                                <span><?= $Selection3 ?></span>
-                            </label>
+                            <fieldset>
+                                <div class="container-exercise-question-problem ">
+                                    <h5><?= $question ?></h5>
+                                </div>
+                                <label class="container-exercise-question-answer  ">
+                                    <input name="<?= $id_quiz ?>" value="a" type="radio">
+                                    <span><?= $Selection1 ?></span>
+                                </label>
+                                <label class="container-exercise-question-answer ">
+                                    <input name="<?= $id_quiz ?>" value="b" type="radio">
+                                    <span><?= $Selection2 ?></span>
+                                </label>
+                                <label class="container-exercise-question-answer ">
+                                    <input name="<?= $id_quiz ?>" value="c" type="radio">
+                                    <span><?= $Selection3 ?></span>
+                                </label>
+                            </fieldset> -->
 
+                        <div id="question">
+
+                            <!-- cam xoas -->
+                            <!-- phan nay hien thi quiz -->
                         </div>
-                      
-                    <?php endforeach; ?>
 
-                    <button name="final" class="final-test btn btn-primary">Nộp bài</button>
+
+
+                        <input type="hidden" id="id_user_point" value="<?= $id_user ?>">
+                        <input type="hidden" id="id_lesson_point" value="<?= $_GET['lesson'] ?>">
+
+                    </div>
+
+                    <?php
+                    //  endforeach;
+                    ?>
+
+                    <!-- <button name="final" class="final-test btn btn-primary">Nộp bài</button> -->
+                    <a id="finish" class="final-test btn btn-secondary text-light">Nộp bài</a>
+                    <div class="mark2 container-exercise-title">
+
+                        <span class="mark text-danger"> <?php if (isset($value['point_total']) == '') {
+                                                            echo "0";
+                                                        } else {
+                                                            echo  $value['point_total'];
+                                                        } ?> </span> <span> / 10 (graded)</sp>
                 </form>
+
+
             </div>
         </div>
-
-        <div class="pcoded-main-container " style="margin-bottom: 15rem;">
-        
-            <div class="container-exercise">
-          
-         <?php if(isset($array) && !empty($array)){ 
-           echo  "<h4 class='text-danger'>Các Câu Sai</h4>";
-        
-              foreach ($array as $vals) :
-                     
-               foreach ($quiz as $val) : extract($val); 
-               if( intval($vals)== $id_quiz){  ?>
-                                                     
-                <div class="container-exercise-question">       
-                            <div class="container-exercise-question-problem  btn-danger " >
-                                <span><?= $question ?></span>
-                            </div>                 
-                        </div>       
-
-  <?php }  endforeach; endforeach; }else{ ?> 
-    
-    <?php  }?>
-   </div>
-            <div class="container-exercise">
-          
-         <?php if(isset($array2) && !empty($array2)){ 
-           echo  "<h4 class='text-danger'>Các Câu Đúng</h4>";
-        
-              foreach ($array2 as $vals) :
-                     
-               foreach ($quiz as $val) : extract($val); 
-               if( intval($vals)== $id_quiz){  ?>
-                                                     
-                <div class="container-exercise-question">       
-                            <div class="container-exercise-question-problem  btn-success " >
-                                <span><?= $question ?></span>
-                            </div>                 
-                        </div>       
-
-  <?php }  endforeach; endforeach; }else{ ?> 
-    
-    <?php  }?>
-   </div>
-            </div>
+        </div>
 
 
     <?php } ?>
@@ -634,48 +627,213 @@ if(isset($_GET['lesson'])){
         </div>
     </footer> -->
 
+    <!-- <?php
+    if (isset($_SESSION['success'])) { ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '<?php echo  $_SESSION['success']  ?>',
+                showConfirmButton: false,
+                timer: 1500,
+            })
+        </script>
 
+    <?php unset($_SESSION['success']);
+    }  ?> -->
+
+
+
+
+
+
+    <!-- <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
+    <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div> -->
+    <!-- <script src="sweetalert2.min.js"></script> -->
    
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/vendor-all.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script> -->    
     <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/js/pcoded.min.js"></script>
-    <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
-    <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   
-    <?php  
-    if (isset(  $_SESSION['success'] )) { ?>
-  <script>
-    Swal.fire({
-      icon: 'success',
-      title: '<?php echo  $_SESSION['success']  ?>',
-      showConfirmButton: false,
-      timer: 1500,
-    })
-  </script>
-
-<?php unset(  $_SESSION['success'] );  }  ?>
-
-
-  
-  <script>
 
 
 
+    <script>
         $(document).ready(function() {
+            $('#finish').hide();
+            $('.mark2').hide();
+            var questions
+            var mark = 0;
+            var btn_finish = document.getElementById('finish')
 
-//             id="main" data-li
-// id="lesson" data-lesson
-// id="quiz" data-quiz
+            btn_finish.addEventListener('click', function() {
+                checkResult();
+                var id_user_point = $('#id_user_point').val()
+                var id_lesson_point = $('#id_lesson_point').val()
+                var act = "insert_point";
+                $.ajax({
+                    url: "site/hoc/question_ajax.php",
+                    method: "post",
+                    data: {
+                        act: act,
+                        id_user_point: id_user_point,
+                        id_lesson: id_lesson_point,
+                        mark: mark
+                    },
+                    success: function(data) {}
+                })
 
-$('.main-li').on('click', function(e) {
+            })
 
-   var main= $(this).data('li')
-$('.lesson'+main).slideToggle(1)
-$('.quiz'+main).slideToggle(1)
+            function checkResult() {
 
-})
+                $('#question .rows').each(function(k, v) {
+                    let id = $(v).find('h5').attr('id');
+                    let question = questions.find(x => x.id_quiz == id)
+                    let answer = question['answer'];
+                    $.each(questions, function(k, v) {})
+                    var dap_an_dung = ''
+                    var dap_an_sai = ''
+                    var chose = $(v).find('fieldset input[type="radio"]:checked').attr('class') // chọn các phần tử được click radio  \ xem bên dưới
+var markFull=10;
+
+                    if (chose == answer) {
+
+                        
+                        if (chose == "a") {
+                            $('.row_question' + id + '> fieldset > label.a').css('background-color', '#acddbf')
+
+                            $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
+
+                            $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
+                       
+
+
+                        } else if (chose == "b") {
+                            $('.row_question' + id + '> fieldset > label.b').css('background-color', '#acddbf')
+
+                            $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
+
+                            $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
+                    
+
+
+                        } else if (chose == "c") {
+                            $('.row_question' + id + '> fieldset > label.c').css('background-color', '#acddbf')
+
+                            $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
+
+                            $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
+                     
+
+
+                        }
+                        mark += 1
+
+
+                    } else {
+                      
+                      
+                        
+                        if (chose == "a") {
+                            $('.row_question' + id + '> fieldset > label.a').css('background-color', '#fd6e6e')
+
+                            $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
+
+                            $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
+
+                        } else if (chose == "b") {
+                            $('.row_question' + id + '> fieldset > label.b').css('background-color', '#fd6e6e')
+
+                            $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
+
+                            $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
+
+                        } else if (chose == "c") {
+                            $('.row_question' + id + '> fieldset > label.c').css('background-color', '#fd6e6e')
+
+                            $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
+
+                            $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
+
+                        }
+
+                        mark -=1
+                    }
+
+                    if (mark >= 10) {
+                        mark = 10;
+
+                    }
+                    if (mark < 0) {
+                        mark = 0;
+                    }
+
+                    $('.mark').html(mark)
+
+                });
+
+
+
+            }
+
+
+
+
+            $('.start').on('click', function(e) {  // show quiz
+                e.preventDefault();
+                var id = $(this).data('lesson');
+                $('#finish').show();
+                $('.mark2').show();
+
+                $.ajax({
+                    url: "site/hoc/question_ajax.php",
+                    method: 'POST',
+                    data: {
+                        id: id
+                    },
+                    success: function(data) { // lấy dữ liệu ra file question_ajax
+                        questions = jQuery.parseJSON(data)
+                        var d = "";
+                        count = 1;
+                        $.each(questions, function(k, v) {
+                            d += ' <div class="rows container-exercise-question  row_question' + v['id_quiz'] + '" >'
+                            d += '<div class="container-exercise-question-name ">' // 1
+                            d += '<span>Câu ' + count + ':</span>'
+                            d += '</div>' //1
+                            d += '<div class="btn-primary container-exercise-question-problem ">'
+                            d += ' <h5 class="text-light" id=' + v['id_quiz'] + '> ' + v['question'] + '</h5>'
+                            d += '</div>'
+                            d += ' <fieldset id="group' + count + '">'
+
+                            d += '<label class=" a container-exercise-question-answer">    <input  class="a" name="group' + count + '" value="a"  type="radio">   <span>' + v['Selection1'] + '</span> </label>'
+
+                            d += '<label class=" b container-exercise-question-answer">   <input class="b" name="group' + count + '" value="b"  type="radio">     <span>' + v['Selection2'] + '</span></label>'
+
+                            d += ' <label class=" c container-exercise-question-answer">  <input class="c" name="group' + count + '" value="c"  type="radio">    <span>' + v['Selection3'] + '</span> </label>'
+
+                            d += '</fieldset>'
+
+                            d += ' </div>'
+
+                            count += 1
+
+                        })
+                        $('#question').html(d);
+
+                    }
+                })
+
+            })
+
+
+
+
+
+
+
+
+
 
 
 
@@ -804,83 +962,89 @@ $('.quiz'+main).slideToggle(1)
         $(document).ready(function() {
 
 
-            
-  $('#user').on( "click",function() {
-            $('.profile-notification').fadeToggle(500);
-            $('.notification').hide()
-        })
-  $('#bell').on( "click",function() {
-            $('.notification').fadeToggle(500);
-            $('.profile-notification').hide();
-        })
-        
+
+            $('#user').on("click", function() {
+                $('.profile-notification').fadeToggle(500);
+                $('.notification').hide()
+            })
+            $('#bell').on("click", function() {
+                $('.notification').fadeToggle(500);
+                $('.profile-notification').hide();
+            })
+
 
             $('#remove_friend').on('click', function(e) {
-                            e.preventDefault();
-                            var toID = $(this).data('remove')                     
-                            var action = "remove_friend";
-                            if (toID > 0) {
-                                $.ajax({
-                                    url: "site/processAjax.php",
-                                    method: "POST",
-                                    data: {
-                                        toID: toID,
-                                        action: action
-                                    },
-                                    beforeSend: function(){
-                                       return    $('#remove_friend').html('......');;
-                                    },
-                                    success: function(data) {
+                e.preventDefault();
+                var toID = $(this).data('remove')
+                var action = "remove_friend";
+                if (toID > 0) {
+                    $.ajax({
+                        url: "site/processAjax.php",
+                        method: "POST",
+                        data: {
+                            toID: toID,
+                            action: action
+                        },
+                        beforeSend: function() {
+                            return $('#remove_friend').html('......');;
+                        },
+                        success: function(data) {
 
-                                         $('#remove_friend').html('xóa thành công');
-                                        $('#remove_friend').attr('disabled', 'disabled')
-                                       
-                                    }
-                                })
-                            }
-                        })
+                            $('#remove_friend').html('xóa thành công');
+                            $('#remove_friend').attr('disabled', 'disabled')
+
+                        }
+                    })
+                }
+            })
 
 
-         
-$('.accept_btn').on('click', function(e) {
-    e.preventDefault();
-  toID=$(this).data('friend')
-  var action="accept";
-//   alert(toID);
-  if(toID>0){
-         $.ajax({
-       url:"site/processAjax.php",
-       method:"POST",
-       data:{id_friends:toID,action:action},
-       success: function(data) {
-           $('#accept_friend'+toID).html('các bạn đã trở thành bạn');
-           $('.accept_btn').hide(); 
-        $('.delete_btn_request').hide();    
-       }
-   })
-  }
-})
 
-$('.delete_btn_request').on('click', function(e) {
-    e.preventDefault();
-  var toID=$(this).data('friend')
-  
-  var action="delete_request";
-  if(toID>0){
-       $.ajax({
-       url:"site/processAjax.php",
-       method:"POST",
-       data:{toID:toID,action:action},
-       success: function(data) {
-           $('#delete_friend'+toID).html('đã gỡ lời kết bạn');
-        $('.accept_btn').hide(); 
-        $('.delete_btn_request').hide(); 
-       }
-   })
-  }
-  
+            $('.accept_btn').on('click', function(e) {
+                e.preventDefault();
+                toID = $(this).data('friend')
+                var action = "accept";
+                //   alert(toID);
+                if (toID > 0) {
+                    $.ajax({
+                        url: "site/processAjax.php",
+                        method: "POST",
+                        data: {
+                            id_friends: toID,
+                            action: action
+                        },
+                        success: function(data) {
+                            $('#accept_friend' + toID).html('các bạn đã trở thành bạn');
+                            $('.accept_btn').hide();
+                            $('.delete_btn_request').hide();
+                        }
+                    })
+                }
+            })
 
-})
+            $('.delete_btn_request').on('click', function(e) {
+                e.preventDefault();
+                var toID = $(this).data('friend')
+
+                var action = "delete_request";
+                if (toID > 0) {
+                    $.ajax({
+                        url: "site/processAjax.php",
+                        method: "POST",
+                        data: {
+                            toID: toID,
+                            action: action
+                        },
+                        success: function(data) {
+                            $('#delete_friend' + toID).html('đã gỡ lời kết bạn');
+                            $('.accept_btn').hide();
+                            $('.delete_btn_request').hide();
+                        }
+                    })
+                }
+
+
+            })
 
         })
     </script>
