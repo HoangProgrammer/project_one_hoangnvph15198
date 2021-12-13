@@ -506,19 +506,22 @@ if (isset($_GET['lesson'])) {
                     }
                 }
             }
-            var_dump(intval($array));
+
             if ($mark == 10) {
                 $_SESSION['success'] = "chúc mừng bạn đã hoàn thành bài học";
             }
             insert_point($id_user, $id_lesson, $mark);
         }
         ?>
+
+
         <div class="pcoded-main-container quiz_tab" style="margin-bottom: 15rem;">
             <div class="container-exercise">
                 <header class="header-exercise">
                     <img class="header-exercise-logo" src="assets/images/logo-thumb.png" alt="">
                     <div class="header-exercise-title">
-                        <span>Final test </span>
+                        <span> <?php $lesson_on = Get_lesson_one($_GET['lesson']);
+                                echo  $lesson_on[0]['lessonName']  ?></span>
                     </div>
                 </header>
                 <form action="" method="post" class="container-exercise-page">
@@ -589,7 +592,8 @@ if (isset($_GET['lesson'])) {
                     ?>
 
                     <!-- <button name="final" class="final-test btn btn-primary">Nộp bài</button> -->
-                    <a id="finish" class="final-test btn btn-secondary text-light">Nộp bài</a>
+                    <button id="finish" class="final-test btn btn-secondary text-light">Nộp bài</button>
+                    <a id="seen" class="final-test btn btn-secondary text-light">Xem Lại</a>
                     <div class="mark2 container-exercise-title">
 
                         <span class="mark text-danger"> <?php if (isset($value['point_total']) == '') {
@@ -628,7 +632,7 @@ if (isset($_GET['lesson'])) {
     </footer> -->
 
     <!-- <?php
-    if (isset($_SESSION['success'])) { ?>
+            if (isset($_SESSION['success'])) { ?>
         <script>
             Swal.fire({
                 icon: 'success',
@@ -639,7 +643,7 @@ if (isset($_GET['lesson'])) {
         </script>
 
     <?php unset($_SESSION['success']);
-    }  ?> -->
+            }  ?> -->
 
 
 
@@ -649,9 +653,9 @@ if (isset($_GET['lesson'])) {
     <!-- <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
     <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div> -->
     <!-- <script src="sweetalert2.min.js"></script> -->
-   
+
     <script src="assets/js/vendor-all.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script> -->    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script> -->
     <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="./assets/js/pcoded.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -660,13 +664,22 @@ if (isset($_GET['lesson'])) {
 
     <script>
         $(document).ready(function() {
+
+
+
+
+
             $('#finish').hide();
             $('.mark2').hide();
+            $('#seen').hide();
             var questions
             var mark = 0;
             var btn_finish = document.getElementById('finish')
 
-            btn_finish.addEventListener('click', function() {
+            btn_finish.addEventListener('click', function(e) {
+      
+
+                e.preventDefault();
                 checkResult();
                 var id_user_point = $('#id_user_point').val()
                 var id_lesson_point = $('#id_lesson_point').val()
@@ -680,108 +693,143 @@ if (isset($_GET['lesson'])) {
                         id_lesson: id_lesson_point,
                         mark: mark
                     },
-                    success: function(data) {}
+                    success: function(data) {
+                   
+                    }
                 })
 
             })
 
-            function checkResult() {
 
+
+            function checkResult() {
+             
                 $('#question .rows').each(function(k, v) {
+
                     let id = $(v).find('h5').attr('id');
+
                     let question = questions.find(x => x.id_quiz == id)
                     let answer = question['answer'];
+
                     $.each(questions, function(k, v) {})
                     var dap_an_dung = ''
                     var dap_an_sai = ''
+
                     var chose = $(v).find('fieldset input[type="radio"]:checked').attr('class') // chọn các phần tử được click radio  \ xem bên dưới
-var markFull=10;
+
+                    var mar_dung = 0;
+                    var mar_sai = 0;
 
                     if (chose == answer) {
+                        dap_an_dung = chose
+                        if (dap_an_dung === "a") {
 
-                        
-                        if (chose == "a") {
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', '#acddbf')
 
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
 
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
-                       
+
+                        } else if (dap_an_dung === "b") {
 
 
-                        } else if (chose == "b") {
+
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', '#acddbf')
 
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
 
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
-                    
+                         
+
+                        } else if (dap_an_dung === "c") {
 
 
-                        } else if (chose == "c") {
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', '#acddbf')
 
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
 
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
-                     
+                      
 
 
                         }
                         mark += 1
-
-
+                    
+                        // console.log(ting)
+                  
                     } else {
-                      
-                      
-                        
-                        if (chose == "a") {
+
+                        dap_an_sai = chose
+                        if (dap_an_sai === "a") {
+
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', '#fd6e6e')
 
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
 
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
+                           
+                        
 
-                        } else if (chose == "b") {
+                        } else if (dap_an_sai === "b") {
+
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', '#fd6e6e')
 
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
 
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
 
-                        } else if (chose == "c") {
+                         
+
+                        } else if (dap_an_sai === "c") {
+
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', '#fd6e6e')
 
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', 'white')
 
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
+                         
 
                         }
-
-                        mark -=1
+                 
                     }
+
 
                     if (mark >= 10) {
                         mark = 10;
-
                     }
-                    if (mark < 0) {
+
+                    if (mark <= 0) {
                         mark = 0;
                     }
 
-                    $('.mark').html(mark)
+
+
+                    $('input.a').hide();
+                    $('input.b').hide();
+                    $('input.c').hide();
+                    $('.mark').html( mark)    
+                    $('#seen').show()
+                    $('#question').hide()
+                    $('#finish').hide()
+                    $('.start').show()
+                    $('.mark2').hide()
+
+
 
                 });
-
-
-
             }
 
 
+            $('#seen').on('click', function() {
+                $('#seen').hide()
+                $('#question').show();
+                $('.start').show()
+            })
 
-
-            $('.start').on('click', function(e) {  // show quiz
-                e.preventDefault();
+            $('.start').on('click', function(e) { // show quiz
+      e.preventDefault();
+                $('.start').hide()
+          
                 var id = $(this).data('lesson');
                 $('#finish').show();
                 $('.mark2').show();
@@ -806,11 +854,11 @@ var markFull=10;
                             d += '</div>'
                             d += ' <fieldset id="group' + count + '">'
 
-                            d += '<label class=" a container-exercise-question-answer">    <input  class="a" name="group' + count + '" value="a"  type="radio">   <span>' + v['Selection1'] + '</span> </label>'
+                            d += '<label class=" a container-exercise-question-answer">    <input class="a"   name="group' + count + '" value="1"  type="radio">   <span>' + v['Selection1'] + '</span> </label>'
 
-                            d += '<label class=" b container-exercise-question-answer">   <input class="b" name="group' + count + '" value="b"  type="radio">     <span>' + v['Selection2'] + '</span></label>'
+                            d += '<label class=" b container-exercise-question-answer">   <input class="b"   name="group' + count + '" value="1"  type="radio">     <span>' + v['Selection2'] + '</span></label>'
 
-                            d += ' <label class=" c container-exercise-question-answer">  <input class="c" name="group' + count + '" value="c"  type="radio">    <span>' + v['Selection3'] + '</span> </label>'
+                            d += ' <label class=" c container-exercise-question-answer">  <input  class="c"  name="group' + count + '" value="1"  type="radio">    <span>' + v['Selection3'] + '</span> </label>'
 
                             d += '</fieldset>'
 
@@ -945,14 +993,14 @@ var markFull=10;
 
                 var parent = $(this).data('id');
 
-                $('#form' + parent).slideToggle()
+                $('#form' + parent).slideToggle(1)
             })
 
             $('a.edit_a').click(function() {
 
                 var parent = $(this).data('edit');
 
-                $('#form_edit' + parent).slideToggle()
+                $('#form_edit' + parent).slideToggle(1)
             })
         })
     </script>
