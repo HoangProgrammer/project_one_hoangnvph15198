@@ -292,9 +292,15 @@ dl, ol, ul {
 }
 .wrap_content{
   width: 500px;
-  height: 100px;
+  height:67px;
   overflow: hidden;
+  margin: 0 auto;
+  font-size: 14px;
+  display: block;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+ -webkit-box-orient: vertical;
   margin-bottom: 20px;
 }
 ._1CjUZ {

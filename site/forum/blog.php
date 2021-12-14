@@ -112,11 +112,11 @@ foreach ($get_new_post as $value):
                     <a class="_3ZcIW" href="forum/comment/<?= $value['id_post'] ?>"><?php echo $value['title_post'] ?></a>
                 </h3>
                 <div class="wrap_content">
-                    <p><?php echo substr($value['content'],0,255) ?>..................</p>
+                    <?php echo $value['content']?>
                 </div>
             </div>
             <a class="_3ZcIW" href="forum/comment/<?= $value['id_post'] ?>">
-            <img style="width:350px; border-radius: 10px" src="./image/<?=$value['img'] ?>" alt="no img"></a>
+            <img style="    height: 170px;  width: 285px;  border-radius: 10px;object-fit: none;" src="./image/<?=$value['img'] ?>" alt="no img"></a>
         </div>
         <!-- time và ng đăng -->
     <div class="" style="border-bottom:2px solid #ccc; padding-bottom:10px">
