@@ -1,6 +1,5 @@
 <?php require_once "./layout/layout_1/slider.php";
 
-
 ?>
 <style>
     .pro {
@@ -218,4 +217,6 @@ foreach ($data_post as $value){ ?>
 </div>
     </div>
 </div>
+
+
 

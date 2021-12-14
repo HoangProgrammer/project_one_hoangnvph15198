@@ -19,15 +19,15 @@ if (isset($_GET['lesson'])) {
     <meta name="description" content="Free Datta Able Admin Template come up with latest Bootstrap 4 framework with basic components, form elements and lots of pre-made layout options" />
     <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template" />
     <meta name="author" content="CodedThemes" />
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-
     <link rel="stylesheet" href="site/hoc/cours.css">
     <link rel="stylesheet" href="assets/css/style_user.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
 
 
 
@@ -603,7 +603,6 @@ if (isset($_GET['lesson'])) {
                                                         } ?> </span> <span> / 10 (graded)</sp>
                 </form>
 
-
             </div>
         </div>
         </div>
@@ -652,21 +651,18 @@ if (isset($_GET['lesson'])) {
 
     <!-- <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
     <div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div> -->
-    <!-- <script src="sweetalert2.min.js"></script> -->
-
+    <script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>   -->
     <script src="assets/js/vendor-all.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script> -->
     <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./assets/js/pcoded.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- <script src="./assets/js/pcoded.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 
 
 
     <script>
         $(document).ready(function() {
-
-
-
 
 
             $('#finish').hide();
@@ -677,8 +673,6 @@ if (isset($_GET['lesson'])) {
             var btn_finish = document.getElementById('finish')
 
             btn_finish.addEventListener('click', function(e) {
-      
-
                 e.preventDefault();
                 checkResult();
                 var id_user_point = $('#id_user_point').val()
@@ -711,7 +705,7 @@ if (isset($_GET['lesson'])) {
                     let question = questions.find(x => x.id_quiz == id)
                     let answer = question['answer'];
 
-                    $.each(questions, function(k, v) {})
+                    // $.each(questions, function(k, v) {})
                     var dap_an_dung = ''
                     var dap_an_sai = ''
 
@@ -719,7 +713,6 @@ if (isset($_GET['lesson'])) {
 
                     var mar_dung = 0;
                     var mar_sai = 0;
-
                     if (chose == answer) {
                         dap_an_dung = chose
                         if (dap_an_dung === "a") {
@@ -769,7 +762,6 @@ if (isset($_GET['lesson'])) {
                             $('.row_question' + id + '> fieldset > label.c').css('background-color', 'white')
                            
                         
-
                         } else if (dap_an_sai === "b") {
 
                             $('.row_question' + id + '> fieldset > label.b').css('background-color', '#fd6e6e')
@@ -788,7 +780,6 @@ if (isset($_GET['lesson'])) {
 
                             $('.row_question' + id + '> fieldset > label.a').css('background-color', 'white')
                          
-
                         }
                  
                     }
@@ -802,8 +793,6 @@ if (isset($_GET['lesson'])) {
                         mark = 0;
                     }
 
-
-
                     $('input.a').hide();
                     $('input.b').hide();
                     $('input.c').hide();
@@ -811,14 +800,11 @@ if (isset($_GET['lesson'])) {
                     $('#seen').show()
                     $('#question').hide()
                     $('#finish').hide()
-                    $('.start').show()
+                    $('.start').hide()
                     $('.mark2').hide()
-
-
 
                 });
             }
-
 
             $('#seen').on('click', function() {
                 $('#seen').hide()
@@ -826,6 +812,8 @@ if (isset($_GET['lesson'])) {
                 $('.start').show()
             })
 
+
+            
             $('.start').on('click', function(e) { // show quiz
       e.preventDefault();
                 $('.start').hide()

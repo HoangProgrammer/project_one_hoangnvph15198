@@ -257,14 +257,41 @@
             <div class="owl-carousel">
                 <?php foreach ($rating_list as $key => $value) { ?>
                     <div class="hv1"> 
-                        <img src="image/<?php echo $value['image'] ?>" alt="">
+                        <?php if( $value['image'] ==""){?>
+                            <img src="image/user_defaul.png" alt="">
+
+                        <?php }else{?> 
+                        
+                            <img src="image/<?php echo $value['image'] ?>" alt="">
+                        
+                        <?php 
+                        } ?>
                         <div class="content">
                             <h6>Học viên:
                                 <?php echo $value['ten_user'] ?>
                             </h6>
+
+                            <div >                
+                        <ul style="display:flex;list-style:none;">
+                            <?php
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($value['rating'] >= $i) { ?>
+                                    <li data-index="1">
+                                        <i class="fas fa-star text-warning  mr-1 main_star"></i>
+                                    </li>
+                                <?php    } else { ?>
+                                    <li data-index="2">
+                                        <i class="fas fa-star text-dark  mr-1 main_star"></i>
+                                    </li>
+                            <?php }
+                            } ?>
+                        </ul>     
+                             </div>
+
                             <span>
                                 <?php echo $value['content'] ?>
                             </span>
+
                         </div>
                     </div>
                 <?php } ?>
