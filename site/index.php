@@ -17,12 +17,15 @@
                             $act = $_GET['act'];
                             switch ($act) {
                                 case "learn":
-                                    break;
-                                default:
-                                    require("./layout/layout_1/nav.php");
-                                    break;
+                                    break;                         
                                 case "buyCourse":
                                     break;
+                                case "detail_order":
+                                    break;
+                                    default:
+                                    require("./layout/layout_1/nav.php");
+                                    break;
+
                             }
                         } else {
 
@@ -257,6 +260,9 @@
                                     break;
                                 case "buyCourse":
                                     require_once "vnpay_php/index.php";
+                                    break;
+                                case "detail_order":
+                                    require_once "vnpay_php/detail_order.php";
                                     break;
                                 case "account":
                                     require_once "user/account.php";

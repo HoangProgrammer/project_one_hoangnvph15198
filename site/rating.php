@@ -150,7 +150,7 @@ foreach ($rating as $row) {
                         <textarea cols="20" rows="5" name="content" id="content" class="form-control" placeholder="Type Review Here"></textarea>
                     </div>
                     <div class="form-group">
-                        <span class="error text-warning">
+                        <span class="error text-danger">
                             <?php if (isset($err)) {
                                 echo $err;
                             } ?>
@@ -205,6 +205,8 @@ foreach ($rating as $row) {
             var child = 0;    
             if (content == "") {
                 $('.error').html('vui lòng nhập nội dung');
+            }else if(rating==""){
+                $('.error').html('bạn chưa chọn đánh giá');
             }
             else {
                 $.ajax({

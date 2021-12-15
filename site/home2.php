@@ -62,7 +62,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
                                             $Get_course_one = Get_course_one($value['id_caurse']);
                                             // $Get_order_course= Get_oderCourse();
                                             foreach ($Get_course_one as $val) : extract($val); ?>
-                                                <a href="index.php?act=Topic&idCourse=<?= $id_caurse ?>&new" class="col-md-6 col-xl-4">
+                                                <a href="Tab/Topic/<?= $value['id_caurse'] ?>?new" class="col-md-6 col-xl-4">
                                                     <div class="card daily-sales course-english">
                                                         <img class="course-english-img" src="image/<?= $img ?>" alt="">
                                                     </div>
@@ -131,7 +131,7 @@ if (empty($get_course_in)) {
                                         // $Get_order_course= Get_oderCourse();
                                         foreach ($Get_course_one as $val) : extract($val); ?>
                                        
-                                            <a title="" href="Tap/Topic/<?= $val['id_caurse'] ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $val['id_caurse'] ?>">
+                                            <a title="" href="Tab/Topic/<?= $val['id_caurse'] ?>" class="col-md-6 col-xl-4 " id="hover" data-hover="<?= $val['id_caurse'] ?>">
                                                 <div class="card daily-sales course-english">
                                                     <img class="course-english-img" src="image/<?= $img ?>" alt="">
                                                 </div>
@@ -176,7 +176,7 @@ if (empty($get_course_in)) {
             $stmt= Get_other_course($bien);
 
             foreach ($stmt as $value) : extract($value); ?>
-                <a href="Tap/detail_course/<?= $id_caurse ?>" class="col-md-6 col-xl-4">
+                <a href="Tab/detail_course/<?= $id_caurse ?>" class="col-md-6 col-xl-4">
                     <div class="card daily-sales course-english">
                         <img class="course-english-img" src="image/<?= $img ?>" alt="">
                     </div>
@@ -217,6 +217,32 @@ foreach ($data_post as $value){ ?>
 </div>
     </div>
 </div>
+<?php  if(isset($_SESSION['name_user'])){ 
+?>
 
+<script>
+
+     
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top',
+  showConfirmButton: false,
+  timer: 5000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Chào <h5 class="text-danger"><?=ucfirst($_SESSION['name_user'])?></h5>  Mừng Bạn đến với Busuu '
+})
+</script>
+
+ <?php
+ unset($_SESSION['name_user']);
+} ?>
 
 

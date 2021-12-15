@@ -172,7 +172,7 @@ foreach(  $course as $val) { ;
         </div>
         
     </div>
-    <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
+    <!-- <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
         <div class="course-lesson__footer">
             <div class="course-lesson__footer-left">
                 <span class="course-lesson__footer-item">2021 © Busuu Ltd</span>
@@ -187,7 +187,7 @@ foreach(  $course as $val) { ;
                 <i class="fab fa-youtube course-lesson__footer-heft"></i>
             </div>
         </div>
-    </footer>
+    </footer> -->
 <script>
 
     $('.course-lesson__body').slideDown();
@@ -218,7 +218,4 @@ foreach(  $course as $val) { ;
     <script src="../assets/js/vendor-all.min.js"></script>
 	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/pcoded.min.js"></script><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div><div class="fixed-button"><a href="https://codedthemes.com/item/datta-able-premium/" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy now</a> </div>
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
