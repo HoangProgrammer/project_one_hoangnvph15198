@@ -11,19 +11,26 @@
             </tr>
         </thead>
         <tbody>
-            <?php $rows = getAll_one_payments($id_user);
+            
+            <?php 
+            // var_dump($rows);
+            $cart=isset($_COOKIE['cart']) ? $_COOKIE['cart'] :"[]";
+            $cart=json_decode($cart);
+// var_dump($cart);
             $i = 0;
-                foreach ($rows as $key => $value) {
-                    $i++;
-            ?>
+                foreach ($cart as $value) { 
+                    if($value->id_user==$id_user){                
+                    ?>  
+                                     
             <tr>
-            <th scope="row"><?php echo $i ?></th>
-            <td><?php echo $value['NameCaurse'] ?></td>
-            <td><?php echo $value['money'] ?></td>
-            <td><?php echo $value['time'] ?></td>
-            <td><?php echo $value['trang_thai'] ?></td>
+            <th scope="row"> <?php echo $i+=1 ?></th>
+            <td><?= $value->id_user ?></td>
+            <td><?= $value->name_course ?></td>
+            <td><?= $value->money ?></td>
+            <td><?= $value->time?></td>
+            <!-- <td><?php echo $value['trang_thai'] ?></td> -->
             </tr>
-            <?php } ?>
+            <?php  } }?>
             
         </tbody>
         </table>

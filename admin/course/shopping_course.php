@@ -17,12 +17,14 @@
 
     ?>
   <?php 
-    $rows = getAll_payments();
+    $rows = getAll_payments();  
+    $sum=0;
+    $i=0;
     foreach ($rows as $key => $value) {
-
+    
   ?>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row"><?=$i+=1?></th>
       <td><?php echo $value['ten_user'] ?></td>
       <td><?php echo $value['NameCaurse'] ?></td>
       <td><?php echo $value['money'] ?></td>
@@ -30,15 +32,20 @@
       <td><?php echo $value['note'] ?></td>
       <td>
         <!-- <button type="button" class="btn btn-dark"><a href="">Xác nhận</a></button> -->
-        <?php if($value['trang_thai'] == "Đã xác nhận"){ ?>
+        <?php if($value['trang_thai'] == "1"){ ?>
           <button type="button" class="btn btn-primary" disabled>Đã xác nhận</button>
         <?php }else{ ?>
-          <button class="btn btn-warning"><a href="index.php?action=oder_shopping&id_user=<?= $value['id_user'] ?>&id_caurse=<?= $value['id_caurse'] ?>&time=<?= $value['time'] ?>&id_payments=<?= $value['id_payments'] ?>">xác nhận</a></button>
-          
+          <button class="btn btn-warning"><a href="index.php?action=oder_shopping&id_user=<?= $value['id_user'] ?>&id_caurse=<?= $value['id_caurse'] ?>&time=<?= $value['time'] ?>&id_payments=<?= $value['id_payments'] ?>">xác nhận</a></button>        
         <?php } ?>
       </td>  
     </tr>
-<?php } ?>
+  
+<?php  
+ 
+    }
+?>
+
+
 
   </tbody>
 </table>

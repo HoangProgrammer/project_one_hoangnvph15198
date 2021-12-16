@@ -50,11 +50,18 @@ function number_post_user($id_user){
     return $rows;
 }
 
-function fix_post($data){
+function fix_post($content,$title, $img,$id_post){
     $conn=connect();
-    $stmt= $conn->prepare("UPDATE forum_post SET content = :content , title_post = :title_post WHERE id_post = :id_post ");
-    $stmt->execute($data);
-    
+    if(!empty( $img)){
+        $stmt= $conn->prepare("UPDATE forum_post SET content =:content , title_post =:title_post, img=:img WHERE id_post = :id_post ");
+        $stmt->execute(['content'=>$content,'title_post'=>$title,'img'=>$img,'id_post'=>$id_post]);
+        return true;
+    }else{
+        $stmt= $conn->prepare("UPDATE   forum_post SET  content =:content , title_post =:title_post, WHERE id_post = $id_post ");
+    $stmt->execute(['content'=>$content,'title_post'=>$title,'id_post'=>$id_post]);
+    return true;
+    }
+
 }
 
 function get_new_post(){

@@ -83,20 +83,20 @@ foreach ($getAll_comment_lesson as $value){
 </div>
 </div>
 	</div>
-	<!-- <div class="col-xl-3">
+	<div class="col-xl-3">
 <div class="body_web">
-	<h5 class="title">dollar</h5>
+	<h5 class="title">doanh thu</h5>
 <div class="block_center">
 
 <div class="parameter">
-<h4 class='text-danger'>15,745,34 vnd</h4>
+<h4 class='text-danger'> <?=number_format($total_dollar,0,',')?> </h4>
 </div>
 <div>
 <i class="fa fa-dollar"></i>
 </div>
 </div>
 </div>
-	</div> -->
+	</div>
 </div>
 
 <br>

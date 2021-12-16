@@ -4,6 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -40,51 +41,66 @@
 
 
 <?php
-    if(isset($_COOKIE['id_user'])==$id_user ){
-        $id_user = $_COOKIE['id_user'];
-        $id_caurse = $_COOKIE['id_course'];
-        $code = $_COOKIE['code'];
-        $money = $_COOKIE['money'];
-        $time = $_COOKIE['time'];
-    }
-    
-    $row = Get_course_one($id_caurse);
-    foreach($row as $va){
-       $price=$va['price'];
-       $name=$va['NameCaurse'];
-    }
-$Get_user_one=Get_user_one($id_user);
-foreach ($Get_user_one as $va){
-    extract($va);
- 
-}
+    // if(isset($_COOKIE['id_user'])==$id_user ){
+    //     $id_user = $_COOKIE['id_user'];
+    //     $id_caurse = $_COOKIE['id_course'];
+    //     $code = $_COOKIE['code'];
+    //     $money = $_COOKIE['money'];
+    //     $time = $_COOKIE['time'];
+    // }
+
+    $cart=isset($_COOKIE['cart']) ?$_COOKIE['cart'] :"[]";
+    $cart=json_decode($cart);
+   
+   
+//    $cookie= json_encode($cart);
 ?>
-        <div class="container">
+
+
+        <div class="container" style="margin-bottom: 15rem;">
             <div class="header clearfix">
                 <h3 class="text-muted">Chi Tiết Đơn Hàng</h3>
             </div>
-            <!-- <h3>Tạo mới đơn hàng</h3> -->
+            <!-- <h3>Tạo mới đơn hàng</h3> --> 
+            <?php foreach ($cart as $val):
+         if($val->id_user==$id_user){
+             $id= $val->id_user;                  
+                    $Get_user_one=Get_user_one( $id);
+                    foreach ($Get_user_one as $va):
+                        extract($va);     
+                        
+                        $row = Get_course_one($_GET['id']);
+                        foreach ($row as $e) {
+                            $name = $e['NameCaurse'];
+                            $price = $e['price'];
+                              ?> 
+                                                                        
             <div class="">  
-
-               
+                     
                         <label for="language">Tên Khóa học </label>
                  
-                            <p value="topup"><?=$name?></p>
+                            <p value="topup"><?=  $name ?></p>
                              
                         <label for="order_id">Mã hóa đơn</label>
-                        <p><?=    $code ?></p>
+                        <p><?=    $val->code ?></p>
                       
                         <label for="amount">Số tiền</label>
-                        <p  ><?=number_format($price,0, ',');  ?> vnd</p> 
+                        <p  ><?=  $price ;  ?> vnd</p> 
            
                         <label for="order_id">Tên khách hàng</label>
-                        <p ><?=$ten_user ?></p>
+                        <p ><?=$va["ten_user"] ?></p>
                         <label for="order_id">Thời Gian</label>
-                        <p ><?=$time ?></p>
-                    <a href="index.html" name="button" class="btn btn-primary" >Quay Về trang chủ</a>
-            
+                        <p ><?=$val->time ?></p>
+                        <!-- <a href="index.php?act=delete_order&id=<?=$val->id_item?>">xóa</a> -->
             </div>
-     
+            <br>
+            <br>
+            <br>
+         <?php    }  endforeach ;  }
+         break;
+         endforeach ?>
+         <a href="index.html" name="button" class="btn btn-primary" >Quay Về trang chủ</a>
+
         </div>  
         <link href="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css" rel="stylesheet"/>
 
