@@ -49,10 +49,17 @@
     //     $time = $_COOKIE['time'];
     // }
 
-    $cart=isset($_COOKIE['cart']) ?$_COOKIE['cart'] :"[]";
-    $cart=json_decode($cart);
-   
-   
+    // if(isset($_COOKIE['cart'])){
+    //     $cookie=stripslashes($_COOKIE['cart']);
+    //     $cart=json_decode($cookie,true);
+    // }
+
+    if(isset($_SESSION['cart'])){
+        $cart_ss=  $_SESSION['cart'];
+        // $car=sort( $cart_ss);
+    }
+//     echo "<prev>";
+//    var_dump($cart);
 //    $cookie= json_encode($cart);
 ?>
 
@@ -62,42 +69,38 @@
                 <h3 class="text-muted">Chi Tiết Đơn Hàng</h3>
             </div>
             <!-- <h3>Tạo mới đơn hàng</h3> --> 
-            <?php foreach ($cart as $val):
-         if($val->id_user==$id_user){
-             $id= $val->id_user;                  
+            <?php foreach ( $cart_ss as $key=> $val):                
+  sort($cart_ss[$key]);
+         if($val['id_user']==$id_user){
+            $id=$val['id_user'];
                     $Get_user_one=Get_user_one( $id);
                     foreach ($Get_user_one as $va):
-                        extract($va);     
-                        
+                        extract($va);              
                         $row = Get_course_one($_GET['id']);
-                        foreach ($row as $e) {
-                            $name = $e['NameCaurse'];
-                            $price = $e['price'];
-                              ?> 
-                                                                        
-            <div class="">  
+                        ?>                        
+                         <div class="">  
                      
                         <label for="language">Tên Khóa học </label>
                  
-                            <p value="topup"><?=  $name ?></p>
+                            <p value="topup"><?= $val['name_course'] ?></p>
                              
                         <label for="order_id">Mã hóa đơn</label>
-                        <p><?=    $val->code ?></p>
+                        <p><?=    $val['code'] ?></p>
                       
                         <label for="amount">Số tiền</label>
-                        <p  ><?=  $price ;  ?> vnd</p> 
+                        <p  ><?=  number_format( $val['money'],0,'.');  ?> vnd</p> 
            
                         <label for="order_id">Tên khách hàng</label>
                         <p ><?=$va["ten_user"] ?></p>
                         <label for="order_id">Thời Gian</label>
-                        <p ><?=$val->time ?></p>
+                        <p ><?=$val['time'] ?></p>
                         <!-- <a href="index.php?act=delete_order&id=<?=$val->id_item?>">xóa</a> -->
             </div>
             <br>
             <br>
             <br>
-         <?php    }  endforeach ;  }
-         break;
+         <?php      endforeach ;  }
+        //  break;  
          endforeach ?>
          <a href="index.html" name="button" class="btn btn-primary" >Quay Về trang chủ</a>
 

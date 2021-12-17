@@ -217,6 +217,11 @@ foreach ($data_post as $value){ ?>
 </div>
     </div>
 </div>
+
+<?php if(isset($_SESSION['cart'])){ 
+    unset($_SESSION['cart']);
+} ?>
+
 <?php  if(isset($_SESSION['name_user'])){ 
 ?>
 

@@ -67,6 +67,14 @@
             $cart_data = array();
         }
 
+        if (isset($_SESSION['cart'])) {
+            $data_ss= $_SESSION['cart'];
+            // giải mã chuỗi đã mã hóa JSON, người ta sử dụng hàm json_decode.
+            //   khôi phục dữ liệu đã được mã hoá trở về bản gốc vd : json {a:'1'} => [a]=>int(1)
+        } else {
+            $data_ss = array();
+        }
+
         array_push($cart_data, array(
             "id_item" => $_GET['id'],
             'id_user' => $id_user,
@@ -77,6 +85,16 @@
 
         ));
 
+        array_push($data_ss, array(
+            "id_item" => $_GET['id'],
+            'id_user' => $id_user,
+            'name_course' =>  $name_course,
+            'money' => $money,
+            'code' => $id_oder,
+            'time' => $time,
+
+        ));
+       $_SESSION['cart']=$data_ss;
         setcookie('cart',json_encode( $cart_data,JSON_UNESCAPED_UNICODE), time() + (86400 * 9999));
         // định dạng chuỗi thành dạng json vd :  [a]=>int(1)=>  json {a:'1'} 
 
@@ -91,9 +109,13 @@
             'trang_thai' => $trang_thai,
         ];
 
-        insert_payments($data);
+        // insert_payments($data);
         $thongbao = "mua hàng thành công, vui lòng đợi admin xác nhận ";
     }
+
+
+
+
 
     $row = Get_course_one($id_caurse);
     foreach ($row as $va) {
