@@ -15,7 +15,7 @@ $friend="";
 ?>
 
 
-<div class="pcoded-main-container">
+<div class="pcoded-main-container" style="margin-bottom:15rem;">
 <div class="main-body">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
@@ -123,6 +123,11 @@ if($image==''){
                 }
 
             ?>
+            <div class="row">
+                <div class="col col-lg-6">
+ </div>
+            </div>
+             
             <form action="" method="POST" enctype="multipart/form-data" class="settings__view-container" id="exchangeAcount">
                         <!-- <h1 class="settings__title">Tài khoản</h1> -->
                         <p class="settings__copy">Thông tin tài khoản</p>
@@ -174,7 +179,7 @@ if($image==''){
                             
                             
                             </form>
-
+  
  <?php   } ?>
 
                             </div>

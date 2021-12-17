@@ -1,7 +1,7 @@
 <?php  
 
 function Get_account(){
-    $stmt="SELECT * FROM user";
+    $stmt="SELECT * FROM user Where role=0";
    $result= get_all( $stmt); 
  return $result;
 }
@@ -73,7 +73,7 @@ return true;
 
 function update_user($course_name,$image_course,$price_course,$description,$type,$id){
 $conn=connect();
-if($type=="0"){
+if($type==0){
     $price_course=0;
 }
 if(!empty($image_course)){

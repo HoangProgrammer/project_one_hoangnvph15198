@@ -40,10 +40,11 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
                     "route" => $row['route'],              
                 ];
                 $_SESSION['user']=$dataUser;
+                $_SESSION['name_user'] = $row['ten_user'];
                 // var_dump($_SESSION['user']);die;
                 header('Location:../processAjax.php');
                 if (isset($_GET['id_course'])) {
-                    header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
+                    header('Location:../../index.html?act=detail_course&idCourse=' . $_GET['id_course'] );
                 }
                 else {
                     header('Location:../../index.html');
@@ -56,9 +57,10 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
                     "user_name" => $row['ten_user'],                 
                 ];
                 $_SESSION['admin'] = $dataAdmin;
+                $_SESSION['name_user'] = $row['ten_user'];
                 header('Location:../processAjax.php');
                 if (isset($_GET['id_course'])) {
-                    header('Location:../../index.html?act=detail_course&id_course=' . $_GET['id_course'] );
+                    header('Location:../../index.html?act=detail_course&idCourse=' . $_GET['id_course'] );
                 }
                 else {
                     header('Location:../../index.html');

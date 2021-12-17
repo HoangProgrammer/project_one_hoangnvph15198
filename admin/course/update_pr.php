@@ -57,15 +57,18 @@ foreach($stmt as $row ){
 
                             <img width="100px"  src="../image/<?= $anh ?>" alt="">
                               </div>
+
                             <div class="form-group">
                             <label class="form-label " for=""> <h6> <b>Lộ trình</b> </h6>  </label> <br>
+                            <select class="form-select" aria-label="Default select example" name="route">
                                 <?php foreach ($data_route as $key => $value) { ?>
-                                    <input type="radio" name="route" value="<?php echo $value['id_route']?>"
-                                        <?php if ($value['id_route'] == $id_route) { ?>
-                                            checked
+                                    <option value="<?php echo $value['id_route']?>"
+                                    <?php if ($value['id_route'] == $id_route) { ?>
+                                        selected
                                          <?php } ?>
-                                    ><?php echo $value['id_route']?><br> 
+                                    ><?php echo $value['route']?></option>
                                 <?php } ?>
+                            </select>
                             </div>
 
 

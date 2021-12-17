@@ -2,7 +2,7 @@
             <div class="wrap_header">
                 <div class="header__left">
                     <figure>
-                        <a href="">
+                        <a href="../index.php">
                             <img src="./../assets/images/slider/Busuu_Logo.png" alt="logo">
                         </a>
                     </figure>

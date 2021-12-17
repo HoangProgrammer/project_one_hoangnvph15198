@@ -17,12 +17,15 @@
                             $act = $_GET['act'];
                             switch ($act) {
                                 case "learn":
-                                    break;
-                                default:
-                                    require("./layout/layout_1/nav.php");
-                                    break;
+                                    break;                         
                                 case "buyCourse":
                                     break;
+                                case "detail_order":
+                                    break;
+                                    default:
+                                    require("./layout/layout_1/nav.php");
+                                    break;
+
                             }
                         } else {
 
@@ -99,22 +102,57 @@
                                     break;
                                 case "add_post":
                                     if (isset($_POST['button'])) {
-                                        $title = $_POST['title'];
-                                        $content = $_POST['editor1'];
-                                        $time = date("Y-m-d H:i:s");
-                                        $interactions = 1;
+                                        if (isset($_FILES['img'])) {
+                                            $ava=$_FILES['img'];
 
-                                        $data = [
-                                            'id_user' => $id_user,
-                                            'content' => $content,
-                                            'time' => $time,
-                                            'interactions' => $interactions,
-                                            'title_post' => $title,
-                                        ];
-                                        insert_post($data);
+                                            $check = strpos($ava['type'], 'image');
+                                            if ($check === false) {
+                                                $_SESSION['error_update'] = 'File is not a image';
+                                                // header('location: /du_an_mau/form_update.php');
+                                                die;
+                                            }
+                                        
+                                            if ($ava['size'] >= 5000000) {
+                                                $_SESSION['error_update'] = 'Image is too large';
+                                                // header('location: /du_an_mau/form_update.php');
+                                                die;
+                                            }
+                                        
+                                            $foderImg = 'image/';
+                                            $anhLuu = $foderImg . $ava["name"];
+                                            move_uploaded_file($ava['tmp_name'], $anhLuu);
+                                            $img = $ava['name'];
+                                            $time = date("Y-m-d H:i:s");
+                                            $interactions = 1;
+    
+                                            $data = [
+                                                'id_user' => $id_user,
+                                                'content' => $_POST['editor1'],
+                                                'time' => $time,
+                                                'img' => $img,
+                                                'interactions' => $interactions,
+                                                'title_post' => $_POST['title'],
+                                            ];
+                                            // var_dump($data);die;
+                                            insert_post($data);
+                                        }
                                     }
                                     header('Location:forum');
                                     break;
+                                    case "fix_post":                                                                        
+                                        if (isset($_POST['button1'])) {
+                                       $id_post= $_POST['id_post'];
+                                            $title = $_POST['title'];
+                                            $content = $_POST['editor1'];
+                                            $ava = $_FILES['img']['name'];
+                                            $ava_name=$_FILES['img']['tmp_name'];  
+                                            move_uploaded_file($ava_name,'./image/'.  $ava);
+                                      
+                                            fix_post( $content,$title, $ava,$id_post);
+                                          
+                                        }
+                                         header('Location:MyBlog');                                    
+                                        break;
                                 case "edit_post":
                                     if (isset($_POST['edit'])) {
                                         $id_comment = $_POST['id_comment'];
@@ -125,10 +163,7 @@
                                     }
                                     header('Location:forum/comment/' . $id_post . '');
                                     break;
-
-
 // comment lesson
-
                                 case "comment_lesson":
                                     if (isset($_POST['comment'])) {
                                         $id_user = $_POST['id_user'];
@@ -236,6 +271,28 @@
                                 case "buyCourse":
                                     require_once "vnpay_php/index.php";
                                     break;
+                                case "detail_order":
+                                    require_once "vnpay_php/detail_order.php";
+                                    break;
+                                case "delete_order":
+                                    if(isset($_GET['id'])){
+                                        $cookie_data =stripslashes( $_COOKIE['cart']);
+                                        $cart_data = json_decode($cookie_data, true);
+                                        foreach($cart_data as $keys => $values)
+                                        {
+                                         if($cart_data[$keys]['id_item'] == $_GET["id"])
+                                         {
+                                          unset($cart_data[$keys]);
+                                          $item_data = json_encode($cart_data,JSON_UNESCAPED_UNICODE);  
+                                          setcookie("cart", $item_data, time() + (86400 * 9999));
+                                        
+
+
+                                    }    
+                                }
+                            }                           
+                                  header('Location:index.php?act=detail_order');                                
+                                    break;
                                 case "account":
                                     require_once "user/account.php";
                                     break;
@@ -278,11 +335,14 @@
                                     break;
 
                                 default:
+                                    $sql = "SELECT * FROM forum_post LIMIT 3";
+                                    $data_post = get_all($sql);
                                     require_once "home2.php";
                                     break;
                             }
                         } else {
-
+                            $sql = "SELECT * FROM forum_post LIMIT 3";
+                            $data_post = get_all($sql);
                             require_once "home2.php";
                         }
 

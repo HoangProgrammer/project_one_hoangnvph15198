@@ -17,6 +17,8 @@ function get_post(){
     }
     return $rows;
 }
+
+
 function get_post_other($id){
     $conn=connect();
     $stmt= $conn->prepare("SELECT forum_post.id_post as id_post ,forum_post.title_post as title_post , COUNT( DISTINCT comments_post.id_comment_post)as comment  FROM 
@@ -48,11 +50,18 @@ function number_post_user($id_user){
     return $rows;
 }
 
-function fix_post($data){
+function fix_post($content,$title, $img,$id_post){
     $conn=connect();
-    $stmt= $conn->prepare("UPDATE forum_post SET content = :content , title_post = :title_post WHERE id_post = :id_post ");
-    $stmt->execute($data);
-    
+    if(!empty( $img)){
+        $stmt= $conn->prepare("UPDATE forum_post SET content =:content , title_post =:title_post, img=:img WHERE id_post = :id_post ");
+        $stmt->execute(['content'=>$content,'title_post'=>$title,'img'=>$img,'id_post'=>$id_post]);
+        return true;
+    }else{
+        $stmt= $conn->prepare("UPDATE   forum_post SET  content =:content , title_post =:title_post, WHERE id_post = $id_post ");
+    $stmt->execute(['content'=>$content,'title_post'=>$title,'id_post'=>$id_post]);
+    return true;
+    }
+
 }
 
 function get_new_post(){
@@ -138,7 +147,7 @@ function get_one_by_user($id_post){
 
 function insert_post($data){
     $conn=connect();
-        $stmt=$conn->prepare("INSERT INTO forum_post(id_user,content,time,interactions,title_post)  VALUES( :id_user, :content, :time, :interactions, :title_post) ");   
+        $stmt=$conn->prepare("INSERT INTO forum_post(id_user,content,time,interactions,img,title_post)  VALUES( :id_user, :content, :time, :interactions, :img, :title_post) ");   
         $stmt->execute($data);
     return true;
 }

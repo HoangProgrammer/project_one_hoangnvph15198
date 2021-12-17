@@ -82,4 +82,33 @@ function delete_rating( $id){
     return true;
 }
 
+function get_rating_groupby_user(){
+    $conn=connect();
+    $stmt=$conn->prepare("SELECT rating.*, user.ten_user, user.image FROM rating, user WHERE rating.id_user = user.id_user AND user.role < 1 GROUP BY rating.id_user");
+    $stmt->execute([]); 
+
+    $data = [];
+    while (true) {
+        $row = $stmt->fetch();
+        // echo "<pre>";
+        // var_dump($row);die;
+        if ($row === false) {
+            break;
+        }
+        $rowData = [
+            'id_Rating' => $row['id_Rating'],
+            'id_user' => $row['id_user'],
+            'id_parent' => $row['id_parent'],
+            'content' => $row['content'],
+            'time' => $row['time'],
+            'rating' => $row['rating'],
+            'status' => $row['status'],
+            'ten_user' => $row['ten_user'],
+            'image' => $row['image'],
+        ];
+        array_push($data, $rowData);
+    }
+    return $data;
+}
+
 ?>
