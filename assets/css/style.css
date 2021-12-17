@@ -10738,7 +10738,7 @@ img.image_banner {
 }
 
 .swiper {
-
+  border-radius: 20px;
   height: 445px !important;
 
 }
