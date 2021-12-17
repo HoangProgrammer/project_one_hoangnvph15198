@@ -25,11 +25,16 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
             $number_of_rows = $result->fetchColumn(); 
             if($number_of_rows == 0){
                 if($pass == $check_pass){
+                    if(strlen($pass) < 8){
+                        $error="mật khẩu ít nhất 8 ký tự";
+                    }
+                    else{
+                        $sql = "INSERT INTO user (ten_user,user_name,image,email,mat_khau,start_time) VALUES ('$full_name','$user_name' ,'$img','$email','$pass','$time')";
+                        pdo_execute($sql);
+                        $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 2s)";
+                        header( "refresh:2;url=sign_in.php");
+                    }
                     
-                    $sql = "INSERT INTO user (ten_user,user_name,image,email,mat_khau,start_time) VALUES ('$full_name','$user_name' ,'$img','$email','$pass','$time')";
-                    pdo_execute($sql);
-                    $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 2s)";
-                    header( "refresh:2;url=sign_in.php");
                 } else{
                     $error="mật khẩu không trùng nhau";
                 }

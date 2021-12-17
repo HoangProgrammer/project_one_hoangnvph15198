@@ -117,8 +117,8 @@ if (isset($_GET['act'])) {
                         </li>
 
 
-                        <li class="nav-item  <?= $add_course ?> ">
-                            <a href="index.php?act=add_course" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Mua khóa học</span></a>
+                        
+                            
                         <li class="nav-item  <?= $route ?> ">
                             <a href="route" class="nav-link "><span class="pcoded-micon"><i class="fas fa-route"></i></span><span class="pcoded-mtext">Lộ trình</span></a>
                         </li>

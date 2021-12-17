@@ -27,6 +27,7 @@ $friend="";
                 <div class="tab-menu__tabs" data-cy="MyProfile__menuTabs">
                     <a href="account" class="nav__link  <?= $profile?> " id="account">Tài khoản</a>
                     <a class="nav__link  <?= $friend?>" href="index.php?act=account&friend" id="friend">Bạn Bè</a>
+                    <a href="index.php?act=add_course" class="nav__link ">Khóa học của tôi</a>
                     <!-- <a class="nav__link " data-qa-settings-languages="true">Ngôn ngữ</a>
                    <a class="nav__link " data-qa-settings-personal="true">Cài đặt cá nhân</a>
                     <a class="nav__link " data-qa-settings-subscription="true">Đăng ký</a>
