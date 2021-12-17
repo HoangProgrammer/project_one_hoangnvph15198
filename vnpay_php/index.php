@@ -109,7 +109,7 @@
             'trang_thai' => $trang_thai,
         ];
 
-        // insert_payments($data);
+        insert_payments($data);
         $thongbao = "mua hàng thành công, vui lòng đợi admin xác nhận ";
     }
 
