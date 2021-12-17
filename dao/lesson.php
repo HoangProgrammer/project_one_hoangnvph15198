@@ -59,16 +59,16 @@ function insert_lesson($data){
 
 
 function insert_progress_lesson($id_lesson,$id_course,$id_user){ 
-    $conn = connect();
-    $select =$conn ->prepare("SELECT * FROM progress_lesson WHERE id_lesson=$id_lesson and id_user=$id_user");
-    $select->execute();
-if($select->rowCount()>0){
-}else{
-        $stmt=$conn->prepare("INSERT INTO progress_lesson (id_lesson,id_course,id_user )
-       VALUES(?,?,?) ");
-        $stmt->execute([$id_lesson,$id_course,$id_user]);
-    return true;
-}
+//     $conn = connect();
+//     $select =$conn ->prepare("SELECT * FROM progress_lesson WHERE id_lesson=$id_lesson and id_user=$id_user");
+//     $select->execute();
+// if($select->rowCount()>0){
+// }else{
+//         $stmt=$conn->prepare("INSERT INTO progress_lesson (id_lesson,id_course,id_user )
+//        VALUES(?,?,?) ");
+//         $stmt->execute([$id_lesson,$id_course,$id_user]);
+//     return true;
+// }
     }
 
 

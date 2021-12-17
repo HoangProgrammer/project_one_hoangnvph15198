@@ -307,19 +307,19 @@
                 <form action="">
                     <div class="input">
                         <label for="">Họ tên</label> <br>
-                        <input type="text" id="name">
+                        <input class="input_form" type="text" id="name">
                     </div>
     
                     <div class="input">
                         <label for="">Email</label> <br>
-                        <input type="email" id="email">
+                        <input class="input_form" type="email" id="email">
                     </div>
                     <div class="input">
                         <label for="">Số điện thoại</label> <br>
-                        <input type="number" id="number">
+                        <input class="input_form" type="number" id="number">
                     </div>
                     <div class="input">
-                        <label for="">Khóa học</label> <br>
+                        <label class="input_form" for="">Khóa học</label> <br>
                         <select name="course" id="course">
                             <?php foreach ($data_course as $key => $value) { ?>
                                 <option value="<?php echo $value['NameCaurse'] ?>"><?php echo $value['NameCaurse'] ?></option>
@@ -327,6 +327,7 @@
                         </select>
                     </div>
                     <input class="btn btn-primary" type="submit" value="Submit" id="btn-submit" />
+                    <div id="acb" style="color: red;"></div>
                 </form>
             </div>
     </div>
@@ -414,6 +415,27 @@
         </div>
     
 </div>
+
+<script>
+        var inputs = document.querySelectorAll(".input_form");
+        var acb = document.getElementById('acb');
+        var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].onblur = function(e){
+                var value = inputs[i].value;
+                console.log(value)
+                if (value != "" && value.match(mail)) {
+                    inputs[i].style.border = "1px solid green";
+                    acb.innerHTML= "";
+                }
+                else{
+                    acb.innerHTML= "Điền đầy đủ thông tin";
+                    inputs[i].style.border = "1px solid red";
+
+                }
+            }            
+        }
+    </script>
 
 <script type="text/javascript" language="javascript">
              $(document).ready(function() {

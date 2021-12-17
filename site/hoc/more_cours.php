@@ -3,48 +3,12 @@
     <div class="pcoded-main-container">
         <div class="pcoded-module">
             <div class="pcoded-module-left">
-                <!-- <div class="pcoded-module-left-title">
-                    <h3>Những Kiến Thức và bài giảng</h3>
-                    <span>Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.</span>
-                </div>
-                <div class="pcoded-module-left-content">
-                    <h3>Bạn sẽ học được gì</h3>
-                </div>
-                <ul class="pcoded-module-left-description">
-                    <li class="pcoded-module-left-description-item">
-                        <i class="fas fa-check"></i>
-                        <span>Các kiến thức cơ bản, học cách xếp chữ cái</span>
-                    </li>
-                    <li class="pcoded-module-left-description-item">
-                        <i class="fas fa-check"></i>
-                        <span>học từ vựng vững chắc hơn cho bé</span>
-                    </li>
-                    <li class="pcoded-module-left-description-item">
-                        <i class="fas fa-check"></i>
-                        <span>Các mô hình, kiến trúc cơ bản khi triển khai ứng dụng Tiếng Anh</span>
-                    </li>
-                    <li class="pcoded-module-left-description-item">
-                        <i class="fas fa-check"></i>
-                        <span>Các kiến thức cơ bản,tập làm quen với tiếng anh</span>
-                    </li>
-                    
-                </ul> -->
+            <h1>Khóa học</h1>
 
                 <div>
                     <div class="pcoded-module-left-content">
                         <h3>Nội dung khóa học</h3>
                     </div>
-                    <!-- <ul class="pcoded-module-left-time">
-                        <li>
-                            <span>4 phần  .</span>
-                        </li>
-                        <li>
-                            <span>8 bài học  .</span>
-                        </li>
-                        <li>
-                            <span>Thời lượng 02 giờ 15 phút</span>
-                        </li>
-                    </ul> -->
 
                     <div>
                    <?php
@@ -172,7 +136,7 @@ foreach(  $course as $val) { ;
         </div>
         
     </div>
-    <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
+    <!-- <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
         <div class="course-lesson__footer">
             <div class="course-lesson__footer-left">
                 <span class="course-lesson__footer-item">2021 © Busuu Ltd</span>
@@ -187,7 +151,7 @@ foreach(  $course as $val) { ;
                 <i class="fab fa-youtube course-lesson__footer-heft"></i>
             </div>
         </div>
-    </footer>
+    </footer> -->
 <script>
 
     $('.course-lesson__body').slideDown();
