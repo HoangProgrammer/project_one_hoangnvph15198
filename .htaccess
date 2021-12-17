@@ -8,7 +8,7 @@ RewriteRule "index.html" "index.php"
 
 RewriteRule ^forum/(.*)/(.*)$  index.php?act=$1&id_post=$2 
 
-RewriteRule ^Tap/(.*)/([a-zA-Z0-9]+)$  index.php?act=$1&idCourse=$2
+RewriteRule ^Tab/(.*)/([a-zA-Z0-9]+)$  index.php?act=$1&idCourse=$2
 
 RewriteRule ^([a-zA-Z]+)$  index.php?act=$1 
 

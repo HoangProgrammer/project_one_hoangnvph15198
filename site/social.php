@@ -97,14 +97,15 @@ foreach ($MyFriend as $val) {
                     data: {
                         id_friend: to_id,
                         action: action
-                    },
-                    beforeSend: function(data) {
-                        $('#send_request' + to_id).html('đang gửi...')
-                    },
-                    success: function(data) {
+                    },     
+                    beforeSend: function(jqXHR, settings) {   
+                        $('#send_request' + to_id).html('<i class="fas fa-spinner"></i> ')
+                    },         
+                    success: function(data, textStatus,jqXHR) {
                         $('#send_request' + to_id).attr('disabled', 'disabled')     
                         $('#send_request' + to_id).html('đã gửi yêu cầu')
-                    }
+                    },  
+       
                 })
 
             }
