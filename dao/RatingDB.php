@@ -74,10 +74,25 @@ function update_parent( $status,$id){
     ]); 
     return true;
 }
+function update_rating_by_user( $id_rating, $content,$time){
+    $conn=connect();
+    $stmt=$conn->prepare("UPDATE rating set content=:content,time=:time WHERE id_Rating =:id_Rating");
+    $stmt->execute([ ":content"=>$content, 
+     ":time"=>$time, "id_Rating"=>$id_rating
+    ]); 
+    return true;
+}
 function delete_rating( $id){
     $conn=connect();
     $stmt=$conn->prepare("DELETE FROM rating  WHERE id_Rating =:id_Rating");
     $stmt->execute([":id_Rating"=>$id, 
+    ]); 
+    return true;
+}
+function delete_rating_parent( $id){
+    $conn=connect();
+    $stmt=$conn->prepare("DELETE FROM rating  WHERE id_parent =:id_parent");
+    $stmt->execute([":id_parent"=>$id, 
     ]); 
     return true;
 }

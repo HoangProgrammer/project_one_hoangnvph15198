@@ -77,25 +77,16 @@ foreach($stmt as $row ){
                             </div>
                             <div class="form-group">
                             <label class="form-label" for="" > Miễn phí  </label>
-                           <input type="radio" name="type" value="0" class="form-radio1" <?php if($type=="0"){echo "checked" ;}else{}   ?>  />
+                           <input type="radio" name="type" id="free" value="0" class="form-radio1" <?php if($type=="0"){echo "checked" ;}else{ }   ?>  />
                            <label class="form-label" for="">  Mất phí </label>
                              <input type="radio" name="type"  value="1"  class="form-radio2"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
                             </div>
                             </div>
-                            <?php if($type=="1"){ ?> 
+       
                                     <div class="form-group" style="display:block;" id="price">
                             <label class="form-label" for=""> <h6> Giá </h6>  </label>
-                            <input type="text" name="price_course" id="price"  class="form-control" value=" <?= $gia ?>" />    
+                            <input type="text"  name="price_course" id="price"  class="form-control" value=" <?= $gia ?>" />    
                             </div> 
-                                
-                                
-                                <?php }else{ ?>
-                                    <div class="form-group" style="display:none;" id="price">
-                            <label class="form-label" for=""> <h6> Giá </h6>  </label>
-                            <input type="text" name="price_course" id="price"  class="form-control" value=" <?= $gia ?>" />    
-                            </div>  
-                                    <?php } ?>
-                       
 
                             <div class="form-group">
                             <label class="form-label" for=""> <h6><b> Mô tả</b> </h6>  </label>
@@ -134,8 +125,6 @@ unset($_SESSION['nadescriptionme']);
 
     </div>
 </div>
-
-
 
 
 

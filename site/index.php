@@ -265,6 +265,11 @@
                                 case "RaTing":
                                     require_once "rating.php";
                                     break;
+                                case "delete_rating":
+                                    delete_rating_parent($_GET['id']);
+                                    delete_rating($_GET['id']);
+                                 header('Location:RaTing');
+                                    break;
                                 case "social":
                                     require_once "social.php";
                                     break;

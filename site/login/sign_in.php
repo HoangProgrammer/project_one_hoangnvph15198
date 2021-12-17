@@ -87,7 +87,7 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
 <html lang="en">
 
 <head>
-    <title>Datta Able Free Bootstrap 4 Admin Template</title>
+    <title>Đăng Nhập</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -118,6 +118,12 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
             </div>
             <div class="card">
                 <form action="" method="POST" class="card-body text-center">
+                <div class="pro-head" style="position:absolute; left:15px; top:15px">
+                                
+                <a href="../../index.html" class="dud-logout" title="Logout">
+                                    <i class="feather icon-log-out"></i>
+                                </a>
+                            </div>
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>

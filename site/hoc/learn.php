@@ -2,7 +2,6 @@
 if (isset($_GET['lesson'])) {
     $times = date('Y-m-d H:i:s');
     insert_history($id_user, $times, $_GET['lesson']);
-    insert_progress_lesson($_GET['lesson'], $_GET['idCourse'], $id_user);
 }
 
 ?>

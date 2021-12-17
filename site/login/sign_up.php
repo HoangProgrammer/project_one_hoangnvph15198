@@ -85,6 +85,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
    
                 <form action="" method="POST" class="card-body text-center">
+                <div class="pro-head" style="position:absolute; left:15px; top:15px">
+                                
+                                <a href="../../index.html" class="dud-logout" title="Logout">
+                                                    <i class="feather icon-log-out"></i>
+                                                </a>
+                                            </div>
                     <div class="mb-4">
                         <i class="feather icon-user-plus auth-icon"></i>
                     </div>

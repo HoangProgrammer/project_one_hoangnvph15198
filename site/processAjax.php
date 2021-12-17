@@ -69,11 +69,19 @@ if(isset($_POST['content'])){
 
   if(isset($_POST['reply'])){
     $content =$_POST['contentReply'];
-    $id_user =$_POST['user_id'];
+    $user_id =$_POST['user_id'];
     $child =$_POST['child'];
     $time = date('Y-m-d H:i:s');   
-    insert_Reply($id_user,$child, $content,$time);
-    header('location:../index.php?act=rating');
+    insert_Reply($user_id,$child, $content,$time);
+    header('location:../RaTing');
+  } 
+
+  if(isset($_POST['edit_from'])){
+    $content =$_POST['content_edit'];
+    $id_edit_rating =$_POST['id_edit_rating'];
+    $time = date('Y-m-d H:i:s');   
+    update_rating_by_user($id_edit_rating, $content,$time);
+    header('location:../RaTing');
   } 
 
 $rating=Get_Rating();
@@ -111,7 +119,22 @@ foreach ($rating as $value) :
                     </ul>
                 </div>
                 <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div> 
+                <?php if($value['id_user']==$id_user){ ?>
+            <a href="index.php?act=delete_rating&id=<?=$value['id_Rating']?>" class="delete_rating text-danger " style="cursor: pointer;">xóa</a>
+            <a  class="edit_rating text-primary " style="cursor: pointer;">chỉnh sửa</a>      
+            
+            <form action="site/processAjax.php" method="post" class="form_edit ">
+                            <input type="hidden" name="id_edit_rating" id="child" value="<?=$value['id_Rating']?>">
+     <div class="c-user-rate-form f-comment-5314009">
+                    <textarea name="content_edit" rows="4" placeholder="Viết câu hỏi của bạn">  </textarea>         
+                    <button  type="submit" class="  btn btn-primary" name="edit_from">chỉnh sửa </button>
+                </div>
+</form>
+            <?php } ?>
+
+            
                 <?php if ($role == 0) {
+
                 } else { ?>
                     <div class="c-comment-status">
                         <a class="rep_a text-primary "  style="cursor: pointer;">Trả lời</a>
@@ -164,8 +187,12 @@ endforeach; ?>
 <script>
     $(document).ready(function(){
   $('.formRep').hide();
+  $('.form_edit').hide();
 $('.rep_a').on('click',function(e) {
-  $(this).next().slideToggle();
+  $(this).next().slideToggle(1);
+})
+$('.edit_rating').on('click',function(e) {
+  $(this).next().slideToggle(1);
 })
 
 
@@ -173,7 +200,7 @@ $('.editRating').click(function() {
 
 var parent=$(this).data('edit');
 
-$('#editRating'+parent).slideToggle()
+$('#editRating'+parent).slideToggle(1)
 }) 
 
 

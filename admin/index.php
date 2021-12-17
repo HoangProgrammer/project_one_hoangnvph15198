@@ -199,6 +199,7 @@ if (!isset($_SESSION["admin"])) {
                 if (isset($_POST['update_course'])) {
                     $course_name = $_POST['course_name'];
                     $type = $_POST['type'];
+                  
                     $id_route = $_POST['route'];
                     $_SESSION['id_route'] = $id_route;
                     // var_dump($id_route);die;
@@ -216,7 +217,9 @@ if (!isset($_SESSION["admin"])) {
                         $_SESSION['description'] = "không được để trống";
                         $err = false;
                     }
-
+                    if($type==0){
+                        $price_course=0;
+                    }
 
                     if ($err == false) {
                         header("location:index.php?action=updateCourse&id=$id");
@@ -626,16 +629,26 @@ if (!isset($_SESSION["admin"])) {
             case "them_slide":
                 if (isset($_POST['create_slide_btn'])) {
                     $type = $_POST['type'];
-                    $image = $_FILES['image']['name'];
+               
+  $image = $_FILES['image']['name'];
                     $image_tmp = $_FILES['image']['tmp_name'];
                     move_uploaded_file($image_tmp, "../image/" . $image);
+
+                    if($type=="" ||   $image==""){
+                        $_SESSION['err_slide']="không được để trống các trường";
+                     
+                        header("location:index.php?action=create_slide");
+                    }else{
+
                     $data = [
                         ":img" => $image,
                         ":type" => $type
 
                     ];
                     $insert = insert_Banner($data);
-                    header("location:index.php?action=banner");
+                     header("location:index.php?action=banner");
+                    }         
+                   
                 }
                 break;
 

@@ -217,9 +217,12 @@ if(empty($notification)) {
                                 foreach ($notification as $val) : ?>
                                     <li class="">
                                         <div class="media">
-                                            <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                            <a href="index.php?act=profile&id=<?=$val['sender']?>">
+                                                 <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image"> 
+                                            </a>
+                                          
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i></span></p>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"> <?=get_time($val['time'])?> <i class="icon feather icon-clock m-r-10"></i> </span></p>
                                            <div style="display:flex">
                                                    <form action="" method="POST">                                  
                                                   <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
