@@ -89,7 +89,7 @@ foreach ($getAll_comment_lesson as $value){
 <div class="block_center">
 
 <div class="parameter">
-<h4 class='text-danger'> <?=number_format($total_dollar,0,',')?> </h4>
+<h4 class='text-danger'> <?=$total_dollar?> </h4>
 </div>
 <div>
 <i class="fa fa-dollar"></i>

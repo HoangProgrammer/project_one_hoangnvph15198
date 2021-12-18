@@ -108,8 +108,6 @@ if (isset($_GET['act'])) {
                         </li>
 
 
-                        
-                            
                         <li class="nav-item  <?= $route ?> ">
                             <a href="route" class="nav-link "><span class="pcoded-micon"><i class="fas fa-route"></i></span><span class="pcoded-mtext">Lộ trình</span></a>
                         </li>

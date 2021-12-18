@@ -37,7 +37,7 @@ foreach($stmt as $row ){
                       <!-- <a href="course/add_pr.php">ha</a> -->
                       <div class="form-group">
                             <label class="form-label " for=""> <h6><b>Tên khóa học</b>  </h6>  </label>
-                                <input  type="text" name="course_name" id="name_course" class="form-control"  value="<?=  $ten ?>" />
+                                <input  type="text" name="course_name" id="name_course" class="form-control input_form"  value="<?=  $ten ?>" />
                           <p class="text-danger error_name"> <?php if(isset(  $_SESSION['name'])){
                               echo $_SESSION['name'];
                               unset($_SESSION['name']);
@@ -48,7 +48,7 @@ foreach($stmt as $row ){
                               
                             <div class="form-group">
                             <label class="form-label" for=""> <h6>  <b>Ảnh</b>  </h6> </label>
-                                <input type="file" name="image_course" id="image_course"  class="form-control" placeholder="Enter Your image" />
+                                <input type="file" name="image_course" id="image_course"  class="form-control input_form" placeholder="Enter Your image" />
                            
                             <p class="text-danger error_image"><?php if(isset(  $_SESSION['image_course'])){
                             echo $_SESSION['image_course'];
@@ -60,7 +60,7 @@ foreach($stmt as $row ){
 
                             <div class="form-group">
                             <label class="form-label " for=""> <h6> <b>Lộ trình</b> </h6>  </label> <br>
-                            <select class="form-select" aria-label="Default select example" name="route">
+                            <select class="form-select input_form" aria-label="Default select example" name="route">
                                 <?php foreach ($data_route as $key => $value) { ?>
                                     <option value="<?php echo $value['id_route']?>"
                                     <?php if ($value['id_route'] == $id_route) { ?>
@@ -79,7 +79,7 @@ foreach($stmt as $row ){
                             <label class="form-label" for="" > Miễn phí  </label>
                            <input type="radio" name="type" id="free" value="0" class="form-radio1" <?php if($type=="0"){echo "checked" ;}else{ }   ?>  />
                            <label class="form-label" for="">  Mất phí </label>
-                             <input type="radio" name="type"  value="1"  class="form-radio2"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
+                             <input type="radio" name="type"  value="1"  class="form-radio2 input_form"  <?php if($type=="1"){echo "checked" ;}else{}   ?>  />                             
                             </div>
                             </div>
        
@@ -90,11 +90,11 @@ foreach($stmt as $row ){
 
                             <div class="form-group">
                             <label class="form-label" for=""> <h6><b> Mô tả</b> </h6>  </label>
-                                <textarea name="description" id="mo_ta" class="form-control" placeholder="Type Review Here"><?= $description ?> </textarea>
+                                <textarea name="description" id="mo_ta" class="form-control input_form" placeholder="Type Review Here"><?= $description ?> </textarea>
                                 <p class="text-danger error_mo_ta"> <?php if(isset(  $_SESSION['description'])){
-echo $_SESSION['description'];
-unset($_SESSION['nadescriptionme']);
-} ?></p>
+                                echo $_SESSION['description'];
+                                unset($_SESSION['nadescriptionme']);
+                                } ?></p>
                               </div>
 
                             <div class="form-group text-center mt-4">
@@ -126,5 +126,23 @@ unset($_SESSION['nadescriptionme']);
     </div>
 </div>
 
+<script>
+        var inputs = document.querySelectorAll(".input_form");
+        var acb = document.getElementById('acb');
+        var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].onblur = function(e){
+                var value = inputs[i].value;
+                console.log(value)
+                if (value != "") {
+                    inputs[i].style.border = "1px solid green";
+                }
+                else{
+                    inputs[i].style.border = "1px solid red";
+
+                }
+            }            
+        }
+    </script>
 
 

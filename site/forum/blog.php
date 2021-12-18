@@ -178,7 +178,7 @@ foreach ($get_new_post as $value):
                             </div>
                             <!-- img -->
                             <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                <label class="input-group-text" for="inputGroupFile01">Ảnh bìa</label>
                                 <input type="file" class="form-control" id="inputGroupFile01" name="img">
                             </div>
                             <div class="form-group">
@@ -194,6 +194,22 @@ foreach ($get_new_post as $value):
                 </div>
 
             </div>
+
+            <!-- <script type="text/javascript" language="javascript">
+             $(document).ready(function() {
+                $("#btn-submit").click(function(event){
+                    var name = $("#name").val();
+                    var email = $("#email").val();
+                    var number = $("#number").val();
+                    var course = $("#course").val();
+
+                    
+
+
+                });
+             });
+    </script> -->
+
 <script>
 
 $(document).ready(function() {

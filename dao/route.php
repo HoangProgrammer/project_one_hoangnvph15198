@@ -57,4 +57,12 @@
         return true;
     }
 
+    function uproute_course($id){
+        $con = connect();
+        $sql = "UPDATE course SET id_route = null" .
+        " WHERE id_route=:id";
+        $stm = $con->prepare($sql);
+        $stm->execute(['id'=>$id]);
+    }
+
 ?>

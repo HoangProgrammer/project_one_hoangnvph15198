@@ -1,25 +1,3 @@
-
-    <!-- Required Js -->
-
-
-    <!-- <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
-        <div class="course-lesson__footer">
-            <div class="course-lesson__footer-left">
-                <span class="course-lesson__footer-item">2021 © Busuu Ltd</span>
-                <a class="course-lesson__footer-item" href="">Điều khoản</a>
-                <a class="course-lesson__footer-item" href="">Bảo mật</a>
-            </div>
-            <div class="course-lesson__footer-right">
-                <span class="course-lesson__footer-heft">Trợ giúp</span>
-                <i class="fab fa-facebook course-lesson__footer-heft"></i>
-                <i class="fab fa-internet-explorer course-lesson__footer-heft"></i>
-                <i class="fab fa-instagram course-lesson__footer-heft"></i>
-                <i class="fab fa-youtube course-lesson__footer-heft"></i>
-            </div>
-        </div>
-    </footer> -->
-
-
     <!-- footer của Hoàng -->
 
 
