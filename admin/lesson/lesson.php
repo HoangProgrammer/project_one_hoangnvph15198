@@ -8,18 +8,13 @@
       <p class="nav"> bài học </p>
     </div>
  
-    <div class="col-div-6">
-      <form action="index.php?action=search" method="post" class="form">
-        <input type="text" class="search" name="key" required>
-        <button class="btn-form" name="search_btn"> <i class="fa fa-search search-icon"></i> </button>
-      </form>
-    </div>
+  
   
     <?php require_once("nav_login.php") ?>
 <br>
 <br>
 <br>
-  <form action="index.php?action=deletes_pr" method="post" >
+  <form action="index.php?action=deleteAll" method="post" >
     <h5 class="text-warning">
      <?php  
    
@@ -36,7 +31,7 @@
      <label for="chose_all" class=" btn btn-primary btn-select" >chọn tất cả</label>  
    <label for="chose_all" class=" btn btn-danger btn-unselect"  style="display:none" >bỏ chọn</label> 
    <input type="checkbox" hidden id="chose_all"> 
-   <button class=" btn btn-danger " name="btn-deletes">xóa tất cả lựa chọn</button>  
+   <button class=" btn btn-danger " name="delete_lesson">xóa tất cả lựa chọn</button>  
  
 </div>
 <br>

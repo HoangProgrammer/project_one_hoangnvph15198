@@ -58,34 +58,7 @@ function insert_lesson($data){
     }
 
 
-function insert_progress_lesson($id_lesson,$id_course,$id_user){ 
-//     $conn = connect();
-//     $select =$conn ->prepare("SELECT * FROM progress_lesson WHERE id_lesson=$id_lesson and id_user=$id_user");
-//     $select->execute();
-// if($select->rowCount()>0){
-// }else{
-//         $stmt=$conn->prepare("INSERT INTO progress_lesson (id_lesson,id_course,id_user )
-//        VALUES(?,?,?) ");
-//         $stmt->execute([$id_lesson,$id_course,$id_user]);
-//     return true;
-// }
-    }
-
-
-    function getAll_progress_lesson($id,$id_user){
-        $conn=connect();
-        $stmt= $conn->prepare("SELECT * FROM progress_lesson Where id_course= $id and id_user=$id_user");
-        $stmt->execute();
-      $rows=array();
-       while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
-           $rows[]=$row;
-       }
-       return $rows;
-    }
-
-
 function delete_lesson($id){
-  
     $conn=connect();
         $stmt=$conn->prepare("DELETE FROM lesson WHERE id_lesson=?");
         $stmt->execute([$id]);

@@ -51,10 +51,18 @@
                                         }
                                     }
 
+
                             function delete_comment_one($id_comment){
                                 $conn=connect();                                                                     
                                  $stmt= $conn->prepare("DELETE FROM comments WHERE id_comment=?  ");
                                     $stmt->execute([$id_comment]);
+                                    return true;
+                                                             
+                                    }
+                            function delete_comment_by_lesson($id){
+                                $conn=connect();                                                                     
+                                 $stmt= $conn->prepare("DELETE FROM comments WHERE id_lesson=?  ");
+                                    $stmt->execute([$id]);
                                     return true;
                                                              
                                     }

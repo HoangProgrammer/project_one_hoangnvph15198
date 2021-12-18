@@ -57,7 +57,6 @@ $_SESSION['err_account']="tài khoản của bạn đã bị khóa";
                     "user_name" => $row['ten_user'],                 
                 ];
                 $_SESSION['admin'] = $dataAdmin;
-                $_SESSION['name_user'] = $row['ten_user'];
                 header('Location:../processAjax.php');
                 if (isset($_GET['id_course'])) {
                     header('Location:../../index.html?act=detail_course&idCourse=' . $_GET['id_course'] );

@@ -8,18 +8,18 @@ ob_start();
 
 require_once('nav.php');
 require_once('./../dao/route.php');
-$dollar=0;
-$ro = getAll_payments();  
+$dollar = 0;
+$ro = getAll_payments();
 foreach ($ro as $key => $value) {
- $value['money'] ;
-   $dollar+=$value['money'];
-} 
-$total_dollar=$dollar;
+    $value['money'];
+    $dollar += $value['money'];
+}
+$total_dollar = $dollar;
 ?>
 
- 
- 
- 
+
+
+
 
 
 
@@ -199,7 +199,7 @@ if (!isset($_SESSION["admin"])) {
                 if (isset($_POST['update_course'])) {
                     $course_name = $_POST['course_name'];
                     $type = $_POST['type'];
-                  
+
                     $id_route = $_POST['route'];
                     $_SESSION['id_route'] = $id_route;
                     // var_dump($id_route);die;
@@ -217,8 +217,8 @@ if (!isset($_SESSION["admin"])) {
                         $_SESSION['description'] = "không được để trống";
                         $err = false;
                     }
-                    if($type==0){
-                        $price_course=0;
+                    if ($type == 0) {
+                        $price_course = 0;
                     }
 
                     if ($err == false) {
@@ -239,6 +239,21 @@ if (!isset($_SESSION["admin"])) {
             case "deleteCourse":
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
+                    $getAll_topic = getAll_topic($id);
+                    foreach ($getAll_topic as $value) {
+                        $id_topic = $value['id_lesson_topics'];
+                        $getAll_lesson =  getAll_lesson($id_topic);
+                        foreach ($getAll_lesson as $val) {
+                            $id_lesson =  $val['id_lesson'];
+                            delete_history_lesson($id_lesson);
+                            delete_point_by_lesson($id_lesson);
+                            delete_comment_by_lesson($id_lesson);
+                            delete_quiz_by_lesson($id_lesson);
+                            delete_lesson_topic($id_topic);
+                        }
+                    }
+
+                    delete_topic_course($id);
                     deleteCourse($id);
                     header("location:index.php?action=product");
                 }
@@ -255,7 +270,8 @@ if (!isset($_SESSION["admin"])) {
                         deleteCourseALL($item);
                         header("location:index.php?action=product");
                     }
-                } else if (isset($_POST['delete_btn_topic'])) {
+                } 
+                else if (isset($_POST['delete_btn_topic'])) {
                     $id_course = $_POST['id_course'];
                     if (!isset($_POST['item_topic'])) {
                         $_SESSION['errAll'] = "bạn chưa chọn";
@@ -348,7 +364,15 @@ if (!isset($_SESSION["admin"])) {
                 if (isset($_GET['id']) && isset($_GET['idCourse'])) {
                     $id = $_GET['id'];
                     $idCourse = $_GET['idCourse'];
-                    delete_lesson_topic($id);
+                    $getAll_lesson =  getAll_lesson($id);
+                    foreach ($getAll_lesson as $val) {
+                        $id_lesson =  $val['id_lesson'];
+                        delete_history_lesson($id_lesson);
+                        delete_point_by_lesson($id_lesson);
+                        delete_comment_by_lesson($id_lesson);
+                        delete_quiz_by_lesson($id_lesson);
+                        delete_lesson_topic($id);
+                    }
                     $delete = delete_topic($id);
                     if ($delete) {
                         header("Location:index.php?action=detail&idCourse=" . $idCourse . " ");
@@ -458,6 +482,10 @@ if (!isset($_SESSION["admin"])) {
                     $id_lesson = $_GET['id_lesson'];
                     $idTopic = $_GET['id_topic'];
                     $id_course = $_GET['id_course'];
+                    delete_history_lesson($id_lesson);
+                    delete_point_by_lesson($id_lesson);
+                    delete_comment_by_lesson($id_lesson);
+                    delete_quiz_by_lesson($id_lesson);
                     $delete = delete_lesson($id_lesson);
                     if ($delete == true) {
                         header("Location:index.php?action=detail_lesson&id_course=" . $id_course . "&id_topic=" . $idTopic . " ");
@@ -629,26 +657,25 @@ if (!isset($_SESSION["admin"])) {
             case "them_slide":
                 if (isset($_POST['create_slide_btn'])) {
                     $type = $_POST['type'];
-               
-  $image = $_FILES['image']['name'];
+
+                    $image = $_FILES['image']['name'];
                     $image_tmp = $_FILES['image']['tmp_name'];
                     move_uploaded_file($image_tmp, "../image/" . $image);
 
-                    if($type=="" ||   $image==""){
-                        $_SESSION['err_slide']="không được để trống các trường";
-                     
+                    if ($type == "" ||   $image == "") {
+                        $_SESSION['err_slide'] = "không được để trống các trường";
+
                         header("location:index.php?action=create_slide");
-                    }else{
+                    } else {
 
-                    $data = [
-                        ":img" => $image,
-                        ":type" => $type
+                        $data = [
+                            ":img" => $image,
+                            ":type" => $type
 
-                    ];
-                    $insert = insert_Banner($data);
-                     header("location:index.php?action=banner");
-                    }         
-                   
+                        ];
+                        $insert = insert_Banner($data);
+                        header("location:index.php?action=banner");
+                    }
                 }
                 break;
 

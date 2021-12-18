@@ -48,7 +48,7 @@
                                     <?php  $date=date_create($start_time) ?>
 
                                     <div class="profile__languages">
-                                    <h5>đã tham gia :<?=date_format($date,'Y/m/d H:i:s') ?></h5>
+                                    <h5>đã tham gia :<?=date_format($date,'Y-m-d') ?></h5>
                                         <div class="icon-text">
                                             <?php
 
@@ -82,7 +82,7 @@
                                                         // $Get_order_course= Get_oderCourse();
                                                         foreach ($Get_course_one as $val) : extract($val); ?>
 
-                                                            <a class="col-md-6 col-xl-4" title="<?= $NameCaurse ?>">
+                                                            <a class="col-md-6 col-xl-4  title" title="<?= $NameCaurse ?>">
 
                                                                 <div class="card-english">
                                                                     <img class="course-img" src="image/<?= $img ?>" alt="">
@@ -192,6 +192,9 @@ $request = Friends_request2($val['id_user'],  $id_users);
 
                 <script type="text/javascript">
                     $(document).ready(function() {
+                        $('.profile__language').hover(function() {
+$('.title').tooltip();
+                        })
 
                         $('.btn_request').on('click', function(e) {
                             e.preventDefault();

@@ -296,7 +296,7 @@
                                     }    
                                 }
                             }                           
-                                  header('Location:index.php?act=detail_order');                                
+                                  header('Location:account');                                
                                     break;
                                 case "account":
                                     require_once "user/account.php";
