@@ -56,18 +56,18 @@
                                             <span>Tiếng anh</span>
                                         </li>
                                         <li  id="ta1" data-text="Tiếng anh cho người mới">
-                                            <img src="trangchu/images/france-1524418_960_720.png" alt="">
-                                            <span>Tiếng anh</span>
+                                            <img src="trangchu/images/england-150397_960_720.png" alt="">
+                                            <span>Tiếng anh cho trẻ em</span>
                         
                                         </li>
                                         <li  id="ta2" data-text="Tiếng anh Ielts">
-                                            <img src="trangchu/images/india-3115847_960_720.png" alt="">
-                                            <span>India</span>
+                                            <img src="trangchu/images/england-150397_960_720.png" alt="">
+                                            <span>Tiếng anh Ielts</span>
                         
                                         </li>
                                         <li  id="ta3" data-text="Germany">
-                                            <img src="trangchu/images/germany-1524614_960_720.png" alt="">
-                                            <span>Germany</span>
+                                            <img src="trangchu/images/england-150397_960_720.png" alt="">
+                                            <span>Ôn lại tiếng Anh</span>
                         
                                         </li>
                                     </ul>
