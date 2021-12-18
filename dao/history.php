@@ -33,6 +33,12 @@ function delete_history($id_history){
     $query->execute();
     return true;
 }
+function delete_history_lesson($id_lesson){
+    $conn=connect();
+    $query=$conn->prepare("DELETE FROM history WHERE id_lesson=$id_lesson");
+    $query->execute();
+    return true;
+}
 
 function insert_history($id_user,$time,$id_lesson){
     $time_ago=strtotime($time);

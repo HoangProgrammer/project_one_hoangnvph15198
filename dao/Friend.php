@@ -61,7 +61,7 @@ function notification($my_id)
 {
     $con = connect();
     $notification = $con->prepare("SELECT id_request ,sender ,
-ten_user  FROM friend_request join user on friend_request.sender=user.id_user 
+ten_user ,time FROM friend_request join user on friend_request.sender=user.id_user 
 where receiver=?");
     $notification->execute([$my_id]);
     $rows = array();

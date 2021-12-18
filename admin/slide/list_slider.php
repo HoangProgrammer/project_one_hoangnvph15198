@@ -28,12 +28,7 @@
 <p class="nav"> slider</p>
 
 </div>
-	<div class="col-div-6">
-		<form action="" class="form">
-			<input type="text" class="search">
-		<button class="btn-form">    <i class="fa fa-search search-icon"></i>	 </button>	
-		</form>
-</div>
+
 
 <?php require_once("nav_login.php") ?>
 
@@ -42,7 +37,7 @@
             <tr>
         <th scope="col" class="text-dark" >stt</th>
         <th scope="col" class="text-dark">anh</th>
-        <th scope="col" class="text-dark">loai</th>
+        <!-- <th scope="col" class="text-dark">loai</th> -->
         <th scope="col" class="text-dark"><a href="index.php?action=create_slide">thêm slide</a></th>
     
          </tr>
@@ -57,7 +52,7 @@ foreach($banner as $value){
 <tr>
 <th><?=$count+=1 ?></th>
 <th><img width="200px" src="../image/<?=$image ?>" alt=""></th>
-<th><?=$type?></th>
+<!-- <th><?=$type?></th> -->
  <td> <a class="btn btn-warning"href="index.php?action=update_slider&id_banner=<?=$id_banner  ?>">sửa</a>
 <a class="delete btn btn-danger" href="index.php?action=xoa_slider&id_banner=<?=$id_banner  ?>">xóa</a></td>
 </tr>

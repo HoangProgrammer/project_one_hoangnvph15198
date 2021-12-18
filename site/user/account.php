@@ -27,12 +27,9 @@ $friend="";
                 <div class="tab-menu__tabs" data-cy="MyProfile__menuTabs">
                     <a href="account" class="nav__link  <?= $profile?> " id="account">Tài khoản</a>
                     <a class="nav__link  <?= $friend?>" href="index.php?act=account&friend" id="friend">Bạn Bè</a>
-                    <a href="index.php?act=add_course" class="nav__link ">Khóa học của tôi</a>
-                    <!-- <a class="nav__link " data-qa-settings-languages="true">Ngôn ngữ</a>
-                   <a class="nav__link " data-qa-settings-personal="true">Cài đặt cá nhân</a>
-                    <a class="nav__link " data-qa-settings-subscription="true">Đăng ký</a>
-                    <a class="nav__link " data-qa-settings-studyplan="true">Kế hoạch học tập</a></div>               -->
+                    <!-- <a href="index.php?act=add_course" class="nav__link ">Khóa học của tôi</a> -->
             </div>
+
             <?php if(isset($_GET['friend'])){ ?>
          
             <div class="settings__view-container" id="friends">
@@ -123,11 +120,7 @@ if($image==''){
                 }
 
             ?>
-            <div class="row">
-                <div class="col col-lg-6">
- </div>
-            </div>
-             
+           
             <form action="" method="POST" enctype="multipart/form-data" class="settings__view-container" id="exchangeAcount">
                         <!-- <h1 class="settings__title">Tài khoản</h1> -->
                         <p class="settings__copy">Thông tin tài khoản</p>
@@ -172,14 +165,67 @@ if($image==''){
                                         <label class="form__label" for="confirmPassword">Xác nhận mật khẩu</label>
                                         <input class="form__input" name="confirmPassword" type="password" id="confirmPassword" pattern="^.{6,}$" title="Mật khẩu của bạn phải có ít nhất 6 ký tự." value="<?php echo $value['mat_khau'] ?>"></div>
                                     </div>
-                                </div><div class="form-group settings__column">
                                 </div>
                                 <button class="btn btn--s btn--primary settings__cta" name="button" type="submit" data-qa-save="true">Lưu</button>
                             </div>
                             
                             
                             </form>
-  
+                      
+     
+                            <?php 
+            // var_dump($rows);
+            if(isset($_COOKIE['cart'])){
+                $cookie=stripslashes($_COOKIE['cart']);
+                $cart=json_decode($cookie,true);
+            }else{
+                $cart=[]; 
+            }   ?>
+
+                            <div class="detail_pay" style="margin-top: 4rem;">
+<h2  class="settings__heading">
+    lịch sử mua hàng
+</h2>
+
+
+<ul>
+    <?php  foreach ($cart as $key => $value) : 
+           if($value['id_user']==$id_user): 
+           
+            $Get_user_one=Get_user_one( $value['id_user']);
+            foreach ($Get_user_one as $va):
+           ?>
+    <li>
+        <a class="id_pay" data-block="<?=$value['id_item'] ?>"> <h5><?= $value['name_course'] ?> <i class="fas fa-angle-down"></i>  </h5>    </a>
+        <ul class="block id_course<?=$value['id_item'] ?>">
+            <li>
+            <div class="" style="        border: 1px solid #efefef; width: 262px; padding: 25px;  box-shadow: 0px 0px 3px 0px;">  
+                     <label class="text-primary" for="language">Tên Khóa học </label>
+              
+                         <p class="text-secondary" value="topup"><?= $value['name_course'] ?></p>
+                          
+                     <label class="text-primary" for="language">Tên Khách hàng</label>
+              
+                         <p class="text-secondary" value="topup"><?= $va['ten_user'] ?></p>
+                          
+                     <label class="text-primary" for="order_id">Mã hóa đơn</label>
+                     <p class="text-secondary"><?= $value['code'] ?></p>
+                   
+                     <label class="text-primary" for="amount">Số tiền</label>
+                     <p class="text-secondary"  ><?= $value['money'] ?> vnd</p> 
+                     <label class="text-primary" for="order_id">Thời Gian</label>
+                     <p class="text-secondary" ><?= $value['time'] ?></p>
+                     <a class="text-danger" href="index.php?act=delete_order&id=<?=$value['id_item']?>">xóa</a>
+         </div>
+            </li>
+        </ul>
+    </li>
+
+    <?php  endforeach; endif;   endforeach; ?>
+
+
+</ul>
+                            </div>
  <?php   } ?>
 
                             </div>
@@ -189,9 +235,16 @@ if($image==''){
         </div>
         </div>
         </div>
-        </div>
+
 
    <script>
+       $('.block').hide()
+
+$('.id_pay').on('click', function(e) {
+var id=$(this).data('block');
+$('.id_course'+id).slideToggle(1);
+})
+
 
        $('#file-select').on('change', function() {
 var upload=''

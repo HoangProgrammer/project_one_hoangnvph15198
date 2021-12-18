@@ -54,8 +54,13 @@ if($stmt->rowCount() >0){
          return true;
         }
 
-   
-        
-        
 
+    function delete_point_by_lesson($id_lesson){
+        $conn=connect();
+            $stmt=$conn->prepare("DELETE FROM point WHERE id_lesson=?");       
+            $stmt->execute([$id_lesson]);
+         return true;
+        }
+
+         
 ?>

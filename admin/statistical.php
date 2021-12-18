@@ -5,13 +5,13 @@
 		<div class="col-div-6">       
 <p class="nav"> Thống kê </p>
 </div>
-
+<!-- 
 <div class="col-div-6">       
  <form action="" class="form">
 			<input type="text" class="search">
 		<button class="btn-form">    <i class="fa fa-search search-icon"></i>	 </button>	
 		</form>
-</div>
+</div> -->
 <?php require_once("nav_login.php") ?>
 
 <table class="table table-striped table-bordered">
@@ -54,10 +54,13 @@ foreach($data as $values){
         <br>
         <br>
         <br>
+
+        <div class="col-div-6">       
+<p class="nav"> Thống kê số người học</p>
+</div>
 <table class="table table-striped table-bordered">
         <thead>
             <tr>
-
         <th>mã khóa học </th>
         <th>Tên khóa học</th>
         <th>số người học</th>

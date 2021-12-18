@@ -8,12 +8,7 @@
       <p class="nav"> chủ đề </p>
     </div>
  
-    <div class="col-div-6">
-      <form action="index.php?action=search" method="post" class="form">
-        <input type="text" class="search" name="key" required>
-        <button class="btn-form" name="search_btn"> <i class="fa fa-search search-icon"></i> </button>
-      </form>
-    </div>
+
   
     <?php require_once("nav_login.php") ?>
 <br>

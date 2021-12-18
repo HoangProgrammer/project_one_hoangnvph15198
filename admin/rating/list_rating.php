@@ -6,13 +6,6 @@
 <p class="nav"> Danh Sách Đánh giá</p>
 </div>
 
-<div class="col-div-6">       
- <form action="" class="form">
-			<input type="text" class="search">
-		<button class="btn-form">    <i class="fa fa-search search-icon"></i>	 </button>	
-		</form>
-
-   </div>
 <?php require_once("nav_login.php") ?>
 <br>
 <br>

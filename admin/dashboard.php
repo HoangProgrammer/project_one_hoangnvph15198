@@ -13,10 +13,10 @@
 </div>	
 	
 	<div class="col-div-6">
-		<form action="index.php?action=search" method="post" class="form" >
+		<!-- <form action="index.php?action=search" method="post" class="form" >
 			<input type="text" class="search" required>
 		<button name="search_btn" class="btn-form">  <i class="fa fa-search search-icon"></i>	 </button>	
-		</form>
+		</form> -->
 <?php require_once("nav_login.php") ?>
 </div>
 

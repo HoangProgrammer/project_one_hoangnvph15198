@@ -1,18 +1,12 @@
 <?php
 session_start();
-// require_once('../backend/model/ProductDB.php');
-// require_once('../backend/model/confix.php');
-// require_once('../backend/model/Khach_hang.php');
-// require_once('../backend/model/slideDB.php');
-// require_once('../backend/model/commentDB.php');
-// require_once('../backend/model/newDB.php');
-
-
 require_once('../models/pdo.php');
 require_once('../dao/courseDB.php');
 require_once('../dao/lesson_topicDB.php');
 require_once('../dao/lesson.php');
 require_once('../dao/comment_lesson.php');
+require_once('../dao/history.php');
+require_once('../dao/pointDB.php');
 require_once('../dao/quizDB.php');
 require_once('../dao/accountDB.php');
 require_once('../global.php');

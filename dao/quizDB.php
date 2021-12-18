@@ -42,6 +42,13 @@ function delete_quiz($id){
         $stmt->execute([$id]);
     return true;
     }
+function delete_quiz_by_lesson($id){
+  
+    $conn=connect();
+        $stmt=$conn->prepare("DELETE FROM quiz WHERE id_lesson =?");
+        $stmt->execute([$id]);
+    return true;
+    }
 
     function update_quiz($data){
         $conn=connect();

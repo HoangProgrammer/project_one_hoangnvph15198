@@ -34,7 +34,9 @@
             <td><?=$value['time']?></td>
             <!-- <td><?php echo $value['trang_thai'] ?></td> -->
             </tr>
-            <?php  } }?>
+            <?php
+              } 
+        }?>
             
         </tbody>
         </table>
