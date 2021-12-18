@@ -127,14 +127,14 @@ if (empty($get_course_in)) {
                             <h3 class="pcoded-content-name">Khóa Đang học</h3>
                             <div class="row">
 
-
                                 <?php
                                 $id_user;
                                 $Get_progress = Get_progress(); // xuat tu odercause
                                 // $arr = array();
                                 foreach ($Get_progress as $value) :
+
                                     if ($value['id_user'] == $id_user) : // so sanh id o trong gio vs id ss
-                                        $Get_course_one = Get_course_one($value['id_causer']);
+                                        $Get_course_one = Get_course_one($value['id_causer']);// get từ bảng quá trình
                                         // $Get_order_course= Get_oderCourse();
                                         foreach ($Get_course_one as $val) : extract($val); ?>
 
@@ -146,7 +146,8 @@ if (empty($get_course_in)) {
                                                     <?= $NameCaurse  ?>
                                                 </span>
                                                 <?php
-                                                array_push($arr_progress, $value['id_causer']); ?>
+                                                array_push($arr_progress, $value['id_causer']); // chèn phần từ cuối cùng được lấy ra trong điều kiện
+                                                 ?>   
 
                                             </a>
 
@@ -167,13 +168,15 @@ if (empty($get_course_in)) {
 <?php } ?>
 
 
-<?php $merge = array_merge($arr, $arr_progress);
+<?php $merge = array_merge($arr, $arr_progress); // gộp 2 mảng lại thành 1 mảng chung
 
 $course = Get_caurse();
 
-$bien = implode("','", $merge); // chuyen mang thanh chuoi 
-$stmt = Get_other_course($bien);
+$bien = implode("','", $merge); // chuyen mang thanh chuoi  
+
+$stmt = Get_other_course($bien); 
 if (empty($stmt)) {
+
 } else { ?>
     <div class="pcoded-main-container">
 
