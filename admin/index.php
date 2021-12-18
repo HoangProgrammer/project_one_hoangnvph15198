@@ -15,6 +15,8 @@ foreach ($ro as $key => $value) {
    $dollar+=$value['money'];
 } 
 $total_dollar=$dollar;
+// require("./statistical.php");
+
 ?>
 
  
@@ -38,17 +40,22 @@ if (!isset($_SESSION["admin"])) {
                 break;
             case 'add_route':
                 if (isset($_POST['submit'])) {
+                    if (($_POST['route']) == "" ) {
+                        $_SESSION['err_route'] = 'Tên lộ trình không được để trống';
+                        header('location: index.php?action=add_route_form');
+                        die;    
+                    }
                     $ava = $_FILES['img'];
                     $check = strpos($ava['type'], 'image');
                     if ($check === false) {
                         $_SESSION['error_update'] = 'File is not a image';
-                        // header('location: /du_an_mau/form_update.php');
+                        header('location: index.php?action=add_route_form');
                         die;
                     }
 
                     if ($ava['size'] >= 5000000) {
                         $_SESSION['error_update'] = 'Image is too large';
-                        // header('location: /du_an_mau/form_update.php');
+                        header('location: index.php?action=add_route_form');
                         die;
                     }
 
@@ -115,6 +122,7 @@ if (!isset($_SESSION["admin"])) {
             case 'delete_route':
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
+                    uproute_course($id);
                     delete_route($id);
                 }
                 break;

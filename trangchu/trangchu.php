@@ -327,7 +327,6 @@
                         </select>
                     </div>
                     <input class="btn btn-primary" type="submit" value="Submit" id="btn-submit" />
-                    <div id="acb" style="color: red;"></div>
                 </form>
             </div>
     </div>
@@ -426,10 +425,8 @@
                 console.log(value)
                 if (value != "" && value.match(mail)) {
                     inputs[i].style.border = "1px solid green";
-                    acb.innerHTML= "";
                 }
                 else{
-                    acb.innerHTML= "Điền đầy đủ thông tin";
                     inputs[i].style.border = "1px solid red";
 
                 }

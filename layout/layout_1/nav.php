@@ -106,15 +106,7 @@ if (isset($_GET['act'])) {
                         <li class="nav-item  <?= $social ?> ">
                             <a href="social" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Cộng đồng</span></a>
                         </li>
-
-
-<<<<<<< HEAD
-                        
                             
-=======
-                        <li class="nav-item  <?= $add_course ?> ">
-                            <a href="index.php?act=add_course" class="nav-link "><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Mua khóa học</span></a>
->>>>>>> a2e1c2fa96c6d1d9341894a756c7367507c06720
                         <li class="nav-item  <?= $route ?> ">
                             <a href="route" class="nav-link "><span class="pcoded-micon"><i class="fas fa-route"></i></span><span class="pcoded-mtext">Lộ trình</span></a>
                         </li>

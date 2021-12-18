@@ -21,7 +21,7 @@
                       <!-- <a href="course/add_pr.php">ha</a> -->
                             <div class="form-group">
                             <label class="form-label " for=""> <h6>Tên khóa học  </h6>  </label>
-                                <input  type="text" name="course_name" id="name_course" class="form-control" placeholder="Enter Your Name" />
+                                <input  type="text" name="course_name" id="name_course" class="form-control input_form" placeholder="Enter Your Name" />
                           <p class="text-danger error_name"> <?php if(isset(  $_SESSION['name'])){
 
                               echo $_SESSION['name'];
@@ -30,12 +30,12 @@
                               </div>
                             <div class="form-group">
                             <label class="form-label" for=""> <h6>  Ảnh  </h6> </label>
-                                <input type="file" name="image_course" id="image_course"  class="form-control" placeholder="Enter Your image" />
+                                <input type="file" name="image_course" id="image_course"  class="form-control input_form" placeholder="Enter Your image" />
                                 <p class="text-danger error_image"><?php if(isset(  $_SESSION['image_course'])){
 
-echo $_SESSION['image_course'];
-unset($_SESSION['image_course']);
-} ?> </p>
+                            echo $_SESSION['image_course'];
+                            unset($_SESSION['image_course']);
+                            } ?> </p>
                               </div>
                             <div class="form-group">
                             <label class="form-label" for=""> <h6>Loại   </h6> </label>
@@ -48,14 +48,13 @@ unset($_SESSION['image_course']);
                             </div>
                             <div class="form-group" style="display:none;" id="price">
                             <label class="form-label" for=""> <h6> Giá </h6>  </label>
-                            <input type="text" name="price_course" id="price"  class="form-control" placeholder="Enter Your price" />   
+                            <input type="text" name="price_course" id="price"  class="form-control input_form" placeholder="Enter Your price" />   
                            
                             </div>
     
                             <div class="form-group">
                             <label class="form-label" for=""> <h6>Lộ trình</h6> </label>
-                            <select class="form-select select" aria-label="Default select example" name="id_route">
-                                <option selected value="0">--</option>
+                            <select class="form-select select input_form" aria-label="Default select example" name="id_route">
                                 <option value="4">Ielts</option>
                                 <option value="2">Children</option>
                                 <option value="3">Basic</option>
@@ -65,12 +64,11 @@ unset($_SESSION['image_course']);
 
                             <div class="form-group">
                             <label class="form-label" for=""> <h6> Mô tả </h6>  </label>
-                                <textarea name="description" id="mo_ta" class="form-control" placeholder="Type Review Here"></textarea>
+                                <textarea name="description" id="mo_ta" class="form-control input_form" placeholder="Type Review Here"></textarea>
                                 <p class="text-danger error_mo_ta"> <?php if(isset(  $_SESSION['description'])){
-
-echo $_SESSION['description'];
-unset($_SESSION['nadescriptionme']);
-} ?></p>
+                                echo $_SESSION['description'];
+                                unset($_SESSION['nadescriptionme']);
+                                } ?></p>
                               </div>
 
                             <div class="form-group text-center mt-4">
@@ -101,6 +99,21 @@ unset($_SESSION['nadescriptionme']);
     </div>
 </div>
 
+<script>
+        var inputs = document.querySelectorAll(".input_form");
+        var acb = document.getElementById('acb');
+        var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].onblur = function(e){
+                var value = inputs[i].value;
+                console.log(value)
+                if (value != "") {
+                    inputs[i].style.border = "1px solid green";
+                }
+                else{
+                    inputs[i].style.border = "1px solid red";
 
-
-
+                }
+            }            
+        }
+    </script>

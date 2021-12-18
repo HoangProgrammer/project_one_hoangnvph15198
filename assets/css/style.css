@@ -10777,13 +10777,13 @@ a#bell {
   border: 1px solid #ccc;
   border-radius: 10px;
   display: flex;
-  transition: .3s;
+  transition: .3s ease-in-out;
 }
 .container_route:last-child{
   margin-bottom: 50px;
 }
 .container_route > .couress:hover{
-  border: none;
+  border: 1px solid white;
   box-shadow: 
   0 2.8px 2.2px rgb(0 0 0 / 3%), 
   0 2.8px 2.2px rgb(0 0 0 / 3%), 

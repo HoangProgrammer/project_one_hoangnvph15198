@@ -39,7 +39,7 @@ foreach($Get_Rating as $values){ extract($values)?>
     <td>
       <?php
  if($values['st']==2){ ?>
-    <button style="cursor:help" class="delete btn btn-warning" disabled href="index.php?action=edit_request&id_rating=<?= $id_rating?>">đã phản hồi</button> 
+    <button style="cursor:help; white-space:nowrap" class="delete btn btn-warning" disabled href="index.php?action=edit_request&id_rating=<?= $id_rating?>">đã phản hồi</button> 
 <?php }else{ ?> 
 <a class="delete btn btn-success" href="index.php?action=request&id_rating=<?= $values['id_rating']?>"> phản hồi</a> 
     <?php } ?>  
