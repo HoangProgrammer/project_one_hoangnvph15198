@@ -245,21 +245,7 @@ if (!isset($_SESSION["admin"])) {
             case "deleteCourse":
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
-                    $getAll_topic = getAll_topic($id);
-                    foreach ($getAll_topic as $value) {
-                        $id_topic = $value['id_lesson_topics'];
-                        $getAll_lesson =  getAll_lesson($id_topic);
-                        foreach ($getAll_lesson as $val) {
-                            $id_lesson =  $val['id_lesson'];
-                            delete_history_lesson($id_lesson);
-                            delete_point_by_lesson($id_lesson);
-                            delete_comment_by_lesson($id_lesson);
-                            delete_quiz_by_lesson($id_lesson);
-                            delete_lesson_topic($id_topic);
-                        }
-                    }
-
-                    delete_topic_course($id);
+              
                     deleteCourse($id);
                     header("location:index.php?action=product");
                 }
@@ -287,7 +273,7 @@ if (!isset($_SESSION["admin"])) {
                         $item = implode(',', $item_topic);
                         // var_dump( $item);
                         delete_lesson_topic($item);
-                        delete_topicALL($item);
+                   
                         header("location:index.php?action=detail&idCourse=" . $id_course . "");
                     }
                 }
@@ -304,7 +290,6 @@ if (!isset($_SESSION["admin"])) {
                 // chủ đề
             case "detail":
                 $id_course = $_GET['idCourse'];
-                $topic = getAll_topic($id_course);
                 require("./lesson_topic/list_topic.php");
                 break;
             case "add_lesson_topic":
@@ -326,9 +311,7 @@ if (!isset($_SESSION["admin"])) {
                     if ($err == false) {
                         header("Location:index.php?action=add_lesson_topic&idCourse=" . $idCourse . "");
                     } else {
-                        $insert_topic = insert_topic($data);
                         if ($insert_topic == true) {
-
                             header("Location:index.php?action=detail&idCourse=$idCourse");
                         }
                     }
@@ -338,7 +321,7 @@ if (!isset($_SESSION["admin"])) {
                 if (isset($_GET['id_topic'])) {
                     $id = $_GET['id_topic'];
                 }
-                $stmt = get_one_topic($id);
+        
                 require("./lesson_topic/update_topic.php");
                 break;
             case "update_topic":
@@ -359,7 +342,7 @@ if (!isset($_SESSION["admin"])) {
                     if ($err == false) {
                         header("Location:index.php?action=update_lesson_topic&id_course=" . $id_course . "&id_topic=$id_lesson");
                     } else {
-                        $update_topic = update_topic($data);
+             
                         if ($update_topic == true) {
                             header("Location:index.php?action=detail&idCourse=$id_course");
                         }
@@ -379,17 +362,20 @@ if (!isset($_SESSION["admin"])) {
                         delete_quiz_by_lesson($id_lesson);
                         delete_lesson_topic($id);
                     }
-                    $delete = delete_topic($id);
                     if ($delete) {
                         header("Location:index.php?action=detail&idCourse=" . $idCourse . " ");
                     }
                 }
                 break;
 
+
+
+
+
                 // bài học
             case "detail_lesson":
-                $id_topic = $_GET['id_topic'];
-                $getAll_lesson = getAll_lesson($id_topic);
+                $idCourse = $_GET['idCourse'];
+                $getAll_lesson = getAll_lesson($idCourse);
                 require("./lesson/lesson.php");
                 break;
             case "add_lesson":
@@ -401,34 +387,25 @@ if (!isset($_SESSION["admin"])) {
                     $lesson_name = $_POST['lesson_name'];
                     $video_lesson = $_POST['video_lesson'];
                     $time = $_POST['time'];
-                    $id_topic = $_POST['id_topic'];
                     $id_course = $_POST['id_course'];
                     $err = true;
                     if ($lesson_name == "") {
                         $_SESSION['name'] = "không được để trống";
                         $err = false;
                     }
-                    if ($video_lesson == "") {
-                        $_SESSION['video_lesson'] = "không được để trống";
-                        $err = false;
-                    }
-                    if ($time == "") {
-                        $_SESSION['time'] = "không được để trống";
-                        $err = false;
-                    }
-
+              
                     $data = [
                         ":lesson_name" => $lesson_name,
                         ":video_lesson" => $video_lesson,
                         ":time" => $time,
-                        ":id" => $id_topic,
+                        ":id" => $id_course,
                     ];
                     if ($err == false) {
-                        header("location:index.php?action=add_lesson&id_course=" . $id_course . "&id_topic=$id_topic");
+                        header("location:index.php?action=add_lesson&idCourse=" . $id_course );
                     } else {
                         $insert = insert_lesson($data);
                         if ($insert == true) {
-                            header("location:index.php?action=detail_lesson&id_course=" . $id_course . "&id_topic=$id_topic");
+                            header("location:index.php?action=detail_lesson&idCourse=" . $id_course);
                         }
                     }
                 }
@@ -449,7 +426,6 @@ if (!isset($_SESSION["admin"])) {
                     $video_lesson = $_POST['video_lesson'];
                     $time = $_POST['time'];
                     $id_lesson = $_POST['id_lesson'];
-                    $id_topic = $_POST['id_topic'];
                     $id_course = $_POST['id_course'];
 
                     $err = true;
@@ -457,15 +433,7 @@ if (!isset($_SESSION["admin"])) {
                         $_SESSION['name'] = "không được để trống";
                         $err = false;
                     }
-                    if ($video_lesson == "") {
-                        $_SESSION['video_lesson'] = "không được để trống";
-                        $err = false;
-                    }
-                    if ($time == "") {
-                        $_SESSION['time'] = "không được để trống";
-                        $err = false;
-                    }
-
+                
                     $data = [
                         ":lesson_name" => $lesson_name,
                         ":video_lesson" => $video_lesson,
@@ -473,28 +441,23 @@ if (!isset($_SESSION["admin"])) {
                         ":id" => $id_lesson,
                     ];
                     if ($err == false) {
-                        header("location:index.php?action=update_lesson&id_lesson=$id_lesson&id_course=" . $id_course . "&id_topic=$id_topic");
+                        header("location:index.php?action=update_lesson&id_lesson=$id_lesson&idCourse=" . $id_course );
                     } else {
                         $update_lesson = update_lesson($data);
                         if ($update_lesson == true) {
-                            header("location:index.php?action=detail_lesson&id_course=" . $id_course . "&id_topic=$id_topic");
+                            header("location:index.php?action=detail_lesson&idCourse=" . $id_course );
                         }
                     }
                 }
 
                 break;
             case "delete_lesson":
-                if (isset($_GET['id_lesson']) && isset($_GET['id_topic'])) {
+                if (isset($_GET['id_lesson'])) {
                     $id_lesson = $_GET['id_lesson'];
-                    $idTopic = $_GET['id_topic'];
-                    $id_course = $_GET['id_course'];
-                    delete_history_lesson($id_lesson);
-                    delete_point_by_lesson($id_lesson);
-                    delete_comment_by_lesson($id_lesson);
-                    delete_quiz_by_lesson($id_lesson);
-                    $delete = delete_lesson($id_lesson);
+                    $id_course = $_GET['idCourse'];
+                    $delete = delete_lesson($id_lesson); 
                     if ($delete == true) {
-                        header("Location:index.php?action=detail_lesson&id_course=" . $id_course . "&id_topic=" . $idTopic . " ");
+                        header("Location:index.php?action=detail_lesson&idCourse=" . $id_course);
                     }
                 }
                 break;
@@ -514,9 +477,9 @@ if (!isset($_SESSION["admin"])) {
                     $Selection1 = $_POST['Selection1'];
                     $Selection2 = $_POST['Selection2'];
                     $Selection3 = $_POST['Selection3'];
+                    $Selection4 = $_POST['Selection4'];
                     $answer = $_POST['answer'];
                     $id_lesson = $_POST['id_lesson'];
-                    $id_topic = $_POST['id_topic'];
                     $id_course = $_POST['id_course'];
                     $err = true;
                     if ($question == "") {
@@ -535,22 +498,25 @@ if (!isset($_SESSION["admin"])) {
                         $_SESSION['Selection3'] = "không được để trống";
                         $err = false;
                     }
-
-
+                    $img=$_FILES['img']['name'];
+                    $img_tmp=$_FILES['img']['tmp_name'];
+                    move_uploaded_file($img_tmp,'../assets/images/quizs/'.$img);
                     $data = [
                         ":question" => $question,
+                        ":img" => $img,
                         ":Selection1" => $Selection1,
                         ":Selection2" => $Selection2,
                         ":Selection3" => $Selection3,
+                        ":Selection4" => $Selection4,
                         ":answer" => $answer,
                         ":id_lesson" => $id_lesson,
                     ];
                     if ($err == false) {
-                        header("location:index.php?action=add_quiz&id_lesson=$id_lesson&id_course=" . $id_course . "&id_topic=" . $id_topic . "");
+                        header("location:index.php?action=add_quiz&id_lesson=$id_lesson&idCourse=" . $id_course);
                     } else {
                         $insert = insert_quiz($data);
                         if ($insert == true) {
-                            header("location:index.php?action=quiz&id_lesson= $id_lesson&id_course=" .  $id_course . "&id_topic=" . $id_topic . "");
+                            header("location:index.php?action=quiz&id_lesson= $id_lesson&idCourse=".  $id_course );
                         }
                     }
                 }
@@ -565,14 +531,16 @@ if (!isset($_SESSION["admin"])) {
                 break;
             case "update_quizFrom":
                 if (isset($_POST['btn_course'])) {
+                 
                     $question = $_POST['question'];
                     $Selection1 = $_POST['Selection1'];
                     $Selection2 = $_POST['Selection2'];
                     $Selection3 = $_POST['Selection3'];
+                    $Selection4 = $_POST['Selection4'];
                     $answer = $_POST['answer'];
                     $id_quiz = $_POST['id_quiz'];
                     $id_lesson = $_POST['id_lesson'];
-                    $id_topic = $_POST['id_topic'];
+    
                     $id_course = $_POST['id_course'];
                     $err = true;
                     if ($question == "") {
@@ -592,21 +560,32 @@ if (!isset($_SESSION["admin"])) {
                         $err = false;
                     }
 
+                    $img='';    
+        if(empty($_FILES['img']['name'])){
+          $img=$_POST['imgDefault'];
+        //   var_dump($img);die;     
+        }else{    
+            $img =  $img=$_FILES['img']['name'];        
+            $img_tmp =$_FILES['img']['tmp_name'];
+            move_uploaded_file($img_tmp,'../assets/images/quizs/'.$img);
+        }
 
                     $data = [
                         ":question" => $question,
-                        ":Selection1" => $Selection1,
-                        ":Selection2" => $Selection2,
-                        ":Selection3" => $Selection3,
+                        ":img" => $img,
+                        ":Selectiona" => $Selection1,
+                        ":Selectionb" => $Selection2,
+                        ":Selectionc" => $Selection3,
+                        ":Selectiond" => $Selection4,
                         ":answer" => $answer,
                         ":id" => $id_quiz,
                     ];
                     if ($err == false) {
-                        header("location:index.php?action=update_quiz&id_quiz=$id_quiz&id_lesson=$id_lesson&id_course=" .  $id_course . "&id_topic=" . $id_topic . "");
+                        header("location:index.php?action=update_quiz&id_quiz=$id_quiz&id_lesson=$id_lesson&idCourse=".$id_course);
                     } else {
                         $update = update_quiz($data);
                         if ($update == true) {
-                            header("location:index.php?action=quiz&id_lesson=$id_lesson&id_course=" .  $id_course . "&id_topic=" . $id_topic . "");
+                            header("location:index.php?action=quiz&id_lesson=$id_lesson&idCourse=" .  $id_course);
                         }
                     }
                 }
@@ -616,9 +595,8 @@ if (!isset($_SESSION["admin"])) {
                     $id_quiz = $_GET['id_quiz'];
                     $id_lesson = $_GET['id_lesson'];
                     $delete = delete_quiz($id_quiz);
-
                     if ($delete == true) {
-                        header("location:index.php?action=quiz&id_lesson=$id_lesson&id_course=" . $_GET['id_course'] . "&id_topic=" . $_GET['id_topic'] . "");
+                        header("location:index.php?action=quiz&id_lesson=$id_lesson&idCourse=" . $_GET['idCourse']);
                     }
                 }
                 break;
@@ -695,7 +673,7 @@ if (!isset($_SESSION["admin"])) {
                 require "./course/shopping_course.php";
                 break;
             case "oder_shopping":
-                $payments = "quỵt";
+                $payments = "quỵt"; 
                 $id_payments = $_GET['id_payments'];
                 $data = [
                     'id_user' => $_GET['id_user'],

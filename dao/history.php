@@ -2,8 +2,8 @@
 
 function get_history($id){
     $conn=connect();
-    $stmt=$conn->prepare("SELECT history.id_hytory as id_history, lesson.lessonName as lessonName ,
-    history.id_lesson as id_lesson ,history.time as timeHistory FROM     
+    $stmt=$conn->prepare("SELECT history.id_hytory  as id_history, lesson.lessonName as lessonName ,
+    history.id_lesson  as id_lesson ,history.time as timeHistory FROM     
     `history` join user on user.id_user=history.id_user 
     join lesson on history.id_lesson=lesson.id_lesson where user.id_user=? order by history.time desc ");
      $stmt->execute([$id]);

@@ -29,10 +29,14 @@
                                                                         } ?> </p>
 
                                     <input type="hidden" name="id_lesson" class="form-control" value="<?= $_GET['id_lesson'] ?>" />
-                                    <input type="hidden" name="id_course" value=<?= $_GET['id_course'] ?>>
-                                    <input type="hidden" name="id_topic" value="<?= $_GET['id_topic'] ?>" />
+                                    <input type="hidden" name="id_course" value=<?= $_GET['idCourse'] ?>>
+                                    
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="form-label "  for="">Img</label>
+                                    <input  class="form-control" type="file" name="img">
+                                </div>
+                                 <br>
                                 <div class="form-group">
                                     <label class="form-label " for="">
                                         <h6>lựa chọn 1 </h6>
@@ -71,13 +75,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label " for="">
+                                        <h6>lựa chọn 4 </h6>
+                                    </label>
+                                    <input type="text" name="Selection4" class="form-control" />
+                                
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label " for="">
                                         <h6>đáp Án Đúng </h6>
                                     </label>
                                     <div class="form-group">
 
                                         A <input type="radio" name="answer" width="100px" value="a" /> <br>
                                         B <input type="radio" name="answer" width="100px" value="b" /> <br>
-                                        C <input type="radio" name="answer" width="100px" value="c" />
+                                        C <input type="radio" name="answer" width="100px" value="c" /><br>
+                                        D <input type="radio" name="answer" width="100px" value="d" />
 
                                     </div>
                                     <p class="text-danger error_name"> <?php if (isset($_SESSION['answer'])) {
@@ -92,7 +104,7 @@
                                 <div class="form-group text-center mt-4">
                                     <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                     <button name="btn_course" class="btn btn-primary">Thêm</button>
-                                    <a href="index.php?action=quiz&id_lesson=<?= $_GET['id_lesson'] ?>&id_course=<?= $_GET['id_course'] ?>&id_topic=<?= $_GET["id_topic"] ?>" class="btn btn-primary">quay lại</a>
+                                    <a href="index.php?action=quiz&id_lesson=<?= $_GET['id_lesson'] ?>&idCourse=<?= $_GET['idCourse'] ?>" class="btn btn-primary">quay lại</a>
                                 </div>
 
 

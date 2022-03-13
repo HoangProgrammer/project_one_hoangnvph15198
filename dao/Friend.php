@@ -87,8 +87,8 @@ function Friends_request2($sender, $receiver)
 {
     $con = connect();
     $notification = $con->prepare("SELECT * 
-    FROM friend_request where sender=".$sender." AND 
-    receiver=".$receiver." OR sender=".$receiver." AND receiver=".$sender." AND status=0 ");
+    FROM friend_request where sender=" . $sender . " AND 
+    receiver=" . $receiver . " OR sender=" . $receiver . " AND receiver=" . $sender . " AND status=0 ");
     $notification->execute();
     $rows = array();
     while ($row = $notification->fetch()) {
@@ -97,11 +97,12 @@ function Friends_request2($sender, $receiver)
     return $rows;
 }
 
-function sender($sender ,$id_user)
-{  
+
+function sender($sender, $id_user)
+{
     $con = connect();
-    $notification = $con->prepare("SELECT sender FROM friend_request where sender='".$sender."' and receiver='".$id_user."'  OR
-    receiver='".$sender."' and sender='".$id_user."'
+    $notification = $con->prepare("SELECT sender FROM friend_request where sender='" . $sender . "' and receiver='" . $id_user . "'  OR
+    receiver='" . $sender . "' and sender='" . $id_user . "'
     AND status=0;");
     $notification->execute();
     $rows = array();
@@ -117,31 +118,37 @@ function Select_MyFriend($my_id)
     $con = connect();
     $notification = $con->prepare("SELECT * FROM friends where 
      id_user_one=:my_id OR id_user_two=:my_id ");
-     $notification->bindValue(':my_id',$my_id,PDO::PARAM_INT);
+    $notification->bindValue(':my_id', $my_id, PDO::PARAM_INT);
     $notification->execute();
     $data = [];
-   $row = $notification->fetchAll(\PDO::FETCH_ASSOC);
-   foreach ($row as $val){
-if($val['id_user_one']==$my_id){
-    $getUser= $con->prepare("SELECT  *FROM user WHERE id_user=?");
-    $getUser->execute([$val['id_user_two']]);
-    array_push($data, $getUser->fetch(PDO::FETCH_ASSOC));
-}else{
-    $getUser= $con->prepare("SELECT * FROM user WHERE id_user=?");
-    $getUser->execute([$val['id_user_one']]);
-    array_push($data, $getUser->fetch(PDO::FETCH_ASSOC));
-}
-   }         
+    $row = $notification->fetchAll(\PDO::FETCH_ASSOC);
+    foreach ($row as $val) {
+        if ($val['id_user_one'] == $my_id) {
+            $getUser = $con->prepare("SELECT  *FROM user WHERE id_user=?");
+            $getUser->execute([$val['id_user_two']]);
+            array_push($data, $getUser->fetch(PDO::FETCH_ASSOC));
+        } else {
+            $getUser = $con->prepare("SELECT * FROM user WHERE id_user=?");
+            $getUser->execute([$val['id_user_one']]);
+            array_push($data, $getUser->fetch(PDO::FETCH_ASSOC));
+        }
+    }
     return  $data;
 }
 
-function Get_user_other($id){
-    $conn=connect();
-        $stmt=$conn->prepare("SELECT * FROM user where id_user NOT IN($id) and role < 1  order by RAND()  ");
-        $stmt->execute();
-        $rows=array();
-    while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
-        $rows[]=$row;
+
+function Get_user_other()
+{
+    $conn = connect();
+    $stmt = $conn->prepare("SELECT user.* ,
+    (SELECT point.point_total FROM point WHERE point.id_user =user.id_user) as point
+     FROM user ,point where  role < 1 
+                    GROUP BY user.id_user 
+                    order by point DESC");
+    $stmt->execute();
+    $rows = array();
+    while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+        $rows[] = $row;
     }
     return $rows;
-    }
+}

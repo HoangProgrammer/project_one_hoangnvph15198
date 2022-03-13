@@ -45,13 +45,13 @@
                               echo $_SESSION['time'];
                               unset($_SESSION['time']);
                           } ?> </p>
-<input type="hidden" name="id_course" value=<?=$_GET['id_course']?> >
- <input  type="hidden" name="id_topic" value="<?=$_GET['id_topic']?>" />
+                        <input type="hidden" name="id_course" value=<?=$_GET['idCourse']?> >
+
                               </div>                    
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                 <button  name="btn_course" class="btn btn-primary" >Thêm</button>
-                                <a  name="btn_course" href="index.php?action=detail_lesson&id_course=<?=$_GET["id_course"]?>&id_topic= <?=$_GET["id_topic"]?>" class="btn btn-primary" >quay lại</a>
+                                <a  name="btn_course" href="index.php?action=detail_lesson&idCourse=<?=$_GET["idCourse"]?>" class="btn btn-primary" >quay lại</a>
                             </div>
 
 

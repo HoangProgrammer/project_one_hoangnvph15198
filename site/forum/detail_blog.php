@@ -114,32 +114,34 @@ if (isset($_GET['id_post'])) {
                     foreach ($data as $key => $val) {
                         extract($val);
                         $display='';
-                        $displays='';
-                       
+                        $displays='';                     
                         $image = '';
                         if ($val['anh'] == '') {    
                             $image = '<img style="width: 100px;height: 100%; border-radius:50%"  src="./image/user_defaul.png">';
                         } 
-                        if ($val['id_parent'] == $parent) {
+
+
+                        if ($val['id_parent'] == $parent) {  // nếu id_parent==0
                             if($val['id_user']==$user){
                                 $display= '<a onclick=" return confirm("bạn có chắc chắn muốn xóa không !") " class="text-danger" href="index.php?act=delete_cm_forum&id_comment='.$val['id_comment'].'&id_post='.$_GET['id_post'].'">xóa</a>';
                                           
                                 $displays='<a data-edit='.$id_comment.'  class="edit_a text-primary "style="cursor: pointer;">sửa</a>    ';
                             }
+                            
                             echo '<li>
                                                 <div class="c-comment-box c-forum">   
                                                 <div class="c-comment-box__avatar avata_forum"  style="background-image: url(./image/'. $val['anh'].')">' . $image . ' </div>
                                                 <div class="c-comment-box__content">
                                                     <div class="c-comment-name"> ' . ucfirst($ten) .'<p style="margin-left:10px" class="text-secondary">'. get_time($time).' </p>  </div>      
-                                                    <div class="c-comment-text" data-idcmt="5288527">' . $content_cm . '</div>
-                                          
+                                                    <div class="c-comment-text" data-idcmt="5288527">' . $content_cm . '</div>                                       
                                                         <div class="c-comment-status">
                                                         <div class="c-comment-rep-p">  
                                                                   <a data-id='.$id_comment.'  class="rep_a text-primary "style="cursor: pointer;">Trả lời</a>   
                                                                   '.$displays.'                                           
-                                                        '. $display.'                                                      
+                                                                  '. $display.'                                                     
                                                          </div>   
-                                                                                                                         
+                                                           
+                                                         
                                                             <form id="form'.$id_comment.'" style="display:none;" action="index.php?act=rep_forum" method="post" class="formRep">                               
                                                                 <input type="hidden" name="child" id="child" value="'.$id_comment.'">
                                                                 <input type="hidden" name="id_post" id="child" value="'.$_GET['id_post'].'">
@@ -150,7 +152,7 @@ if (isset($_GET['id_post'])) {
                                                       
                                                     </div>
                                                 </form>
-
+                                                        
                                                             <form id="form_edit'.$id_comment.'" style="display:none;" action="index.php?act=edit_post" method="post" class="formRep">                               
                                                                 <input type="hidden" name="id_comment" id="child" value="'.$id_comment.'">
                                                                 <input type="hidden" name="id_post" id="child" value="'.$_GET['id_post'].'">
@@ -167,8 +169,9 @@ if (isset($_GET['id_post'])) {
                                                 </div>     
                                                 </div> ';
 
-                            $id = $val['id_comment'];
-                            get_comments_post_fuc($data, $id,$user);
+                            $id = $val['id_comment'];  // id comment
+                            get_comments_post_fuc($data, $id ,$user);
+                            // .......
                         
                           
                         }

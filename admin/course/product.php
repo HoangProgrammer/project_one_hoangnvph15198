@@ -92,7 +92,7 @@
          <td name='dv'><?php  if($price==0){ echo "<p class='text-primary'>miễn phí </p> "; }else{ 
            echo '<p class="text-danger"> '. number_format($price,0).'vnđ </p>';}?></td>  
          <td>
-         <a class='btn btn-dark' href="index.php?action=detail&idCourse=<?=$id_caurse ?>"> Xem </a> 
+         <a class='btn btn-dark' href="index.php?action=detail_lesson&idCourse=<?=$id_caurse ?>"> Xem </a> 
          <a class='btn btn-warning' href="index.php?action=updateCourse&id=<?=$id_caurse ?> ">Sửa</a> 
          <a name="id_product" class="delete btn btn-danger " href="index.php?action=deleteCourse&id=<?=$id_caurse ?>">Xóa</a>
        </td>
@@ -118,6 +118,30 @@
                                
 </div> 
  
+<!-- // $db = data();
+// if (isset($_GET['page'])) {
+//   $page = $_GET['page'];
+// } else {
+//   $page = 1;
+// }
+// $number = 10;
+// $preRows = ($page - 1) * $number;
+// //4-1= 3*10=30
+
+// $sql =$db->prepare( "SELECT * FROM products  where 1 order by product_id desc  limit $preRows,$number");
+// $sql->execute();
+// $select = $sql->fetchAll();
+
+// // var_dump( $select);die();
+// $query = "SELECT * FROM products ";
+// $stmt = $db->prepare($query);
+// $stmt->execute();
+// $total_page = $stmt->rowCount();
+
+// $total_row = ceil($total_page / $number);
+
+// var_dump(  $caurse); -->
+
 <!-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <?php if ($page == 1) {

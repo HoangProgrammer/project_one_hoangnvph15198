@@ -92,8 +92,9 @@
                                     break;
                                 }
                                 $rows[] = $row;
+                                return  $rows;
                             }
-                            return  $rows;
+                           
                             }
 
                             function detail_comment_id($id)

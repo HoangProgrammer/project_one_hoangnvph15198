@@ -3,7 +3,7 @@
 function connect() {
     $user="root";
     $password="";
-    $dbname="du_an_1";
+    $dbname="project_one";
 
     $con= new PDO('mysql:host=localhost;dbname='.$dbname, $user,$password);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::FETCH_ASSOC);

@@ -48,7 +48,7 @@
 
           <th colspan="2" style="color:blue" class="text-center"> 
 
-          <a class="btn btn-primary" href="index.php?action=add_lesson&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">Thêm</a> 
+          <a class="btn btn-primary" href="index.php?action=add_lesson&idCourse=<?=$_GET['idCourse']?>">Thêm</a> 
           
         </th>
 
@@ -63,11 +63,10 @@
             <th name='ten'><?= $lessonName?></th>   
             <th name='ten'><?= $video ?></th>   
             <th name='ten'><?= $time ?></th>   
-
             <th>
-            <a class='btn btn-dark' href="index.php?action=quiz&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">xem quiz</a> 
-            <a class='btn btn-warning' href="index.php?action=update_lesson&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">sửa</a> 
-            <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_lesson&id_lesson=<?=$id_lesson?>&id_topic=<?=$_GET["id_topic"]?>&id_course=<?=$_GET['id_course']?>">xóa</a>
+            <a class='btn btn-dark' href="index.php?action=quiz&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?>">xem quiz</a> 
+            <a class='btn btn-warning' href="index.php?action=update_lesson&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?>">sửa</a> 
+            <a name="id_product" class="delete btn btn-danger " href="index.php?action=delete_lesson&id_lesson=<?=$id_lesson?>&idCourse=<?=$_GET['idCourse']?>">xóa</a>
           </th>
           </tr>
    <?php  }?>
@@ -77,7 +76,7 @@
     </table>
     <br>
     <br>
-<a href="index.php?action=detail&idCourse=<?=$_GET['id_course']?>" class="btn btn-primary ">quay lại</a>
+<a href="index.php?action=product" class="btn btn-primary ">quay lại</a>
     </form>
     
     <!--  -->

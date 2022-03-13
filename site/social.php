@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./assets/css/social.css">
 <?php
 
 $MyFriend = Select_MyFriend($id_user);
@@ -11,7 +10,7 @@ foreach ($MyFriend as $val) {
 <div class="pcoded-main-container">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">
-            <h1>Cộng đồng/Xã hội</h1>
+            <h1>Cộng đồng</h1>
             <div class="container_social">
                 <h4>Gợi ý kết bạn</h4>
 
@@ -19,60 +18,87 @@ foreach ($MyFriend as $val) {
                 $import = implode(',', $arr_friend);
                 // var_dump($import);
 
-                $user = Get_user_other($import);
+                $user = Get_user_other();
                 $dem = 0;
-
+                $i = 0;
                 foreach ($user as $val) :
                 ?>
+
                     <div class="wrap_social">
+                        <!-- info -->
                         <div class="user_info">
-                            <a href="index.php?act=profile&id=<?=$val['id_user']?>">
+                            <p> <?= $i += 1 ?> </p> &mdash;
+
+
+                            <?php if ($id_user == $val['id_user']) { ?>
                                 <?php if ($val['image'] == '') { ?>
                                     <img src="./image/user_defaul.png" alt="">
                                 <?php   } else { ?>
                                     <img src="./image/<?= $val['image'] ?>" alt="">
                                 <?php } ?>
-                            </a>
+                            <?php     } else { ?>
+                                <a href="index.php?act=profile&id=<?= $val['id_user'] ?>">
+                                    <?php if ($val['image'] == '') { ?>
+                                        <img src="./image/user_defaul.png" alt="">
+                                    <?php   } else { ?>
+                                        <img src="./image/<?= $val['image'] ?>" alt="">
+                                    <?php } ?>
+                                </a>
+                            <?php } ?>
+                            
+
                             <h5 style="margin:10px"><?= ucfirst($val['ten_user']) ?></h5>
                         </div>
+
+                        <!-- exp -->
+                        <div title="Kinh Nghiệm" style="width: 100px;" class="text-center exp">
+                            <span>
+                                <?= $point = ($val['point'] !== NULL) ? $val['point'] : 0 ?>
+                            </span>
+                            <i class="fs-4 text-warning fa-solid fa-bolt "></i>
+                        </div>
+
+                        <!-- request friend -->
                         <form action="" method="post">
                             <?php $Friends_request = Friends_request2($id_user, $val['id_user']);
-                          
-                            if (empty($Friends_request)) { ?>
+
+                            if (empty($Friends_request) && $id_user != $val['id_user']) { ?>
                                 <button type='submit' id="send_request<?= $val['id_user'] ?>" data-id="<?= $val['id_user'] ?>" class='btn_request btn btn-primary'><i class="fas fa-user-plus"></i>Kết bạn</button>
-                                <?php } else  {
+                                <?php } else {
                                 foreach ($Friends_request as $value) {  // xuất bảng request _friend
                                     extract($value);
                                 }
 
-                                if (empty($value)) { ?>
-                                    <!-- nếu dữ liệu Trống thì -->
-                                    <?php } else {
-
+                                if (!empty($value)) {
                                     $sender = sender($val['id_user'], $id_user);
-                                    if (empty($sender)) {
-                                        // trống
-                                    } else {
+                                    if (!empty($sender)) {
                                         foreach ($sender as $va) { // get người gửi 
-                                            extract($va);                                   
-                                        if ($va['sender'] == $val['id_user']) { // nếu người gửi bằng với người kết bạn  thì sẽ có nút chấp nhận
-                                            echo "<button type='submit' data-check=" . $val['id_user'] . " id='success-btn" . $val['id_user'] . "' class='make_fiend btn btn-success'>Chấp Nhận</button >";
-                                        } else {
-                                            $status; ?>
-                                            <?= $status = ($status == 0) ? "<button id='cancel" . $val['id_user'] . "'  type='button' data-cancel='" . $val['id_user'] . "'  class='cancel_request btn btn-secondary'><i class='fas fa-window-close'></i> Hủy yêu cầu</button >" :
-                                                " <button type='submit' data-id_user='" . $val['id_user'] . "' class=' btn btn-primary'>Kết bạn</button >" ?>
-                                <?php } } } ?>
-                            
-                            <?php  }  }  ?>
-                      
-                       
-                      
+                                            extract($va);
+                                            if ($va['sender'] == $val['id_user']) { // nếu người gửi bằng với người kết bạn  thì sẽ có nút chấp nhận
+                                                echo "<button type='submit' data-check=" . $val['id_user'] . " id='success-btn" . $val['id_user'] . "' class='make_fiend btn btn-success'>Chấp Nhận</button >";
+                                            } else {
+                                                $status; ?>
+                                                <?= $status = ($status == 0) ? "<button id='cancel" . $val['id_user'] . "'  type='button' data-cancel='" . $val['id_user'] . "'  class='cancel_request btn btn-secondary'><i class='fas fa-window-close'></i> Hủy yêu cầu</button >" :
+                                                    " <button type='submit' data-id_user='" . $val['id_user'] . "' class=' btn btn-primary'>Kết bạn</button >" ?>
+                                    <?php }
+                                        }
+                                    }
+                                    ?>
+
+
+                            <?php
+                                }
+                            }  ?>
+
+
+
+
                         </form>
 
                     </div>
                 <?php
-     
-            endforeach; ?>
+
+                endforeach; ?>
 
 
             </div>
@@ -99,15 +125,15 @@ foreach ($MyFriend as $val) {
                     data: {
                         id_friend: to_id,
                         action: action
-                    },     
-                    beforeSend: function(jqXHR, settings) {   
+                    },
+                    beforeSend: function(jqXHR, settings) {
                         $('#send_request' + to_id).html('<i class="fas fa-spinner"></i> ')
-                    },         
-                    success: function(data, textStatus,jqXHR) {
-                        $('#send_request' + to_id).attr('disabled', 'disabled')     
+                    },
+                    success: function(data, textStatus, jqXHR) {
+                        $('#send_request' + to_id).attr('disabled', 'disabled')
                         $('#send_request' + to_id).html('đã gửi yêu cầu')
-                    },  
-       
+                    },
+
                 })
 
             }

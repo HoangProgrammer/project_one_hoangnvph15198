@@ -65,11 +65,13 @@
         <tr>
           <th style="color:blue" class="text-center">lựa chọn</th>
           <th style="color:blue" class="text-center">Câu hỏi</th>
+          <th style="color:blue" class="text-center">image</th>
           <th style="color:blue" class="text-center">lựa chọn 1</th>
           <th style="color:blue" class="text-center">lựa chọn 2</th>
           <th style="color:blue" class="text-center">lựa chọn 3</th>
+          <th style="color:blue" class="text-center">lựa chọn 4</th>
           <th style="color:blue" class="text-center"> đáp án đúng</th>
-          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_quiz&&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">Thêm</a> </th>
+          <th colspan="2" style="color:blue" class="text-center"> <a class="btn btn-primary" href="index.php?action=add_quiz&&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?>">Thêm</a> </th>
         </tr>
       </thead>
       <tbody>
@@ -82,13 +84,16 @@
             <input type="checkbox" name="chose_deletes[]" value="" class="select_chose">
           </th> 
             <th name='ten'><?= $question ?></th>
-            <th name='dv'><?=$Selection1?></th>
-            <th name='dv'><?=$Selection2?></th>
-            <th name='dv'><?=$Selection3  ?></th>
+            <th name='ten' > <img  width="100px" src="../assets/images/quizs/<?=$img?>" alt=""> </th>
+
+            <th name='dv'><?=$Selectiona?></th>
+            <th name='dv'><?=$Selectionb?></th>
+            <th name='dv'><?=$Selectionc  ?></th>
+            <th name='dv'><?=$Selectiond  ?></th>
             <th name='dv'><?=$answer?></th>    
             <th>
-              <a class='btn btn-warning' href="index.php?action=update_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?> ">sửa</a>
-           <a  class=" btn btn-danger " href="index.php?action=delete_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$id_lesson ?>&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET["id_topic"]?>">xóa</a>
+              <a class='btn btn-warning' href="index.php?action=update_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?> ">sửa</a>
+           <a  class=" btn btn-danger " href="index.php?action=delete_quiz&id_quiz=<?=$id_quiz?>&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?>">xóa</a>
 
           </th>
 
@@ -100,7 +105,7 @@
     </table>
     <br>
     <br>
-<a class="btn btn-primary" href="index.php?action=detail_lesson&id_course=<?=$_GET['id_course']?>&id_topic=<?=$_GET['id_topic']?>">quay lại</a>
+<a class="btn btn-primary" href="index.php?action=detail_lesson&idCourse=<?=$_GET['idCourse']?>">quay lại</a>
     </form>
 
     <!-- <div class="border_checked">

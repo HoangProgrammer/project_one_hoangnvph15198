@@ -4,7 +4,7 @@
 
 <head>
     <title>học tiếng anh online </title>
-<base href="http://localhost:81/du_an_1/">
+    <base href="http://localhost:81/project_one/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="https://www.busuu.com/vi/" type="icon">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -27,18 +27,18 @@
     <!-- vendor css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
     <link rel="stylesheet" href="./assets/css/style_user.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />  
-  
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 
 </head>
@@ -57,9 +57,10 @@ if (isset($_GET['act'])) {
         $social = "active";
     } else if ($_GET['act'] == "forum") {
         $forum = "active";
-    }  if ($_GET['act'] == "route") {
+    }
+    if ($_GET['act'] == "route") {
         $route = "active";
-    }else {
+    } else {
         // $home = "active";
     }
 } else {
@@ -127,9 +128,9 @@ if (isset($_GET['act'])) {
         </div>
     </nav>
 
-<!--  -->
+    <!--  -->
 
-<header class="navbar pcoded-header navbar-expand-lg navbar-light">
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="index.html" class="b-brand">
@@ -169,32 +170,40 @@ if (isset($_GET['act'])) {
                         </div>
                     </div> -->
                 </li>
-                <li class="nav-item"><a title='lịch sử học' href="history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
+                <li class="nav-item history" title='lịch sử học' ><a href="history"><i style="font-size:25px" class="fas fa-history"></i></a> </li>
             </ul>
-            
+            <?php  
+            $point=getAll_point_by_user($id_user);
+            ?>
+            <ul class="exp" title="Kinh Nghiệm">
+                <li>
+                <span class="fs-3"><?=$point=(!empty($point))? $point[0]['point'] : 0 ?></span> <i class="fs-3 text-warning fa-solid fa-bolt "></i> 
+                </li>
+            </ul>
+
             <ul class="navbar-nav ml-auto">
                 <li>
-                    
+
                     <div class="dropdown">
-                    <?php
+                        <?php
 
-$notification = notification($id_user);
-$count=0;
-$note="";
+                        $notification = notification($id_user);
+                        $count = 0;
+                        $note = "";
 
-foreach ($notification as $value){
-    $count +=1;
-}
+                        foreach ($notification as $value) {
+                            $count += 1;
+                        }
 
-if(empty($notification)) {
-    $note="Chưa có thông báo";
-    ?>
+                        if (empty($notification)) {
+                            $note = "Chưa có thông báo";
+                        ?>
 
-<?php }else{ ?>
-  <span class="notifications_number"><?=  $count?> </span>
- <?php }?>                    
-                        <a title="thông báo" id="bell" class="dropdown-toggle " data-toggle="dropdown" >
-                            
+                        <?php } else { ?>
+                            <span class="notifications_number"><?= $count ?> </span>
+                        <?php } ?>
+                        <a title="thông báo" id="bell" class="dropdown-toggle " data-toggle="dropdown">
+
                             <i class="icon feather icon-bell"></i></a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
@@ -208,30 +217,30 @@ if(empty($notification)) {
                                 <li class="n-title">
                                     <p class="m-b-0">Mới</p>
                                 </li>
-                                <a  style=" margin-left:29%; text-align: center"><?=$note?></a>
+                                <a style=" margin-left:29%; text-align: center"><?= $note ?></a>
                                 <?php
 
                                 $notification = notification($id_user);
                                 foreach ($notification as $val) : ?>
                                     <li class="">
                                         <div class="media">
-                                            <a href="index.php?act=profile&id=<?=$val['sender']?>">
-                                                 <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image"> 
+                                            <a href="index.php?act=profile&id=<?= $val['sender'] ?>">
+                                                <img class="img-radius" src="./assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
                                             </a>
-                                          
+
                                             <div class="media-body">
-                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"> <?=get_time($val['time'])?> <i class="icon feather icon-clock m-r-10"></i> </span></p>
-                                           <div style="display:flex">
-                                                   <form action="" method="POST">                                  
-                                                  <button type="submit"   data-friend="<?=$val['sender']?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
-                                                  <span class="text-secondary" id="accept_friend<?=$val['sender']?>"></span>  
-                                               </form>    
-                                               <form type="submit"  action="" method="POST">                                                                            
-                                                  <button data-friend="<?=$val['sender']?>" class="delete_btn_request btn btn-danger "><i class='fas fa-window-close'> hủy</i></button>  
-                                              <span class="text-secondary" id="delete_friend<?=$val['sender']?>" ></span>
-                                                </form>  
-                                           </div>                                           
-                                               <span class="text-secondary span_notification"> </span>
+                                                <p><strong><?= $val['ten_user']; ?></strong><span class="n-time text-muted"> <?= get_time($val['time']) ?> <i class="icon feather icon-clock m-r-10"></i> </span></p>
+                                                <div style="display:flex">
+                                                    <form action="" method="POST">
+                                                        <button type="submit" data-friend="<?= $val['sender'] ?>" class="accept_btn btn btn-success "><i class="fas fa-check"> chấp nhận</i> </button>
+                                                        <span class="text-secondary" id="accept_friend<?= $val['sender'] ?>"></span>
+                                                    </form>
+                                                    <form type="submit" action="" method="POST">
+                                                        <button data-friend="<?= $val['sender'] ?>" class="delete_btn_request btn btn-danger "><i class='fas fa-window-close'> hủy</i></button>
+                                                        <span class="text-secondary" id="delete_friend<?= $val['sender'] ?>"></span>
+                                                    </form>
+                                                </div>
+                                                <span class="text-secondary span_notification"> </span>
                                             </div>
                                         </div>
                                     </li>
@@ -263,52 +272,45 @@ if(empty($notification)) {
                                 <a href="javascript:">show all</a>
                             </div> -->
                         </div>
-                        
+
                     </div>
                 </li>
                 <!-- user -->
                 <li>
-<?php $get_account= Get_user_one($id_user) ;
-foreach($get_account as $value){
-    extract($value);
-
-}
-$images='image/iconn_user.png';
-if($image==''){
-    $images='image/user_defaul.png';
-}else{
-    $images='image/'.$image.'';
-}
-?>
+                    <?php $get_account = Get_user_one($id_user);
+                    foreach ($get_account as $value) {
+                        extract($value);
+                    }
+                    $images = 'image/iconn_user.png';
+                    if ($image == '') {
+                        $images = 'image/user_defaul.png';
+                    } else {
+                        $images = 'image/' . $image . '';
+                    }
+                    ?>
                     <div class="dropdown drp-user">
-                        <a  class="dropdown-toggle " data-toggle="dropdown" id="user">                         
-                            <img  src="<?=$images?>" class="img-radius" alt="User-Profile-Image">
+                        <a class="dropdown-toggle " data-toggle="dropdown" id="user">
+                            <img src="<?= $images ?>" class="img-radius" alt="User-Profile-Image">
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                
-                                <img src="<?= $images?>" class="img-radius" alt="User-Profile-Image">
-                                <span><?=$ten_user?></span>
+
+                                <img src="<?= $images ?>" class="img-radius" alt="User-Profile-Image">
+                                <span><?= $ten_user ?></span>
                                 <a href="index.php?act=logout" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>
                                 </a>
                             </div>
                             <ul class="pro-body">
-                                <?php if($role==1){?>
-    <li><a href="account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
-                                <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
-                                <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
-                                <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
-                                <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
-                               <?php }else{?>
-                                <li><a href="account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
-                                <!-- <li><a href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li> -->
-                                <!-- <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li> -->
-                                <!-- <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li> -->
-                                <!-- <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quan tri</a></li> -->
-                           <?php    } ?>
-                                
+                                <?php if ($role == 1) { ?>
+                                    <li><a href="account" class="dropdown-item"><i class="feather icon-settings"></i> Hồ Sơ </a></li>
+                                    <li><a href="./admin/index.php" class="dropdown-item"><i class="feather icon-lock"></i> Quản trị</a></li>
+                                <?php } else { ?>
+                                    <li><a href="account" class="dropdown-item"><i class="feather icon-user"></i> Hồ Sơ</a></li>
+                                   
+                                <?php    } ?>
+
                             </ul>
                         </div>
                     </div>
@@ -320,85 +322,92 @@ if($image==''){
 
     <script>
         $(document).ready(function() {
+$('.exp').tooltip()
+$('.history').tooltip()
 
 
-            
-  $('#user').on( "click",function() {
-            $('.profile-notification').fadeToggle(500);
-            $('.notification').hide()
-        })
-  $('#bell').on( "click",function() {
-            $('.notification').fadeToggle(500);
-            $('.profile-notification').hide();
-        })
-        
+            $('#user').on("click", function() {
+                $('.profile-notification').fadeToggle(500);
+                $('.notification').hide()
+            })
+            $('#bell').on("click", function() {
+                $('.notification').fadeToggle(500);
+                $('.profile-notification').hide();
+            })
+
 
             $('#remove_friend').on('click', function(e) {
-                            e.preventDefault();
-                            var toID = $(this).data('remove')                     
-                            var action = "remove_friend";
-                            if (toID > 0) {
-                                $.ajax({
-                                    url: "site/processAjax.php",
-                                    method: "POST",
-                                    data: {
-                                        toID: toID,
-                                        action: action
-                                    },
-                                    beforeSend: function(){
-                                       return    $('#remove_friend').html('......');;
-                                    },
-                                    success: function(data) {
+                e.preventDefault();
+                var toID = $(this).data('remove')
+                var action = "remove_friend";
+                if (toID > 0) {
+                    $.ajax({
+                        url: "site/processAjax.php",
+                        method: "POST",
+                        data: {
+                            toID: toID,
+                            action: action
+                        },
+                        beforeSend: function() {
+                            return $('#remove_friend').html('......');;
+                        },
+                        success: function(data) {
 
-                                         $('#remove_friend').html('xóa thành công');
-                                        $('#remove_friend').attr('disabled', 'disabled')
-                                       
-                                    }
-                                })
-                            }
-                        })
+                            $('#remove_friend').html('xóa thành công');
+                            $('#remove_friend').attr('disabled', 'disabled')
+
+                        }
+                    })
+                }
+            })
 
 
-         
-$('.accept_btn').on('click', function(e) {
-    e.preventDefault();
-  toID=$(this).data('friend')
-  var action="accept";
-//   alert(toID);
-  if(toID>0){
-         $.ajax({
-       url:"site/processAjax.php",
-       method:"POST",
-       data:{id_friends:toID,action:action},
-       success: function(data) {
-           $('#accept_friend'+toID).html('các bạn đã trở thành bạn');
-           $('.accept_btn').hide(); 
-        $('.delete_btn_request').hide();    
-       }
-   })
-  }
-})
 
-$('.delete_btn_request').on('click', function(e) {
-    e.preventDefault();
-  var toID=$(this).data('friend')
-  
-  var action="delete_request";
-  if(toID>0){
-       $.ajax({
-       url:"site/processAjax.php",
-       method:"POST",
-       data:{toID:toID,action:action},
-       success: function(data) {
-           $('#delete_friend'+toID).html('đã gỡ lời kết bạn');
-        $('.accept_btn').hide(); 
-        $('.delete_btn_request').hide(); 
-       }
-   })
-  }
-  
+            $('.accept_btn').on('click', function(e) {
+                e.preventDefault();
+                toID = $(this).data('friend')
+                var action = "accept";
+                //   alert(toID);
+                if (toID > 0) {
+                    $.ajax({
+                        url: "site/processAjax.php",
+                        method: "POST",
+                        data: {
+                            id_friends: toID,
+                            action: action
+                        },
+                        success: function(data) {
+                            $('#accept_friend' + toID).html('các bạn đã trở thành bạn');
+                            $('.accept_btn').hide();
+                            $('.delete_btn_request').hide();
+                        }
+                    })
+                }
+            })
 
-})
+            $('.delete_btn_request').on('click', function(e) {
+                e.preventDefault();
+                var toID = $(this).data('friend')
+
+                var action = "delete_request";
+                if (toID > 0) {
+                    $.ajax({
+                        url: "site/processAjax.php",
+                        method: "POST",
+                        data: {
+                            toID: toID,
+                            action: action
+                        },
+                        success: function(data) {
+                            $('#delete_friend' + toID).html('đã gỡ lời kết bạn');
+                            $('.accept_btn').hide();
+                            $('.delete_btn_request').hide();
+                        }
+                    })
+                }
+
+
+            })
 
         })
     </script>

@@ -5,11 +5,9 @@
 //     'id_course'=>$_GET['idCourse'],
 // ];
 
-    delete_oderCourse($_GET['idCourse']);
-
-
-
-   insert_progress($id_user,$_GET['idCourse']) ; 
+if(isset( $_SESSION['mark'])){
+    unset(  $_SESSION['mark']);
+}
 ?>
      <div class="pcoded-main-container" style="margin-bottom: 15rem;">
             <div class="pcoded-wrapper">
@@ -23,7 +21,9 @@
                     </div>                                     
                 
                     <?php
-               if(empty($getAll_topic)){?>
+                       $get_lesson =getAll_lesson($_GET['idCourse']); 
+                    //    var_dump( $get_lesson );die;
+               if(empty($get_lesson)){?>
              
                    <img width="100%" src="image/erro.png" alt="">
             
@@ -31,51 +31,42 @@
            <?php }else{ ?>
 
               <?php
-                   foreach ( $getAll_topic as $val): extract($val);
-                   $get_lesson =getAll_lesson($id_lesson_topics); 
+                
                    $sumLesson=0;
-                   foreach($get_lesson as $val){  $sumLesson +=1;  }?>
+                   foreach($get_lesson as $val){
+                    extract($val);
+                    ?>
+                      
+                      
                     <div class="pcoded-module-left-noidung">
 
                         <div class="pcoded-module-left-noidung-item">
 
                             <i class="fas fa-plus"></i>
                            
-                            <div data-topic="<?=$id_lesson_topics?>" class="topic pcoded-module-left-noidung-item-name">
-                                <span><?=$topicName ?></span>
-                            </div>
-
-                            <div >
-                                <span><?=  $sumLesson ?> bài học</span>
+                            <div  class="topic pcoded-module-left-noidung-item-name">
+                                <span><?=$lessonName ?></span>
                             </div>
 
                         </div>
                         
-                       
-                       <?php foreach( $get_lesson as $val): extract($val);  ?>
-                        <div class="course-lesson__body lesson<?=$id_lesson_topics?>" >
+                                
+                        <div class="course-lesson__body " >
                             <div class="course-lesson__body-item">
                                 <a  class="course-lesson__body-item-title">
                                     <i class="fas fa-play-circle text-primary"></i>
-                                    <a  href="index.php?act=learn&idCourse=<?=$_GET['idCourse']?>&Topic=<?=$id_lesson_topics?>&lesson=<?=$id_lesson?>"class="text-dark"><?= $lessonName?></a>
+                                    <a  href="index.php?act=learn&idCourse=<?=$_GET['idCourse']?>&lesson=<?=$id_lesson?>"class="text-dark">Bắt đầu Học</a>
                                 </a>
-                                <?php $getAll_point_user = getAll_point_user($id_user, $id_lesson);
-                                                foreach ($getAll_point_user as $val) {  $total_points = $val['point_total']; ?>
-                                           <span class="text-dark" style="float: right"><?=$total_points?>/10</span>                                                      
-                                              <?php  if ($total_points < 10) { ?>
-                                             
-                                                <?php } else { ?>
-                                                    <span class="pcoded-micon" style="float: right; margin-right:5px">
-                                                        <i class="fas fa-check text-success"></i>
-                                                    </span>
-                                                <?php    } }?>
-                               
+                                                  
                             </div>                      
                         </div>
-                        <?php endforeach; ?>            
+                  
+
+                   
+                        <?php     } ?>          
  
  </div>
-<?php endforeach; ?>
+
 <?php  } ?>
 
              
@@ -95,24 +86,6 @@
         </div>
         
     </div>
-
-<!-- 
-    <footer style="height: 60px;" class="pcoded-main-container pcoded-main-footer" >
-        <div class="course-lesson__footer">
-            <div class="course-lesson__footer-left">
-                <span class="course-lesson__footer-item">2021 © Busuu Ltd</span>
-                <a class="course-lesson__footer-item" href="">Điều khoản</a>
-                <a class="course-lesson__footer-item" href="">Bảo mật</a>
-            </div>
-            <div class="course-lesson__footer-right">
-                <span class="course-lesson__footer-heft">Trợ giúp</span>
-                <i class="fab fa-facebook course-lesson__footer-heft"></i>
-                <i class="fab fa-internet-explorer course-lesson__footer-heft"></i>
-                <i class="fab fa-instagram course-lesson__footer-heft"></i>
-                <i class="fab fa-youtube course-lesson__footer-heft"></i>
-            </div>
-        </div>
-    </footer> -->
 
 
 

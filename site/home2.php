@@ -1,5 +1,7 @@
 <?php require_once "./layout/layout_1/slider.php";
-
+if(isset( $_SESSION['mark'])){
+    unset(  $_SESSION['mark']);
+}
 ?>
 <style>
     .pro {

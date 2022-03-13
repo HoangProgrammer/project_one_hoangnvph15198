@@ -12,7 +12,8 @@
 
                     <div>
                    <?php
-               if(empty($getAll_topic)){?>
+                      $get_lesson =getAll_lesson($_GET['idCourse']); 
+               if(empty($get_lesson)){?>
              
                    <img width="100%" src="image/erro.png" alt="">
             
@@ -20,10 +21,9 @@
            <?php }else{ ?>
 
               <?php
-                   foreach ( $getAll_topic as $val): extract($val);
-                   $get_lesson =getAll_lesson($id_lesson_topics); 
+                
                    $sumLesson=0;
-                   foreach($get_lesson as $val){  $sumLesson +=1;  }?>
+                   foreach($get_lesson as $val){ extract($val) ;$sumLesson +=1;  }?>
                     <div class="pcoded-module-left-noidung">
 
                         <div class="pcoded-module-left-noidung-item">
@@ -31,7 +31,7 @@
                             <i class="fas fa-plus"></i>
                            
                             <div class="pcoded-module-left-noidung-item-name">
-                                <span><?=$topicName ?></span>
+                                <span><?=$lessonName ?></span>
                             </div>
 
                             <div>
@@ -45,7 +45,7 @@
                         <div class="course-lesson__body" >
                             <div class="course-lesson__body-item">
                                 <a  class="course-lesson__body-item-title">
-                                    <i class="fas fa-play-circle"></i>
+                                    <i class="fas fa-play-circle"></i>  
                                     <span class="text-secondary"><?= $lessonName?></span>
                                 </a>
                             </div>                      
@@ -53,7 +53,7 @@
                         <?php endforeach; ?>            
  
  </div>
-<?php endforeach; ?>
+
 
 <?php  } ?>
 
@@ -77,7 +77,7 @@ foreach(  $course as $val) { ;
 ?>
             <div class="pcoded-module-right">
                 <div class="pcoded-module-right-video">
-                    <?php    
+                    <!-- <?php    
                
                           $getAll_lesson_video=getAll_lesson_video($_GET['idCourse']); 
                           foreach ($getAll_lesson_video as $va) { ?>
@@ -88,7 +88,7 @@ foreach(  $course as $val) { ;
  <?php } ?>
 
                           
-               <?php      }?> 
+               <?php      }?>  -->
                
 
                 </div>

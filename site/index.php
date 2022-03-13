@@ -242,10 +242,10 @@
                                     break;
 
                                 case "Topic":
-                                    if (isset($_GET['idCourse'])) {
-                                        $id_course = $_GET['idCourse'];
-                                        $getAll_topic = getAll_topic($id_course);
-                                    }
+                                    // if (isset($_GET['idCourse'])) {
+                                    //     $id_course = $_GET['idCourse'];
+                                    //     $getAll_topic = getAll_topic($id_course);
+                                    // }
                                     require_once "hoc/topic_lesson.php";
                                     break;
 
@@ -253,10 +253,10 @@
                                     require_once "hoc/learn.php";
                                     break;
                                 case "detail_course":
-                                    if (isset($_GET['idCourse'])) {
-                                        $id_course = $_GET['idCourse'];
-                                        $getAll_topic = getAll_topic($id_course);
-                                    }
+                                    // if (isset($_GET['idCourse'])) {
+                                    //     $id_course = $_GET['idCourse'];
+                                    //     $getAll_topic = getAll_topic($id_course);
+                                    // }
                                     require_once "hoc/more_cours.php";
                                     break;
                                 case "quiz":

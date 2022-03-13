@@ -1,5 +1,6 @@
 <?php 
-$thong_ke=GetData_Thong_ke() 
+$thong_ke=GetData_Thong_ke() ;
+
 ?>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -199,10 +200,14 @@ if (isset($success)) { ?>
       $sumCategory = count($thong_ke);
       $i = 1;
       foreach ($thong_ke as $val) {
-        if ($i == $sumCategory) $Phay = "";
-        else $Phay = ",";
-        echo "['" . $val['NameCourse'] . "'," . $val['lesson'] . "]" . $Phay;
-        $i += 1;
+        if ($i == $sumCategory){
+         $Phay = " "; 
+        }else{
+        $Phay = ",";  
+        } 
+     
+        echo "['".$val['NameCourse']."',".$val['lesson']."]". $Phay;
+        $i+=1;
       }
       ?>
 

@@ -118,6 +118,7 @@ foreach ($rating as $value) :
                             <?= $time=get_time($value['time'])  ?></span>
                     </ul>
                 </div>
+
                 <div class="c-comment-text" data-idcmt="5288527"><?= $value['content'] ?></div> 
                 <?php if($value['id_user']==$id_user){ ?>
             <a href="index.php?act=delete_rating&id=<?=$value['id_Rating']?>" class="delete_rating text-danger " style="cursor: pointer;">xóa</a>
@@ -131,8 +132,7 @@ foreach ($rating as $value) :
                 </div>
 </form>
             <?php } ?>
-
-            
+    
                 <?php if ($role == 0) {
 
                 } else { ?>
@@ -179,9 +179,13 @@ foreach ($rating as $value) :
                         </div>
                     </div>
                 </div>
-        <?php endif;
-        endforeach; ?>
-<?php endif;
+        <?php
+         endif;
+        endforeach; 
+        ?>
+        
+<?php 
+endif;
 endforeach; ?>
 
 <script>

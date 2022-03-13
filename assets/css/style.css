@@ -10806,3 +10806,32 @@ a#bell {
 .btn{
   border-radius: 25px !important;
 }
+
+.lesson_tab{
+
+  margin :0 auto;
+  margin-top: 20px;
+  height: 400px;
+  /* margin-bottom:25rem; */
+  width:600px;
+}
+
+.border_error {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  z-index: 100;
+  background: #2196f3;
+  height: 70px;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.continue_border {
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+  justify-content: flex-end;
+}
