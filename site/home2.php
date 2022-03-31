@@ -52,7 +52,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
     $get_course_in = Get_course_one_in($gop);
     if (empty($get_course_in)) {
     } else { ?>
-
+<!-- 
         <div class="pcoded-main-container">
             <div class="pcoded-wrapper">
                 <div class="pcoded-content">
@@ -98,7 +98,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])) {
             </div>
 
         </div>
-
+ -->
 
 
 
@@ -126,7 +126,7 @@ if (empty($get_course_in)) {
 
                     <div class="main-body">
                         <div class="page-wrapper">
-                            <h3 class="pcoded-content-name">Khóa Đang học</h3>
+                            <h3 class="pcoded-content-name">Khóa đã đăng ký</h3>
                             <div class="row">
 
                                 <?php

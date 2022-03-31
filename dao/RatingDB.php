@@ -5,6 +5,16 @@ function Get_Rating(){
     $result= get_all( $stmt); 
     return $result;
 }
+function Get_count_Rating(){
+    $conn=connect();
+    $stmt="SELECT * FROM rating  Where status =1";
+    $result= get_all( $stmt); 
+    $count=0;
+    foreach ($result as $val){
+        $count+=1;
+    }
+    return $count;
+}
 function Get_Rating_one(){
     $conn=connect();
     $stmt="SELECT rating.status as st ,user.ten_user as ten_user,user.id_user as idUser ,rating.id_rating as id_rating , 

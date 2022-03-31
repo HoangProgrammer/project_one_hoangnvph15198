@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 13, 2022 lúc 05:28 AM
+-- Thời gian đã tạo: Th3 24, 2022 lúc 06:41 AM
 -- Phiên bản máy phục vụ: 10.4.19-MariaDB
 -- Phiên bản PHP: 8.0.7
 
@@ -41,21 +41,6 @@ INSERT INTO `banner` (`id_banner`, `image`, `type`) VALUES
 (2, 'banner_1.jpg', 0),
 (3, 'banner_2.jpg', 0),
 (4, 'banner_3.jpg', 0);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `comments`
---
-
-CREATE TABLE `comments` (
-  `id_comment` int(10) NOT NULL,
-  `id_user` int(10) NOT NULL,
-  `id_lesson` int(10) NOT NULL,
-  `content` varchar(250) NOT NULL,
-  `child` int(10) NOT NULL,
-  `time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -208,7 +193,9 @@ INSERT INTO `history` (`id_hytory`, `id_user`, `id_lesson`, `time`) VALUES
 (132, 5, 49, '2022-03-12 09:54:05'),
 (133, 7, 49, '2022-03-10 09:30:20'),
 (134, 5, 54, '2022-03-12 09:54:33'),
-(136, 1, 49, '2022-03-12 14:14:45');
+(136, 1, 49, '2022-03-22 09:39:52'),
+(137, 1, 55, '2022-03-19 09:26:36'),
+(138, 1, 54, '2022-03-22 09:33:57');
 
 -- --------------------------------------------------------
 
@@ -265,7 +252,7 @@ CREATE TABLE `point` (
 --
 
 INSERT INTO `point` (`id_point`, `id_user`, `point_total`) VALUES
-(118, 1, 20),
+(118, 1, 34),
 (119, 5, 106),
 (120, 7, 6);
 
@@ -358,9 +345,9 @@ CREATE TABLE `rating` (
 INSERT INTO `rating` (`id_Rating`, `id_user`, `id_parent`, `content`, `time`, `rating`, `status`) VALUES
 (1, 2, 0, 'hay lắm bà con ơi', '2021-11-24 15:06:09', 5, 2),
 (17, 1, 1, 'cảm ơn em ', '2021-11-24 16:14:12', 0, 0),
-(31, 5, 0, 'lú như con cú', '2021-12-15 15:49:50', 4, 1),
 (36, 7, 0, 'Đơn giản vì tôi không thích cho lắm', '2021-12-17 21:09:56', 5, 1),
-(37, 5, 0, 'ngáo', '2022-03-12 09:49:49', 4, 1);
+(37, 5, 0, 'ngáo', '2022-03-12 09:49:49', 4, 1),
+(38, 1, 31, '', '2022-03-19 09:55:22', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -438,7 +425,8 @@ INSERT INTO `user` (`id_user`, `ten_user`, `user_name`, `image`, `email`, `mat_k
 (5, 'long', 'long12345', 'th (19).jfif', 'long@gmail.com', 'long123456', '2021-11-25 09:52:38', 0, 0),
 (7, 'Thuần ', 'thuan12345', '', 'thuan@gmail.com', '12345', '2021-12-09 06:26:47', 0, 0),
 (8, 'Nguyễn Thanh', 'thanh12345', '', 'thanh@gmail.com', '123', '2021-12-09 13:49:45', 0, 0),
-(17, 'nam là nhất', 'nam1505', '', 'namnguyen@gmail.com', 'nam1234', '2021-12-17 13:24:30', 0, 0);
+(17, 'nam là nhất', 'nam1505', '', 'namnguyen@gmail.com', 'nam1234', '2021-12-17 13:24:30', 0, 0),
+(18, 'maGaming', 'maGaming', '', 'hoangnvph111111@gmail.com', 'hoang123456', '2022-03-22 09:25:47', 0, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -449,14 +437,6 @@ INSERT INTO `user` (`id_user`, `ten_user`, `user_name`, `image`, `email`, `mat_k
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id_banner`);
-
---
--- Chỉ mục cho bảng `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id_comment`),
-  ADD KEY `fk_user_comment` (`id_user`),
-  ADD KEY `fk_lesson_comment` (`id_lesson`);
 
 --
 -- Chỉ mục cho bảng `comments_post`
@@ -585,12 +565,6 @@ ALTER TABLE `banner`
   MODIFY `id_banner` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id_comment` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
 -- AUTO_INCREMENT cho bảng `comments_post`
 --
 ALTER TABLE `comments_post`
@@ -630,13 +604,13 @@ ALTER TABLE `friend_request`
 -- AUTO_INCREMENT cho bảng `history`
 --
 ALTER TABLE `history`
-  MODIFY `id_hytory` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id_hytory` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT cho bảng `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `id_lesson` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_lesson` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT cho bảng `ordercaurse`
@@ -666,7 +640,7 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT cho bảng `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id_Rating` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_Rating` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `routee`
@@ -684,18 +658,11 @@ ALTER TABLE `thanh_toan`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
-
---
--- Các ràng buộc cho bảng `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `fk_lesson_comment` FOREIGN KEY (`id_lesson`) REFERENCES `lesson` (`id_lesson`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_user_comment` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `comments_post`

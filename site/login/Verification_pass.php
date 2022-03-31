@@ -62,7 +62,7 @@ if($code_pin!=$_SESSION['code']){
                     </div>
                     <h3 class="mb-4">Nhập mã pin</h3>
                     <p class='alert alert-info'>
-            chúng tôi đã gửi mã pin tới cho bạn vui lòng xác minh tại đây !
+            chúng tôi đã gửi mã pin tới email của bạn vui lòng xác minh tại đây !
                     </p>
                     <div class="input-group mb-3">
                         <input name="code_pin" type="text" class="form-control" placeholder="pin code">

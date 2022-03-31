@@ -20,7 +20,7 @@
 
       <tbody>
         <?php
-        $cm = select_comment();
+        // $cm = select_comment();
 
         foreach ($cm as $val) {
           extract($val);

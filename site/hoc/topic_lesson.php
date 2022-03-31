@@ -14,15 +14,25 @@ if(isset( $_SESSION['mark'])){
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">  
         <div class="row">
+<?php $oder=Get_oderOne($_GET['idCourse'], $id_user);
+  if($oder==[]){
+    echo "<h1 class='text-center text-warning'>Môn học không tồn tại hoặc chưa đăng ký</h1>";
+}else{
 
+  ?>
        <div class="col-xl-12"> 
                     <div class="pcoded-module-left-content">
                         <h3>Nội dung khóa học</h3>
                     </div>                                     
                 
+  
                     <?php
+
+
                        $get_lesson =getAll_lesson($_GET['idCourse']); 
                     //    var_dump( $get_lesson );die;
+
+
                if(empty($get_lesson)){?>
              
                    <img width="100%" src="image/erro.png" alt="">
@@ -67,7 +77,7 @@ if(isset( $_SESSION['mark'])){
  
  </div>
 
-<?php  } ?>
+<?php  } }?>
 
              
  
@@ -98,8 +108,6 @@ $('.topic').on('click', function(e) {
 $('.lesson'+main).slideToggle(1)
 
 })
-
-
 
 
     $('.course-lesson__body').show();

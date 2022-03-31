@@ -1,10 +1,12 @@
-<?php require_once("../login/index.php") ?>
+<?php require_once("../login/index.php");
+// echo $_SESSION['code']
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title> Reset password</title>
+    <title> Verification password</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -23,22 +25,22 @@
     <link rel="stylesheet" href="./../../assets/css/style.css">
 
 </head>
-
 <?php
-if (isset($_POST['send'])) {
-    $mail = $_POST['mail'];
-    if (empty($mail)) {
-        $error = 'không được để trống';
+if (isset($_POST['btn_Verification'])) {
+    $code_pin = $_POST['code_pin'];
+    $error = '';
+    if ($code_pin != $_SESSION['code']) {
+        $error = 'mã xác nhận không chính xác';
     } else {
-        $mail_user = mail_user($mail);
-        $code = substr(rand(0, 999999), 0, 6);
-        $title = "Forgot password";
-        $content = "Mã xác nhận của bạn là : <h5 class='text-danger'>" . $code . "</h5>";
-        $mail = $mailer->SendMail($title, $content, $mail);
+        // $_SESSION['email'];
+      $sql = "INSERT INTO user (ten_user,user_name,email,mat_khau,start_time) 
+      VALUES ('".$_SESSION['signUp']['fullName']."','".$_SESSION['signUp']['Username']."' ,'".$_SESSION['signUp']['email']."','".$_SESSION['signUp']['password']."','".$_SESSION['signUp']['time']."')";
+                        pdo_execute($sql);
+                        echo "<script> alert('chúc mừng bạn đã đăng ký thành công') </script>";
+                        header( "refresh:2;url=sign_in.php");
 
-        $_SESSION['email'] = $_POST['mail'];
-        $_SESSION['code'] = $code;
-        header('location:Verification_pass.php');
+
+        // header('location:login.php');
     }
 }
 ?>
@@ -53,27 +55,31 @@ if (isset($_POST['send'])) {
                 <span class="r"></span>
             </div>
             <form action="" method="post">
+
+
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="mb-4">
                             <i class="feather icon-mail auth-icon"></i>
                         </div>
-                        <h3 class="mb-4">Quên Mật Khẩu</h3>
+                        <h3 class="mb-4">Nhập mã xác nhận</h3>
+                        <p class='alert alert-info'>
+                            chúng tôi đã gửi mã pin tới email của bạn vui lòng xác minh tại đây !
+                        </p>
                         <div class="input-group mb-3">
-                            <input type="email" name="mail" class="form-control" placeholder="Email">
+                            <input name="code_pin" type="text" class="form-control" placeholder="pin code">
                         </div>
                         <p style="color:red">
                             <?php if (isset($error)) {
                                 echo $error;
                             } ?>
                         </p>
-                        <button name="send" class="btn btn-primary mb-4 shadow-2"> Gửi</button>
-                        <p class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="sign_up.php">Đăng ký</a></p>
-                        <p class="mb-0 text-muted">Bạn đã có tài khoản? <a href="sign_in.php">Đăng nhập</a></p>
+                        <button name='btn_Verification' class="btn btn-primary mb-4 shadow-2">Xác Nhận</button>
+                        <!-- <p class="mb-0 text-muted">Bạn chưa có tài khoản? <a href="sign_up.php">đăng ký</a></p> -->
+                        <!-- <p class="mb-0 text-muted">Bạn đã có tài khoản? <a href="sign_in.php">đăng nhập</a></p> -->
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 

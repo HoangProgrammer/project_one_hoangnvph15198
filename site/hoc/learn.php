@@ -1,9 +1,11 @@
 <?php
+
 if (isset($_GET['lesson'])) {
     $times = date('Y-m-d H:i:s');
     insert_history($id_user, $times, $_GET['lesson']);
 }
-delete_oderCourse($_GET['idCourse']);
+
+// delete_oderCourse($_GET['idCourse']);
 insert_progress($id_user,$_GET['idCourse']) ; 
 ?>
 

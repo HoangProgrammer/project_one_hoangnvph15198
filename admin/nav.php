@@ -4,7 +4,7 @@ require_once('../models/pdo.php');
 require_once('../dao/courseDB.php');
 require_once('../dao/lesson_topicDB.php');
 require_once('../dao/lesson.php');
-require_once('../dao/comment_lesson.php');
+// require_once('../dao/comment_lesson.php');
 require_once('../dao/history.php');
 require_once('../dao/pointDB.php');
 require_once('../dao/quizDB.php');
@@ -14,6 +14,7 @@ require_once('../dao/BannerDB.php');
 require_once('../dao/RatingDB.php');
 require_once('../dao/payments.php');
 require_once('../dao/forum_post.php');
+require_once "../dao/progress.php";
 
 
 if (isset($_SESSION["admin"])) {
@@ -52,7 +53,7 @@ $Get_user_one=Get_user_one($admin);
   <a href="index.php?action=statistical"class="icon-a"><i class="fa fa-file icons"></i> &nbsp;&nbsp;Thống kê</a>
   <a href="index.php?action=banner"class="icon-a"><i class="fa fa-image"></i>&nbsp;&nbsp;Banner</a>
   <a href="index.php?action=account"class="icon-a"><i class="fa fa-users"></i> &nbsp;&nbsp;Người dùng</a>
-  <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a>
+  <!-- <a href="index.php?action=comments"class="icon-a"><i class="fa fa-comment icons"></i> &nbsp;&nbsp;Bình luận</a> -->
   <a href="index.php?action=shopping"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Người mua</a>
   <a href="index.php?action=blog"class="icon-a"><i class="fa fa-th-large"></i> &nbsp;&nbsp;Blog</a>
   <a href="index.php?action=rating"class="icon-a"><i class="fa fa-star"></i> &nbsp;&nbsp;đánh giá</a>

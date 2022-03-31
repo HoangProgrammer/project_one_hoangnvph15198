@@ -33,7 +33,19 @@ while($row=$stmt->fetch(\PDO::FETCH_ASSOC)){
 return $rows;
 
 }
-
+function executeQuery($sql, $getAll = true){
+    $connect = connect();
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $data = $stmt->fetchAll();
+    if($getAll){
+        return $data;
+    }else{
+        if(count($data) > 0){
+            return $data[0];
+        }
+    }
+}
 
 function executeData($sql){
  $conn= connect();

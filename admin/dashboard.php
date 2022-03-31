@@ -21,6 +21,8 @@
 </div>
 
 <?php
+
+
 $Get_account=Get_account();
 $count_user=0;
 foreach ($Get_account as $value){
@@ -31,11 +33,11 @@ $count_payments=0;
 foreach ($getAll_payments as $value){
 	$count_payments+=1;
 }
-$getAll_comment_lesson=getAllLesson();
-$count_lesson=0;
-foreach ($getAll_comment_lesson as $value){
-	$count_lesson+=1;
-}
+// $getAll_comment_lesson=getAllLesson();
+// $count_lesson=0;
+// foreach ($getAll_comment_lesson as $value){
+// 	$count_lesson+=1;
+// }
 ?>
 
 	<div class="clearfix"></div>
@@ -57,11 +59,11 @@ foreach ($getAll_comment_lesson as $value){
 	</div>
 	<div class="col-xl-3">
 <div class="body_web">
-	<h5 class="title">bình luận bài học</h5>
+	<h5 class="title">phản hồi</h5>
 <div class="block_center">
 
 <div class="parameter">
-<h4 class='text-danger'><?=$count_lesson?></h4>
+<h4 class='text-danger'><?=Get_count_Rating()?></h4>
 </div>
 <div>
 	<i class="fa fa-comment" style="font-size:x-large; color:#3ea75c"></i>

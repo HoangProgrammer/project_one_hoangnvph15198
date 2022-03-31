@@ -1,5 +1,5 @@
 <?php
-    include_once "./../../models/pdo.php";
+  require_once("../login/index.php");
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 ?>
@@ -25,14 +25,31 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
             $number_of_rows = $result->fetchColumn(); 
             if($number_of_rows == 0){
                 if($pass == $check_pass){
-                    if(strlen($pass) < 8){
-                        $error="mật khẩu ít nhất 8 ký tự";
+                    if(strlen($pass) < 6){
+                        $error="mật khẩu ít nhất 6 ký tự";
                     }
                     else{
-                        $sql = "INSERT INTO user (ten_user,user_name,image,email,mat_khau,start_time) VALUES ('$full_name','$user_name' ,'$img','$email','$pass','$time')";
-                        pdo_execute($sql);
-                        $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 2s)";
-                        header( "refresh:2;url=sign_in.php");
+                      
+
+                        $code = substr(rand(0, 999999), 0, 6);
+                        $title="Confirm the account registration code in English busuu";
+                         $content="Mã xác nhận email của bạn là : <h4 class='text-info'>".$code."</h4>";
+                        $mailer->SendMail($title, $content, $email); 
+                         $_SESSION['signUp']=[
+                            "Username"=>$user_name,
+                            "fullName"=>$full_name,
+                            "email" =>$email,
+                            "password" =>$pass,
+                             "time"=>$time,
+                        ];
+                        $_SESSION['code']=  $code ; 
+                    //  var_dump( $_SESSION['signUp']);die;       
+                        header('location:verification_email.php');
+                        // var_dump($_SESSION['signUp']['email']);die;
+                        // $sql = "INSERT INTO user (ten_user,user_name,image,email,mat_khau,start_time) VALUES ('$full_name','$user_name' ,'$img','$email','$pass','$time')";
+                        // pdo_execute($sql);
+                        // $error2 = "Đăng ký thành công. Mời bạn đăng nhập(tự động chuyển hướng sau 2s)";
+                        // header( "refresh:2;url=sign_in.php");
                     }
                     
                 } else{
@@ -111,17 +128,17 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                     <?php  if(isset( $_SESSION['err_match']) ){ echo $_SESSION['err_match'] ; } ?>
                     </p>
                     <div class="input-group mb-3">
-                        <input type="email" name="email_user" id="email" class="form-control" placeholder="Email vd: abc@gmail.com " value="<?php if(isset(  $email ) ){echo  $email;} ?>">
+                        <input type="email" name="email_user" id="email" required class="form-control" placeholder="Email vd: abc@gmail.com " value="<?php if(isset(  $email ) ){echo  $email;} ?>">
                     </div>
                     <p class="text-danger errEmail"></p>
                     <div class="input-group mb-4">
                         <input type="password" name="pass_user" id="password" class="form-control" placeholder="mật khẩu" value="<?php if(isset(  $pass ) ){echo  $pass ;}?>">
                     </div>
                     <p class="text-danger errPass">
-<?php if(isset($_SESSION['err_pass'])){ 
-    echo $_SESSION['err_pass'] ;
+     <?php if(isset($_SESSION['err_pass'])){ 
+         echo $_SESSION['err_pass'] ;
     //  unset($_SESSION['err_pass']);
-    }
+    } 
       ?>
 
                     </p>
@@ -168,8 +185,6 @@ $('.errName').html('vui lòng nhập đầy đủ')
         else{
             $('.errName').html('')   
         }
-
-
     })
 
 
@@ -196,8 +211,8 @@ $('.errEmail').html('vui lòng nhập đầy đủ')
         if( $(this).val()==''){
 $('.errPass').html('vui lòng nhập mật khẩu')
         }else 
-        if($(this).val().length < 8){
-            $('.errPass').html('mật khẩu phải trên 8 ký tự')
+        if($(this).val().length < 6){
+            $('.errPass').html('mật khẩu phải trên 6 ký tự')
         }else{
             $('.errPass').html('')   
         }

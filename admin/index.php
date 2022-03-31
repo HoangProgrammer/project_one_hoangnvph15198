@@ -358,7 +358,7 @@ if (!isset($_SESSION["admin"])) {
                         $id_lesson =  $val['id_lesson'];
                         delete_history_lesson($id_lesson);
                         delete_point_by_lesson($id_lesson);
-                        delete_comment_by_lesson($id_lesson);
+                      
                         delete_quiz_by_lesson($id_lesson);
                         delete_lesson_topic($id);
                     }
@@ -674,6 +674,9 @@ if (!isset($_SESSION["admin"])) {
                 break;
             case "oder_shopping":
                 $payments = "quỵt"; 
+
+          insert_progress($_GET['id_user'],$_GET['id_caurse']) ; 
+
                 $id_payments = $_GET['id_payments'];
                 $data = [
                     'id_user' => $_GET['id_user'],
@@ -717,16 +720,16 @@ if (!isset($_SESSION["admin"])) {
                 deleteBanner($id_banner);
                 header("location:index.php?action=banner");
                 break;
-            case "comments":
-                require("./comment/list_comments.php");
-                break;
-            case "detail_cm":
-                require("./comment/detail_comment.php");
-                break;
-            case "xoa_cm":
-                delete_comment_one($_GET['id_comment']);
-                header("location:index.php?action=detail_cm&id=" . $_GET['id'] . "");
-                break;
+            // case "comments":
+            //     require("./comment/list_comments.php");
+            //     break;
+            // case "detail_cm":
+            //     require("./comment/detail_comment.php");
+            //     break;
+            // case "xoa_cm":
+            //     delete_comment_one($_GET['id_comment']);
+            //     header("location:index.php?action=detail_cm&id=" . $_GET['id'] . "");
+            //     break;
             case "dashboard":
                 require("./dashboard.php");
                 break;

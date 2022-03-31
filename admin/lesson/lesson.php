@@ -43,8 +43,8 @@
         <tr>
           <th style="color:blue" class="text-center">lựa chọn</th>
           <th style="color:blue" class="text-center">tên bài học</th>
-          <th style="color:blue" class="text-center">video bài học</th>
-          <th style="color:blue" class="text-center">time bài học</th>
+          <!-- <th style="color:blue" class="text-center">video bài học</th>
+          <th style="color:blue" class="text-center">time bài học</th> -->
 
           <th colspan="2" style="color:blue" class="text-center"> 
 
@@ -61,8 +61,6 @@
           <tr class="text-center">
          <th> <input type="checkbox" name="chose_deletes[]" value="" class="select_chose"></th> 
             <th name='ten'><?= $lessonName?></th>   
-            <th name='ten'><?= $video ?></th>   
-            <th name='ten'><?= $time ?></th>   
             <th>
             <a class='btn btn-dark' href="index.php?action=quiz&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?>">xem quiz</a> 
             <a class='btn btn-warning' href="index.php?action=update_lesson&id_lesson=<?=$id_lesson ?>&idCourse=<?=$_GET['idCourse']?>">sửa</a> 

@@ -25,7 +25,7 @@
             <button class="_2pnz9 _2NzLI QHkFc " style="background: rgb(17 110 238); border-color: rgb(17 110 238); color: rgb(255, 255, 253);"><a style="color:white" href="MyBlog">Bài đăng của tôi</a></button>
         </span>     
     </div>
-<h1>Diễn Đàn  Bussuu</h1>
+<h1>Diễn Đàn  </h1>
 <br>
 <ul class="_1UYQp" id="ul">
 <li class="_7dkF0"><h2 ><a  class="likes_post _26Aq_ _35ADQ" > Ưa thích nhiều nhất</a></h2></li>
