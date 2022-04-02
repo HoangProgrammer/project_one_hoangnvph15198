@@ -8,7 +8,11 @@ function getAll_quiz($id_lesson ){
        $rows[]=$row;
    }
    return $rows;
+}
 
+function checkQuiz($text){
+    $stmt="SELECT * FROM quiz WHERE question='$text' ";
+    executeQuery($stmt,false);
 }
 function getAll_quiz_limit($id_lesson,$preRows,$number){
     $conn=connect();

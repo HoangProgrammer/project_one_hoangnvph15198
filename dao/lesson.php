@@ -46,13 +46,16 @@ function getAll_lesson_video($id_cause){
 //    return true;
 // }
 
-function insert_lesson($data){
-  
-    $conn=connect();
-        $stmt=$conn->prepare("INSERT INTO lesson ( lessonName , video , time , id_course )
-       VALUES( :lesson_name , :video_lesson , :time ,  :id ) ");
-        $stmt->execute($data);
-    return true;
+function insert_lesson($lessonName,$id_course){
+    // $conn=connect();
+        $stmt="INSERT INTO lesson ( lessonName  ,id_course ) VALUES( '$lessonName' , '$id_course' ) ";   
+        return   executeQuery($stmt,false);
+    // true;
+    }
+    function checkLesson($text) {
+        $stmt="SELECT * FROM lesson WHERE lessonName='$text'  ";
+        return   executeQuery($stmt,false);
+
     }
 
 
@@ -71,11 +74,9 @@ function delete_lesson_topic($id_topic){
     return true;
     }
 
-    function update_lesson($data){
-        $conn=connect();
-            $stmt=$conn->prepare(" UPDATE lesson set lessonName=:lesson_name,video=:video_lesson, time=:time WHERE id_lesson =:id ");
-            $stmt->execute($data);
-         return true;
+    function update_lesson($lessonName,$id){
+            $stmt=" UPDATE lesson set lessonName='$lessonName' WHERE id_lesson ='$id' ";
+            return   executeQuery($stmt,false);
         }
 
     function Get_lesson_one($id){

@@ -24,7 +24,24 @@ if (isset($_POST['act']) && $_POST['act'] == "check") {
     $id_user = $_POST['id_user'];
     $final_test = final_test($id);
     $mark =0;
-    $_SESSION['success_or_failed']='';
+
+  if($chose=='' && $id==''){
+         
+    $out = "
+    <script>
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'bạn chưa chọn đáp án',
+        showConfirmButton: true,
+     
+      })
+    </script>
+";
+  }else{
+
+  
+
     foreach ($final_test as $item) {
         $text = $item['Selection' . $item['answer'] . ''];
     }
@@ -65,13 +82,12 @@ if (isset($_POST['act']) && $_POST['act'] == "check") {
 
     }
   
-     $_SESSION['success_or_failed'];
+   }
     echo $out;
     if(isset($_SESSION['mark'])){
         echo $_SESSION['mark'];
     }else{
         echo $_SESSION['mark']=0;
-
     }
 }
 

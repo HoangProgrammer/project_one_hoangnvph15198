@@ -14,6 +14,8 @@ function Get_caurse1(){
     $result= get_all($stmt); 
     return $result;
 }
+
+
 function Get_caurse_route($id){
     $conn=connect();
     $stmt="SELECT course.id_route as  id_route ,routee.route as name FROM course join routee on course.id_route=routee.id_route Where course.id_caurse=$id";
@@ -21,6 +23,8 @@ function Get_caurse_route($id){
     $lresult = array_unique($result, 0);
     return $lresult;
 }
+
+
 function Get_course_one($id){
     $conn=connect();
     $stmt=$conn->prepare("SELECT * FROM course where id_caurse=?");
@@ -77,7 +81,10 @@ function deleteCourseALL($id){
 return true;
 }
 
-
+function checkCourse($text){
+    $stmt="SELECT * FROM course WHERE NameCaurse='$text' ";
+   return executeQuery($stmt,false);
+}
 
 function update_course($course_name,$image_course,$price_course,$description,$type,$id_route,$id){
     $conn=connect();

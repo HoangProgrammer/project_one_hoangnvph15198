@@ -26,7 +26,7 @@ foreach($stmt as $row ){
                 <div id="add_course_modal" >
   
                     <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content" style="padding:10px">
                         <div class="modal-header">
                             <h5 class="modal-title">Sửa Khóa học</h5>
                             <a type="button" class="close btn" data-dismiss="modal" aria-label="Close">

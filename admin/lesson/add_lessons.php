@@ -25,29 +25,10 @@
                               echo $_SESSION['name'];
                               unset($_SESSION['name']);
                           } ?> </p>
-
-                     
                               </div>
-                            <div class="form-group">
-                            <label class="form-label " for=""> <h6>video bài học   </h6>  </label>
-                                <input  type="text" name="video_lesson" class="form-control"  />
-                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['video_lesson'])){
-                              echo $_SESSION['video_lesson'];
-                              unset($_SESSION['video_lesson']);
-                          } ?> </p>
-
-
-                              </div>
-                            <div class="form-group">
-                            <label class="form-label " for=""> <h6>thời gian bài học   </h6>  </label>
-                                <input  type="text" name="time" class="form-control"  />
-                          <p class="text-danger error_name"> <?php if(isset(  $_SESSION['time'])){
-                              echo $_SESSION['time'];
-                              unset($_SESSION['time']);
-                          } ?> </p>
-                        <input type="hidden" name="id_course" value=<?=$_GET['idCourse']?> >
-
-                              </div>                    
+                           
+                            
+                              <input type="hidden" name="id_course" value=<?=$_GET['idCourse']?> >            
                             <div class="form-group text-center mt-4">
                                 <!-- <input type="submit" name="btn_course" value="thêm"> -->
                                 <button  name="btn_course" class="btn btn-primary" >Thêm</button>
