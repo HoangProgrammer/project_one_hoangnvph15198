@@ -34,8 +34,10 @@ if (isset($_POST['act']) && $_POST['act'] == "check") {
         icon: 'warning',
         title: 'bạn chưa chọn đáp án',
         showConfirmButton: true,
-     
+       
+
       })
+      window.location.reload();
     </script>
 ";
   }else{

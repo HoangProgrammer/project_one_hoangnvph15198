@@ -146,7 +146,7 @@
                 <div class="form-group">
                     <label for="amount">Số tiền</label>
                     <input disabled class="form-control" id="amount" type="text" value="<?= number_format($price, 0, ',') ?>" />
-                    <input type="hidden" name="amount" value="<?= $price ?>">
+                    <input style="display:none" type="hidden" name="amount" value="<?= $price ?>">
                 </div>
                 <div class="form-group">
                     <label for="order_desc">Nội dung thanh toán</label>

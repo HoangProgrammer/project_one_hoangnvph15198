@@ -40,7 +40,7 @@ insert_progress($id_user,$_GET['idCourse']) ;
       <br>
    <div>
       <span class="fs-3 mark"><?=$mk=(isset($_SESSION['mark']) ? $_SESSION['mark']:0)?></span> <i class="fs-3 text-warning fa-solid fa-bolt "></i> 
-   <a href="/project_one/Tab/Topic/<?=$_GET['idCourse']?>" onclick="return confirm('bạn thực sự muốn thoát chứ !')" class="float-right fs-2"><i class="fa-solid fa-xmark"></i></a>
+   <a class="float-right close fs-2"><i class="fa-solid fa-xmark"></i></a>
     </div> 
   </div>
     <?php if (!isset($_GET['quiz'])) {  // kiểm tra có url  thì show ra quiz
@@ -89,19 +89,19 @@ insert_progress($id_user,$_GET['idCourse']) ;
                 <div aria-label="choice" role="radiogroup" class="_3ry9w _9qT-e _2jUcI">
                     <button   class="_3C_oC _2bJln _2-OmZ ones " role="radio" data-id="<?= $id_quiz ?>" data-test="a">
                         <span class="_2R_o5 _2S0Zh _28sjs">1</span>
-                        <div class="_3R7Gt C6wiC text-dark " dir="ltr"><?= $Selectiona ?></div>
+                        <h4 class="_3R7Gt C6wiC text-dark " dir="ltr"><?= $Selectiona ?></h4>
                     </button>
                     <button   class="_3C_oC _2bJln _2-OmZ " role="radio" data-id="<?= $id_quiz ?>" data-test="b">
                         <span class="_2R_o5 _2S0Zh _28sjs">2</span>
-                        <div class="_3R7Gt C6wiC text-dark" dir="ltr"><?= $Selectionb ?></div>
+                        <h4 class="_3R7Gt C6wiC text-dark" dir="ltr"><?= $Selectionb ?></h4>
                     </button>
                     <button   class="_3C_oC _2bJln _2-OmZ " role="radio" data-id="<?= $id_quiz ?>" data-test="c">
                         <span class="_2R_o5 _2S0Zh _28sjs">3</span>
-                        <div class="_3R7Gt C6wiC text-dark" dir="ltr"><?= $Selectionc ?></div>
+                        <h4 class="_3R7Gt C6wiC text-dark" dir="ltr"><?= $Selectionc ?></h4>
                     </button>
                     <button   class="_3C_oC _2bJln _2-OmZ " role="radio" data-id="<?= $id_quiz ?>" data-test="d">
                         <span class="_2R_o5 _2S0Zh _28sjs">4</span>
-                        <div class="_3R7Gt C6wiC text-dark" dir="ltr"><?= $Selectiond ?></div>
+                        <h4 class="_3R7Gt C6wiC text-dark" dir="ltr"><?= $Selectiond ?></h4>
                     </button>
                 </div>
             <?php endforeach; ?>
@@ -118,9 +118,9 @@ insert_progress($id_user,$_GET['idCourse']) ;
                 <?php
                 if ($page == $total_row) { ?>
                     <a class="btn btn-dark finishTest" href="/project_one/Tab/Topic/<?=$_GET['idCourse']?>"> Kết Thúc</a>
-                    <button class=" check-finish btn btn-secondary text-light" disabled>Kiểm Tra</button>
+                    <button class=" check-finish btn btn-dark text-light" disabled>Kiểm Tra</button>
                 <?php } else { ?>
-                    <button class=" check-finish btn btn-secondary text-light" disabled>Kiểm Tra</button>
+                    <button class=" check-finish btn btn-dark text-light" disabled>Kiểm Tra</button>
                     <a class="btn btn-secondary opacity-0 page" href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&lesson=<?= $_GET['lesson'] ?>&page=<?= $page + 1 ?>"> Tiếp Theo </a>
 
                 <?php } ?>
@@ -144,24 +144,27 @@ insert_progress($id_user,$_GET['idCourse']) ;
 
     <script>
         $('.finishTest').hide()
-        $('._2-OmZ').click(function() {
 
+        $('._2-OmZ').click(function() {
             var chose = $(this).data('test');
             var id = $(this).data('id');
             $('#chose').val(chose)
             $('#id_da').val(id)
        
             $('.bg-primary').removeClass('bg-primary');
-            $(this).addClass('bg-primary')
+            $(this).addClass('bg-primary text-light')
             $('.check-finish').removeAttr('disabled', 'disabled')
-            $('.check-finish').removeClass('btn-secondary')
-            $('.check-finish').addClass('btn-danger')
+            $('.check-finish').removeClass('btn-dark')     
+            $('.check-finish').addClass('btn-danger text-light')
+
+            // $('._3R7Gt').removeClass('text-dark')
+            // $('._3R7Gt').addClass('text-light')
         })
 
-        $('._3R7Gt').click(function() {
-            $('.text-light').removeClass('text-light')
-            $(this).addClass('text-light')
-        })
+        // $('._3R7Gt').click(function() {
+        //     $('.text-light').removeClass('text-dark')
+        //     $(this).addClass('text-light')
+        // })
 
 
 
@@ -187,7 +190,6 @@ insert_progress($id_user,$_GET['idCourse']) ;
                     $('.finishTest').show();
                $('.page').removeClass('opacity-0')
                $('.mark').html(data)
-               
             //    window.location.href="index.php?act=learn&idCourse=<?= $_GET['idCourse'] ?>&lesson=<?= $_GET['lesson'] ?>&page=<?= $page + 1 ?>";
                 }
             })
@@ -251,6 +253,15 @@ insert_progress($id_user,$_GET['idCourse']) ;
             }
 
 
+        })
+
+        $('.close').click(function () {
+            let con=confirm('bạn có muốn chắc chắn muốn thoát không ');
+            if(con){
+                <?php unset($_SESSION['mark']);?>
+
+                window.location.href ="/project_one/Tab/Topic/<?=$_GET['idCourse']?>"
+            }
         })
 
 

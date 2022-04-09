@@ -32,7 +32,11 @@ foreach($account as $values){ extract($values)?>
 <tr>
 <td><?=$ten_user ?></td>
 
-<td><img width=100px src="../image/<?=$image?>" alt=""></td>
+<td>
+    <?=$img=($image==='') ? '<img width=100px src="../image/users.jpg" alt="">': '<img width=100px src="../image/'.$image.'>" alt="">';?>
+   
+
+</td>
 <td><?=$values['role']==1?" <p class='text-danger'>quản trị</p> ":"<p class='text-primary'>Khách hàng</p>" ?></td>
 <td><?=$email ?></td>
 <td><?=get_time($start_time) ?></td>
@@ -43,7 +47,7 @@ foreach($account as $values){ extract($values)?>
  }  ?>   </td>
 <td>
     <a class='btn btn-warning'href="index.php?action=edit_user&id=<?= $id_user  ?>">sửa</a> 
-<a class="delete btn btn-danger" href="index.php?action=xoa_user&id=<?= $id_user?>">xóa</a> </td>
+<!-- <a class="delete btn btn-danger" href="index.php?action=xoa_user&id=<?= $id_user?>">xóa</a> </td> -->
 </tr>
 
 <?php } ?>
