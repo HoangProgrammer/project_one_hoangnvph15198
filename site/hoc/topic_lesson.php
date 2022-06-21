@@ -15,7 +15,8 @@ if(isset( $_SESSION['mark'])){
                     <div class="pcoded-inner-content">  
         <div class="row">
 <?php $oder=Get_oderOne($_GET['idCourse'], $id_user);
-  if($oder==[]){
+// var_dump($oder);die;
+  if($oder){
     echo "<h1 class='text-center text-warning'>Môn học không tồn tại hoặc chưa đăng ký</h1>";
 }else{
 

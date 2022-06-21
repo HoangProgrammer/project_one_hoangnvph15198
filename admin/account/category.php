@@ -34,8 +34,6 @@ foreach($account as $values){ extract($values)?>
 
 <td>
     <?=$img=($image==='') ? '<img width=100px src="../image/users.jpg" alt="">': '<img width=100px src="../image/'.$image.'>" alt="">';?>
-   
-
 </td>
 <td><?=$values['role']==1?" <p class='text-danger'>quản trị</p> ":"<p class='text-primary'>Khách hàng</p>" ?></td>
 <td><?=$email ?></td>

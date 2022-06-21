@@ -8,7 +8,7 @@ function Get_oderCourse(){
 
 function Get_oderOne($id_user,$id_course){
   $conn=connect();
-  $stmt=  "SELECT * FROM ordercaurse where id_caurse=$id_user and id_user=$id_course ";
+  $stmt=  "SELECT * FROM progress where id_causer=$id_course  and id_user=  $id_user ";
   $rows=  executeQuery($stmt);
   return $rows;
 }
